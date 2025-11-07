@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vancoillie Studio — Apps, Software & Design</title>
+  <meta name="description" content="Vancoillie Studio creates modern, high-quality apps and software with a focus on performance and design. We also offer professional logo design services." />
+  <meta name="keywords" content="Vancoillie Studio, apps, software, iOS, webapps, UX, UI, development, design, marketing, logo" />
+  <meta name="theme-color" content="#000000" />
+
+  <link rel="canonical" href="https://www.vancoilliestudio.be/index-en.html">
+  <link rel="alternate" hreflang="nl" href="https://www.vancoilliestudio.be/" />
+<link rel="alternate" hreflang="en" href="https://www.vancoilliestudio.be/index-en.html" />
+<link rel="alternate" hreflang="x-default" href="https://www.vancoilliestudio.be/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vancoillie Studio — Apps & Software" />
+  <meta property="og:description" content="Modern apps and software. Lightweight, fast, and with attention to detail." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
+  <meta property="og:url" content="https://www.vancoilliestudio.be/" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vancoillie Studio — Apps & Software" />
+  <meta name="twitter:description" content="Modern, fast, and elegant apps built by Vancoillie Studio." />
+  <meta name="twitter:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
+
+   <!-- Favicon -->    
+    <link rel="icon" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" sizes="48x48" href="favicon-48x48.png">
+    <link rel="icon" sizes="96x96" href="favicon-96x96.png">
+    <link rel="icon" sizes="192x192" href="favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-180x180.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon-48x48.ico">
+    <link rel="preload" as="image" href="afbeeldingen/AppHero.svg" imagesrcset="afbeeldingen/AppHero.svg"/>
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+  <!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init({ publicKey: 'zsAHVDd_EhMFKIEcy' }); // ← jouw key
+</script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#0866ff', // sky-500
+              dark: '#0b1324',
+              accent: '#ef4444', // red-500
+            }
+          },
+          fontFamily: {
+            display: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            glow: '0 0 30px rgba(14,165,233,.35)',
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+            fadeIn: 'fadeIn .8s ease both',
+          },
+          keyframes: {
+            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+            fadeIn: { '0%': { opacity: 0, transform: 'translateY(8px)' }, '100%': { opacity: 1, transform: 'none' } },
+          }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+
+  <!-- Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body class="bg-black text-white font-body antialiased">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-black/60">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 grid grid-cols-[auto,1fr,auto] items-center">
+      <a href="#home" class="group inline-flex items-center gap-2">
+        <span class="relative inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#0866ff]/10 text-[#0866ff] ring-1 ring-[#0866ff]/30 shadow-glow">
+          <img src="afbeeldingen/logo.png" alt="Vancoillie Studio logo" class="h-7 w-7 object-contain" />
+        </span>
+        <span class="font-display font-extrabold tracking-tight text-lg">Vancoillie <span class="text-[#0866ff]">Studio</span></span>
+      </a>
+      <div class="hidden md:flex items-center justify-center gap-6 text-sm justify-self-center">
+        <a href="index.html" class="inline-flex items-center gap-1 rounded-xl bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-glow hover:bg-white/20">
+          <span class="text-xs bg-[#0866ff] px-2 py-0.5 rounded-lg">NL</span>
+          <span class="hidden sm:inline">Dutch</span>
+        </a>
+        <a href="#apps" class="gradient-hover">Apps</a>
+        <a href="#features" class="gradient-hover">Features</a>
+        <a href="graphics/index.html" class="gradient-hover">Graphics design</a>
+        <a href="#contact" class="gradient-hover">Contact</a>
+      </div>
+      <div class="flex items-center gap-2 justify-end md:ml-0 ml-auto justify-self-end">
+        <a href="https://www.vancoillieithulp.be/CV/portfolio.html" class="hidden sm:inline-flex items-center rounded-xl bg-white px-3 py-1 text-sm font-semibold text-black shadow-glow hover:bg-[#0866ff]" target="_blank">My Portfolio</a>
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-white px-3 py-1 text-sm font-semibold text-black shadow-glow hover:bg-[#0866ff]">Contact</a>
+        <!-- Mobile menu trigger -->
+        <button id="openMenu"
+          class="md:hidden inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold
+                ring-1 ring-slate-200/70 dark:ring-white/10 hover:ring-[#0866ff]/40 group"
+          aria-label="Open menu">
+          <span class="gradient-hover">Menu</span>
+          <span class="gradient-hover text-base leading-none">+</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================ MOBILE MENU OVERLAY ================ -->
+  <div id="mobileMenu" class="fixed inset-0 z-[60] hidden">
+    <div id="menuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div class="relative mx-auto mt-4 mb-4 w-[92vw] max-w-[720px] rounded-3xl bg-black text-white shadow-2xl ring-1 ring-white/10 overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+        <span class="text-sm font-semibold text-white/60">Menu</span>
+        <button id="closeMenu" class="inline-flex items-center gap-2 text-sm font-semibold group" aria-label="Close menu">
+          <span class="gradient-hover">Close</span><span class="gradient-hover">×</span>
+        </button>
+      </div>
+      <div class="px-6 sm:px-10 py-8">
+        <nav class="space-y-6">
+          <a href="index.html" class="block font-extrabold tracking-tight text-[44px] sm:text-6xl leading-none gradient-hover menu-link">
+            DUTCH <sup class="text-[#0866ff] dark:text-[#0866ff] text-xl align-super">00</sup>
+          </a>
+          <a href="#home" class="block font-extrabold tracking-tight text-[44px] sm:text-6xl leading-none gradient-hover menu-link">
+            HOME <sup class="text-[#0866ff] dark:text-[#0866ff] text-xl align-super">01</sup>
+          </a>
+          <a href="#apps" class="block font-extrabold tracking-tight text-[44px] sm:text-6xl leading-none gradient-hover menu-link">
+            APPS <sup class="text-[#0866ff] dark:text-[#0866ff] text-xl align-super">02</sup>
+          </a>
+          <a href="#features" class="block font-extrabold tracking-tight text-[44px] sm:text-6xl leading-none gradient-hover menu-link">
+            FEATURES <sup class="text-[#0866ff] dark:text-[#0866ff] text-xl align-super">03</sup>
+          </a>
+          <a href="graphics/index.html" class="block font-extrabold tracking-tight text-[44px] sm:text-6xl leading-none gradient-hover menu-link">
+            GRAPHICS DESIGN <sup class="text-[#0866ff] dark:text-[#0866ff] text-xl align-super">04</sup>
+          </a>
+          <a href="#contact" class="block font-extrabold tracking-tight text-[44px] sm:text-6xl leading-none gradient-hover menu-link">
+            CONTACT <sup class="text-[#0866ff] dark:text-[#0866ff] text-xl align-super">05</sup>
+          </a>
+        </nav>
+        <div class="mt-12">
+          <div class="text-sm font-semibold text-[#0866ff] dark:text-[#0866ff] mb-3">Socials</div>
+          <div class="flex flex-wrap gap-6 text-lg">
+            <a href="https://www.facebook.com/profile.php?id=61566806095389" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/vancoilliestudio/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/32499873892" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/batiste-vancoillie-622562291/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/batistevanco" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.vancoillieithulp.be" target="_blank" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <section id="home" class="relative overflow-hidden">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 grid-bg bg-gradient-to-b from-black via-black to-black parallax parallax-bg" data-parallax data-speed="-0.06"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-[1.25fr,0.75fr] xl:grid-cols-[1.2fr,0.8fr] gap-10 items-center">
+        <div class="space-y-6 text-center relative z-10 min-w-0" data-reveal>
+            <span class="text-white">Modern • User-first • Lightning fast</span>
+            <h1 class="sr-only">Vancoillie Studio — Apps & Software & Graphics Design</h1>
+          <h1 class="font-display text-5xl sm:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl font-extrabold tracking-tight leading-tight">
+            User-first.&nbsp;<span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-fuchsia-400 to-orange-300">Always.</span>
+          </h1>
+          <!--<h1 class="font-display text-5xl sm:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl font-extrabold tracking-tight leading-tight">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-fuchsia-400 to-orange-300">
+                Vancoillie Studio.
+              </span>
+              <span class="block mt-2">User-first. Always.</span>
+            </h1>-->
+          <p class="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto">Vancoillie Studio creates minimalist, high-performance user-first apps with an eye for detail. From iOS to web — elegant, intuitive, and future‑proof.</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href="#apps" class="inline-flex items-center rounded-xl bg-[#0866ff] px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">Discover the apps</a>
+            <a href="#apps" class="inline-flex items-center rounded-xl ring-1 ring-slate-200/80 dark:ring-white/10 px-5 py-3 text-sm font-semibold hover:text-[#0866ff]">View screenshots</a>
+          </div>
+          <div class="flex items-center justify-center gap-6 pt-4 text-sm text-white/60">
+            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>User-first</div>
+            <div class="hidden sm:flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-[#0866ff]"></span>Performance‑first</div>
+          </div>
+        </div>
+        <div class="relative hidden lg:block z-0">
+          <div class="absolute -top-12 -left-8 h-40 w-40 rounded-full bg-sky-500/20 blur-3xl parallax" aria-hidden="true" data-parallax data-speed="0.05"></div>
+          <div class="absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-rose-500/20 blur-3xl parallax" aria-hidden="true" data-parallax data-speed="0.08"></div>
+          <div class="glass rounded-3xl p-3 shadow-xl animate-float parallax" data-reveal data-parallax data-speed="0.12">
+            <img src="afbeeldingen/AppHero.svg" alt="App mockups" class="rounded-2xl object-cover w-full h-[500px] xl:h-[520px]"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div aria-hidden="true"
+        class="pointer-events-none absolute inset-x-0 top-5 sm:top-12 md:-top-8 flex justify-center z-0">
+      <span class="text-[14vw] font-extrabold leading-none tracking-[-0.04em] text-white/5">
+        Vancoillie Studio
+      </span>
+    </div>
+  </section>
+
+  <!-- ================= TRUST STRIP ================= -->
+<section id="trust" class="relative py-8 bg-black/95 border-y border-white/10">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div class="max-w-xl">
+        <p class="text-sm text-white/60">We listen. We deliver.</p>
+        <h3 class="mt-1 text-lg font-semibold">User-first build & Accessibility first</h3>
+      </div>
+      <div class="relative overflow-hidden">
+        <div class="trust-marquee flex items-center gap-10 will-change-transform" aria-hidden="true">
+          <span class="trust-badge">Made in Belgium</span>
+          <span class="trust-badge">User-first designed</span>
+          <span class="trust-badge">No trackers</span>
+          <span class="trust-badge">Fast by design</span>
+          <span class="trust-badge">Secure data</span>
+          <span class="trust-badge">Accessibility first</span>
+          <!-- duplicate voor naadloze loop -->
+          <span class="trust-badge">Made in Belgium</span>
+          <span class="trust-badge">User-first designed</span>
+          <span class="trust-badge">No trackers</span>
+          <span class="trust-badge">Fast by design</span>
+          <span class="trust-badge">Secure data</span>
+          <span class="trust-badge">Accessibility first</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ================= APPS ================= -->
+  <section id="apps" class="relative py-20 lg:py-28 bg-black text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center max-w-3xl mx-auto">
+        <h2 class="font-display font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl">Products</h2>
+        <p class="mt-4 text-base sm:text-lg md:text-xl text-white/70">A growing ecosystem of sharp, fast tools.</p>
+      </div>
+
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch" data-reveal-group data-stagger="40">
+          <!-- AbboBuddy -->
+        <article class="group relative rounded-2xl ring-1 ring-white/10 p-6 bg-white/5 hover:shadow-xl transition-shadow cursor-pointer app-card h-full flex flex-col" data-reveal data-app="abbobuddy">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-xl">AbboBuddy</h3>
+            <span class="rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 text-xs px-3 py-1 ring-1 ring-emerald-500/30">Mobile</span>
+          </div>
+          <p class="mt-3 text-white/70">Manage all your subscriptions. Notifications, payment status, and monthly/yearly overview. (English & Dutch)</p>
+          <ul class="mt-4 text-sm text-white/60 space-y-1 list-disc list-inside">
+            <li>Reminders & status</li>
+            <li>Categories & budget</li>
+            <li>AI Chatbot</li>
+          </ul>
+          <div class="mt-auto pt-4 flex items-center gap-3">
+            <a class="inline-flex items-center rounded-lg bg-[#0866ff] px-3 py-2 text-xs font-semibold text-white shadow-glow group-hover:bg-[#0756e8]" href="https://apps.apple.com/us/app/abbobuddy/id6754507816" target="_blank">Download</a>
+            <button type="button" class="inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/10 hover:text-[#0866ff] screens-btn" data-app="abbobuddy">View screenshots</button>
+            <button type="button" class="inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/10 hover:text-[#0866ff] details-btn" data-app="abbobuddy">Details</button>
+          </div>
+        </article>
+
+        <!-- InMandje -->
+        <article class="group relative rounded-2xl ring-1 ring-white/10 p-6 bg-white/5 hover:shadow-xl transition-shadow cursor-pointer app-card h-full flex flex-col" data-reveal data-app="inmandje">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-xl">InMandje</h3>
+            <span class="rounded-full bg-violet-500/10 text-violet-600 dark:text-violet-300 text-xs px-3 py-1 ring-1 ring-violet-500/30">Mobile</span>
+          </div>
+          <p class="mt-3 text-white/70">Super fast shopping lists with categories, stores, and smart sorting. (Dutch)</p>
+          <ul class="mt-4 text-sm text-white/60 space-y-1 list-disc list-inside">
+            <li>Multiple lists</li>
+            <li>Smart sorting per store</li>
+            <li>AI Chatbot</li>
+          </ul>
+          <div class="mt-auto pt-4 flex items-center gap-3">
+            <a class="inline-flex items-center rounded-lg bg-[#0866ff] px-3 py-2 text-xs font-semibold text-white shadow-glow group-hover:bg-[#0756e8]" href="https://apps.apple.com/us/app/inmandje/id6754509662" target="_blank">Download</a>
+            <button type="button" class="inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/10 hover:text-[#0866ff] screens-btn" data-app="inmandje">View screenshots</button>
+            <button type="button" class="inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/10 hover:text-[#0866ff] details-btn" data-app="inmandje">Details</button>
+          </div>
+        </article>
+
+        <!-- Budgetplanner -->
+        <article class="group relative rounded-2xl ring-1 ring-white/10 p-6 bg-white/5 hover:shadow-xl transition-shadow cursor-pointer app-card h-full flex flex-col" data-reveal data-app="budgetplanner">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-xl">Budgetplanner</h3>
+            <span class="rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-300 text-xs px-3 py-1 ring-1 ring-amber-500/30">Web</span>
+          </div>
+          <p class="mt-3 text-white/70">Modern budgeting tool with income, expenses, goals, and monthly projection. (Dutch)</p>
+          <ul class="mt-4 text-sm text-white/60 space-y-1 list-disc list-inside">
+            <li>Projections & KPIs</li>
+            <li>Categories & goals</li>
+            <li>Savings & investments</li>
+            <li>CSV import/export</li>
+          </ul>
+          <div class="mt-auto pt-4 flex items-center gap-3">
+            <a class="inline-flex items-center rounded-lg bg-[#0866ff] px-3 py-2 text-xs font-semibold text-white shadow-glow group-hover:bg-[#0756e8]" href="https://www.vancoillieithulp.be/budgetplanner/index.html">Open web app</a>
+            <button type="button" class="inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/10 hover:text-[#0866ff] screens-btn" data-app="budgetplanner">View screenshots</button>
+            <button type="button" class="inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/10 hover:text-[#0866ff] details-btn" data-app="budgetplanner">Details</button>
+          </div>
+        </article>
+
+        <!-- Vancoillie News -->
+        <article class="group relative rounded-2xl ring-1 ring-white/10 p-6 bg-white/5 hover:shadow-xl transition-shadow cursor-pointer app-card h-full flex flex-col" data-reveal data-app="news">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-xl">Vancoillie News</h3>
+            <span class="rounded-full bg-[#0866ff]/10 text-[#0866ff] dark:text-[#0866ff] text-xs px-3 py-1 ring-1 ring-[#0866ff]/30">Mobile</span>
+          </div>
+          <p class="mt-3 text-white/70">Own news feed app with clean UI, categories, and smart caching. (English & Dutch)</p>
+          <ul class="mt-4 text-sm text-white/60 space-y-1 list-disc list-inside">
+            <li>Offline cache</li>
+            <li>Push notifications</li>
+            <li>Detailed view of an article</li>
+            <li>Filter by category</li>
+            <li>Apple Watch App for quick overview included</li>
+          </ul>
+          <div class="mt-auto pt-4 flex items-center gap-3">
+            <a class="inline-flex items-center rounded-lg bg-[#0866ff] px-3 py-2 text-xs font-semibold text-white shadow-glow group-hover:bg-[#0756e8]" href="https://apps.apple.com/us/app/vancoillie-news/id6754501481" target="_blank">Download</a>
+            <button type="button" class="inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/10 hover:text-[#0866ff] screens-btn" data-app="news">View screenshots</button>
+            <button type="button" class="inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/10 hover:text-[#0866ff] details-btn" data-app="news">Details</button>
+          </div>
+        </article>
+
+          <!-- StockBuddy -->
+        <article class="group relative rounded-2xl ring-1 ring-white/10 p-6 bg-white/5 hover:shadow-xl transition-shadow cursor-pointer app-card h-full flex flex-col" data-reveal data-app="abbobuddy">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-xl">StockBuddy</h3>
+            <span class="rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 text-xs px-3 py-1 ring-1 ring-emerald-500/30">Mobile</span>
+          </div>
+          <p class="mt-3 text-white/70">Keep track of your inventory. From food items to tech items or so many more. Make categories and keep track of your stock. (English & Dutch)</p>
+          <ul class="mt-4 text-sm text-white/60 space-y-1 list-disc list-inside">
+            <li>Categories</li>
+            <li>Quick input</li>
+            <li>Add pictures</li>
+            <li>Add tags</li>
+          </ul>
+          <div class="mt-auto pt-4 flex items-center gap-3">
+            <a class="inline-flex items-center rounded-lg bg-[#0866ff] px-3 py-2 text-xs font-semibold text-white shadow-glow group-hover:bg-[#0756e8]" href="https://apps.apple.com/us/app/stockbuddy/id6754696292" target="_blank">Download</a>
+            <button type="button" class="inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/10 hover:text-[#0866ff] screens-btn" data-app="stockbuddy">View screenshots</button>
+            <button type="button" class="inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-white/10 hover:text-[#0866ff] details-btn" data-app="StockBuddy">Details</button>
+          </div>
+        </article>
+
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APP SCREENS MODAL ================= -->
+  <div id="screensModal" class="fixed inset-0 z-50 hidden">
+    <div id="screensBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div role="dialog" aria-modal="true" aria-labelledby="screensTitle" class="relative mx-auto mt-16 w-[92vw] max-w-4xl rounded-2xl bg-black ring-1 ring-white/10 shadow-2xl">
+      <div class="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-white/10">
+        <h3 id="screensTitle" class="font-display text-lg font-semibold">Screenshots</h3>
+        <button id="screensClose" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-white/10" aria-label="Close">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"/></svg>
+        </button>
+      </div>
+      <div class="relative">
+        <img id="screensImage" src="" alt="App screenshot" class="block w-full max-h-[70vh] object-contain bg-white/5" />
+        <button id="prevBtn" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/10 p-2 ring-1 ring-white/10 hover:bg-white/20">◀</button>
+        <button id="nextBtn" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/10 p-2 ring-1 ring-white/10 hover:bg-white/20">▶</button>
+      </div>
+      <div id="dotRow" class="flex items-center justify-center gap-2 px-4 sm:px-6 py-4"></div>
+    </div>
+  </div>
+  <!-- ================= APP DETAILS MODAL ================= -->
+  <div id="detailsModal" class="fixed inset-0 z-50 hidden">
+    <div id="detailsBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div role="dialog" aria-modal="true" aria-labelledby="detailsTitle" class="relative mx-auto mt-16 w-[92vw] max-w-2xl rounded-2xl bg-black ring-1 ring-white/10 shadow-2xl">
+      <div class="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-white/10">
+        <h3 id="detailsTitle" class="font-display text-lg font-semibold">App details</h3>
+        <button id="detailsClose" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-white/10" aria-label="Close">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"/></svg>
+        </button>
+      </div>
+      <div class="p-6">
+        <div id="detailsContent" class="prose prose-invert max-w-none">
+          <!-- dynamic details go here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FEATURES ================= -->
+  <section id="features" class="relative py-24 lg:py-32 bg-black text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl leading-tight">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-fuchsia-400 to-orange-300">Vancoillie Studio.</span>
+          <span class="block mt-2">Fast, helpful, beautifully simple.</span>
+        </h2>
+        <p class="mt-5 text-base sm:text-lg md:text-xl text-white/70">I build fast apps with a user‑first approach. Clean UI, secure data, and reliable support — crafted to feel effortless.</p>
+      </div>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6" >
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-[#0866ff]/10 text-[#0866ff] dark:text-[#0866ff] flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l4 7h-8l4-7zm0 20l-4-7h8l-4 7z"/></svg>
+          </div>
+          <h3 class="mt-4 font-semibold text-lg">Fast by default</h3>
+          <p class="mt-2 text-sm text-white/70">I set a high standard for performance. Loading fast is our priority.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4 13h16v-2H4v2zm0 6h10v-2H4v2zM4 5v2h16V5H4z"/></svg>
+          </div>
+          <h3 class="mt-4 font-semibold text-lg">User‑first design</h3>
+          <p class="mt-2 text-sm text-white/70">I listen, test, and iterate. Flows match how people think—fewer taps, clearer choices.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-300 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l8 6-8 6-8-6 8-6zm0 14l8-6v8H4v-8l8 6z"/></svg>
+          </div>
+          <h3 class="mt-4 font-semibold text-lg">Secure data</h3>
+          <p class="mt-2 text-sm text-white/70">Collect less and store safely: encryption in transit, least‑privilege access, and transparent settings.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-300 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+          </div>
+          <h3 class="mt-4 font-semibold text-lg">Simple, clear UI</h3>
+          <p class="mt-2 text-sm text-white/70">No clutter. Clean layouts and readable typography so anyone can get things done instantly.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-300 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l8 4v6c0 5.25-3.5 9.74-8 10-4.5-.26-8-4.75-8-10V6l8-4zM9 10h2v4H9v-4zm4 0h2v2h-2v-2z"/>
+            </svg>          
+          </div>
+          <h3 class="mt-4 font-semibold text-lg">Private analytics</h3>
+          <p class="mt-2 text-sm text-white/70">No trackers or advertising. We only collect anonymous, aggregated metrics — and only with your consent.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-300 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v8H4z"/><path d="M2 14h20v2H2zM2 18h20v2H2z"/></svg>
+          </div>
+          <h3 class="mt-4 font-semibold text-lg">Reliable support</h3>
+          <p class="mt-2 text-sm text-white/70">Friendly help when you need it. Quick replies, clear fixes, and honest updates.</p>
+        </div>
+      </div>
+      <div class="mt-14 max-w-3xl mx-auto text-center" data-reveal>
+        <h3 class="font-display text-3xl font-bold tracking-tight mb-3">Graphics & Logo Design</h3>
+        <p class="text-white/60">Need a visual identity for your brand or business? I design clean, modern logos and visuals that perfectly match your style.</p>
+      </div>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6" data-reveal-group data-stagger="40">
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <h4 class="font-semibold text-lg mb-2">Custom Logo</h4>
+          <p class="text-sm text-white/70">A personalized logo in your colors and style — ideal for startups and small businesses.</p>
+          <ul class="mt-3 text-sm text-white/50 space-y-1 list-disc list-inside">
+            <li>Vector format (SVG/PDF)</li>
+            <li>PNG for web & social media</li>
+            <li>1–2 feedback rounds</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <h4 class="font-semibold text-lg mb-2">Mini Brand Kit</h4>
+          <p class="text-sm text-white/70">A basic brand guide with logo variations, colors, and typography.</p>
+          <ul class="mt-3 text-sm text-white/50 space-y-1 list-disc list-inside">
+            <li>Color palette with HEX codes</li>
+            <li>Light/dark versions</li>
+            <li>Social profile image</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <h4 class="font-semibold text-lg mb-2">Social Visuals</h4>
+          <p class="text-sm text-white/70">Ready-to-use visuals for Instagram, Meta, or your website.</p>
+          <ul class="mt-3 text-sm text-white/50 space-y-1 list-disc list-inside">
+            <li>Optimized for correct formats</li>
+            <li>Consistent visual style</li>
+            <li>Fast delivery</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 text-center" data-reveal>
+        <a href="graphics/index-en.html" class="inline-flex items-center rounded-xl bg-[#0866ff] px-6 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">
+          <i class="fa-solid fa-circle-info mr-2"></i> More info
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="relative py-20 lg:py-28 bg-black text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl">Contact</h2>
+        <p class="mt-4 text-base sm:text-lg md:text-xl text-white/70">Prefer to email directly? <a class="text-[#0866ff] font-semibold" href="mailto:support@vancoilliestudio.be">support@vancoilliestudio.be</a></p>
+      </div>
+      <form id="contact-form" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4" data-reveal-group>
+        <div>
+          <label for="from_name" class="block text-sm font-medium mb-1" data-reveal>Name</label>
+          <input type="text" name="from_name" id="from_name" required
+                 placeholder="Your name"
+                 class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"/>
+        </div>
+        <div>
+          <label for="from_email" class="block text-sm font-medium mb-1" data-reveal>Email</label>
+          <input type="email" name="from_email" id="from_email" required
+                 placeholder="Your email address"
+                 class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"/>
+        </div>
+        <div class="md:col-span-2">
+          <label for="message" class="block text-sm font-medium mb-1" data-reveal>Message</label>
+          <textarea name="message" id="message" rows="6" required
+                    placeholder="Tell me a little about your project or question"
+                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"></textarea>
+        </div>
+        <div class="md:col-span-2 flex items-center justify-between" data-reveal>
+          <p class="text-xs text-white/60">We only store what's necessary to reply.</p>
+          <button type="submit" id="sendBtn" class="inline-flex items-center rounded-xl bg-[#0866ff] px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8] disabled:opacity-60 disabled:cursor-not-allowed"><svg id="sendSpinner" class="-ml-0.5 mr-2 h-4 w-4 animate-spin hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10" class="opacity-25" /><path d="M12 2a10 10 0 0 1 10 10" class="opacity-75" /></svg><span id="sendText">Send</span></button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= SPONSORS ================= 
+<section id="sponsors" class="sponsor-strip">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-center gap-4">
+      <span class="sponsor-eyebrow" data-reveal>Supported by</span>
+      <div class="sponsor-logos" data-reveal-group data-stagger="40">
+        <a href="https://vancoillieithulp.be/" target="_blank" rel="nofollow sponsored" aria-label="Sponsor 1">
+          <img src="afbeeldingen/sponsors/sponsorVancoillieITHulp.png" alt="Sponsor 1" loading="lazy" decoding="async" />
+        </a>
+       
+      </div>
+    </div>
+  </div>
+</section>
+-->
+  
+
+  <!-- ================= FOOTER ================= -->
+<footer class="relative z-20 border-t border-white/10">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <div class="inline-flex items-center gap-2">
+          <span class="relative inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#0866ff]/10 text-[#0866ff] ring-1 ring-[#0866ff]/30 shadow-glow">
+            <img src="afbeeldingen/logo.png" alt="Vancoillie Studio logo" class="h-7 w-7 object-contain" />
+          </span>
+          <span class="font-display font-extrabold tracking-tight">Vancoillie <span class="text-[#0866ff]">Studio</span></span>
+        </div>
+        <p class="mt-3 text-sm text-white/70 max-w-md">Simple experiences. User-first Always. Visible results.</p>
+      </div>
+      <div class="text-sm text-slate-500 dark:text-slate-400 md:text-right">
+        <p>© <span id="year"></span> Vancoillie Studio. All rights reserved.</p>
+        <p class="mt-1">Vancoillie Studio is a brand of <strong>Vancoillie IT Hulp – Batiste Vancoillie</strong> • Company number <strong>BE 1014.303.066</strong></p>
+        <p class="mt-1">Roeselare, Belgium</p>
+      </div>
+      <div class="social-container">
+          <div class="social-icons">
+            <!--<a href="https://www.tiktok.com/@vancoillieithulp" target="_blank"><i class="fab fa-tiktok"></i></a> -->
+            <a href="https://www.facebook.com/profile.php?id=61566806095389" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/vancoilliestudio/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/32499873892" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/batiste-vancoillie-622562291/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/batistevanco" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.vancoillieithulp.be" target="_blank" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+          </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script>
+    // Mobile menu open/close
+    (function () {
+      const menu = document.getElementById('mobileMenu');
+      const openBtn = document.getElementById('openMenu');
+      const closeBtn = document.getElementById('closeMenu');
+      const backdrop = document.getElementById('menuBackdrop');
+      const links = document.querySelectorAll('#mobileMenu .menu-link');
+      function open() {
+        menu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        menu.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+      openBtn?.addEventListener('click', open);
+      closeBtn?.addEventListener('click', close);
+      backdrop?.addEventListener('click', close);
+      links.forEach(a => a.addEventListener('click', close));
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.classList.contains('hidden')) close(); });
+    })();
+  </script>
+
+  <script type="text/javascript">
+   document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // spinner on
+    const btn = document.getElementById('sendBtn');
+    const spin = document.getElementById('sendSpinner');
+    const txt = document.getElementById('sendText');
+    btn.disabled = true;
+    spin.classList.remove('hidden');
+    txt.textContent = 'Sending…';
+
+    const templateParams = {
+        from_name: document.getElementById('from_name').value,
+        from_email: document.getElementById('from_email').value,
+        message: document.getElementById('message').value
+    };
+
+    if (!templateParams.from_name || !templateParams.from_email || !templateParams.message) {
+      alert('Please complete all fields.');
+      spin.classList.add('hidden');
+      txt.textContent = 'Send';
+      btn.disabled = false;
+      return;
+    }
+
+    try {
+      console.log('[EmailJS] Using service=EmailVIH, template=template_a69qiqd');
+      emailjs.send('EmailVIH', 'template_a69qiqd', templateParams, { publicKey: 'zsAHVDd_EhMFKIEcy' })
+        .then(function(response) {
+          // Redirect to the existing thank-you page at project root
+          window.location.href = 'BedanktStudio.html';
+        })
+        .catch(function(error) {
+          console.error('EmailJS error:', error);
+          // spinner off FIRST for reliable UI update before blocking alert
+          spin.classList.add('hidden');
+          txt.textContent = 'Send';
+          btn.disabled = false;
+          alert('An error occurred. Please try again.\n' + (error && (error.text || error.message) ? ('\nDetails: ' + (error.text || error.message)) : ''));
+        });
+    } catch (e) {
+      console.error('EmailJS not initialized or missing SDK:', e);
+      // reset UI first
+      spin.classList.add('hidden');
+      txt.textContent = 'Send';
+      btn.disabled = false;
+      alert('Could not send right now. Please check EmailJS setup.\nMake sure the EmailJS SDK is loaded and the public key is set.');
+    }
+   });
+  </script>
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Vancoillie Studio",
+    "url": "https://www.vancoilliestudio.be/",
+    "logo": "https://www.vancoilliestudio.be/afbeeldingen/logo.png",
+    "sameAs": [
+      "https://www.instagram.com/vancoilliestudio/",
+      "https://www.facebook.com/profile.php?id=61566806095389",
+      "https://www.linkedin.com/in/batiste-vancoillie-622562291/",
+      "https://github.com/batistevanco"
+    ],
+    "founder": "Batiste Vancoillie",
+    "foundingDate": "2024",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Roeselare",
+      "addressCountry": "BE"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "info@vancoillieithulp.be"
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Vancoillie IT Hulp – Batiste Vancoillie",
+      "taxID": "BE1014303066"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.vancoilliestudio.be/",
+    "name": "Vancoillie Studio",
+    "alternateName": "VancoillieStudio",
+    "inLanguage": "en"
+  }
+  </script>
+
+  <script>
+    // Per-app screenshots (replace filenames with your real screenshots)
+    const APP_SCREENS = {
+      abbobuddy: [
+        "afbeeldingen/abboHome.png",
+        "afbeeldingen/abboOverview.png",
+        "afbeeldingen/abboAI.png",
+        "afbeeldingen/abboAdd.png",
+        "afbeeldingen/abboSettings.png"
+      ],
+      inmandje: [
+        "afbeeldingen/inmandjeHome.png",
+        "afbeeldingen/inmandjeAI.png",
+        "afbeeldingen/inmandjeDetail.png",
+        "afbeeldingen/inmandjeWithoutPrice.png"
+      ],
+      budgetplanner: [
+        "afbeeldingen/budget1.png",
+        "afbeeldingen/budget2.png"
+      ],
+      news: [
+        "afbeeldingen/newsHome.png",
+        "afbeeldingen/newsDetail.png",
+        "afbeeldingen/newsOverview.png"
+      ],
+      stockbuddy: [
+        "afbeeldingen/stockbuddyHome.png",
+        "afbeeldingen/stockbuddySort.png",
+        "afbeeldingen/stockbuddyView.png",
+        "afbeeldingen/stockbuddyEdit.png",
+        "afbeeldingen/stockbuddyCategorie.png"
+      ]
+    };
+    const APP_DETAILS = {
+      abbobuddy: {
+        title: "AbboBuddy",
+        intro: "Manage all your subscriptions with reminders, payment status, and monthly/yearly insights.",
+        bullets: ["Reminders & renewal alerts", "Categories & budgets", "AI Chatbot for quick answers"],
+        status: "Download in the App Store",
+        platform: "iOS (mobile)",
+        lang: "English & Dutch"
+      },
+      inmandje: {
+        title: "InMandje",
+        intro: "Ultra-fast grocery lists with categories, stores and AI chatbot",
+        bullets: ["Multiple lists", "Store-specific smart sorting", "Use as grocerylist", "AI Chatbot"],
+        status: "Download in the App Store",
+        platform: "iOS (mobile)",
+        lang: "Dutch"
+      },
+      budgetplanner: {
+        title: "Budgetplanner",
+        intro: "Modern budgeting with incomes, expenses, goals and monthly projections.",
+        bullets: ["Projections & KPIs", "Categories & goals", "Savings & investments", "CSV import/export"],
+        status: "Live (web)",
+        platform: "Web",
+        lang: "Dutch",
+        cta: { label: "Open web app", href: "../budgetplanner/index.html" }
+      },
+      news: {
+        title: "Vancoillie News",
+        intro: "A clean news reader with categories, offline cache and notifications.",
+        bullets: ["Offline cache", "Push notifications", "Article detail view", "Filter by category", "Apple Watch App included"],
+        status: "Download in the App Store",
+        platform: "iOS (mobile)",
+        lang: "English & Dutch"
+      },
+      StockBuddy: {
+        title: "StockBuddy",
+        intro: "Keep track of your inventory — from groceries to tech — with categories and quick input.",
+        bullets: ["Categories", "Quick input", "Images & dynamic fields",  "Many sorting options"],
+        status: "Download in the App Store",
+        platform: "iOS (mobile)",
+        lang: "English & Dutch"
+      }
+    };
+    const modal = document.getElementById('screensModal');
+    const backdrop = document.getElementById('screensBackdrop');
+    const titleEl = document.getElementById('screensTitle');
+    const imgEl = document.getElementById('screensImage');
+    const dotRow = document.getElementById('dotRow');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const closeBtn = document.getElementById('screensClose');
+
+    let currentApp = null;
+    let currentIndex = 0;
+    let currentList = [];
+
+    function openScreens(appKey, label) {
+      currentApp = appKey;
+      currentList = APP_SCREENS[appKey] || [];
+      currentIndex = 0;
+      titleEl.textContent = `${label} — Screenshots`;
+      render();
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeScreens() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function render() {
+      if (!currentList.length) { imgEl.alt = 'No screenshots available'; imgEl.src = ''; dotRow.innerHTML=''; return; }
+      imgEl.src = currentList[currentIndex];
+      imgEl.alt = `${currentApp} screenshot ${currentIndex+1}`;
+      dotRow.innerHTML = '';
+      currentList.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.className = 'h-2.5 w-2.5 rounded-full ' + (i === currentIndex ? 'bg-sky-500' : 'bg-white/20');
+        b.ariaLabel = `Go to screenshot ${i+1}`;
+        b.addEventListener('click', () => { currentIndex = i; render(); });
+        dotRow.appendChild(b);
+      });
+    }
+
+    function next() { if (!currentList.length) return; currentIndex = (currentIndex + 1) % currentList.length; render(); }
+    function prev() { if (!currentList.length) return; currentIndex = (currentIndex - 1 + currentList.length) % currentList.length; render(); }
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+    backdrop.addEventListener('click', closeScreens);
+    closeBtn.addEventListener('click', closeScreens);
+    window.addEventListener('keydown', (e) => {
+      if (modal.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeScreens();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+
+    // Make each app card clickable
+    document.querySelectorAll('.app-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-app');
+        const label = card.querySelector('h3')?.textContent?.trim() || 'App';
+        openScreens(key, label);
+      });
+    });
+
+    // Separate button in the card for direct screenshots
+    document.querySelectorAll('.screens-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const key = btn.getAttribute('data-app');
+        const label = btn.closest('.app-card')?.querySelector('h3')?.textContent?.trim() || 'App';
+        openScreens(key, label);
+      });
+    });
+
+    // Prevent card click when clicking internal links/buttons (e.g., Open web app, Coming soon)
+    document.querySelectorAll('.app-card a, .app-card button').forEach(el => {
+      if (!el.classList.contains('screens-btn')) {
+        el.addEventListener('click', (e) => { e.stopPropagation(); });
+      }
+    });
+
+    // ===== Details modal logic =====
+    const detailsModal = document.getElementById('detailsModal');
+    const detailsBackdrop = document.getElementById('detailsBackdrop');
+    const detailsTitle = document.getElementById('detailsTitle');
+    const detailsContent = document.getElementById('detailsContent');
+    const detailsClose = document.getElementById('detailsClose');
+
+    function openDetails(appKey){
+      const d = APP_DETAILS[appKey];
+      if (!d) return;
+      detailsTitle.textContent = d.title + " — Details";
+      const list = (d.bullets || []).map(b => `<li>${b}</li>`).join("");
+      const cta = d.cta ? `<div class="mt-4"><a href="${d.cta.href}" class="inline-flex items-center rounded-xl bg-[#0866ff] px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">${d.cta.label}</a></div>` : "";
+      detailsContent.innerHTML = `
+        <p class="text-white/80">${d.intro || ""}</p>
+        ${list ? `<ul class="list-disc list-inside text-white/70 mt-3">${list}</ul>` : ""}
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5 text-sm">
+          <div class="rounded-xl ring-1 ring-white/10 bg-white/5 p-3"><div class="text-white/60">Status</div><div class="font-semibold">${d.status || "-"}</div></div>
+          <div class="rounded-xl ring-1 ring-white/10 bg-white/5 p-3"><div class="text-white/60">Platform</div><div class="font-semibold">${d.platform || "-"}</div></div>
+          <div class="rounded-xl ring-1 ring-white/10 bg-white/5 p-3"><div class="text-white/60">Language</div><div class="font-semibold">${d.lang || "-"}</div></div>
+        </div>
+        ${cta}
+      `;
+      detailsModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDetails(){
+      detailsModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    detailsBackdrop.addEventListener('click', closeDetails);
+    detailsClose.addEventListener('click', closeDetails);
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !detailsModal.classList.contains('hidden')) closeDetails(); });
+
+    // wire up buttons
+    document.querySelectorAll('.details-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const key = btn.getAttribute('data-app');
+        openDetails(key);
+      });
+    });
+  </script>
+
+  <script>
+  // Scroll reveal (IntersectionObserver) + group staggering
+  (function () {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          document.querySelectorAll('[data-reveal-group]').forEach(group => {
+            const step = parseInt(group.getAttribute('data-stagger') || '80', 10);
+            const kids = group.querySelectorAll(':scope [data-reveal]');
+            kids.forEach((el, i) => {
+              el.style.setProperty('--reveal-delay', (i * step) + 'ms');
+            });
+          });
+
+    const items = document.querySelectorAll('[data-reveal]');
+    if (reduce) { items.forEach(el => el.classList.add('revealed')); return; }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20% 0px' });
+
+    items.forEach(el => io.observe(el));
+  })();
+
+
+  // Subtle parallax (position aware & reduced-motion friendly)
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return; // respect user motion settings
+    const items = Array.from(document.querySelectorAll('[data-parallax]'));
+    if (!items.length) return;
+    const update = () => {
+      const vh = window.innerHeight;
+      items.forEach(el=>{
+        const speed = parseFloat(el.getAttribute('data-speed')||'0.06');
+        const r = el.getBoundingClientRect();
+        const center = r.top + r.height/2;
+        const delta = (vh/2 - center); // negative if below center
+        const y = delta * speed;
+        el.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0)`;
+      });
+    };
+    let ticking = false;
+    const onScroll = () => { if (!ticking){ requestAnimationFrame(()=>{ update(); ticking=false; }); ticking = true; }};
+    window.addEventListener('scroll', onScroll, { passive:true });
+    window.addEventListener('resize', onScroll, { passive:true });
+    update();
+  })();
+
+</script>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Grafisch & Logo Design — Vancoillie Studio</title>
+  <meta name="description" content="Vancoillie Studio ontwerpt moderne logo’s, mini brand kits en social media visuals voor zelfstandigen en kleine bedrijven. SEO-klaar en web-ready." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.vancoilliestudio.be/graphics/index.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Grafisch & Logo Design — Vancoillie Studio" />
+  <meta property="og:description" content="Moderne logo’s en grafisch ontwerp op maat. Perfect passend bij je merk." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
+  <meta property="og:url" content="https://www.vancoilliestudio.be/graphics/index-nl.html" />
+  <meta property="og:locale" content="nl_BE" />
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init({ publicKey: 'zsAHVDd_EhMFKIEcy' }); // ← jouw key
+</script>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { blue: '#0866ff', dark: '#0b1324' }
+          },
+          fontFamily: {
+            display: ['Inter','ui-sans-serif','system-ui','sans-serif'],
+            body: ['Inter','ui-sans-serif','system-ui','sans-serif']
+          },
+          boxShadow: { glow: '0 0 30px rgba(14,165,233,.35)' }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <!-- Shared css -->
+  <link rel="stylesheet" href="../css/home.css" />
+</head>
+<body class="bg-black text-white font-body antialiased" id="top">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-black/60">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="../index.html" class="group inline-flex items-center gap-2">
+        <span class="relative inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#0866ff]/10 text-[#0866ff] ring-1 ring-[#0866ff]/30 shadow-glow">
+          <i class="fa-solid fa-pen-nib text-sm"></i>
+        </span>
+        <span class="font-display font-extrabold tracking-tight text-lg">Vancoillie <span class="text-[#0866ff]">Studio</span></span>
+      </a>
+      <div class="flex items-center gap-2">
+        <!-- taal switch -->
+        <a href="./index-en.html" class="hidden sm:inline-flex text-xs rounded-xl ring-1 ring-white/10 px-2 py-1 hover:text-[#0866ff]">EN</a>
+        <a href="../index.html" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">
+          ← Terug naar hoofdpagina
+        </a>
+        <a href="#pricing" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">Prijzen</a>
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-[#0866ff] px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">Offerte aanvragen</a>
+        <button id="openMenu" class="sm:hidden inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold ring-1 ring-white/10 hover:ring-[#0866ff]/40 group">
+          <span class="gradient-hover">Menu</span>
+          <span class="gradient-hover text-base leading-none">+</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="fixed inset-0 z-[60] hidden">
+    <div id="menuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div class="relative mx-auto mt-4 mb-4 w-[92vw] max-w-[720px] rounded-3xl bg-black text-white shadow-2xl ring-1 ring-white/10 overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+        <span class="text-sm font-semibold text-white/60">Menu</span>
+        <button id="closeMenu" class="inline-flex items-center gap-2 text-sm font-semibold group">
+          <span class="gradient-hover">Sluiten</span><span class="gradient-hover">×</span>
+        </button>
+      </div>
+      <div class="px-6 sm:px-10 py-8">
+        <nav class="space-y-6">
+          <a href="#top" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">HOME <sup class="text-[#0866ff] text-xl">01</sup></a>
+          <a href="#examples" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">VOORBEELDEN <sup class="text-[#0866ff] text-xl">02</sup></a>
+          <a href="#services" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">DIENSTEN <sup class="text-[#0866ff] text-xl">03</sup></a>
+          <a href="#pricing" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">PRIJZEN <sup class="text-[#0866ff] text-xl">04</sup></a>
+          <a href="#contact" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">CONTACT <sup class="text-[#0866ff] text-xl">05</sup></a>
+          <a href="../index.html" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">← HOOFDPAGINA <sup class="text-[#0866ff] text-xl">06</sup></a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 grid-bg bg-gradient-to-b from-black via-black to-black"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div class="max-w-3xl space-y-6" data-reveal>
+        <p class="text-sm uppercase tracking-[0.2em] text-white/60">Grafisch & Logo Design</p>
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+          Visuals die passen bij jouw merk.
+        </h1>
+        <p class="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl">
+          Strakke, moderne en consistente ontwerpen voor je zaak. Logo’s op maat, kleine brandkits en social media beelden — meteen bruikbaar op web.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#pricing" class="inline-flex items-center rounded-xl bg-[#0866ff] px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">
+            Bekijk prijzen
+          </a>
+          <a href="#services" class="inline-flex items-center rounded-xl ring-1 ring-slate-200/20 px-5 py-3 text-sm font-semibold hover:text-[#0866ff]">
+            Wat zit erin?
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOORBEELDEN -->
+  <section id="examples" class="py-16 lg:py-20 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10 text-center mx-auto" data-reveal>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Voorbeelden</h2>
+        <p class="mt-3 text-white/60">Enkele stijlen: minimal, bold, kleurrijk, professioneel. Vervang door je echte cases.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5" data-reveal-group data-stagger="50">
+        <div class="rounded-2xl bg-white/5 ring-1 ring-white/5 p-6 flex items-center justify-center aspect-square" data-reveal>
+          <img src="../afbeeldingen/logo-sample-1.png" alt="Logo voorbeeld 1" class="max-h-50 object-contain" />
+        </div>
+        <div class="rounded-2xl bg-white/5 ring-1 ring-white/5 p-6 flex items-center justify-center aspect-square" data-reveal>
+          <img src="../afbeeldingen/logo-sample-2.png" alt="Logo voorbeeld 2" class="max-h-50 object-contain" />
+        </div>
+        <div class="rounded-2xl bg-white/5 ring-1 ring-white/5 p-6 flex items-center justify-center aspect-square" data-reveal>
+          <img src="../afbeeldingen/logo-sample-3.png" alt="Logo voorbeeld 3" class="max-h-50 object-contain" />
+        </div>
+        <div class="rounded-2xl bg-white/5 ring-1 ring-white/5 p-6 flex items-center justify-center aspect-square" data-reveal>
+          <img src="../afbeeldingen/logo-sample-4.png" alt="Logo voorbeeld 4" class="max-h-50 object-contain" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIENSTEN -->
+  <section id="services" class="py-16 lg:py-20 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10" data-reveal>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Wat ik voor je maak</h2>
+        <p class="mt-3 text-white/60">Alles om online en op socials professioneel over te komen.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-reveal-group data-stagger="40">
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-[#0866ff]/10 text-[#0866ff] flex items-center justify-center mb-3">
+            <i class="fa-solid fa-signature"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Logo op maat</h3>
+          <p class="text-sm text-white/60 mt-2">Uniek, schaalbaar en aangeleverd in vector.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-fuchsia-500/10 text-fuchsia-300 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-swatchbook"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Mini brand kit</h3>
+          <p class="text-sm text-white/60 mt-2">Kleuren, typografie, logo-varianten en profielfoto.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-300 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-photo-film"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Visuals voor web & socials</h3>
+          <p class="text-sm text-white/60 mt-2">Headers, posts, call-to-actions in juiste formaten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIJZEN -->
+  <section id="pricing" class="py-16 lg:py-20 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10 text-center mx-auto" data-reveal>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Prijzen</h2>
+        <p class="mt-3 text-white/60">Duidelijke pakketten. SEO-namen, web-export en bronbestanden inbegrepen.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="bg-white/5 ring-1 ring-white/10 rounded-[30px] p-1 flex flex-col" data-reveal>
+          <div class="bg-black rounded-[26px] h-full p-8 flex flex-col">
+            <div class="text-4xl font-bold mb-6">€29</div>
+            <a href="#contact" class="mb-6 inline-flex items-center justify-center bg-white text-black font-semibold rounded-full py-3 hover:bg-slate-100">Starten</a>
+            <ul class="space-y-4 text-sm text-white/70">
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> 1 logovoorstel</li>
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> PNG + JPG aanlevering</li>
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> 1 feedbackronde</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bg-white/30 ring-1 ring-white/10 rounded-[30px] p-1 flex flex-col shadow-xl shadow-[#0866ff]/40" data-reveal>
+          <div class="bg-black rounded-[26px] h-full p-8 flex flex-col">
+            <div class="flex items-baseline justify-between mb-4">
+              <div class="text-4xl font-bold">€59</div>
+              <span class="text-xs uppercase bg-white/10 px-3 py-1 rounded-full">Meest gekozen</span>
+            </div>
+            <a href="#contact" class="mb-6 inline-flex items-center justify-center bg-white text-black font-semibold rounded-full py-3 hover:bg-slate-100">Kies dit</a>
+            <ul class="space-y-4 text-sm text-white/70">
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> 2–3 logovoorstellen</li>
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> Mini brand kit</li>
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> Social profielfoto</li>
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> 2 feedbackrondes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bg-white/5 ring-1 ring-white/10 rounded-[30px] p-1 flex flex-col" data-reveal>
+          <div class="bg-black rounded-[26px] h-full p-8 flex flex-col">
+            <div class="text-4xl font-bold mb-6">€99</div>
+            <a href="#contact" class="mb-6 inline-flex items-center justify-center bg-white text-black font-semibold rounded-full py-3 hover:bg-slate-100">Volledig pakket</a>
+            <ul class="space-y-4 text-sm text-white/70">
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> Volledig logopack (licht/donker/horizontaal)</li>
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> Uitgebreide brand guide (PDF)</li>
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> Web + social + print export</li>
+              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> Onbeperkt feedbackrondes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="relative py-20 lg:py-28 bg-black text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl">Contact</h2>
+        <p class="mt-4 text-base sm:text-lg md:text-xl text-white/70">Prefer to email directly? <a class="text-[#0866ff] font-semibold" href="mailto:support@vancoilliestudio.be">support@vancoilliestudio.be</a></p>
+      </div>
+      <form id="contact-form" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4" data-reveal-group>
+        <div>
+          <label for="from_name" class="block text-sm font-medium mb-1" data-reveal>Name</label>
+          <input type="text" name="from_name" id="from_name" required
+                 placeholder="Your name"
+                 class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"/>
+        </div>
+        <div>
+          <label for="from_email" class="block text-sm font-medium mb-1" data-reveal>Email</label>
+          <input type="email" name="from_email" id="from_email" required
+                 placeholder="Your email address"
+                 class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"/>
+        </div>
+        <div class="md:col-span-2">
+          <label for="message" class="block text-sm font-medium mb-1" data-reveal>Message</label>
+          <textarea name="message" id="message" rows="6" required
+                    placeholder="Tell me a little about your project or question"
+                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"></textarea>
+        </div>
+        <div class="md:col-span-2 flex items-center justify-between" data-reveal>
+          <p class="text-xs text-white/60">We only store what's necessary to reply.</p>
+          <button type="submit" id="sendBtn" class="inline-flex items-center rounded-xl bg-[#0866ff] px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8] disabled:opacity-60 disabled:cursor-not-allowed"><svg id="sendSpinner" class="-ml-0.5 mr-2 h-4 w-4 animate-spin hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10" class="opacity-25" /><path d="M12 2a10 10 0 0 1 10 10" class="opacity-75" /></svg><span id="sendText">Send</span></button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/10 py-8 text-center text-sm text-white/50">
+    <p>© <span id="year"></span> Vancoillie Studio. Grafisch & Logo Design.</p>
+  </footer>
+
+  <!-- scripts -->
+  <script>
+    (function(){
+      const menu = document.getElementById('mobileMenu');
+      const openBtn = document.getElementById('openMenu');
+      const closeBtn = document.getElementById('closeMenu');
+      const backdrop = document.getElementById('menuBackdrop');
+      const links = document.querySelectorAll('#mobileMenu .menu-link');
+      function open(){ menu.classList.remove('hidden'); document.body.style.overflow='hidden'; }
+      function close(){ menu.classList.add('hidden'); document.body.style.overflow=''; }
+      openBtn?.addEventListener('click', open);
+      closeBtn?.addEventListener('click', close);
+      backdrop?.addEventListener('click', close);
+      links.forEach(a => a.addEventListener('click', close));
+      window.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+
+  <script>
+    (function(){
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll('[data-reveal-group]').forEach(group => {
+        const step = parseInt(group.getAttribute('data-stagger') || '80', 10);
+        const kids = group.querySelectorAll(':scope [data-reveal]');
+        kids.forEach((el, i) => el.style.setProperty('--reveal-delay', (i*step)+'ms'));
+      });
+      const items = document.querySelectorAll('[data-reveal]');
+      if (reduce) { items.forEach(el => el.classList.add('revealed')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -20% 0px' });
+      items.forEach(el => io.observe(el));
+    })();
+  </script>
+
+  <script type="text/javascript">
+   document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // spinner on
+    const btn = document.getElementById('sendBtn');
+    const spin = document.getElementById('sendSpinner');
+    const txt = document.getElementById('sendText');
+    btn.disabled = true;
+    spin.classList.remove('hidden');
+    txt.textContent = 'Sending…';
+
+    const templateParams = {
+        from_name: document.getElementById('from_name').value,
+        from_email: document.getElementById('from_email').value,
+        message: document.getElementById('message').value
+    };
+
+    if (!templateParams.from_name || !templateParams.from_email || !templateParams.message) {
+      alert('Please complete all fields.');
+      spin.classList.add('hidden');
+      txt.textContent = 'Send';
+      btn.disabled = false;
+      return;
+    }
+
+    try {
+      console.log('[EmailJS] Using service=EmailVIH, template=template_a69qiqd');
+      emailjs.send('EmailVIH', 'template_a69qiqd', templateParams, { publicKey: 'zsAHVDd_EhMFKIEcy' })
+        .then(function(response) {
+          // Redirect to the existing thank-you page at project root
+          window.location.href = '../BedanktStudio.html';
+        })
+        .catch(function(error) {
+          console.error('EmailJS error:', error);
+          // spinner off FIRST for reliable UI update before blocking alert
+          spin.classList.add('hidden');
+          txt.textContent = 'Send';
+          btn.disabled = false;
+          alert('An error occurred. Please try again.\n' + (error && (error.text || error.message) ? ('\nDetails: ' + (error.text || error.message)) : ''));
+        });
+    } catch (e) {
+      console.error('EmailJS not initialized or missing SDK:', e);
+      // reset UI first
+      spin.classList.add('hidden');
+      txt.textContent = 'Send';
+      btn.disabled = false;
+      alert('Could not send right now. Please check EmailJS setup.\nMake sure the EmailJS SDK is loaded and the public key is set.');
+    }
+   });
+  </script>
+
+</body>
+</html>

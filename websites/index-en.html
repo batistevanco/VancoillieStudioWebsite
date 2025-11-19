@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Website development — Static websites & hosting | Vancoillie Studio</title>
+  <meta name="description" content="Vancoillie Studio builds modern static websites for freelancers and small businesses. Including domain management, hosting, maintenance, SEO optimisation and Google Search Console setup." />
+  <meta name="keywords" content="website development, static website, web design, web development, hosting, domain name, SEO, Google Search Console, Roeselare, Vancoillie Studio" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.vancoilliestudio.be/websites/index-en.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Website development — Static websites & hosting | Vancoillie Studio" />
+  <meta property="og:description" content="Modern, fast and secure static websites with domain, hosting, maintenance and SEO taken care of." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
+  <meta property="og:url" content="https://www.vancoilliestudio.be/websites/index-en.html" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Website development — Static websites & hosting | Vancoillie Studio" />
+  <meta name="twitter:description" content="Static websites tailored to your business, including domain, hosting and SEO optimisation." />
+  <meta name="twitter:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" sizes="48x48" href="../favicon-48x48.png">
+  <link rel="icon" sizes="96x96" href="../favicon-96x96.png">
+  <link rel="icon" sizes="192x192" href="../favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180x180.png">
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon-48x48.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init({ publicKey: 'zsAHVDd_EhMFKIEcy' });
+  </script>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { blue: '#0866ff', dark: '#0b1324' }
+          },
+          fontFamily: {
+            display: ['Inter','ui-sans-serif','system-ui','sans-serif'],
+            body: ['Inter','ui-sans-serif','system-ui','sans-serif']
+          },
+          boxShadow: { glow: '0 0 30px rgba(14,165,233,.35)' }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="../css/home.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Static websites & web hosting",
+    "provider": {
+      "@type": "Organization",
+      "name": "Vancoillie Studio",
+      "url": "https://www.vancoilliestudio.be/"
+    },
+    "description": "Development of static websites including domain management, hosting, maintenance, SEO optimisation and Google Search Console management.",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Belgium"
+    },
+    "serviceType": "Web design & development"
+  }
+  </script>
+</head>
+<body class="bg-black text-white font-body antialiased" id="top">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-black/60">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="../index-en.html#websites" class="group inline-flex items-center gap-2">
+        <span class="relative inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#0866ff]/10 text-[#0866ff] ring-1 ring-[#0866ff]/30 shadow-glow">
+          <i class="fa-solid fa-globe text-sm"></i>
+        </span>
+        <span class="font-display font-extrabold tracking-tight text-lg">Vancoillie <span class="text-[#0866ff]">Studio</span></span>
+      </a>
+      <div class="flex items-center gap-2">
+        <!-- language switch -->
+        <a href="./index.html" class="hidden sm:inline-flex text-xs rounded-xl ring-1 ring-white/10 px-2 py-1 hover:text-[#0866ff]">NL</a>
+        <a href="../index-en.html" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">
+          ← Back to homepage
+        </a>
+        <a href="#services" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">Services</a>
+        <a href="#pricing" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">Packages</a>
+        <a href="../graphics/index-en.html" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold text-white/60 hover:text-[#0866ff]">
+          Graphics
+        </a>
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-[#0866ff] px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">Request a quote</a>
+        <button id="openMenu" class="sm:hidden inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold ring-1 ring-white/10 hover:ring-[#0866ff]/40 group">
+          <span class="gradient-hover">Menu</span>
+          <span class="gradient-hover text-base leading-none">+</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="fixed inset-0 z-[60] hidden">
+    <div id="menuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div class="relative mx-auto mt-4 mb-4 w-[92vw] max-w-[720px] rounded-3xl bg-black text-white shadow-2xl ring-1 ring-white/10 overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+        <span class="text-sm font-semibold text-white/60">Menu</span>
+        <button id="closeMenu" class="inline-flex items-center gap-2 text-sm font-semibold group">
+          <span class="gradient-hover">Close</span><span class="gradient-hover">×</span>
+        </button>
+      </div>
+      <div class="px-6 sm:px-10 py-8">
+        <nav class="space-y-6">
+          <a href="#top" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">HOME <sup class="text-[#0866ff] text-xl">01</sup></a>
+          <a href="#services" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">SERVICES <sup class="text-[#0866ff] text-xl">02</sup></a>
+          <a href="#pricing" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">PACKAGES <sup class="text-[#0866ff] text-xl">03</sup></a>
+          <a href="#extras" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">HOSTING &amp; SEO <sup class="text-[#0866ff] text-xl">04</sup></a>
+          <a href="#contact" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">CONTACT <sup class="text-[#0866ff] text-xl">05</sup></a>
+          <p class="text-xs text-white/40 uppercase tracking-[0.25em] mt-6 mb-2">Languages</p>
+          <a href="./index.html" class="block font-extrabold tracking-tight text-[42px] sm:text-5xl leading-none gradient-hover menu-link">
+            DUTCH <sup class="text-[#0866ff] text-xl align-super">06</sup>
+          </a>
+          <a href="../index-en.html" class="block font-extrabold tracking-tight text-[42px] sm:text-5xl leading-none gradient-hover menu-link">
+            ← MAIN SITE <sup class="text-[#0866ff] text-xl align-super">07</sup>
+          </a>
+          <p class="text-xs text-white/40 uppercase tracking-[0.25em] mt-8 mb-2">Other</p>
+          <a href="../graphics/index-en.html" class="block text-2xl sm:text-3xl font-semibold tracking-tight leading-snug gradient-hover menu-link">
+            Graphics &amp; logo design
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 grid-bg bg-gradient-to-b from-black via-black to-black"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start">
+        <div class="max-w-3xl space-y-6" data-reveal>
+          <p class="text-sm uppercase tracking-[0.2em] text-white/60">Static websites &amp; management</p>
+          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            Static websites that just work.
+          </h1>
+          <p class="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl">
+            A modern website for your business, without the hassle. I build fast, secure and lightweight static websites and also take care of your domain, hosting, maintenance and SEO optimisation.
+          </p>
+          <p class="text-xs text-white/40 uppercase tracking-[0.25em]">Roeselare • West Flanders • Belgium • Fully remote possible</p>
+          <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:items-center">
+            <a href="#pricing" class="inline-flex items-center justify-center rounded-xl bg-[#0866ff] px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">
+              View packages
+            </a>
+            <a href="#services" class="inline-flex items-center justify-center rounded-xl ring-1 ring-slate-200/20 px-5 py-3 text-sm font-semibold hover:text-[#0866ff]">
+              What’s included?
+            </a>
+          </div>
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-white/50">
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              <span>No hidden monthly fees</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-[#0866ff]"></span>
+              <span>One contact for everything</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-fuchsia-400"></span>
+              <span>Built with SEO in mind</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 lg:mt-0 lg:justify-self-end max-w-md w-full" data-reveal>
+          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 lg:p-7">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50 mb-2">At a glance</p>
+            <h2 class="font-display text-xl font-semibold text-white">Is this website service for you?</h2>
+            <p class="mt-2 text-sm text-white/70">
+              Best suited for freelancers and small businesses who want a modern website without subscriptions or complicated systems.
+            </p>
+
+            <dl class="mt-5 space-y-3 text-sm text-white/70">
+              <div class="flex items-center justify-between gap-4">
+                <dt class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                  <span>Starting from</span>
+                </dt>
+                <dd class="font-semibold text-white">€249 (one-time)</dd>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <dt class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+                  <span>Typical scope</span>
+                </dt>
+                <dd class="text-right">Onepager or 3–5 pages with clear structure.</dd>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <dt class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-fuchsia-400"></span>
+                  <span>Tech setup</span>
+                </dt>
+                <dd class="text-right">Option with hosting &amp; domain, or self-hosted files.</dd>
+              </div>
+            </dl>
+
+            <hr class="my-5 border-white/10" />
+
+            <ol class="space-y-2 text-sm text-white/70 list-decimal list-inside">
+              <li>Brief call or email about your needs.</li>
+              <li>You choose a package and options.</li>
+              <li>I design, build &amp; deliver your static website.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-16 lg:py-20 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10" data-reveal>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">What I take care of</h2>
+        <p class="mt-3 text-white/60">
+          One person who manages everything around your website. You focus on your business, I handle the technical side.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-reveal-group data-stagger="40">
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-[#0866ff]/10 text-[#0866ff] flex items-center justify-center mb-3">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Static website</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Modern, lightweight website tailored to your business. Ideal for freelancers and small companies.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-300 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Domain &amp; hosting</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Registration and management of your domain name and hosting. All technical settings included.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-300 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Maintenance</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Small changes, text updates and technical follow-up so everything keeps running smoothly.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-fuchsia-500/10 text-fuchsia-300 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+          <h3 class="font-semibold text-lg">SEO optimisation</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Basic SEO: fast loading times, clean code, clear titles and descriptions for each page.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-sky-500/10 text-sky-300 flex items-center justify-center mb-3">
+            <i class="fa-brands fa-google"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Google Search Console</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Creating and configuring Google Search Console, adding sitemaps and basic monitoring.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-rose-500/10 text-rose-300 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Personal contact</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Direct communication via email or WhatsApp. No ticket systems, just clear answers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="pricing" class="py-16 lg:py-20 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10 text-center mx-auto" data-reveal>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Website packages</h2>
+        <p class="mt-3 text-white/60">
+          Prices for the website itself depend on the size and desired design.
+          Below are two clear starting packages. We can always adjust or work fully custom.
+        </p>
+        <p class="mt-2 text-xs text-white/40">
+          Listed prices exclude the one-time hosting and domain fee.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+        <!-- Onepager -->
+        <div class="bg-white/5 ring-1 ring-white/10 rounded-[30px] p-1 flex flex-col" data-reveal>
+          <div class="bg-black rounded-[26px] h-full p-8 flex flex-col">
+            <span class="text-xs uppercase tracking-[0.25em] text-white/60 mb-2">Starter</span>
+            <div class="text-4xl font-bold mb-1">€249</div>
+            <p class="text-xs text-white/50 mb-6">Perfect as an online business card.</p>
+            <a href="#contact" class="mb-6 inline-flex items-center justify-center bg-white text-black font-semibold rounded-full py-3 hover:bg-slate-100">
+              I want this package
+            </a>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Single-page site (onepager)
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Sections for about, services and contact
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Responsive design (desktop &amp; mobile)
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Basic SEO &amp; performance optimisation
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Standard site -->
+        <div class="bg-white/30 ring-1 ring-white/10 rounded-[30px] p-1 flex flex-col shadow-xl shadow-[#0866ff]/40" data-reveal>
+          <div class="bg-black rounded-[26px] h-full p-8 flex flex-col">
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="text-xs uppercase tracking-[0.25em] text-white/60">Most popular</span>
+              <span class="text-xs uppercase bg-white/10 px-3 py-1 rounded-full">Recommended</span>
+            </div>
+            <div class="text-4xl font-bold mb-1">€399</div>
+            <p class="text-xs text-white/50 mb-6">For when you want to share a bit more.</p>
+            <a href="#contact" class="mb-6 inline-flex items-center justify-center bg-white text-black font-semibold rounded-full py-3 hover:bg-slate-100">
+              Choose this package
+            </a>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> 3–5 pages (e.g. Home, About, Services, Contact)
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> More detailed design with extra visuals
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Extra attention to structure &amp; UX
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Advanced SEO + Google Search Console setup
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOSTING, DOMAIN & SEO INFO -->
+  <section id="extras" class="py-16 lg:py-20 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10" data-reveal>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Hosting, domain &amp; SEO</h2>
+        <p class="mt-3 text-white/60">
+          Besides the website itself, I also take care of hosting, your domain name, basic SEO and Google Search Console.
+          One point of contact so everything stays aligned.
+        </p>
+        <p class="mt-3 text-white/60">
+          You can choose how far I go in the technical setup: either I handle the full package including hosting and domain,
+          or I build the website and deliver the static files so you (or your IT partner) can host everything yourself.
+        </p>
+        <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-white/70">
+          <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-4">
+            <h3 class="font-semibold mb-1">Option 1: Full service</h3>
+            <ul class="list-disc list-inside space-y-1 text-white/70">
+              <li>You choose a website package (Starter or Most popular).</li>
+              <li>I register and configure your domain and hosting.</li>
+              <li>SEO basics and Google Search Console are set up for you.</li>
+              <li>You contact one person for changes, questions and follow-up.</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-4">
+            <h3 class="font-semibold mb-1">Option 2: Self-hosted</h3>
+            <ul class="list-disc list-inside space-y-1 text-white/70">
+              <li>You choose a website package, without hosting/domain add-on.</li>
+              <li>I deliver the optimised static files (HTML/CSS/JS) ready to upload.</li>
+              <li>You or your own provider take care of domain &amp; hosting.</li>
+              <li>If needed, I can advise on basic setup or migration.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-reveal-group data-stagger="40">
+        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
+          <h3 class="font-semibold text-lg mb-2">Domain name</h3>
+          <p class="text-sm text-white/70">
+            Registration and setup of your domain name (e.g. yourbusiness.be). Includes linking to hosting and correct DNS configuration.
+          </p>
+          <p class="mt-3 text-sm font-semibold">
+            One-time: <span class="text-white">€20</span> <span class="text-white/60">(unless a different plan is requested)</span>
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
+          <h3 class="font-semibold text-lg mb-2">Hosting</h3>
+          <p class="text-sm text-white/70">
+            Fast hosting optimised for static websites. Includes technical setup, SSL certificate and basic security.
+          </p>
+          <p class="mt-3 text-sm font-semibold">
+            One-time: <span class="text-white">€150</span> <span class="text-white/60">(unless a different plan is requested)</span>
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
+          <h3 class="font-semibold text-lg mb-2">SEO &amp; Google Search Console</h3>
+          <p class="text-sm text-white/70">
+            Advanced SEO optimisation (titles, descriptions, structure) and Google Search Console setup
+            so your website is indexed correctly.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
+          <h3 class="font-semibold text-lg mb-2">Maintenance &amp; small updates</h3>
+          <p class="text-sm text-white/70">
+            Small text or content changes can be made in mutual agreement,
+            so your site stays up to date without large extra costs.
+          </p>
+        </div>
+      </div>
+      <p class="mt-8 text-sm text-white/60 max-w-3xl" data-reveal>
+        No logo yet or thinking about a rebrand? For a new logo or visual identity I’m happy to refer you to my
+        <a href="../graphics/index-en.html" class="text-[#0866ff] font-semibold hover:underline">graphic &amp; logo design</a> page.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="relative py-20 lg:py-28 bg-black text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl">Contact</h2>
+        <p class="mt-4 text-base sm:text-lg md:text-xl text-white/70">
+          Prefer to email directly? <a class="text-[#0866ff] font-semibold" href="mailto:support@vancoilliestudio.be">support@vancoilliestudio.be</a>
+        </p>
+        <p class="mt-2 text-sm text-white/50">
+          Briefly describe what you need (new site, redesign, domain/hosting, …) and I’ll get back to you as soon as possible.
+        </p>
+        <p class="mt-2 text-xs text-white/50">
+          As I’m a student self‑employed, I plan projects around my studies. I’ll always be clear about realistic timelines and delivery moments.
+        </p>
+      </div>
+      <form id="contact-form" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4" data-reveal-group>
+        <div>
+          <label for="from_name" class="block text-sm font-medium mb-1" data-reveal>Name</label>
+          <input type="text" name="from_name" id="from_name" required
+                 placeholder="Your name"
+                 class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"/>
+        </div>
+        <div>
+          <label for="from_email" class="block text-sm font-medium mb-1" data-reveal>Email address</label>
+          <input type="email" name="from_email" id="from_email" required
+                 placeholder="Your email address"
+                 class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"/>
+        </div>
+        <div class="md:col-span-2">
+          <label for="message" class="block text-sm font-medium mb-1" data-reveal>Message</label>
+          <textarea name="message" id="message" rows="6" required
+                    placeholder="Describe your project, current situation and desired timing."
+                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"></textarea>
+        </div>
+        <div class="md:col-span-2 flex items-center justify-between" data-reveal>
+          <p class="text-xs text-white/60">I only store what’s necessary to reply to your message.</p>
+          <button type="submit" id="sendBtn" class="inline-flex items-center rounded-xl bg-[#0866ff] px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8] disabled:opacity-60 disabled:cursor-not-allowed">
+            <svg id="sendSpinner" class="-ml-0.5 mr-2 h-4 w-4 animate-spin hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" class="opacity-25" />
+              <path d="M12 2a10 10 0 0 1 10 10" class="opacity-75" />
+            </svg>
+            <span id="sendText">Send</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/10 py-8 text-center text-sm text-white/50">
+    <p>© <span id="year"></span> Vancoillie Studio. Websites &amp; web design. Based in Roeselare, West Flanders. Also available remotely.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    (function(){
+      const menu = document.getElementById('mobileMenu');
+      const openBtn = document.getElementById('openMenu');
+      const closeBtn = document.getElementById('closeMenu');
+      const backdrop = document.getElementById('menuBackdrop');
+      const links = document.querySelectorAll('#mobileMenu .menu-link');
+      function open(){ menu.classList.remove('hidden'); document.body.style.overflow='hidden'; }
+      function close(){ menu.classList.add('hidden'); document.body.style.overflow=''; }
+      openBtn?.addEventListener('click', open);
+      closeBtn?.addEventListener('click', close);
+      backdrop?.addEventListener('click', close);
+      links.forEach(a => a.addEventListener('click', close));
+      window.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+
+  <script>
+    (function(){
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll('[data-reveal-group]').forEach(group => {
+        const step = parseInt(group.getAttribute('data-stagger') || '80', 10);
+        const kids = group.querySelectorAll(':scope [data-reveal]');
+        kids.forEach((el, i) => el.style.setProperty('--reveal-delay', (i*step)+'ms'));
+      });
+      const items = document.querySelectorAll('[data-reveal]');
+      if (reduce) { items.forEach(el => el.classList.add('revealed')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -20% 0px' });
+      items.forEach(el => io.observe(el));
+    })();
+  </script>
+
+  <script type="text/javascript">
+   document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const btn = document.getElementById('sendBtn');
+    const spin = document.getElementById('sendSpinner');
+    const txt = document.getElementById('sendText');
+    btn.disabled = true;
+    spin.classList.remove('hidden');
+    txt.textContent = 'Sending…';
+
+    const templateParams = {
+        from_name: document.getElementById('from_name').value,
+        from_email: document.getElementById('from_email').value,
+        message: document.getElementById('message').value
+    };
+
+    if (!templateParams.from_name || !templateParams.from_email || !templateParams.message) {
+      alert('Please fill in all fields.');
+      spin.classList.add('hidden');
+      txt.textContent = 'Send';
+      btn.disabled = false;
+      return;
+    }
+
+    try {
+      emailjs.send('EmailVIH', 'template_a69qiqd', templateParams, { publicKey: 'zsAHVDd_EhMFKIEcy' })
+        .then(function(response) {
+          window.location.href = '../BedanktStudio.html';
+        })
+        .catch(function(error) {
+          console.error('EmailJS error:', error);
+          spin.classList.add('hidden');
+          txt.textContent = 'Send';
+          btn.disabled = false;
+          alert('Something went wrong while sending. Please try again later.');
+        });
+    } catch (e) {
+      console.error('EmailJS not initialized or missing SDK:', e);
+      spin.classList.add('hidden');
+      txt.textContent = 'Send';
+      btn.disabled = false;
+      alert('Could not send your message right now. Please check the EmailJS configuration.');
+    }
+   });
+  </script>
+
+</body>
+</html>

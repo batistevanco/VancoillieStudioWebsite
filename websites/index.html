@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Websites laten maken — Statische websites &amp; hosting | Vancoillie Studio</title>
+  <meta name="description" content="Vancoillie Studio bouwt moderne, statische websites voor zelfstandigen en kleine bedrijven. Inclusief domeinnaambeheer, hosting, onderhoud, SEO-optimalisatie en Google Search Console-beheer." />
+  <meta name="keywords" content="website laten maken, statische website, webdesign, webdevelopment, hosting, domeinnaam, SEO, Google Search Console, Roeselare, Vancoillie Studio" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.vancoilliestudio.be/websites/index.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Websites laten maken — Statische websites &amp; hosting | Vancoillie Studio" />
+  <meta property="og:description" content="Moderne, snelle en veilige statische websites met beheer van domein, hosting, onderhoud en SEO." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
+  <meta property="og:url" content="https://www.vancoilliestudio.be/websites/index.html" />
+  <meta property="og:locale" content="nl_BE" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Websites laten maken — Statische websites &amp; hosting | Vancoillie Studio" />
+  <meta name="twitter:description" content="Statische websites op maat met domein, hosting, onderhoud en SEO-optimalisatie." />
+  <meta name="twitter:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" sizes="48x48" href="../favicon-48x48.png">
+  <link rel="icon" sizes="96x96" href="../favicon-96x96.png">
+  <link rel="icon" sizes="192x192" href="../favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180x180.png">
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon-48x48.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init({ publicKey: 'zsAHVDd_EhMFKIEcy' });
+  </script>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { blue: '#0866ff', dark: '#0b1324' }
+          },
+          fontFamily: {
+            display: ['Inter','ui-sans-serif','system-ui','sans-serif'],
+            body: ['Inter','ui-sans-serif','system-ui','sans-serif']
+          },
+          boxShadow: { glow: '0 0 30px rgba(14,165,233,.35)' }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="../css/home.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Statische websites & webhosting",
+    "provider": {
+      "@type": "Organization",
+      "name": "Vancoillie Studio",
+      "url": "https://www.vancoilliestudio.be/"
+    },
+    "description": "Ontwikkeling van statische websites met domeinnaambeheer, hosting, onderhoud, SEO-optimalisatie en Google Search Console-beheer.",
+    "areaServed": {
+      "@type": "Place",
+      "name": "België"
+    },
+    "serviceType": "Webdesign & development"
+  }
+  </script>
+</head>
+<body class="bg-black text-white font-body antialiased" id="top">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-black/60">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="../index.html#websites" class="group inline-flex items-center gap-2">
+        <span class="relative inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#0866ff]/10 text-[#0866ff] ring-1 ring-[#0866ff]/30 shadow-glow">
+          <i class="fa-solid fa-globe text-sm"></i>
+        </span>
+        <span class="font-display font-extrabold tracking-tight text-lg">Vancoillie <span class="text-[#0866ff]">Studio</span></span>
+      </a>
+      <div class="flex items-center gap-2">
+        <!-- taal switch -->
+        <a href="./index-en.html" class="hidden sm:inline-flex text-xs rounded-xl ring-1 ring-white/10 px-2 py-1 hover:text-[#0866ff]">EN</a>
+        <a href="../index.html" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">
+          ← Terug naar hoofdpagina
+        </a>
+        <a href="#services" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">Diensten</a>
+        <a href="#pricing" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">Pakketten</a>
+        <a href="../graphics/index.html" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold text-white/60 hover:text-[#0866ff]">
+          Graphics
+        </a>
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-[#0866ff] px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">Offerte aanvragen</a>
+        <button id="openMenu" class="sm:hidden inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold ring-1 ring-white/10 hover:ring-[#0866ff]/40 group">
+          <span class="gradient-hover">Menu</span>
+          <span class="gradient-hover text-base leading-none">+</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="fixed inset-0 z-[60] hidden">
+    <div id="menuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div class="relative mx-auto mt-4 mb-4 w-[92vw] max-w-[720px] rounded-3xl bg-black text-white shadow-2xl ring-1 ring-white/10 overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+        <span class="text-sm font-semibold text-white/60">Menu</span>
+        <button id="closeMenu" class="inline-flex items-center gap-2 text-sm font-semibold group">
+          <span class="gradient-hover">Sluiten</span><span class="gradient-hover">×</span>
+        </button>
+      </div>
+      <div class="px-6 sm:px-10 py-8">
+        <nav class="space-y-6">
+          <a href="#top" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">HOME <sup class="text-[#0866ff] text-xl">01</sup></a>
+          <a href="#services" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">DIENSTEN <sup class="text-[#0866ff] text-xl">02</sup></a>
+          <a href="#pricing" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">PAKKETTEN <sup class="text-[#0866ff] text-xl">03</sup></a>
+          <a href="#extras" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">HOSTING &amp; SEO <sup class="text-[#0866ff] text-xl">04</sup></a>
+          <a href="#contact" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">CONTACT <sup class="text-[#0866ff] text-xl">05</sup></a>
+          <p class="text-xs text-white/40 uppercase tracking-[0.25em] mt-6 mb-2">Languages</p>
+          <a href="./index-en.html" class="block font-extrabold tracking-tight text-[42px] sm:text-5xl leading-none gradient-hover menu-link">
+            ENGELS <sup class="text-[#0866ff] text-xl align-super">06</sup>
+          </a>
+          <a href="../index.html" class="block font-extrabold tracking-tight text-[42px] sm:text-5xl leading-none gradient-hover menu-link">
+            ← HOOFDPAGINA <sup class="text-[#0866ff] text-xl align-super">07</sup>
+          </a>
+          <p class="text-xs text-white/40 uppercase tracking-[0.25em] mt-8 mb-2">Andere</p>
+          <a href="../graphics/index.html" class="block text-2xl sm:text-3xl font-semibold tracking-tight leading-snug gradient-hover menu-link">
+            Graphics &amp; logo design
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 grid-bg bg-gradient-to-b from-black via-black to-black"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start">
+        <div class="max-w-3xl space-y-6" data-reveal>
+          <p class="text-sm uppercase tracking-[0.2em] text-white/60">Statische websites &amp; beheer</p>
+          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            Statische websites die gewoon werken.
+          </h1>
+          <p class="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl">
+            Een moderne website voor je zaak, zonder gedoe. Ik bouw snelle, veilige en lichte statische websites en neem ook je domeinnaam, hosting, onderhoud en SEO-optimalisatie voor mijn rekening.
+          </p>
+          <p class="text-xs text-white/40 uppercase tracking-[0.25em]">Roeselare • West-Vlaanderen • België • Ook volledig online mogelijk</p>
+          <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:items-center">
+            <a href="#pricing" class="inline-flex items-center justify-center rounded-xl bg-[#0866ff] px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">
+              Bekijk pakketten
+            </a>
+            <a href="#services" class="inline-flex items-center justify-center rounded-xl ring-1 ring-slate-200/20 px-5 py-3 text-sm font-semibold hover:text-[#0866ff]">
+              Wat zit erin?
+            </a>
+          </div>
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-white/50">
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              <span>Geen verborgen maandkosten</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-[#0866ff]"></span>
+              <span>1 aanspreekpunt voor alles</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-fuchsia-400"></span>
+              <span>Geoptimaliseerd voor SEO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 lg:mt-0 lg:justify-self-end max-w-md w-full" data-reveal>
+          <div class="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 lg:p-7">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50 mb-2">In één oogopslag</p>
+            <h2 class="font-display text-xl font-semibold text-white">Is deze websiteservice iets voor jou?</h2>
+            <p class="mt-2 text-sm text-white/70">
+              Ideaal voor zelfstandigen en kleine bedrijven die een moderne website willen zonder abonnementen of ingewikkelde systemen.
+            </p>
+
+            <dl class="mt-5 space-y-3 text-sm text-white/70">
+              <div class="flex items-center justify-between gap-4">
+                <dt class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                  <span>Vanaf</span>
+                </dt>
+                <dd class="font-semibold text-white">€249 (eenmalig)</dd>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <dt class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+                  <span>Typische scope</span>
+                </dt>
+                <dd class="text-right">Onepager of 3–5 pagina’s met duidelijke structuur.</dd>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <dt class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-fuchsia-400"></span>
+                  <span>Technische opzet</span>
+                </dt>
+                <dd class="text-right">Optie met hosting &amp; domein, of zelf gehoste bestanden.</dd>
+              </div>
+            </dl>
+
+            <hr class="my-5 border-white/10" />
+
+            <ol class="space-y-2 text-sm text-white/70 list-decimal list-inside">
+              <li>Korte call of mail over je noden.</li>
+              <li>Je kiest een pakket en opties.</li>
+              <li>Ik ontwerp, bouw &amp; lever je statische website op.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIENSTEN / WAT IK VERZORG -->
+  <section id="services" class="py-16 lg:py-20 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10" data-reveal>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Wat ik voor je regel</h2>
+        <p class="mt-3 text-white/60">
+          Eén iemand die alles rond je website beheert. Jij focust op je zaak, ik op de techniek.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-reveal-group data-stagger="40">
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-[#0866ff]/10 text-[#0866ff] flex items-center justify-center mb-3">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Statische website</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Moderne, lichte website op maat van je zaak. Ideaal voor zelfstandigen en kleine bedrijven.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-300 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Domein &amp; hosting</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Registratie en beheer van je domeinnaam en hosting. Technische instellingen zijn volledig inbegrepen.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-300 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Onderhoud</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Kleine aanpassingen, tekstupdates en technische opvolging zodat alles blijft werken.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-fuchsia-500/10 text-fuchsia-300 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+          <h3 class="font-semibold text-lg">SEO-optimalisatie</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Basis SEO: snelle laadtijden, nette code, duidelijke titels en beschrijvingen per pagina.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-sky-500/10 text-sky-300 flex items-center justify-center mb-3">
+            <i class="fa-brands fa-google"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Google Search Console</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Aanmaken en instellen van Google Search Console, sitemap toevoegen en basisopvolging.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
+          <div class="h-10 w-10 rounded-xl bg-rose-500/10 text-rose-300 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Persoonlijk contact</h3>
+          <p class="text-sm text-white/60 mt-2">
+            Rechtstreeks contact via mail of WhatsApp. Geen ticketsystemen, gewoon duidelijke antwoorden.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAKKETTEN -->
+  <section id="pricing" class="py-16 lg:py-20 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10 text-center mx-auto" data-reveal>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Websitepakketten</h2>
+        <p class="mt-3 text-white/60">
+          Prijzen voor de website zelf zijn afhankelijk van grootte en gewenste vormgeving.
+          Hieronder twee duidelijke startpakketten. We kunnen altijd afwijken of op maat werken.
+        </p>
+        <p class="mt-2 text-xs text-white/40">
+          Vermelde prijzen zijn excl. eenmalige hosting- en domeinkost.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+        <!-- Onepager -->
+        <div class="bg-white/5 ring-1 ring-white/10 rounded-[30px] p-1 flex flex-col" data-reveal>
+          <div class="bg-black rounded-[26px] h-full p-8 flex flex-col">
+            <span class="text-xs uppercase tracking-[0.25em] text-white/60 mb-2">Starter</span>
+            <div class="text-4xl font-bold mb-1">€249</div>
+            <p class="text-xs text-white/50 mb-6">Perfect als online visitekaartje.</p>
+            <a href="#contact" class="mb-6 inline-flex items-center justify-center bg-white text-black font-semibold rounded-full py-3 hover:bg-slate-100">
+              Ik wil dit pakket
+            </a>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Eén pagina (onepager)
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Secties voor over jou, diensten en contact
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Responsief design (desktop &amp; mobiel)
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Basis SEO &amp; laadsnelheid optimalisatie
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Basis site -->
+        <div class="bg-white/30 ring-1 ring-white/10 rounded-[30px] p-1 flex flex-col shadow-xl shadow-[#0866ff]/40" data-reveal>
+          <div class="bg-black rounded-[26px] h-full p-8 flex flex-col">
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="text-xs uppercase tracking-[0.25em] text-white/60">Meest gekozen</span>
+              <span class="text-xs uppercase bg-white/10 px-3 py-1 rounded-full">Aanbevolen</span>
+            </div>
+            <div class="text-4xl font-bold mb-1">€399</div>
+            <p class="text-xs text-white/50 mb-6">Voor wie net wat meer wil vertellen.</p>
+            <a href="#contact" class="mb-6 inline-flex items-center justify-center bg-white text-black font-semibold rounded-full py-3 hover:bg-slate-100">
+              Kies dit pakket
+            </a>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> 3–5 pagina’s (bv. Home, Over, Diensten, Contact)
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Uitgebreider design met meer visuals
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Extra aandacht voor structuur &amp; UX
+              </li>
+              <li class="flex gap-3 items-center">
+                <i class="fa-solid fa-check text-white"></i> Uitgebreide SEO + opzet Google Search Console
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOSTING, DOMEIN & SEO EXTRA INFO -->
+  <section id="extras" class="py-16 lg:py-20 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10" data-reveal>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Hosting, domein &amp; SEO</h2>
+        <p class="mt-3 text-white/60">
+          Naast de website zelf regel ik ook je hosting, domeinnaam, basis-SEO en Google Search Console.
+          Zo heb je één aanspreekpunt en blijft alles netjes op elkaar afgestemd.
+        </p>
+        <p class="mt-3 text-white/60">
+          Jij kiest zelf hoe ver ik in de technische opzet ga: ofwel neem ik het volledige pakket op mij inclusief hosting en domein,
+          ofwel bouw ik de website en krijg jij de statische bestanden zodat jij (of je IT-partner) alles zelf kunt hosten.
+        </p>
+        <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-white/70">
+          <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-4">
+            <h3 class="font-semibold mb-1">Optie 1: Full service</h3>
+            <ul class="list-disc list-inside space-y-1 text-white/70">
+              <li>Je kiest een websitepakket (Starter of Meest gekozen).</li>
+              <li>Ik registreer en configureer je domein en hosting.</li>
+              <li>SEO-basis en Google Search Console worden voor jou opgezet.</li>
+              <li>Je hebt één aanspreekpunt voor wijzigingen, vragen en opvolging.</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-4">
+            <h3 class="font-semibold mb-1">Optie 2: Zelf hosting regelen</h3>
+            <ul class="list-disc list-inside space-y-1 text-white/70">
+              <li>Je kiest een websitepakket, zonder hosting/domein als extra dienst.</li>
+              <li>Ik lever de geoptimaliseerde statische bestanden (HTML/CSS/JS) klaar om te uploaden.</li>
+              <li>Jij of je eigen provider zorgt voor domein &amp; hosting.</li>
+              <li>Indien gewenst kan ik adviseren rond basisopzet of migratie.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-reveal-group data-stagger="40">
+        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
+          <h3 class="font-semibold text-lg mb-2">Domeinnaam</h3>
+          <p class="text-sm text-white/70">
+            Registratie en opzet van je domeinnaam (bv. jouwzaak.be). Koppeling met hosting en correcte DNS-instellingen inbegrepen.
+          </p>
+          <p class="mt-3 text-sm font-semibold">
+            Eenmalig: <span class="text-white">€20</span> <span class="text-white/60">(tenzij ander plan gewenst)</span>
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
+          <h3 class="font-semibold text-lg mb-2">Hosting</h3>
+          <p class="text-sm text-white/70">
+            Snelle hosting die perfect past bij statische websites. Inclusief technische opzet, SSL-certificaat en basisbeveiliging.
+          </p>
+          <p class="mt-3 text-sm font-semibold">
+            Eenmalig: <span class="text-white">€150</span> <span class="text-white/60">(tenzij ander plan gewenst)</span>
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
+          <h3 class="font-semibold text-lg mb-2">SEO &amp; Google Search Console</h3>
+          <p class="text-sm text-white/70">
+            Uitgebreide SEO optimalisatie (titels, beschrijvingen, structuur) en opzet van Google Search Console,
+            zodat je site correct wordt geïndexeerd door Google.
+          </p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
+          <h3 class="font-semibold text-lg mb-2">Onderhoud &amp; kleine updates</h3>
+          <p class="text-sm text-white/70">
+            Kleine tekst- of inhoudswijzigingen kunnen in onderling overleg uitgevoerd worden,
+            zodat je site up-to-date blijft zonder grote meerkost.
+          </p>
+        </div>
+      </div>
+      <p class="mt-8 text-sm text-white/60 max-w-3xl" data-reveal>
+        Nog geen logo of nood aan een rebranding? Voor een nieuw logo of grafische stijl verwijs ik je graag door naar mijn
+        <a href="../graphics/index.html" class="text-[#0866ff] font-semibold hover:underline">grafisch &amp; logo design</a>-pagina.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="relative py-20 lg:py-28 bg-black text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl">Contact</h2>
+        <p class="mt-4 text-base sm:text-lg md:text-xl text-white/70">
+          Liever rechtstreeks mailen? <a class="text-[#0866ff] font-semibold" href="mailto:support@vancoilliestudio.be">support@vancoilliestudio.be</a>
+        </p>
+        <p class="mt-2 text-sm text-white/50">
+          Vertel kort wat je nodig hebt (nieuwe site, redesign, domein/hosting, …) en ik antwoord zo snel mogelijk.
+        </p>
+        <p class="mt-2 text-xs text-white/50">
+          Omdat ik student-zelfstandige ben, plan ik opdrachten in op basis van mijn schoolwerk. Ik communiceer altijd duidelijk over haalbare timings en oplevermomenten.
+        </p>
+      </div>
+      <form id="contact-form" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4" data-reveal-group>
+        <div>
+          <label for="from_name" class="block text-sm font-medium mb-1" data-reveal>Naam</label>
+          <input type="text" name="from_name" id="from_name" required
+                 placeholder="Je naam"
+                 class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"/>
+        </div>
+        <div>
+          <label for="from_email" class="block text-sm font-medium mb-1" data-reveal>E-mailadres</label>
+          <input type="email" name="from_email" id="from_email" required
+                 placeholder="Je e-mailadres"
+                 class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"/>
+        </div>
+        <div class="md:col-span-2">
+          <label for="message" class="block text-sm font-medium mb-1" data-reveal>Bericht</label>
+          <textarea name="message" id="message" rows="6" required
+                    placeholder="Beschrijf kort je project, huidige situatie en gewenste timing."
+                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"></textarea>
+        </div>
+        <div class="md:col-span-2 flex items-center justify-between" data-reveal>
+          <p class="text-xs text-white/60">Ik bewaar enkel wat nodig is om je te kunnen antwoorden.</p>
+          <button type="submit" id="sendBtn" class="inline-flex items-center rounded-xl bg-[#0866ff] px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8] disabled:opacity-60 disabled:cursor-not-allowed">
+            <svg id="sendSpinner" class="-ml-0.5 mr-2 h-4 w-4 animate-spin hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" class="opacity-25" />
+              <path d="M12 2a10 10 0 0 1 10 10" class="opacity-75" />
+            </svg>
+            <span id="sendText">Versturen</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/10 py-8 text-center text-sm text-white/50">
+    <p>© <span id="year"></span> Vancoillie Studio. Websites &amp; webdesign. Gevestigd in Roeselare, West-Vlaanderen. Ook online beschikbaar.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    (function(){
+      const menu = document.getElementById('mobileMenu');
+      const openBtn = document.getElementById('openMenu');
+      const closeBtn = document.getElementById('closeMenu');
+      const backdrop = document.getElementById('menuBackdrop');
+      const links = document.querySelectorAll('#mobileMenu .menu-link');
+      function open(){ menu.classList.remove('hidden'); document.body.style.overflow='hidden'; }
+      function close(){ menu.classList.add('hidden'); document.body.style.overflow=''; }
+      openBtn?.addEventListener('click', open);
+      closeBtn?.addEventListener('click', close);
+      backdrop?.addEventListener('click', close);
+      links.forEach(a => a.addEventListener('click', close));
+      window.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+
+  <script>
+    (function(){
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll('[data-reveal-group]').forEach(group => {
+        const step = parseInt(group.getAttribute('data-stagger') || '80', 10);
+        const kids = group.querySelectorAll(':scope [data-reveal]');
+        kids.forEach((el, i) => el.style.setProperty('--reveal-delay', (i*step)+'ms'));
+      });
+      const items = document.querySelectorAll('[data-reveal]');
+      if (reduce) { items.forEach(el => el.classList.add('revealed')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -20% 0px' });
+      items.forEach(el => io.observe(el));
+    })();
+  </script>
+
+  <script type="text/javascript">
+   document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const btn = document.getElementById('sendBtn');
+    const spin = document.getElementById('sendSpinner');
+    const txt = document.getElementById('sendText');
+    btn.disabled = true;
+    spin.classList.remove('hidden');
+    txt.textContent = 'Versturen…';
+
+    const templateParams = {
+        from_name: document.getElementById('from_name').value,
+        from_email: document.getElementById('from_email').value,
+        message: document.getElementById('message').value
+    };
+
+    if (!templateParams.from_name || !templateParams.from_email || !templateParams.message) {
+      alert('Gelieve alle velden in te vullen.');
+      spin.classList.add('hidden');
+      txt.textContent = 'Versturen';
+      btn.disabled = false;
+      return;
+    }
+
+    try {
+      emailjs.send('EmailVIH', 'template_a69qiqd', templateParams, { publicKey: 'zsAHVDd_EhMFKIEcy' })
+        .then(function(response) {
+          window.location.href = '../BedanktStudio.html';
+        })
+        .catch(function(error) {
+          console.error('EmailJS error:', error);
+          spin.classList.add('hidden');
+          txt.textContent = 'Versturen';
+          btn.disabled = false;
+          alert('Er ging iets mis bij het verzenden. Probeer het later opnieuw.');
+        });
+    } catch (e) {
+      console.error('EmailJS not initialized or missing SDK:', e);
+      spin.classList.add('hidden');
+      txt.textContent = 'Versturen';
+      btn.disabled = false;
+      alert('Verzenden lukt nu niet. Controleer de EmailJS-instellingen.');
+    }
+   });
+  </script>
+
+</body>
+</html>

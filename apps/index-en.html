@@ -1,412 +1,735 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apps & Software Products — Web Apps, iOS Apps & Invoicing Software | Vancoillie Studio</title>
+  <meta name="description"
+    content="Vancoillie Studio offers custom apps and software products, such as mobile apps, web apps, and invoicing software. Focus on ease of use, performance, and clear UI." />
+  <meta name="keywords"
+    content="apps, software products, web app, iOS app, invoicing software, billing tool, software tools, Vancoillie Studio, Roeselare" />
+  <meta name="theme-color" content="#0a0a0a" />
 
-  <title>Apps & software products — Web apps, iOS apps & invoicing software | Vancoillie Studio</title>
-  <meta name="description" content="Vancoillie Studio offers its own apps and software products, including mobile apps, web apps and invoicing software. Focused on usability, performance and clear UI." />
-  <meta name="keywords" content="apps, software products, web app, iOS app, invoicing software, software tools, Vancoillie Studio, Roeselare" />
+  <link rel="canonical" href="https://www.vancoilliestudio.be/apps/index-en.html">
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://www.vancoilliestudio.be/apps/index-en.html" />
 
-  <meta property="og:title" content="Apps & software products | Vancoillie Studio" />
-  <meta property="og:description" content="From mobile apps to web apps and invoicing software: software products by Vancoillie Studio with clear UX." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Apps & Software Products | Vancoillie Studio" />
+  <meta property="og:description"
+    content="From mobile apps to web apps and invoicing software: software products from Vancoillie Studio with clear UX." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
   <meta property="og:url" content="https://www.vancoilliestudio.be/apps/index-en.html" />
   <meta property="og:locale" content="en_US" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Apps & software products | Vancoillie Studio" />
-  <meta name="twitter:description" content="Apps and software products by Vancoillie Studio: iOS apps, web apps and invoicing tools focused on UX and performance." />
-  <meta name="twitter:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
-
+  <!-- Favicon -->
   <link rel="icon" sizes="32x32" href="../favicon-32x32.png">
   <link rel="icon" sizes="48x48" href="../favicon-48x48.png">
   <link rel="icon" sizes="96x96" href="../favicon-96x96.png">
   <link rel="icon" sizes="192x192" href="../favicon-192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180x180.png">
   <link rel="shortcut icon" type="image/x-icon" href="../favicon-48x48.ico">
-  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          },
+          colors: {
+            background: '#0a0a0a',
+            surface: '#151515',
+            brand: {
+              blue: '#2997ff',
+              purple: '#bf5af2',
+            }
+          },
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            'hero-glow': 'radial-gradient(circle at 50% 50%, rgba(41, 151, 255, 0.15) 0%, rgba(0,0,0,0) 50%)',
+          },
+          animation: {
+            'blob': 'blob 7s infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @font-face {
+      font-family: 'SF Pro Display';
+      src: local('SF Pro Display'), local('Helvetica Neue'), local('Arial');
+      font-display: swap;
+    }
+
+    body {
+      font-family: 'SF Pro Display', -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: #0a0a0a;
+      color: #f5f5f7;
+      overflow-x: hidden;
+    }
+
+    .glass-nav {
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 40px -20px rgba(41, 151, 255, 0.2);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-brand {
+      background: linear-gradient(135deg, #2997ff 0%, #bf5af2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Hide scrollbar for clean look */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .btn-primary {
+      background: #f5f5f7;
+      color: #1d1d1f;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #f5f5f7;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Ambient background blobs */
+    .ambient-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: 0;
+      opacity: 0.5;
+      mix-blend-mode: screen;
+    }
+
+    .ambient-blob-1 {
+      top: -10%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: rgba(41, 151, 255, 0.2);
+      animation: blob 15s infinite alternate;
+    }
+
+    .ambient-blob-2 {
+      bottom: -20%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: rgba(191, 90, 242, 0.15);
+      animation: blob 20s infinite alternate-reverse;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- GSAP for Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     emailjs.init({ publicKey: 'zsAHVDd_EhMFKIEcy' });
   </script>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: { blue: '#0866ff', dark: '#0b1324' }
-          },
-          fontFamily: {
-            display: ['Inter','ui-sans-serif','system-ui','sans-serif'],
-            body: ['Inter','ui-sans-serif','system-ui','sans-serif']
-          },
-          boxShadow: { glow: '0 0 30px rgba(14,165,233,.35)' }
-        }
-      },
-      darkMode: 'class'
-    }
-  </script>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="../css/home.css" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Apps & software products",
-    "provider": {
-      "@type": "Organization",
-      "name": "Vancoillie Studio",
-      "url": "https://www.vancoilliestudio.be/"
-    },
-    "description": "Overview of apps and software products by Vancoillie Studio, including mobile apps, web apps and invoicing software.",
-    "inLanguage": "en"
-  }
-  </script>
 </head>
-<body class="bg-black text-white font-body antialiased" id="top">
 
-  <header class="sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-black/60">
-    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="../index-en.html#apps" class="group inline-flex items-center gap-2">
-        <span class="relative inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#0866ff]/10 text-[#0866ff] ring-1 ring-[#0866ff]/30 shadow-glow">
-          <i class="fa-solid fa-mobile-screen-button text-sm"></i>
-        </span>
-        <span class="font-display font-extrabold tracking-tight text-lg">Vancoillie <span class="text-[#0866ff]">Studio</span></span>
-      </a>
-      <div class="flex items-center gap-2">
-        <a href="./index.html" class="hidden sm:inline-flex text-xs rounded-xl ring-1 ring-white/10 px-2 py-1 hover:text-[#0866ff]">NL</a>
-        <a href="../index-en.html" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">← Back to homepage</a>
-        <a href="#services" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">Product types</a>
-        <a href="#products" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">Products</a>
-        <a href="#approach" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold hover:text-[#0866ff]">Approach</a>
-        <a href="../websites/index-en.html" class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm font-semibold text-white/60 hover:text-[#0866ff]">Websites</a>
-        <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-[#0866ff] px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">Contact</a>
-        <button id="openMenu" class="sm:hidden inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold ring-1 ring-white/10 hover:ring-[#0866ff]/40 group">
-          <span class="gradient-hover">Menu</span>
-          <span class="gradient-hover text-base leading-none">+</span>
-        </button>
-      </div>
-    </nav>
-  </header>
+<body class="bg-background text-white selection:bg-brand-blue/30" id="top">
 
-  <div id="mobileMenu" class="fixed inset-0 z-[60] hidden">
-    <div id="menuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-    <div class="relative mx-auto mt-4 mb-4 w-[92vw] max-w-[720px] rounded-3xl bg-black text-white shadow-2xl ring-1 ring-white/10 overflow-hidden">
-      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
-        <span class="text-sm font-semibold text-white/60">Menu</span>
-        <button id="closeMenu" class="inline-flex items-center gap-2 text-sm font-semibold group">
-          <span class="gradient-hover">Close</span><span class="gradient-hover">×</span>
-        </button>
-      </div>
-      <div class="px-6 sm:px-10 py-8">
-        <nav class="space-y-6">
-          <a href="#top" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">HOME <sup class="text-[#0866ff] text-xl">01</sup></a>
-          <a href="#services" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">PRODUCT TYPES <sup class="text-[#0866ff] text-xl">02</sup></a>
-          <a href="#products" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">PRODUCTS <sup class="text-[#0866ff] text-xl">03</sup></a>
-          <a href="#approach" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">APPROACH <sup class="text-[#0866ff] text-xl">04</sup></a>
-          <a href="#contact" class="block font-extrabold text-[42px] sm:text-5xl leading-none gradient-hover menu-link">CONTACT <sup class="text-[#0866ff] text-xl">05</sup></a>
-          <p class="text-xs text-white/40 uppercase tracking-[0.25em] mt-6 mb-2">Languages</p>
-          <a href="./index.html" class="block font-extrabold tracking-tight text-[42px] sm:text-5xl leading-none gradient-hover menu-link">DUTCH <sup class="text-[#0866ff] text-xl align-super">06</sup></a>
-          <a href="../index-en.html" class="block font-extrabold tracking-tight text-[42px] sm:text-5xl leading-none gradient-hover menu-link">← HOMEPAGE <sup class="text-[#0866ff] text-xl align-super">07</sup></a>
-          <p class="text-xs text-white/40 uppercase tracking-[0.25em] mt-8 mb-2">Other</p>
-          <a href="../websites/index-en.html" class="block text-2xl sm:text-3xl font-semibold tracking-tight leading-snug gradient-hover menu-link">Websites</a>
-          <a href="../graphics/index-en.html" class="block text-2xl sm:text-3xl font-semibold tracking-tight leading-snug gradient-hover menu-link">Graphics &amp; logo design</a>
-        </nav>
-      </div>
-    </div>
+  <!-- Ambient Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="ambient-blob ambient-blob-1"></div>
+    <div class="ambient-blob ambient-blob-2"></div>
   </div>
 
-  <section class="relative overflow-hidden">
-    <div aria-hidden="true" class="pointer-events-none absolute inset-0 grid-bg bg-gradient-to-b from-black via-black to-black"></div>
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-      <div class="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start">
-        <div class="max-w-3xl space-y-6" data-reveal>
-          <p class="text-sm uppercase tracking-[0.2em] text-white/60">Apps &amp; software products</p>
-          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
-            Software that saves time and creates clarity.
+  <!-- MAIN NAVIGATION -->
+  <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="../index-en.html" class="flex items-center gap-2 group">
+        <img src="../afbeeldingen/logo.png" alt="Vancoillie Studio Logo"
+          class="h-6 w-auto group-hover:drop-shadow-[0_0_8px_rgba(41,151,255,0.8)] transition-all duration-300">
+        <span class="font-bold text-lg tracking-tight">Vancoillie <span class="text-white/50">Studio</span></span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="../index-en.html" class="text-white/70 hover:text-white transition-colors">← Homepage</a>
+        <a href="#services" class="text-white/70 hover:text-white transition-colors">Product Types</a>
+        <a href="#products" class="text-white/70 hover:text-white transition-colors">Products</a>
+        <a href="#approach" class="text-white/70 hover:text-white transition-colors">Approach</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="text-xs font-semibold text-white/50 hover:text-white transition-colors">NL</a>
+        <a href="#contact"
+          class="hidden md:inline-flex btn-secondary rounded-full px-5 py-2 text-sm font-medium">Request Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden z-10">
+    <div class="max-w-7xl mx-auto px-6 relative w-full">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8 max-w-2xl hero-content">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
+            <span class="text-xs font-medium text-white/80 tracking-wide uppercase">Apps & Software Products</span>
+          </div>
+
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
+            Software that speeds up your <span class="text-gradient">workflow.</span>
           </h1>
-          <p class="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl">
-            Here you can discover apps and software products by Vancoillie Studio: from mobile apps to web apps and practical tools such as invoicing software. Always focused on speed, clear UI and usability.
+
+          <p class="text-lg md:text-xl text-white/50 leading-relaxed font-light">
+            Here you'll find apps and software products from Vancoillie Studio: from mobile apps to web apps and
+            practical tools like invoicing software. Always with a focus on speed, clear UI, and ease of use.
           </p>
-          <p class="text-xs text-white/40 uppercase tracking-[0.25em]">Roeselare • West Flanders • Belgium • Remote collaboration possible</p>
-          <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:items-center">
-            <a href="#products" class="inline-flex items-center justify-center rounded-xl bg-[#0866ff] px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">View products</a>
-            <a href="#contact" class="inline-flex items-center justify-center rounded-xl ring-1 ring-slate-200/20 px-5 py-3 text-sm font-semibold hover:text-[#0866ff]">Request info</a>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href="#products" class="btn-primary rounded-full px-8 py-4 text-center text-sm font-semibold">
+              View Products
+            </a>
+            <a href="#contact"
+              class="btn-secondary rounded-full px-8 py-4 text-center text-sm font-semibold flex items-center justify-center gap-2">
+              Request info <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
           </div>
-          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-white/50">
-            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span><span>Clear UX &amp; flows</span></div>
-            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-[#0866ff]"></span><span>Fast, performant products</span></div>
-            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-fuchsia-400"></span><span>Made for daily use</span></div>
-          </div>
-        </div>
 
-        <div class="mt-10 lg:mt-0 lg:justify-self-end max-w-md w-full" data-reveal>
-          <div class="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 lg:p-7">
-            <p class="text-xs uppercase tracking-[0.25em] text-white/50 mb-2">At a glance</p>
-            <h2 class="font-display text-xl font-semibold text-white">Who is this for?</h2>
-            <p class="mt-2 text-sm text-white/70">
-              Freelancers and small businesses looking for ready-to-use software products to work faster and with more clarity.
-            </p>
-            <dl class="mt-5 space-y-3 text-sm text-white/70">
-              <div class="flex items-center justify-between gap-4"><dt class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span><span>Use cases</span></dt><dd class="text-right">Mobile apps, web apps, internal tools</dd></div>
-              <div class="flex items-center justify-between gap-4"><dt class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-sky-400"></span><span>Example</span></dt><dd class="text-right">Vancoillie Invoxa invoicing software</dd></div>
-              <div class="flex items-center justify-between gap-4"><dt class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-fuchsia-400"></span><span>Focus</span></dt><dd class="text-right">Ready-to-use tools with clear UX</dd></div>
-            </dl>
-            <hr class="my-5 border-white/10" />
-            <ol class="space-y-2 text-sm text-white/70 list-decimal list-inside">
-              <li>Choose the product that fits your needs.</li>
-              <li>Use it to speed up your workflow.</li>
-              <li>Use contact for questions, feedback or support.</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="py-16 lg:py-20 bg-black">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mb-10" data-reveal>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Which product types you’ll find here</h2>
-        <p class="mt-3 text-white/60">Product categories within the Vancoillie Studio ecosystem, focused on speed, simplicity and daily use.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-reveal-group data-stagger="40">
-        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
-          <div class="h-10 w-10 rounded-xl bg-[#0866ff]/10 text-[#0866ff] flex items-center justify-center mb-3"><i class="fa-solid fa-mobile-screen"></i></div>
-          <h3 class="font-semibold text-lg">Mobile apps</h3>
-          <p class="text-sm text-white/60 mt-2">Ready-to-use iOS apps with clear navigation, fast screens and interfaces that feel intuitive.</p>
-        </div>
-        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
-          <div class="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-300 flex items-center justify-center mb-3"><i class="fa-solid fa-window-maximize"></i></div>
-          <h3 class="font-semibold text-lg">Web apps &amp; software</h3>
-          <p class="text-sm text-white/60 mt-2">Software products such as tools, dashboards and invoicing solutions that save time and create clarity.</p>
-        </div>
-        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5" data-reveal>
-          <div class="h-10 w-10 rounded-xl bg-fuchsia-500/10 text-fuchsia-300 flex items-center justify-center mb-3"><i class="fa-solid fa-sliders"></i></div>
-          <h3 class="font-semibold text-lg">Usable UX</h3>
-          <p class="text-sm text-white/60 mt-2">Clear screen structure and smooth flows so products are easy to use in real-world daily work.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="products" class="py-16 lg:py-20 bg-black">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mb-10" data-reveal>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Apps &amp; software</h2>
-        <p class="mt-3 text-white/60">A selection of existing products and software types I offer.</p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" data-reveal-group data-stagger="40">
-        <div id="invoxa" class="bg-white/30 ring-1 ring-white/10 rounded-[30px] p-1 flex flex-col shadow-xl shadow-[#0866ff]/30" data-reveal>
-          <div class="bg-black rounded-[26px] h-full p-8 flex flex-col">
-            <div class="flex items-center justify-between gap-3 mb-3">
-              <span class="text-xs uppercase tracking-[0.25em] text-white/60">Featured</span>
-              <span class="text-xs uppercase bg-[#0866ff]/20 text-[#86b7ff] px-3 py-1 rounded-full ring-1 ring-[#0866ff]/30">Invoicing software</span>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/10">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-bolt text-brand-blue"></i>
+              <span class="text-xs text-white/60 font-medium tracking-wide uppercase">Fast Builds</span>
             </div>
-            <h3 class="text-2xl font-bold">Vancoillie Invoxa</h3>
-            <p class="mt-3 text-sm text-white/70">An invoicing tool for freelancers and small businesses focused on speed, clarity and an efficient workflow.</p>
-            <ul class="mt-5 space-y-3 text-sm text-white/70">
-              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> Clear customer and invoice management flow</li>
-              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> Fast quote and invoice creation</li>
-              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> Payment status and outstanding overview</li>
-              <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-white"></i> Built for efficient day-to-day usage</li>
-            </ul>
-            <a href="#contact" class="mt-6 inline-flex items-center justify-center bg-white text-black font-semibold rounded-full py-3 hover:bg-slate-100">Request info about Invoxa</a>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-mobile-screen text-brand-purple"></i>
+              <span class="text-xs text-white/60 font-medium tracking-wide uppercase">Clear UX</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-layer-group text-emerald-400"></i>
+              <span class="text-xs text-white/60 font-medium tracking-wide uppercase">Ready to Use</span>
+            </div>
           </div>
         </div>
 
-        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
-          <div class="flex items-center justify-between gap-3"><h3 class="font-semibold text-lg">Mobile apps</h3><span class="text-xs rounded-full ring-1 ring-white/10 px-3 py-1">iOS</span></div>
-          <p class="mt-3 text-sm text-white/70">Consumer apps and tools focused on performance, local data, notifications and clean interface design.</p>
-          <ul class="mt-4 list-disc list-inside text-sm text-white/60 space-y-1">
-            <li>Fast screens and clear navigation</li>
-            <li>Offline/local storage where useful</li>
-            <li>Multi-language support when needed</li>
-          </ul>
-          <a href="../index-en.html#apps" class="mt-5 inline-flex items-center rounded-xl ring-1 ring-white/10 px-4 py-2 text-sm font-semibold hover:text-[#0866ff]">View homepage examples</a>
-        </div>
+        <div class="relative lg:block hidden hero-graphics">
+          <!-- Glassmorphic info card floating in hero -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md animate-float">
+            <div class="glass-card rounded-[2rem] p-8 border-white/10 shadow-2xl">
+              <p class="text-xs uppercase tracking-[0.25em] text-white/50 mb-4">At a glance</p>
+              <h2 class="text-2xl font-semibold text-white mb-4">Who is this for?</h2>
+              <p class="text-sm text-white/70 mb-6 font-light">
+                For freelancers and small businesses looking for an out-of-the-box software product to work faster and
+                more efficiently.
+              </p>
 
-        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
-          <div class="flex items-center justify-between gap-3"><h3 class="font-semibold text-lg">Web apps &amp; internal tools</h3><span class="text-xs rounded-full ring-1 ring-white/10 px-3 py-1">Web</span></div>
-          <p class="mt-3 text-sm text-white/70">Products for daily processes like budgeting, admin, inventory or invoicing with clear UX.</p>
-          <ul class="mt-4 list-disc list-inside text-sm text-white/60 space-y-1">
-            <li>Dashboards and overview screens</li>
-            <li>Clear forms and workflows</li>
-            <li>Focused on practical use</li>
-          </ul>
-          <a href="#contact" class="mt-5 inline-flex items-center rounded-xl bg-[#0866ff] px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8]">Request info</a>
+              <div class="space-y-4 text-sm">
+                <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                  <span class="text-white/50">Usage</span>
+                  <span class="font-semibold text-white text-right">Mobile apps, web apps, tools</span>
+                </div>
+                <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                  <span class="text-white/50">Example</span>
+                  <span class="text-right text-white/80">Vancoillie Invoxa invoicing tool</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-white/50">Journey</span>
+                  <span class="text-right text-white/80">Instantly usable tools with clear UX</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="approach" class="py-16 lg:py-20 bg-black">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mb-10" data-reveal>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Usage &amp; support</h2>
-        <p class="mt-3 text-white/60">This page presents products you can use. Contact can be used for questions, feedback or availability.</p>
+  <!-- SERVICES/PRODUCT TYPES SECTION -->
+  <section id="services" class="py-32 relative z-10 border-t border-white/5 bg-surface/50">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 section-header">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          What products you'll find here
+        </h2>
+        <p class="text-lg text-white/50">Product types within the Vancoillie Studio ecosystem, built with a focus on
+          speed, simplicity, and daily use.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-reveal-group data-stagger="40">
-        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
-          <h3 class="font-semibold text-lg mb-2">1. Choose a product</h3>
-          <p class="text-sm text-white/70">Pick the product that best fits your situation, such as a mobile app, web app or invoicing tool.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 services-grid">
+        <div class="glass-card rounded-2xl p-8">
+          <div class="text-3xl text-brand-blue mb-6"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h3 class="font-semibold text-xl mb-3">Mobile Apps</h3>
+          <p class="text-white/50">Ready-to-use iOS apps with clear navigation, fast screens, and a UI that feels
+            logical.</p>
         </div>
-        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
-          <h3 class="font-semibold text-lg mb-2">2. Get started quickly</h3>
-          <p class="text-sm text-white/70">Products are designed for quick onboarding, clear screens and workflows that are easy to use.</p>
+
+        <div class="glass-card rounded-2xl p-8">
+          <div class="text-3xl text-emerald-400 mb-6"><i class="fa-solid fa-window-maximize"></i></div>
+          <h3 class="font-semibold text-xl mb-3">Web Apps & Software</h3>
+          <p class="text-white/50">Software products like tools, dashboards, and invoicing solutions that save time and
+            provide overview.</p>
         </div>
-        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
-          <h3 class="font-semibold text-lg mb-2">3. Questions &amp; feedback</h3>
-          <p class="text-sm text-white/70">If you have usage questions or feedback, you can get in touch for more information or support.</p>
-        </div>
-        <div class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6" data-reveal>
-          <h3 class="font-semibold text-lg mb-2">4. Follow-up</h3>
-          <p class="text-sm text-white/70">Products can evolve over time with improvements and additional functionality.</p>
+
+        <div class="glass-card rounded-2xl p-8">
+          <div class="text-3xl text-fuchsia-400 mb-6"><i class="fa-solid fa-sliders"></i></div>
+          <h3 class="font-semibold text-xl mb-3">User-Friendly UX</h3>
+          <p class="text-white/50">Clear screen structure and smooth flows so products are quickly usable in practice.
+          </p>
         </div>
       </div>
-      <p class="mt-8 text-sm text-white/60 max-w-3xl" data-reveal>
-        Need a website alongside your software? See the
-        <a href="../websites/index-en.html" class="text-[#0866ff] font-semibold hover:underline">websites page</a>
-        for static websites, hosting and SEO.
-      </p>
     </div>
   </section>
 
-  <section id="contact" class="relative py-20 lg:py-28 bg-black text-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="font-display font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl">Contact</h2>
-        <p class="mt-4 text-base sm:text-lg md:text-xl text-white/70">Prefer to email directly? <a class="text-[#0866ff] font-semibold" href="mailto:support@vancoilliestudio.be">support@vancoilliestudio.be</a></p>
-        <p class="mt-2 text-sm text-white/50">Have a question about a product like Vancoillie Invoxa, or want to know if an app fits your use case? Send a message.</p>
-        <p class="mt-2 text-xs text-white/50">As I’m a student self-employed, I plan support and follow-up around my studies. I’ll always communicate realistic timelines clearly.</p>
+  <!-- PRODUCTS SECTION -->
+  <section id="products" class="py-32 relative z-10">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 section-header">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          Apps & Software Catalog
+        </h2>
+        <p class="text-lg text-white/50 mb-2">A selection of existing products and types of software I build.</p>
       </div>
-      <form id="contact-form" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4" data-reveal-group>
-        <div>
-          <label for="from_name" class="block text-sm font-medium mb-1" data-reveal>Name</label>
-          <input type="text" name="from_name" id="from_name" required placeholder="Your name" class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"/>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 products-grid">
+
+        <!-- Invoxa Highlight -->
+        <div
+          class="lg:col-span-1 border border-brand-blue/30 shadow-[0_0_40px_rgba(41,151,255,0.15)] bg-surface/30 rounded-[2.5rem] p-8 flex flex-col relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-purple via-brand-blue to-cyan-400">
+          </div>
+
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Featured</span>
+            <span
+              class="text-[10px] font-bold uppercase tracking-wider bg-brand-blue/20 text-brand-blue border border-brand-blue/30 px-3 py-1 rounded-full">Invoicing
+              Software</span>
+          </div>
+
+          <h3 class="text-3xl font-bold mb-4">Vancoillie Invoxa</h3>
+          <p class="text-white/60 mb-8 font-light flex-grow">
+            An invoicing tool for freelancers and small businesses focusing on speed, overview, and a clear workflow.
+          </p>
+
+          <ul class="space-y-4 text-left w-full mb-10 text-white/80 font-light">
+            <li class="flex items-start gap-4"><i class="fa-solid fa-check text-brand-blue mt-1"></i> <span>Client and
+                invoice management in a clear flow</span></li>
+            <li class="flex items-start gap-4"><i class="fa-solid fa-check text-brand-blue mt-1"></i> <span>Fast
+                creation of quotes and invoices</span></li>
+            <li class="flex items-start gap-4"><i class="fa-solid fa-check text-brand-blue mt-1"></i> <span>Status
+                overview of payments and outstanding amounts</span></li>
+            <li class="flex items-start gap-4"><i class="fa-solid fa-check text-brand-blue mt-1"></i> <span>Aimed at
+                efficient daily use</span></li>
+          </ul>
+
+          <a href="https://invoxa.vancoilliestudio.be" target="_blank"
+            class="w-full bg-white text-black text-center rounded-full py-4 font-semibold hover:bg-gray-200 transition-colors shadow-glow flex items-center justify-center gap-2">
+            More Info & Login <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
         </div>
-        <div>
-          <label for="from_email" class="block text-sm font-medium mb-1" data-reveal>Email address</label>
-          <input type="email" name="from_email" id="from_email" required placeholder="Your email address" class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"/>
+
+        <!-- Internal Apps & Tools -->
+        <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="glass-card rounded-[2rem] p-8">
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <h3 class="font-semibold text-xl">Mobile Apps</h3>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1">iOS</span>
+            </div>
+            <p class="text-sm text-white/60 font-light mb-6">
+              Consumer apps and tools with a focus on performance, local data, notifications, and a clean interface.
+            </p>
+            <ul class="space-y-3 list-none text-sm text-white/70 font-light mb-8">
+              <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-brand-purple rounded-full"></span> Fast
+                screens and clear navigation</li>
+              <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-brand-purple rounded-full"></span> Offline
+                or local storage where useful</li>
+              <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-brand-purple rounded-full"></span>
+                Multilingual where necessary</li>
+            </ul>
+            <a href="../index-en.html#apps"
+              class="text-brand-blue hover:text-white transition-colors text-sm font-medium flex items-center gap-2">
+              See more info on homepage <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+
+          <div class="glass-card rounded-[2rem] p-8">
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <h3 class="font-semibold text-xl">Web Apps & Internal Tools</h3>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1">Web</span>
+            </div>
+            <p class="text-sm text-white/60 font-light mb-6">
+              Products for daily processes like budget management, administration, inventory, or billing with clear UX.
+            </p>
+            <ul class="space-y-3 list-none text-sm text-white/70 font-light mb-8">
+              <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-brand-blue rounded-full"></span>
+                Dashboarding and overviews</li>
+              <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-brand-blue rounded-full"></span> Clear
+                forms and workflows</li>
+              <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-brand-blue rounded-full"></span> Aimed at
+                practical use</li>
+            </ul>
+            <a href="#contact" class="text-sm font-medium btn-secondary px-6 py-2 rounded-full inline-flex">
+              Request Info
+            </a>
+          </div>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH SECTION -->
+  <section id="approach" class="py-32 relative z-10 border-t border-white/5 bg-surface/30">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 section-header">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Usage & Support</h2>
+        <p class="text-lg text-white/50">This page shows products you can use. Via contact you can ask questions,
+          provide feedback or inquire about availability.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 products-grid">
+        <div class="glass-card rounded-xl p-6">
+          <h4 class="font-bold text-white mb-2">1. Choose a product</h4>
+          <p class="text-sm text-white/50 mb-3 font-light">See which product best fits your situation, such as a mobile
+            app, web app, or invoicing tool.</p>
+        </div>
+        <div class="glass-card rounded-xl p-6">
+          <h4 class="font-bold text-white mb-2">2. Start Fast</h4>
+          <p class="text-sm text-white/50 mb-3 font-light">The products are aimed at fast setup, clear screens, and a
+            workflow that's immediately usable.</p>
+        </div>
+        <div class="glass-card rounded-xl p-6">
+          <h4 class="font-bold text-white mb-2">3. Feedback & Questions</h4>
+          <p class="text-sm text-white/50 mb-3 font-light">If you have questions about usage or want to share feedback,
+            feel free to get in touch.</p>
+        </div>
+        <div class="glass-card rounded-xl p-6">
+          <h4 class="font-bold text-white mb-2">4. Follow-up</h4>
+          <p class="text-sm text-white/50 mb-3 font-light">Products can evolve over time with improvements and extra
+            features.</p>
+        </div>
+      </div>
+
+      <div class="mt-16 text-center text-sm text-white/50">
+        <p>Do you need a website next to software? Check out the <a href="../websites/index-en.html"
+            class="text-brand-blue hover:underline">websites page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-32 relative z-10 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div class="space-y-8 max-w-xl section-header">
+          <h2 class="text-4xl md:text-5xl font-bold tracking-tight">Questions or <span
+              class="text-gradient-brand">interest?</span></h2>
+          <p class="text-lg text-white/50 font-light">
+            Do you have a question about a product like Vancoillie Invoxa, or want to know if a certain tool fits your
+            situation? Send me a message!
+          </p>
+
+          <div class="space-y-6 pt-8">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-blue">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div>
+                <p class="text-sm text-white/50">Direct email</p>
+                <a href="mailto:support@vancoilliestudio.be"
+                  class="text-lg font-medium hover:text-brand-blue transition-colors">support@vancoilliestudio.be</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-[2rem] p-8 md:p-10 contact-form-reveal">
+          <form id="contact-form" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="from_name" class="block text-sm font-medium text-white/70">Name</label>
+                <input type="text" name="from_name" id="from_name" required placeholder="Your name"
+                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 transition-all" />
+              </div>
+              <div class="space-y-2">
+                <label for="from_email" class="block text-sm font-medium text-white/70">Email</label>
+                <input type="email" name="from_email" id="from_email" required placeholder="your@email.com"
+                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 transition-all" />
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label for="message" class="block text-sm font-medium text-white/70">Message</label>
+              <textarea name="message" id="message" rows="5" required
+                placeholder="Describe your idea or question about the software."
+                class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 transition-all resize-none"></textarea>
+            </div>
+            <button type="submit" id="sendBtn"
+              class="w-full btn-primary rounded-xl py-4 text-sm font-bold tracking-wide uppercase flex items-center justify-center gap-2">
+              <span id="sendText">Send Message</span>
+              <i class="-ml-0.5 mr-2 h-4 w-4 animate-spin hidden fa-solid fa-spinner" id="sendSpinner"></i>
+            </button>
+            <p class="text-xs text-white/30 text-center">Since I am a student freelancer, support and follow-ups depend
+              on my school planner.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-black pt-20 pb-10">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         <div class="md:col-span-2">
-          <label for="message" class="block text-sm font-medium mb-1" data-reveal>Message</label>
-          <textarea name="message" id="message" rows="6" required placeholder="Describe your idea, workflow or what the software should solve." class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#0866ff]"></textarea>
+          <a href="../index-en.html" class="flex items-center gap-2 mb-6">
+            <img src="../afbeeldingen/logo.png" alt="Vancoillie Studio Logo" class="h-6 w-auto opacity-80">
+            <span class="font-bold text-lg tracking-tight">Vancoillie <span class="text-white/50">Studio</span></span>
+          </a>
+          <p class="text-white/50 text-sm font-light max-w-xs leading-relaxed">
+            Simplify the technology. <br>Fast, static websites and web apps.
+          </p>
         </div>
-        <div class="md:col-span-2 flex items-center justify-between" data-reveal>
-          <p class="text-xs text-white/60">I only store what’s needed to reply to your message.</p>
-          <button type="submit" id="sendBtn" class="inline-flex items-center rounded-xl bg-[#0866ff] px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-[#0756e8] disabled:opacity-60 disabled:cursor-not-allowed">
-            <svg id="sendSpinner" class="-ml-0.5 mr-2 h-4 w-4 animate-spin hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" class="opacity-25" />
-              <path d="M12 2a10 10 0 0 1 10 10" class="opacity-75" />
-            </svg>
-            <span id="sendText">Send</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </section>
 
-  <footer class="border-t border-white/10 py-8 text-center text-sm text-white/50">
-    <p>© <span id="year"></span> Vancoillie Studio. Apps, software &amp; web apps. Based in Roeselare, West Flanders. Also available remotely.</p>
+        <div>
+          <h4 class="font-medium text-white mb-6">Services</h4>
+          <ul class="space-y-4 text-sm text-white/50 font-light">
+            <li><a href="../websites/index-en.html" class="hover:text-white transition-colors">Static Websites</a></li>
+            <li><a href="../apps/index-en.html" class="hover:text-white transition-colors">iOS Applications</a></li>
+            <li><a href="../apps/index-en.html" class="hover:text-white transition-colors">Web Applications</a></li>
+            <li><a href="../graphics/index-en.html" class="hover:text-white transition-colors">UI/UX & Graphics</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-medium text-white mb-6">Company</h4>
+          <ul class="space-y-4 text-sm text-white/50 font-light">
+            <li><a href="mailto:support@vancoilliestudio.be"
+                class="hover:text-white transition-colors">support@vancoilliestudio.be</a></li>
+            <li>Roeselare, Belgium</li>
+            <li>BE 1014.303.066</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between border-t border-white/10 pt-8 gap-6">
+        <p class="text-xs text-white/30 font-light">&copy; <span id="year"></span> Vancoillie Studio. All rights
+          reserved.</p>
+
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/batistevanco" target="_blank"
+            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:bg-white/10 hover:text-white transition-colors">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/batiste-vancoillie-622562291/" target="_blank"
+            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:bg-brand-blue hover:text-white transition-colors">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.instagram.com/vancoilliestudio/" target="_blank"
+            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:bg-brand-purple hover:text-white transition-colors">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <!-- GSAP Animations -->
   <script>
-    (function(){
-      const menu = document.getElementById('mobileMenu');
-      const openBtn = document.getElementById('openMenu');
-      const closeBtn = document.getElementById('closeMenu');
-      const backdrop = document.getElementById('menuBackdrop');
-      const links = document.querySelectorAll('#mobileMenu .menu-link');
-      function open(){ menu.classList.remove('hidden'); document.body.style.overflow='hidden'; }
-      function close(){ menu.classList.add('hidden'); document.body.style.overflow=''; }
-      openBtn?.addEventListener('click', open);
-      closeBtn?.addEventListener('click', close);
-      backdrop?.addEventListener('click', close);
-      links.forEach(a => a.addEventListener('click', close));
-      window.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
-  </script>
+    gsap.registerPlugin(ScrollTrigger);
 
-  <script>
-    (function(){
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      document.querySelectorAll('[data-reveal-group]').forEach(group => {
-        const step = parseInt(group.getAttribute('data-stagger') || '80', 10);
-        const kids = group.querySelectorAll(':scope [data-reveal]');
-        kids.forEach((el, i) => el.style.setProperty('--reveal-delay', (i*step)+'ms'));
+    // Navbar blur effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('glass-nav');
+        nav.classList.remove('bg-transparent', 'border-transparent');
+      } else {
+        nav.classList.remove('glass-nav');
+        nav.classList.add('bg-transparent', 'border-transparent');
+      }
+    });
+
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hero Animations
+    const tl = gsap.timeline();
+    tl.from(".hero-content > *", {
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: "power3.out",
+      delay: 0.2
+    })
+      .from(".hero-graphics", {
+        scale: 0.9,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+      }, "-=0.6");
+
+    // General scroll reveals
+    gsap.utils.toArray('.section-header').forEach(header => {
+      gsap.from(header, {
+        scrollTrigger: {
+          trigger: header,
+          start: "top 85%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
       });
-      const items = document.querySelectorAll('[data-reveal]');
-      if (reduce) { items.forEach(el => el.classList.add('revealed')); return; }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08, rootMargin: '0px 0px -20% 0px' });
-      items.forEach(el => io.observe(el));
-    })();
+    });
+
+    // Services Grid
+    gsap.from(".services-grid > div", {
+      scrollTrigger: {
+        trigger: ".services-grid",
+        start: "top 80%",
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: "back.out(1.2)"
+    });
+
+    // Products Grid
+    gsap.from(".products-grid > div", {
+      scrollTrigger: {
+        trigger: ".products-grid",
+        start: "top 80%",
+      },
+      scale: 0.95,
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: "power3.out"
+    });
+
+    // Contact Form
+    gsap.from(".contact-form-reveal", {
+      scrollTrigger: {
+        trigger: ".contact-form-reveal",
+        start: "top 85%",
+      },
+      x: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    });
   </script>
 
-  <script type="text/javascript">
-   document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+  <!-- EmailJS Script -->
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+      event.preventDefault();
 
-    const btn = document.getElementById('sendBtn');
-    const spin = document.getElementById('sendSpinner');
-    const txt = document.getElementById('sendText');
-    btn.disabled = true;
-    spin.classList.remove('hidden');
-    txt.textContent = 'Sending…';
+      const btn = document.getElementById('sendBtn');
+      const spin = document.getElementById('sendSpinner');
+      const txt = document.getElementById('sendText');
 
-    const templateParams = {
+      btn.disabled = true;
+      spin.classList.remove('hidden');
+      txt.textContent = 'Sending...';
+
+      const templateParams = {
         from_name: document.getElementById('from_name').value,
         from_email: document.getElementById('from_email').value,
         message: document.getElementById('message').value
-    };
+      };
 
-    if (!templateParams.from_name || !templateParams.from_email || !templateParams.message) {
-      alert('Please fill in all fields.');
-      spin.classList.add('hidden');
-      txt.textContent = 'Send';
-      btn.disabled = false;
-      return;
-    }
-
-    try {
-      emailjs.send('EmailVIH', 'template_a69qiqd', templateParams, { publicKey: 'zsAHVDd_EhMFKIEcy' })
-        .then(function() {
+      emailjs.send('EmailVIH', 'template_a69qiqd', templateParams)
+        .then(function () {
           window.location.href = '../BedanktStudio.html';
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.error('EmailJS error:', error);
+          alert('Something went wrong. Please try again later.');
           spin.classList.add('hidden');
-          txt.textContent = 'Send';
+          txt.textContent = 'Send Message';
           btn.disabled = false;
-          alert('Something went wrong while sending. Please try again later.');
         });
-    } catch (e) {
-      console.error('EmailJS not initialized or missing SDK:', e);
-      spin.classList.add('hidden');
-      txt.textContent = 'Send';
-      btn.disabled = false;
-      alert('Could not send your message right now. Please check the EmailJS configuration.');
-    }
-   });
+    });
   </script>
 </body>
+
 </html>

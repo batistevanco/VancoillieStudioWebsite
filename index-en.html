@@ -1,866 +1,348 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vancoillie Studio — Website and App development in Roeselare</title>
-    <meta name="description"
-        content="Modern, fast static websites and apps optimized for performance, SEO, and user-friendly UI. Developed by Vancoillie Studio in Roeselare." />
-    <meta name="keywords"
-        content="static websites, custom website, web design, modern websites, fast websites, SEO optimization, apps, software, UX, UI, Vancoillie Studio, Belgium" />
-    <meta name="theme-color" content="#0a0a0a" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vancoillie Studio — Website development in Roeselare</title>
+  <meta name="description" content="Modern, fast static websites optimised for performance, SEO and user-friendly UI. Professional website development by Vancoillie Studio in Roeselare." />
+  <meta name="keywords" content="static websites, custom website, web design, modern websites, fast websites, SEO optimisation, apps, software, UX, UI, Vancoillie Studio, Belgium" />
+  <meta name="theme-color" content="#000000" />
 
-    <link rel="alternate" hreflang="nl" href="https://www.vancoilliestudio.be/" />
-    <link rel="alternate" hreflang="en" href="https://www.vancoilliestudio.be/index-en.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.vancoilliestudio.be/" />
+  <link rel="alternate" hreflang="nl" href="https://www.vancoilliestudio.be/" />
+  <link rel="alternate" hreflang="en" href="https://www.vancoilliestudio.be/index-en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.vancoilliestudio.be/" />
+  <link rel="canonical" href="https://www.vancoilliestudio.be/index-en.html" />
+  <meta name="robots" content="index,follow" />
 
-    <link rel="canonical" href="https://www.vancoilliestudio.be/index-en.html">
-    <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Vancoillie Studio — Apps &amp; Websites" />
+  <meta property="og:description" content="Simplify the technology. Modern, fast static websites focused on performance, SEO and user-friendly UI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
+  <meta property="og:url" content="https://www.vancoilliestudio.be/index-en.html" />
+  <meta property="og:locale" content="en_US" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Vancoillie Studio — Apps & Websites" />
-    <meta property="og:description"
-        content="Simplify the technology. Modern, fast static custom websites focused on performance, SEO, and friendly UI." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://www.vancoilliestudio.be/afbeeldingen/logo.png" />
-    <meta property="og:url" content="https://www.vancoilliestudio.be/index-en.html" />
-    <meta property="og:locale" content="en_US" />
+  <link rel="icon" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" sizes="48x48" href="favicon-48x48.png" />
+  <link rel="icon" sizes="96x96" href="favicon-96x96.png" />
+  <link rel="icon" sizes="192x192" href="favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180x180.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon-48x48.ico" />
 
-    <!-- Favicon -->
-    <link rel="icon" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" sizes="48x48" href="favicon-48x48.png">
-    <link rel="icon" sizes="96x96" href="favicon-96x96.png">
-    <link rel="icon" sizes="192x192" href="favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon-180x180.png">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon-48x48.ico">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-                    },
-                    colors: {
-                        background: '#0a0a0a',
-                        surface: '#151515',
-                        brand: {
-                            blue: '#2997ff',
-                            purple: '#bf5af2',
-                        }
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                        'hero-glow': 'radial-gradient(circle at 50% 50%, rgba(41, 151, 255, 0.15) 0%, rgba(0,0,0,0) 50%)',
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <style>
-        body {
-            font-family: 'SF Pro Display', -apple-system, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            background-color: #0a0a0a;
-            color: #f5f5f7;
-            overflow-x: hidden;
-        }
-
-        .glass-nav {
-            background: rgba(10, 10, 10, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px -20px rgba(41, 151, 255, 0.2);
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .text-gradient-brand {
-            background: linear-gradient(135deg, #2997ff 0%, #bf5af2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Hide scrollbar for clean look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        .btn-primary {
-            background: #f5f5f7;
-            color: #1d1d1f;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: #f5f5f7;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* 3D Model placeholder styling */
-        .hero-graphics {
-            box-shadow: 0 0 80px rgba(41, 151, 255, 0.2);
-        }
-
-        /* Marquee for sponsors */
-        .marquee-container {
-            display: flex;
-            overflow: hidden;
-            user-select: none;
-            gap: 2rem;
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-
-        .marquee-content {
-            display: flex;
-            flex-shrink: 0;
-            justify-content: space-around;
-            min-width: 100%;
-            gap: 4rem;
-            animation: scroll 30s linear infinite;
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .sponsor-logo {
-            filter: grayscale(100%) opacity(50%);
-            transition: filter 0.3s ease;
-            height: 40px;
-            object-fit: contain;
-        }
-
-        .sponsor-logo:hover {
-            filter: grayscale(0%) opacity(100%);
-        }
-    </style>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-        emailjs.init({ publicKey: "zsAHVDd_EhMFKIEcy" });
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init({ publicKey: "zsAHVDd_EhMFKIEcy" });</script>
 </head>
+<body>
 
-<body class="bg-background text-white antialiased">
-
-    <!-- Background Glows -->
-    <div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
-        <div
-            class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-blue/20 rounded-full blur-[120px] mix-blend-screen animate-blob">
-        </div>
-        <div class="absolute top-[20%] right-[-10%] w-[30%] h-[30%] bg-brand-purple/20 rounded-full blur-[120px] mix-blend-screen animate-blob"
-            style="animation-delay: 2s;"></div>
-        <div class="absolute bottom-[-20%] left-[20%] w-[50%] h-[50%] bg-[#0866ff]/10 rounded-full blur-[120px] mix-blend-screen animate-blob"
-            style="animation-delay: 4s;"></div>
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="apple-nav">
+    <div class="nav-inner">
+      <a href="index-en.html" class="nav-logo">
+        <img src="afbeeldingen/logo.png" alt="Logo" />
+        Vancoillie <span>Studio</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="websites/index-en.html">Websites</a></li>
+        <li><a href="apps/index-en.html">Apps</a></li>
+        <li><a href="software/index-en.html">Software</a></li>
+        <li><a href="about/index-en.html">About Us</a></li>
+        <li><a href="contact/index-en.html">Contact</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:16px">
+        <a href="index.html" class="nav-lang">NL</a>
+        <button class="nav-hamburger" id="menuOpen" aria-label="Open menu">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
     </div>
+  </nav>
 
-    <!-- ================= NAVBAR ================= -->
-    <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <nav class="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
-            <a href="#home" class="flex items-center gap-3 group">
-                <img src="afbeeldingen/logo.png" alt="Logo"
-                    class="h-6 w-6 opacity-90 group-hover:opacity-100 transition-opacity" />
-                <span class="font-bold text-lg tracking-tight">Vancoillie <span
-                        class="text-white/60">Studio</span></span>
-            </a>
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileMenu">
+    <button class="mobile-close" id="menuClose">&times;</button>
+    <a href="websites/index-en.html">Websites</a>
+    <a href="apps/index-en.html">Apps</a>
+    <a href="software/index-en.html">Software</a>
+    <a href="contact/index-en.html">Contact</a>
+    <a href="index.html" style="font-size:16px;color:#86868b">Nederlands</a>
+  </div>
 
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#websites" class="text-white/70 hover:text-white transition-colors">Websites</a>
-                <a href="#apps" class="text-white/70 hover:text-white transition-colors">Apps</a>
-                <a href="#features" class="text-white/70 hover:text-white transition-colors">Features</a>
-                <a href="#sponsors" class="text-white/70 hover:text-white transition-colors">Sponsors</a>
-            </div>
-
-            <div class="flex items-center gap-4">
-                <a href="index.html" class="text-sm font-medium text-white/50 hover:text-white transition-colors">NL</a>
-                <a href="#contact"
-                    class="hidden md:inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium hover:bg-white hover:text-black transition-all">
-                    Contact
-                </a>
-
-                <!-- Hamburger -->
-                <button id="mobile-menu-btn" class="md:hidden text-white p-2" aria-label="Toggle menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu"
-        class="fixed inset-0 bg-black/95 z-40 hidden flex-col items-center justify-center pt-16 transition-opacity duration-300 opacity-0 backdrop-blur-md pb-20">
-        <div class="flex flex-col items-center gap-8 text-xl font-medium w-full px-6">
-            <a href="#websites"
-                class="mobile-link text-white/70 hover:text-white transition-colors w-full text-center py-2">Websites</a>
-            <a href="#apps"
-                class="mobile-link text-white/70 hover:text-white transition-colors w-full text-center py-2">Apps</a>
-            <a href="#features"
-                class="mobile-link text-white/70 hover:text-white transition-colors w-full text-center py-2">Features</a>
-            <a href="#sponsors"
-                class="mobile-link text-white/70 hover:text-white transition-colors w-full text-center py-2">Sponsors</a>
-            <a href="#contact"
-                class="mobile-link btn-secondary flex items-center justify-center rounded-full px-8 py-4 text-lg font-medium mt-4">Contact</a>
-        </div>
+  <!-- ============ HERO ============ -->
+  <section class="section section-hero section-dark" id="home">
+    <div class="container" style="text-align:center">
+      <h1 class="hero-headline fade-in">Vancoillie Studio</h1>
+      <p class="subhead fade-in" style="max-width:680px;margin:0 auto 8px">Simplify the Technology.</p>
+      <p class="body-text fade-in" style="max-width:580px;margin:0 auto">
+        Professional website development for freelancers and small businesses. Apps and software are available as ready-to-use products — not custom orders.
+      </p>
+      <div class="btn-group fade-in">
+        <a href="websites/index-en.html" class="btn btn-blue">Discover Websites</a>
+        <a href="apps/index-en.html" class="btn btn-outline">View Apps</a>
+      </div>
     </div>
+  </section>
 
-    <!-- ================= HERO ================= -->
-    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8 w-full">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+  <!-- ============ WEBSITES SHOWCASE ============ -->
+  <section class="product-section section-light" id="websites">
+    <div class="fade-in">
+      <p class="eyebrow" style="color:#1d1d1f">Web Design</p>
+      <h2 class="section-headline" style="color:#1d1d1f">Websites.</h2>
+      <p class="subhead subhead-light" style="max-width:500px;margin:0 auto">Fast, secure and pixel-perfect. Static websites that just work.</p>
+      <div class="link-group">
+        <a href="websites/index-en.html" class="link-dark">More info <span class="arrow">&rsaquo;</span></a>
+        <a href="websites/index-en.html#pricing" class="link-dark">View packages <span class="arrow">&rsaquo;</span></a>
+      </div>
+    </div>
+  </section>
 
-                <div class="space-y-8 z-10 hero-text">
-                    <div
-                        class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-white/70 backdrop-blur-md">
-                        <span class="flex h-2 w-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
-                        Available for new projects
-                    </div>
+  <!-- ============ APPS SHOWCASE ============ -->
+  <section class="product-section section-dark" id="apps">
+    <div class="fade-in">
+      <p class="eyebrow">Apps</p>
+      <h2 class="section-headline">App Ecosystem.</h2>
+      <p class="subhead" style="max-width:520px;margin:0 auto">Ready-to-use native iOS apps and web tools. Available to download and use — not custom-built on request.</p>
+      <div class="link-group">
+        <a href="apps/index-en.html" class="link-blue">Discover all apps <span class="arrow">&rsaquo;</span></a>
+      </div>
+    </div>
+  </section>
 
-                    <h1 class="text-5xl sm:text-7xl font-bold tracking-tighter leading-[1.1]">
-                        Architecting the <br />
-                        <span class="text-gradient-brand">digital future.</span>
-                    </h1>
-
-                    <p class="text-lg sm:text-xl text-white/50 max-w-xl leading-relaxed">
-                        Simplify the Technology
-                    </p>
-
-                    <p class="text-lg sm:text-xl text-white/50 max-w-xl leading-relaxed">
-                        Top of the line websites and applications designed with a flawless premium aesthetic,
-                        focused on performance, SEO, and hyper-modern 3D interfaces.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="websites/index.html"
-                            class="btn-primary rounded-full px-8 py-4 text-center font-semibold text-sm">
-                            Build a website
-                        </a>
-                        <a href="#apps" class="btn-secondary rounded-full px-8 py-4 text-center font-semibold text-sm">
-                            Discover Apps
-                        </a>
-                    </div>
-                </div>
-
-                <div class="relative z-0 h-[400px] sm:h-[600px] w-full flex items-center justify-center hero-image">
-                    <!-- Premium Generated 3D Image -->
-                    <div class="relative w-full max-w-lg aspect-square">
-                        <!-- Glow behind image -->
-                        <div class="absolute inset-0 bg-brand-blue/30 blur-[100px] rounded-full"></div>
-                        <img src="afbeeldingen/hero_bg_generated.png" alt="3D Abstract Premium Tech"
-                            class="relative z-10 w-full h-full object-cover rounded-3xl hero-graphics mix-blend-lighten animate-float" />
-                    </div>
-                </div>
-
+  <!-- ============ 2-COL GRID: SOFTWARE + CONTACT ============ -->
+  <section class="section section-dark" style="padding:6px 0 0">
+    <div class="container-wide">
+      <div class="card-grid">
+        <!-- Software Card -->
+        <div class="card card-dark fade-in" style="background:linear-gradient(160deg,#1d1d1f 60%,#0d3b66)">
+          <p class="eyebrow" style="color:#2997ff">Software</p>
+          <h3 class="card-headline">Invoxa &amp; more.</h3>
+          <p class="card-subhead">Ready-to-use invoicing software and tools. Available for anyone to use — not built on request.</p>
+          <div class="link-group" style="justify-content:flex-start;margin-top:14px">
+            <a href="software/index-en.html" class="link-blue" style="font-size:17px">More info <span class="arrow">&rsaquo;</span></a>
+          </div>
+          <div class="card-image">
+            <div style="display:flex;gap:12px;align-items:flex-end;justify-content:center">
+              <div class="app-icon" style="background:linear-gradient(135deg,#06b6d4,#0891b2);width:64px;height:64px;border-radius:14px;font-size:26px"><i class="fa-solid fa-file-invoice"></i></div>
+              <div class="app-icon" style="background:linear-gradient(135deg,#10b981,#059669);width:52px;height:52px;border-radius:12px;font-size:22px"><i class="fa-solid fa-wallet"></i></div>
+              <div class="app-icon" style="background:linear-gradient(135deg,#3b82f6,#2563eb);width:52px;height:52px;border-radius:12px;font-size:22px"><i class="fa-regular fa-calendar-check"></i></div>
             </div>
+          </div>
         </div>
 
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-50 animate-bounce">
-            <span class="text-xs uppercase tracking-widest mb-2 font-medium">Scroll down</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
-                </path>
-            </svg>
+        <!-- Contact Card -->
+        <div class="card card-dark fade-in" style="background:linear-gradient(160deg,#1d1d1f 60%,#2d1b4e)">
+          <p class="eyebrow" style="color:#bf5af2">Contact</p>
+          <h3 class="card-headline">Let's talk.</h3>
+          <p class="card-subhead">Ready to start your website project? Get in touch for a free quote.</p>
+          <div class="link-group" style="justify-content:flex-start;margin-top:14px">
+            <a href="contact/index-en.html" class="link-blue" style="font-size:17px;color:#bf5af2">Get in touch <span class="arrow">&rsaquo;</span></a>
+          </div>
+          <div class="card-image">
+            <div style="text-align:center">
+              <div style="font-size:48px;color:rgba(245,245,247,.08);margin-bottom:12px"><i class="fa-regular fa-envelope"></i></div>
+              <p style="font-size:15px;color:#86868b">support@vancoilliestudio.be</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ================= SPONSORS ================= -->
-    <section id="sponsors" class="py-12 border-y border-white/5 bg-black/50 backdrop-blur-xl relative z-10">
-        <div class="text-center mb-6">
-            <p class="text-xs font-semibold tracking-[0.2em] text-white/40 uppercase">Proudly Sponsored By</p>
+  <!-- ============ FEATURES ============ -->
+  <section class="section section-dark" id="features">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h2 class="section-headline">Why Vancoillie Studio.</h2>
+        <p class="subhead" style="max-width:560px;margin:0 auto">Built on speed, security and simplicity. Every pixel counts.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card fade-in stagger-1">
+          <div class="feature-icon" style="background:rgba(0,113,227,.12);color:#0071e3"><i class="fa-solid fa-bolt"></i></div>
+          <h3 class="feature-title">Fast by default</h3>
+          <p class="feature-desc">Performance first. Fast loading times are a priority on every project.</p>
         </div>
-        <div class="flex items-center justify-center mx-auto max-w-7xl px-4">
-            <a href="https://www.vancoillieithulp.be" target="_blank" rel="noopener noreferrer"
-                class="opacity-70 hover:opacity-100 transition-opacity duration-300">
-                <img src="afbeeldingen/sponsors/sponsorVancoillieITHulp.png" alt="Vancoillie IT Hulp"
-                    class="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300" />
-            </a>
+        <div class="feature-card fade-in stagger-2">
+          <div class="feature-icon" style="background:rgba(48,209,88,.12);color:#30d158"><i class="fa-solid fa-users"></i></div>
+          <h3 class="feature-title">User-first design</h3>
+          <p class="feature-desc">Flows match how people really think and work.</p>
         </div>
-    </section>
-
-    <!-- ================= FEATURES ================= -->
-    <section id="features" class="py-32 relative z-10 border-t border-white/5">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-20 section-header">
-                <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                    <span class="text-gradient-brand">Simplify the technology.</span>
-                    <span class="block mt-2 text-white/90">Fast, helpful, beautifully simple.</span>
-                </h2>
-                <p class="text-lg text-white/50">I primarily build fast, static websites with a user-first approach,
-                    complemented by custom apps where logical. Clear UI, secure data, and reliable support — ensuring
-                    effortless usage for the end-user.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 features-grid">
-                <div class="glass-card rounded-2xl p-6">
-                    <div
-                        class="h-10 w-10 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-bolt"></i>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">Default Fast</h3>
-                    <p class="text-sm text-white/50">Performance is a priority. Fast loading times dictate design.</p>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6">
-                    <div
-                        class="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">User-first design</h3>
-                    <p class="text-sm text-white/50">I listen, test, and adapt. User flows match human expectations.</p>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6">
-                    <div
-                        class="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">Secure Data</h3>
-                    <p class="text-sm text-white/50">Collect less, store safer: encryption, minimal permissions, and
-                        transparent settings.</p>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6">
-                    <div
-                        class="h-10 w-10 rounded-xl bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">Simple, clean UI</h3>
-                    <p class="text-sm text-white/50">Zero clutter. Crisp layouts and highly legible typography to
-                        accelerate tasks.</p>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6">
-                    <div
-                        class="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-chart-pie"></i>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">Private analytics</h3>
-                    <p class="text-sm text-white/50">No trackers or ads. Purely anonymous, aggregated metrics — and only
-                        when explicitly permitted.</p>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6">
-                    <div
-                        class="h-10 w-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">Reliable Support</h3>
-                    <p class="text-sm text-white/50">Friendly assistance when needed. Fast answers, clear fixes.</p>
-                </div>
-            </div>
+        <div class="feature-card fade-in stagger-3">
+          <div class="feature-icon" style="background:rgba(255,159,10,.12);color:#ff9f0a"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3 class="feature-title">Secure data</h3>
+          <p class="feature-desc">Collect less, store safely. Encryption and minimal permissions.</p>
         </div>
-    </section>
-
-    <!-- ================= WEBSITES BENTO ================= -->
-    <section id="websites" class="py-32 relative z-10">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-20 section-header">
-                <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Premium <span
-                        class="text-white/50">Static Websites</span></h2>
-                <p class="text-lg text-white/50">Lightweight, SEO-friendly, lightning-fast. Perfectly optimized for
-                    desktop and mobile.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bento-grid">
-                <!-- Bento Item 1 -->
-                <div class="glass-card rounded-[2rem] p-8 md:col-span-2 relative overflow-hidden group">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-brand-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="relative z-10 flex flex-col h-full justify-between">
-                        <div>
-                            <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
-                                <i class="fa-solid fa-bolt text-xl text-white"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-3">Fast & Light</h3>
-                            <p class="text-white/50 max-w-md">Static websites have no heavy databases, allowing them to
-                                load instantly. This results in better retention and higher Google rankings.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bento Item 2 -->
-                <div class="glass-card rounded-[2rem] p-8 relative overflow-hidden group">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-brand-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="relative z-10">
-                        <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-magnifying-glass text-xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">SEO Optimized</h3>
-                        <p class="text-white/50 text-sm">Perfect structure, meta tags, and fast load times dominate
-                            search engines.</p>
-                    </div>
-                </div>
-
-                <!-- Bento Item 3 -->
-                <div class="glass-card rounded-[2rem] p-8 relative overflow-hidden group">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="relative z-10">
-                        <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-mobile-screen text-xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Modern Design</h3>
-                        <p class="text-white/50 text-sm">Responsive, pixel-perfect design tailored to the latest UI/UX
-                            standards.</p>
-                    </div>
-                </div>
-
-                <!-- CTA Item -->
-                <div
-                    class="glass-card rounded-[2rem] p-8 md:col-span-2 relative overflow-hidden flex items-center justify-between border-brand-blue/30 bg-brand-blue/5">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2">Ready to dominate?</h3>
-                        <p class="text-white/50 hidden md:block">Discover how we transform your online presence.</p>
-                    </div>
-                    <a href="websites/index.html"
-                        class="btn-primary rounded-full px-6 py-3 font-semibold text-sm whitespace-nowrap">View
-                        Content</a>
-                </div>
-            </div>
+        <div class="feature-card fade-in stagger-4">
+          <div class="feature-icon" style="background:rgba(191,90,242,.12);color:#bf5af2"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3 class="feature-title">Simple UI</h3>
+          <p class="feature-desc">No clutter. Clear layout and readable typography for everyone.</p>
         </div>
-    </section>
-
-    <!-- ================= APPS SHOWCASE ================= -->
-    <section id="apps" class="py-32 relative z-10 border-t border-white/5">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-20 section-header">
-                <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">App <span
-                        class="text-white/50">Ecosystem</span></h2>
-                <p class="text-lg text-white/50">Native iOS apps and powerful web applications. Built for efficiency,
-                    privacy, and design.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 app-grid">
-
-                <!-- App 1 -->
-                <div class="glass-card rounded-[2rem] p-8 flex flex-col items-center text-center group">
-                    <div
-                        class="w-24 h-24 rounded-3xl bg-gradient-to-br from-emerald-400 to-emerald-600 mb-6 shadow-[0_0_30px_rgba(52,211,153,0.3)] transition-transform group-hover:scale-110 flex items-center justify-center">
-                        <i class="fa-solid fa-wallet text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">GeldInZicht</h3>
-                    <p class="text-white/50 text-sm flex-grow mb-6">Privacy-first budget app. Stored locally, ready to
-                        track your income, expenses, and goals.</p>
-                    <a href="https://apps.apple.com/us/app/geldinzicht/id6758055714" target="_blank"
-                        class="w-full btn-secondary rounded-xl py-3 text-sm font-semibold">Download iOS</a>
-                </div>
-
-                <!-- App 2 -->
-                <div class="glass-card rounded-[2rem] p-8 flex flex-col items-center text-center group">
-                    <div
-                        class="w-24 h-24 rounded-3xl bg-gradient-to-br from-blue-400 to-blue-600 mb-6 shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-transform group-hover:scale-110 flex items-center justify-center">
-                        <i class="fa-regular fa-calendar-check text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">AbboBuddy</h3>
-                    <p class="text-white/50 text-sm flex-grow mb-6">Manage all your subscriptions with smart reminders
-                        and an AI chatbot for questions.</p>
-                    <a href="https://apps.apple.com/us/app/abbobuddy/id6754507816" target="_blank"
-                        class="w-full btn-secondary rounded-xl py-3 text-sm font-semibold">Download iOS</a>
-                </div>
-
-                <!-- App 3 -->
-                <div class="glass-card rounded-[2rem] p-8 flex flex-col items-center text-center group">
-                    <div
-                        class="w-24 h-24 rounded-3xl bg-gradient-to-br from-violet-400 to-violet-600 mb-6 shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-transform group-hover:scale-110 flex items-center justify-center">
-                        <i class="fa-solid fa-basket-shopping text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">InMandje</h3>
-                    <p class="text-white/50 text-sm flex-grow mb-6">Lightning-fast grocery lists. Automatically sorts by
-                        store for maximum efficiency.</p>
-                    <a href="https://apps.apple.com/us/app/inmandje/id6754509662" target="_blank"
-                        class="w-full btn-secondary rounded-xl py-3 text-sm font-semibold">Download iOS</a>
-                </div>
-
-                <!-- App 4 -->
-                <div class="glass-card rounded-[2rem] p-8 flex flex-col items-center text-center group">
-                    <div
-                        class="w-24 h-24 rounded-3xl bg-gradient-to-br from-cyan-400 to-cyan-600 mb-6 shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-transform group-hover:scale-110 flex items-center justify-center">
-                        <i class="fa-solid fa-file-invoice text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Invoxa</h3>
-                    <p class="text-white/50 text-sm flex-grow mb-6">Cloud invoicing software for freelancers with a
-                        clear workflow.</p>
-                    <a href="https://invoxa.vancoilliestudio.be" target="_blank"
-                        class="w-full btn-secondary rounded-xl py-3 text-sm font-semibold">Discover SaaS</a>
-                </div>
-
-                <!-- CTA App -->
-                <div
-                    class="glass-card rounded-[2rem] p-8 md:col-span-2 flex flex-col justify-center items-center text-center border-white/10 bg-white/5">
-                    <h3 class="text-2xl font-bold mb-4">Want to discover more?</h3>
-                    <p class="text-white/50 mb-6 max-w-md">View our full range of news readers, inventory management,
-                        and budget web applications.</p>
-                    <a href="apps/index.html" class="btn-primary rounded-full px-8 py-3 text-sm font-semibold">View All
-                        Apps</a>
-                </div>
-
-            </div>
+        <div class="feature-card fade-in stagger-5">
+          <div class="feature-icon" style="background:rgba(255,69,58,.12);color:#ff453a"><i class="fa-solid fa-chart-pie"></i></div>
+          <h3 class="feature-title">Private analytics</h3>
+          <p class="feature-desc">No trackers or ads. Only anonymous metrics with permission.</p>
         </div>
-    </section>
-
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" class="py-32 relative z-10 border-t border-white/5">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center mb-16 section-header">
-                <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Contact</h2>
-                <p class="text-lg text-white/50">Prefer to email directly? <a
-                        class="text-brand-blue font-semibold hover:underline"
-                        href="mailto:support@vancoilliestudio.be">support@vancoilliestudio.be</a></p>
-            </div>
-
-            <div class="max-w-2xl mx-auto glass-card rounded-[2rem] p-8 md:p-10 contact-form-reveal">
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label for="from_name" class="block text-sm font-medium text-white/70">Name</label>
-                            <input type="text" name="from_name" id="from_name" required placeholder="Your name"
-                                class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 transition-all" />
-                        </div>
-                        <div class="space-y-2">
-                            <label for="from_email" class="block text-sm font-medium text-white/70">Email</label>
-                            <input type="email" name="from_email" id="from_email" required
-                                placeholder="Your email address"
-                                class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 transition-all" />
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <label for="message" class="block text-sm font-medium text-white/70">Message</label>
-                        <textarea name="message" id="message" rows="5" required
-                            placeholder="Tell me a little about your project or question"
-                            class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 transition-all resize-none"></textarea>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                        <p class="text-xs text-white/30">We only store what's necessary to reply.</p>
-                        <button type="submit" id="sendBtn"
-                            class="w-full sm:w-auto btn-primary rounded-xl px-8 py-3 text-sm font-bold tracking-wide flex items-center justify-center gap-2">
-                            <span id="sendText">Send</span>
-                            <i class="-ml-0.5 mr-2 h-4 w-4 animate-spin hidden fa-solid fa-spinner"
-                                id="sendSpinner"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
+        <div class="feature-card fade-in stagger-6">
+          <div class="feature-icon" style="background:rgba(100,210,255,.12);color:#64d2ff"><i class="fa-solid fa-headset"></i></div>
+          <h3 class="feature-title">Reliable support</h3>
+          <p class="feature-desc">Fast answers, clear fixes. No ticketing systems.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="border-t border-white/10 bg-black pt-20 pb-10">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <div class="lg:col-span-2">
-                    <a href="#home" class="flex items-center gap-3 mb-6">
-                        <img src="afbeeldingen/logo.png" alt="Logo" class="h-8 w-8" />
-                        <span class="font-bold text-xl">Vancoillie <span class="text-white/60">Studio</span></span>
-                    </a>
-                    <p class="text-white/50 max-w-sm mb-6">Simplify the technology. We build the future of the digital
-                        landscape with premium aesthetics and unbeatable performance.</p>
-                    <div class="flex gap-4">
-                        <a href="https://github.com/batistevanco" target="_blank"
-                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 transition-colors"><i
-                                class="fa-brands fa-github text-white"></i></a>
-                        <a href="https://www.linkedin.com/in/batiste-vancoillie-622562291/" target="_blank"
-                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 transition-colors"><i
-                                class="fa-brands fa-linkedin-in text-white"></i></a>
-                        <a href="https://www.instagram.com/vancoilliestudio/" target="_blank"
-                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 transition-colors"><i
-                                class="fa-brands fa-instagram text-white"></i></a>
-                    </div>
-                </div>
+  <!-- ============ SPONSOR ============ -->
+  <div class="sponsor-strip section-dark">
+    <p class="sponsor-label">Proudly Sponsored By</p>
+    <a href="https://www.vancoillieithulp.be" target="_blank" rel="noopener noreferrer" style="display:inline-block">
+      <img src="afbeeldingen/sponsors/sponsorVancoillieITHulp.png" alt="Vancoillie IT Hulp" class="sponsor-logo-img" />
+    </a>
+  </div>
 
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Services</h4>
-                    <ul class="space-y-3 text-sm text-white/50">
-                        <li><a href="websites/index.html" class="hover:text-white transition-colors">Static Websites</a>
-                        </li>
-                        <li><a href="apps/index.html" class="hover:text-white transition-colors">iOS Applications</a>
-                        </li>
-                        <li><a href="apps/index.html" class="hover:text-white transition-colors">Web Applications</a>
-                        </li>
-                        <li><a href="#" class="hover:text-white transition-colors">UI/UX Design</a></li>
-                    </ul>
-                </div>
+  <!-- ============ CONTACT SECTION ============ -->
+  <section class="section section-dark" id="contact">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h2 class="section-headline">Get in touch.</h2>
+        <p class="subhead" style="max-width:480px;margin:0 auto">
+          Prefer to email directly? <a href="mailto:support@vancoilliestudio.be" style="color:#2997ff">support@vancoilliestudio.be</a>
+        </p>
+      </div>
 
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Contact</h4>
-                    <ul class="space-y-3 text-sm text-white/50">
-                        <li><a href="mailto:support@vancoilliestudio.be"
-                                class="hover:text-white transition-colors">support@vancoilliestudio.be</a></li>
-                        <li>Roeselare, Belgium</li>
-                        <li>BE 1014.303.066</li>
-                    </ul>
-                </div>
+      <div class="form-container fade-in" style="margin-top:48px">
+        <form id="contact-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="from_name" class="form-label">Name</label>
+              <input type="text" name="from_name" id="from_name" required placeholder="Your name" class="form-input" />
             </div>
-
-            <div
-                class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
-                <p>&copy; <span id="year"></span> Vancoillie Studio. All rights reserved.</p>
-                <div class="flex gap-4">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                </div>
+            <div class="form-group">
+              <label for="from_email" class="form-label">Email</label>
+              <input type="email" name="from_email" id="from_email" required placeholder="Your email address" class="form-input" />
             </div>
+          </div>
+          <div class="form-group" style="margin-bottom:16px">
+            <label for="message" class="form-label">Message</label>
+            <textarea name="message" id="message" rows="5" required placeholder="Tell us a little about your project or question" class="form-input"></textarea>
+          </div>
+          <button type="submit" id="sendBtn" class="form-submit">
+            <span id="sendText">Send</span>
+            <i class="fa-solid fa-spinner fa-spin" id="sendSpinner" style="display:none"></i>
+          </button>
+          <p class="form-note">We only store what's needed to reply.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="apple-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <div>
+          <a href="index-en.html" class="nav-logo" style="margin-bottom:12px;display:inline-flex">
+            <img src="afbeeldingen/logo.png" alt="Logo" />
+            Vancoillie <span>Studio</span>
+          </a>
+          <p style="color:#86868b;font-size:12px;max-width:260px;line-height:1.5;margin-top:8px">
+            Professional website development from Roeselare. Apps and software available as ready-to-use products.
+          </p>
+          <div class="footer-social">
+            <a href="https://github.com/batistevanco" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/batiste-vancoillie-622562291/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/vancoilliestudio/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
         </div>
-    </footer>
+        <div>
+          <h4 class="footer-heading">Websites</h4>
+          <ul class="footer-links">
+            <li><a href="websites/index-en.html">Static Websites</a></li>
+            <li><a href="websites/index-en.html#pricing">Packages &amp; Pricing</a></li>
+            <li><a href="about/index-en.html">About Us</a></li>
+            <li><a href="contact/index-en.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Products</h4>
+          <ul class="footer-links">
+            <li><a href="https://apps.apple.com/us/app/geldinzicht/id6758055714" target="_blank">GeldInZicht</a></li>
+            <li><a href="https://apps.apple.com/us/app/abbobuddy/id6754507816" target="_blank">AbboBuddy</a></li>
+            <li><a href="https://apps.apple.com/us/app/inmandje/id6754509662" target="_blank">InMandje</a></li>
+            <li><a href="https://apps.apple.com/us/app/vancoillie-news/id6754501481" target="_blank">Vancoillie News</a></li>
+            <li><a href="https://apps.apple.com/us/app/stockbuddy/id6754696292" target="_blank">StockBuddy</a></li>
+            <li><a href="https://invoxa.vancoilliestudio.be" target="_blank">Invoxa</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:support@vancoilliestudio.be">support@vancoilliestudio.be</a></li>
+            <li>Roeselare, Belgium</li>
+            <li>BE 1014.303.066</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Vancoillie Studio. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
+    // Mobile menu
+    const menuOpen = document.getElementById('menuOpen');
+    const menuClose = document.getElementById('menuClose');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuOpen?.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    menuClose?.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; });
+    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+  </script>
 
-        // Navbar blur effect on scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-lg', 'bg-black/90');
-                navbar.classList.remove('bg-transparent');
-            } else {
-                navbar.classList.remove('shadow-lg', 'bg-black/90');
-                navbar.classList.add('bg-transparent');
-            }
+  <!-- EmailJS -->
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('sendBtn');
+      const spin = document.getElementById('sendSpinner');
+      const txt = document.getElementById('sendText');
+      btn.disabled = true; spin.style.display = 'inline-block'; txt.textContent = 'Sending...';
+
+      const params = {
+        from_name: document.getElementById('from_name').value,
+        from_email: document.getElementById('from_email').value,
+        message: document.getElementById('message').value
+      };
+      if (!params.from_name || !params.from_email || !params.message) {
+        alert('Please fill in all fields.');
+        spin.style.display = 'none'; txt.textContent = 'Send'; btn.disabled = false;
+        return;
+      }
+      emailjs.send('EmailVIH', 'template_a69qiqd', params, { publicKey: 'zsAHVDd_EhMFKIEcy' })
+        .then(() => { window.location.href = 'BedanktStudio.html'; })
+        .catch(err => {
+          console.error('EmailJS error:', err);
+          spin.style.display = 'none'; txt.textContent = 'Send'; btn.disabled = false;
+          alert('An error occurred. Please try again.');
         });
+    });
+  </script>
 
-        // Hero Animations
-        const tl = gsap.timeline();
-        tl.from(".hero-text > *", {
-            y: 30,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.15,
-            ease: "power3.out",
-            delay: 0.2
-        })
-            .from(".hero-image", {
-                scale: 0.9,
-                opacity: 0,
-                duration: 1.5,
-                ease: "power3.out"
-            }, "-=1");
+  <!-- Back to top button -->
+  <button id="backToTop" aria-label="Back to top" class="back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-        // Section Headers
-        gsap.utils.toArray('.section-header').forEach(header => {
-            gsap.from(header, {
-                scrollTrigger: {
-                    trigger: header,
-                    start: "top 80%",
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out"
-            });
-        });
-
-        // Bento Grid
-        gsap.from(".bento-grid > div", {
-            scrollTrigger: {
-                trigger: ".bento-grid",
-                start: "top 80%",
-            },
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "back.out(1.2)"
-        });
-
-        // App Grid
-        gsap.from(".app-grid > div", {
-            scrollTrigger: {
-                trigger: ".app-grid",
-                start: "top 80%",
-            },
-            scale: 0.95,
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "power3.out"
-        });
-
-        // Features Grid
-        gsap.from(".features-grid > div", {
-            scrollTrigger: {
-                trigger: ".features-grid",
-                start: "top 80%",
-            },
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power2.out"
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        let isMenuOpen = false;
-
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                isMenuOpen = !isMenuOpen;
-                if (isMenuOpen) {
-                    mobileMenu.classList.remove('hidden');
-                    setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    mobileMenu.classList.add('opacity-0');
-                    setTimeout(() => mobileMenu.classList.add('hidden'), 300);
-                    document.body.style.overflow = '';
-                }
-            });
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    isMenuOpen = false;
-                    mobileMenu.classList.add('opacity-0');
-                    setTimeout(() => mobileMenu.classList.add('hidden'), 300);
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-    </script>
-    <!-- EmailJS script -->
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const btn = document.getElementById('sendBtn');
-            const spin = document.getElementById('sendSpinner');
-            const txt = document.getElementById('sendText');
-
-            btn.disabled = true;
-            spin.classList.remove('hidden');
-            txt.textContent = 'Sending...';
-
-            const templateParams = {
-                from_name: document.getElementById('from_name').value,
-                from_email: document.getElementById('from_email').value,
-                message: document.getElementById('message').value
-            };
-
-            if (!templateParams.from_name || !templateParams.from_email || !templateParams.message) {
-                alert('Please complete all fields.');
-                spin.classList.add('hidden');
-                txt.textContent = 'Send';
-                btn.disabled = false;
-                return;
-            }
-
-            try {
-                emailjs.send('EmailVIH', 'template_a69qiqd', templateParams, { publicKey: 'zsAHVDd_EhMFKIEcy' })
-                    .then(function () {
-                        window.location.href = 'BedanktStudio.html';
-                    })
-                    .catch(function (error) {
-                        console.error('EmailJS error:', error);
-                        spin.classList.add('hidden');
-                        txt.textContent = 'Send';
-                        btn.disabled = false;
-                        alert('An error occurred. Please try again.');
-                    });
-            } catch (e) {
-                console.error('EmailJS not initialized or missing SDK:', e);
-                spin.classList.add('hidden');
-                txt.textContent = 'Send';
-                btn.disabled = false;
-                alert('Could not send right now. Please check EmailJS setup.');
-            }
-        });
-    </script>
-
+  <script src="js/animations.js"></script>
 </body>
-
 </html>

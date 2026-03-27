@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /BedanktStudio.html
-
-# Sitemap locatie
-Sitemap: https://www.vancoilliestudio.be/sitemap.xml

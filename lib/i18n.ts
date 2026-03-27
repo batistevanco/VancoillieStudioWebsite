@@ -5,7 +5,7 @@ export const copy = {
     meta: {
       title: "Vancoillie Studio — Website ontwikkeling in Roeselare",
       description:
-        "Moderne, snelle statische websites met focus op performance, SEO en gebruiksvriendelijke UI. Professionele website ontwikkeling door Vancoillie Studio in Roeselare.",
+        "Vancoillie Studio bouwt moderne websites op maat in Roeselare, en ontwikkelt daarnaast eigen apps en softwareproducten. Focus op snelheid, SEO, duidelijke UI en een professionele online aanwezigheid.",
       keywords: [
         "statische websites",
         "website laten maken",
@@ -841,7 +841,7 @@ export const copy = {
     meta: {
       title: "Vancoillie Studio — Website development in Roeselare",
       description:
-        "Modern, fast static websites focused on performance, SEO, and user-friendly UI. Professional website development by Vancoillie Studio in Roeselare.",
+        "Vancoillie Studio builds modern custom websites in Roeselare, while also creating its own apps and software products. Focused on speed, SEO, clear UI, and a professional online presence.",
       keywords: [
         "static websites",
         "website development",

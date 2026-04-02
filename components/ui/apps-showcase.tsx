@@ -13,7 +13,7 @@ import {
 import { FaApple } from "react-icons/fa";
 
 import { getCopy } from "@/lib/i18n";
-import type { Locale } from "@/lib/routes";
+import { getLocalizedPath, type Locale } from "@/lib/routes";
 import { Badge } from "@/components/ui/badge";
 import { BentoGridShowcase } from "@/components/ui/bento-product-features";
 import { Button } from "@/components/ui/button";
@@ -30,13 +30,26 @@ import { SparklesText } from "@/components/ui/sparkles-text";
 import { Switch } from "@/components/ui/switch";
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
 
+type AppShowcaseItem = ReturnType<typeof getCopy>["appsPage"]["apps"][number] & {
+  appStoreUrl?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  availabilityLabel?: string;
+};
+
 function AppSpecs({
   app,
   labels,
 }: {
-  app: ReturnType<typeof getCopy>["appsPage"]["apps"][number];
+  app: AppShowcaseItem;
   labels: ReturnType<typeof getCopy>["appsPage"]["labels"];
 }) {
+  const secondaryHref = app.appStoreUrl ?? app.primaryHref ?? "#";
+  const secondaryLabel = app.appStoreUrl
+    ? labels.availableOn
+    : app.primaryLabel ?? labels.availableOn;
+  const isExternalSecondary = /^https?:\/\//.test(secondaryHref);
+
   const integration = (
     <Card className="flex h-full flex-col rounded-[24px] border-border/70 bg-white">
       <CardHeader className="p-5 pb-3 md:p-6 md:pb-3">
@@ -48,9 +61,13 @@ function AppSpecs({
       </CardHeader>
       <CardFooter className="mt-auto flex items-center justify-between p-5 pt-0 md:p-6 md:pt-0">
         <Button variant="outline" size="sm" asChild>
-          <a href={app.appStoreUrl} target="_blank" rel="noreferrer">
+          <a
+            href={secondaryHref}
+            target={isExternalSecondary ? "_blank" : undefined}
+            rel={isExternalSecondary ? "noreferrer" : undefined}
+          >
             <LayoutPanelTop className="mr-2 h-4 w-4" />
-            {labels.availableOn}
+            {secondaryLabel}
           </a>
         </Button>
         <div className="flex items-center gap-3">
@@ -183,13 +200,32 @@ function AppSpecs({
 
 export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
   const content = getCopy(locale).appsPage;
+  const apps = content.apps as readonly AppShowcaseItem[];
   const [openScreenshots, setOpenScreenshots] = React.useState<string | null>(
     null,
+  );
+  const screenshotSections = React.useRef<Record<string, HTMLDivElement | null>>(
+    {},
   );
   const sectionThemes = [
     "bg-white",
     "bg-[#dfe3e8]",
   ];
+
+  React.useEffect(() => {
+    if (!openScreenshots) {
+      return;
+    }
+
+    const element = screenshotSections.current[openScreenshots];
+    if (!element) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [openScreenshots]);
 
   return (
     <>
@@ -224,6 +260,18 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
           <ZoomParallax
             images={[
               {
+                src: "/afbeeldingen/mijnithulp-iphone/ithulp1.png",
+                alt: "Mijn IT Hulp screenshot",
+              },
+              {
+                src: "/afbeeldingen/mijnithulp-iphone/ithulp2.png",
+                alt: "Mijn IT Hulp screenshot",
+              },
+              {
+                src: "/afbeeldingen/mijnithulp-iphone/ithulp3.png",
+                alt: "Mijn IT Hulp screenshot",
+              },
+              {
                 src: "/afbeeldingen/screenshots/news1.png",
                 alt: "News screenshot",
               },
@@ -236,45 +284,64 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                 alt: "Geldinzicht screenshot",
               },
               {
-                src: "/afbeeldingen/screenshots/inmandje1.png",
-                alt: "InMandje screenshot",
-              },
-              {
-                src: "/afbeeldingen/screenshots/itemize1.png",
-                alt: "StockBuddy screenshot",
-              },
-              {
                 src: "/afbeeldingen/screenshots/taakflow1.png",
                 alt: "TaakFlow screenshot",
-              },
-              {
-                src: "/afbeeldingen/screenshots/news2.png",
-                alt: "Extra news screenshot",
               },
             ]}
           />
         </section>
 
         <div className="space-y-0">
-          {content.apps.map((app, index) => {
+          {apps.map((app, index) => {
+            const isFeatured = index === 0;
             const reverse = index % 2 === 1;
             const screenshotsVisible = openScreenshots === app.slug;
             const theme = sectionThemes[index % sectionThemes.length];
+            const primaryHref =
+              app.primaryHref ??
+              app.appStoreUrl ??
+              getLocalizedPath(locale, "contact");
+            const primaryLabel =
+              app.primaryLabel ??
+              (app.appStoreUrl
+                ? content.buttons.appStore
+                : content.buttons.contact);
+            const availabilityLabel =
+              app.availabilityLabel ?? content.labels.availableOn;
+            const isExternalPrimary = /^https?:\/\//.test(primaryHref);
 
             return (
               <section
                 key={app.slug}
-                className={`w-full ${theme} py-10 md:py-14`}
+                className={`w-full ${theme} ${isFeatured ? "py-12 md:py-18" : "py-10 md:py-14"}`}
               >
                 <div className="mx-auto max-w-[1440px] px-3 md:px-4">
-                  <div className="rounded-[24px] border border-border/70 bg-slate-50/95 p-4 shadow-sm md:p-6 lg:p-7">
+                  <div
+                    className={`rounded-[24px] border p-4 shadow-sm md:p-6 lg:p-7 ${
+                      isFeatured
+                        ? "border-brand/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(237,247,255,0.98))] shadow-[0_24px_80px_rgba(37,99,235,0.12)]"
+                        : "border-border/70 bg-slate-50/95"
+                    }`}
+                  >
                     <div
                       className={`grid items-center gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(360px,480px)] lg:gap-6 ${
                         reverse ? "lg:[&>*:first-child]:order-2" : ""
                       }`}
                     >
-                      <div className="relative overflow-hidden rounded-[20px] border border-border/70 bg-slate-100 p-3 shadow-[0_16px_42px_rgba(15,23,42,0.07)]">
-                        <div className="relative mx-auto aspect-[11/18] w-full max-w-[250px] overflow-hidden rounded-[20px] border border-border/60 bg-white md:max-w-[280px] lg:max-w-[310px]">
+                      <div
+                        className={`relative overflow-hidden rounded-[20px] border p-3 ${
+                          isFeatured
+                            ? "border-brand/20 bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_60%),linear-gradient(180deg,#eff6ff_0%,#e2e8f0_100%)] shadow-[0_18px_56px_rgba(37,99,235,0.16)]"
+                            : "border-border/70 bg-slate-100 shadow-[0_16px_42px_rgba(15,23,42,0.07)]"
+                        }`}
+                      >
+                        <div
+                          className={`relative mx-auto aspect-[11/18] w-full overflow-hidden rounded-[20px] border bg-white md:max-w-[280px] lg:max-w-[310px] ${
+                            isFeatured
+                              ? "max-w-[280px] border-brand/20 shadow-[0_16px_42px_rgba(37,99,235,0.12)] md:max-w-[320px] lg:max-w-[350px]"
+                              : "max-w-[250px] border-border/60"
+                          }`}
+                        >
                           <Image
                             src={app.heroImage}
                             alt={app.name}
@@ -289,7 +356,7 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                           variant="outline"
                           className="w-fit border-brand/30 bg-brand/5 text-brand"
                         >
-                          {content.labels.availableOn}
+                          {availabilityLabel}
                         </Badge>
                         <div>
                           <h2 className="text-3xl font-bold tracking-tight md:text-[2rem]">
@@ -308,9 +375,17 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                             size="lg"
                             className="h-16 min-w-[260px] rounded-2xl bg-black px-6 text-lg text-white shadow-lg shadow-black/15 transition hover:bg-black/90"
                           >
-                            <a href={app.appStoreUrl} target="_blank" rel="noreferrer">
-                              <FaApple className="mr-3 h-5 w-5" />
-                              {content.buttons.appStore}
+                            <a
+                              href={primaryHref}
+                              target={isExternalPrimary ? "_blank" : undefined}
+                              rel={isExternalPrimary ? "noreferrer" : undefined}
+                            >
+                              {isExternalPrimary ? (
+                                <FaApple className="mr-3 h-5 w-5" />
+                              ) : (
+                                <ArrowRight className="mr-3 h-5 w-5" />
+                              )}
+                              {primaryLabel}
                             </a>
                           </Button>
                           <Button
@@ -338,7 +413,12 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                       <AppSpecs app={app} labels={content.labels} />
 
                       {screenshotsVisible ? (
-                        <div className="space-y-6">
+                        <div
+                          className="space-y-6"
+                          ref={(element) => {
+                            screenshotSections.current[app.slug] = element;
+                          }}
+                        >
                           <div className="flex items-center gap-3">
                             <Target className="h-5 w-5 text-brand" />
                             <h3 className="text-xl font-semibold">

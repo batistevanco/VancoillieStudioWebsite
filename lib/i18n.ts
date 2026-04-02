@@ -413,6 +413,16 @@ export const copy = {
           ctaType: "software",
         },
         {
+          id: "mijn-it-hulp-1",
+          title: "Mijn IT Hulp",
+          description:
+            "De klantenapp van Vancoillie IT Hulp waarmee particulieren eenvoudig hulp aanvragen, tickets opvolgen en berichten of screenshots delen.",
+          href: "/apps",
+          image: "/afbeeldingen/mijnithulp-iphone/ithulp1.png",
+          ctaLabel: "Bekijk app",
+          ctaType: "software",
+        },
+        {
           id: "geldinzicht-1",
           title: "Geldinzicht",
           description:
@@ -527,16 +537,17 @@ export const copy = {
     },
     appsPage: {
       eyebrow: "Apps",
-      title: "Onze iPhone-apps, één voor één uitgewerkt",
+      title: "Onze apps, met Mijn IT Hulp als centraal product",
       description:
-        "Elke app krijgt een eigen sectie met een visuele preview, App Store-link en een compacte specificatiegrid zodat bezoekers meteen begrijpen wat het product doet.",
+        "Mijn IT Hulp staat hier bewust eerst als het belangrijkste product van Vancoillie IT Hulp. Daarnaast tonen we ook de andere apps, elk met een visuele preview en compacte uitleg zodat bezoekers snel begrijpen wat elk product doet.",
       parallax: {
-        title: "Een snelle blik op onze app-ervaringen",
+        title: "Eerst de ervaring van Mijn IT Hulp",
         description:
-          "Scroll door een selectie echte schermen uit onze apps voordat je elk product apart ontdekt.",
+          "Scroll door echte schermen uit Mijn IT Hulp en ontdek daarna ook de andere apps in het portfolio.",
       },
       buttons: {
         appStore: "Open in App Store",
+        contact: "Vraag demo aan",
         screenshots: "Bekijk screenshots",
       },
       labels: {
@@ -548,8 +559,55 @@ export const copy = {
         shortcuts: "Sterktes",
         screenshotGallery: "Screenshot gallery",
         alwaysOn: "Actief",
+        featured: "Belangrijkste app",
       },
       apps: [
+        {
+          slug: "mijn-it-hulp",
+          name: "Mijn IT Hulp",
+          tagline:
+            "De laagdrempelige klantenapp voor IT-hulp, opvolging en rechtstreeks contact.",
+          description:
+            "Mijn IT Hulp is de klantenapp van Vancoillie IT Hulp waarmee particulieren eenvoudig hulp kunnen aanvragen, opvolgen en bespreken. Van computers en smartphones tot wifi, printers, software en e-mail: de app bundelt hulpvragen, berichten, screenshots, afspraken en toestelinfo in één rustige digitale toegangspoort.",
+          heroImage: "/afbeeldingen/mijnithulp-iphone/ithulp1.png",
+          screenshots: [
+            "/afbeeldingen/mijnithulp-iphone/ithulp1.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp2.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp3.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp4.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp5.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp6.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp7.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp8.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp9.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp10.png",
+          ],
+          primaryHref: "/contact",
+          primaryLabel: "Nog in development",
+          availabilityLabel: "Beschikbaar op iPhone, iPad en Mac",
+          spec: {
+            integrationTitle: "Digitale IT-toegangspoort",
+            integrationDescription:
+              "Brengt registratie, hulpaanvragen, ticketopvolging, berichten, screenshots en afspraakreacties samen in één duidelijke klantomgeving voor Vancoillie IT Hulp.",
+            trackersTitle: "Hulpvragen en opvolging",
+            trackersDescription:
+              "Laat klanten nieuwe tickets indienen, bestaande aanvragen bekijken, berichten uitwisselen en probleemfoto's of screenshots meesturen zonder technische drempel.",
+            statisticValue: "Support",
+            focusTitle: "Eenvoud voor particulieren",
+            focusDescription: "IT-hulp vragen zonder ingewikkelde stappen",
+            focusBadge: "Kernproduct",
+            focusValue: "Alles in één app",
+            focusLeft: "Tickets",
+            focusRight: "Afspraken",
+            productivityTitle: "Sneller geholpen worden",
+            productivityDescription:
+              "Maakt het eenvoudiger om hulp te vragen voor computers, smartphones, tablets, wifi, printers, software of e-mail en geeft klanten tegelijk een helder overzicht van lopende ondersteuning.",
+            shortcutsTitle: "Wat de app doet",
+            shortcutsDescription:
+              "Ondersteunt accountbeheer, sessieherstel, ticketcreatie, toestelbeheer, afbeeldingbijlagen, afspraakvoorstellen en rechtstreeks contact met Vancoillie IT Hulp.",
+            shortcutsKeys: ["Help", "Tickets"],
+          },
+        },
         {
           slug: "news",
           name: "Vancoillie News",
@@ -1250,6 +1308,16 @@ export const copy = {
           ctaType: "software",
         },
         {
+          id: "mijn-it-hulp-1",
+          title: "Mijn IT Hulp",
+          description:
+            "The customer app from Vancoillie IT Hulp, built to help private clients request support, track tickets, and share messages or screenshots.",
+          href: "/en/apps",
+          image: "/afbeeldingen/mijnithulp-iphone/ithulp1.png",
+          ctaLabel: "View app",
+          ctaType: "software",
+        },
+        {
           id: "geldinzicht-1",
           title: "Geldinzicht",
           description:
@@ -1364,16 +1432,17 @@ export const copy = {
     },
     appsPage: {
       eyebrow: "Apps",
-      title: "Our iPhone apps, presented one by one",
+      title: "Our apps, with Mijn IT Hulp as the central product",
       description:
-        "Each app gets its own section with a visual preview, App Store link, and a compact specification grid so visitors immediately understand what the product does.",
+        "Mijn IT Hulp is intentionally shown first as the main product of Vancoillie IT Hulp. The rest of the page still highlights the broader app portfolio with visual previews and compact product explanations.",
       parallax: {
-        title: "A quick look at our app experiences",
+        title: "Start with the Mijn IT Hulp experience",
         description:
-          "Scroll through a selection of real app screens before exploring each product individually.",
+          "Scroll through real Mijn IT Hulp screens first, then explore the rest of the app portfolio product by product.",
       },
       buttons: {
         appStore: "Open in App Store",
+        contact: "Request a demo",
         screenshots: "View screenshots",
       },
       labels: {
@@ -1385,8 +1454,55 @@ export const copy = {
         shortcuts: "Strengths",
         screenshotGallery: "Screenshot gallery",
         alwaysOn: "Live",
+        featured: "Primary app",
       },
       apps: [
+        {
+          slug: "mijn-it-hulp",
+          name: "Mijn IT Hulp",
+          tagline:
+            "The approachable customer app for IT support, follow-up, and direct communication.",
+          description:
+            "Mijn IT Hulp is the customer app of Vancoillie IT Hulp, built to help private clients request support, follow progress, and discuss issues with ease. From computers and smartphones to wifi, printers, software, and email, the app brings tickets, messages, screenshots, appointments, and device details together in one calm support flow.",
+          heroImage: "/afbeeldingen/mijnithulp-iphone/ithulp1.png",
+          screenshots: [
+            "/afbeeldingen/mijnithulp-iphone/ithulp1.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp2.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp3.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp4.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp5.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp6.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp7.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp8.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp9.png",
+            "/afbeeldingen/mijnithulp-iphone/ithulp10.png",
+          ],
+          primaryHref: "/en/contact",
+          primaryLabel: "In development",
+          availabilityLabel: "Available on iPhone, iPad, and Mac",
+          spec: {
+            integrationTitle: "Digital IT entry point",
+            integrationDescription:
+              "Combines registration, support requests, ticket tracking, messaging, screenshots, and appointment responses in one clear support environment for Vancoillie IT Hulp clients.",
+            trackersTitle: "Support requests and follow-up",
+            trackersDescription:
+              "Lets clients submit new tickets, review earlier requests, exchange messages, and attach screenshots or problem photos without technical friction.",
+            statisticValue: "Support",
+            focusTitle: "Simplicity for private clients",
+            focusDescription: "Ask for IT help without complicated steps",
+            focusBadge: "Core product",
+            focusValue: "Everything in one app",
+            focusLeft: "Tickets",
+            focusRight: "Appointments",
+            productivityTitle: "Get help faster",
+            productivityDescription:
+              "Makes it easier to request support for computers, smartphones, tablets, wifi, printers, software, or email while giving clients a clear view of ongoing assistance.",
+            shortcutsTitle: "What the app does",
+            shortcutsDescription:
+              "Supports account access, session restore, ticket creation, device management, image attachments, appointment proposals, and direct communication with Vancoillie IT Hulp.",
+            shortcutsKeys: ["Help", "Tickets"],
+          },
+        },
         {
           slug: "news",
           name: "Vancoillie News",

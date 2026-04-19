@@ -96,12 +96,35 @@ export const copy = {
         { label: "Softwareproducten", value: "1" },
       ],
     },
+    aboutTeam: {
+      badge: "De persoon achter Vancoillie Studio",
+      title: "Eén studio, één gezicht, korte lijnen.",
+      description:
+        "Vancoillie Studio wordt geleid en gebouwd door één persoon. Daardoor blijft elk project persoonlijk, duidelijk en dicht bij de uitvoering.",
+      member: {
+        name: "Batiste Vancoillie",
+        role: "CEO & Developer",
+        bio: "Als oprichter, CEO en developer combineer ik strategie, design en code in één traject. Ik bouw websites, apps en softwareproducten met focus op heldere schermen, snelle uitvoering en praktische opvolging.",
+        image: "/afbeeldingen/personal/portfolioPicture.png",
+        location: "Roeselare, België",
+        skills: ["Websites", "Next.js", "Apps", "Software", "IT-support"],
+        social: {
+          github: "https://github.com/batistevanco",
+          email: "support@vancoilliestudio.be",
+        },
+      },
+      ctaTitle: "Een idee, website of app in gedachten?",
+      ctaDescription:
+        "Je spreekt rechtstreeks met de persoon die meedenkt, ontwerpt en bouwt. Dat maakt de samenwerking snel, concreet en transparant.",
+      ctaLabel: "Start een gesprek",
+      ctaHref: "/contact",
+    },
     softwareHero: {
       title: "Moderne software voor heldere bedrijfsvoering",
       description:
         "We bouwen krachtige software-ervaringen die structuur, overzicht en snelheid samenbrengen in een interface die professioneel aanvoelt vanaf het eerste scherm.",
-      primaryCta: "Software bekijken",
-      primaryCtaHref: "https://invoxa.vancoilliestudio.be/",
+      primaryCta: "Ontdek meer",
+      primaryCtaHref: "#invoxa-features",
       mockupAlt: "Invoxa software dashboard",
     },
     softwareFeatures: {
@@ -155,6 +178,61 @@ export const copy = {
         "Scroll door deze sectie en open Invoxa rechtstreeks in een nieuw tabblad om de tool zelf te bekijken.",
       ctaLabel: "Open Invoxa",
       href: "https://invoxa.vancoilliestudio.be/",
+    },
+    itHulpHero: {
+      eyebrow: "Mijn IT Hulp",
+      title: "IT-hulp aanvragen was nog nooit zo eenvoudig",
+      description:
+        "De klantenapp van Vancoillie IT Hulp waarmee je eenvoudig hulp aanvraagt, tickets opvolgt en rechtstreeks communiceert. Beschikbaar op iPhone, iPad en Mac.",
+      primaryCta: "Download nu",
+      secondaryCta: "Open webversie",
+      platformLabel: "Beschikbaar op",
+      platforms: ["iPhone", "iPad", "Mac", "Web"],
+    },
+    itHulpFeatures: {
+      heading: "Wat Mijn IT Hulp sterk maakt",
+      items: [
+        {
+          title: "Hulpvragen indienen",
+          description:
+            "Dien eenvoudig een nieuw ticket in voor computers, smartphones, tablets, wifi, printers, software of e-mail zonder technische kennis.",
+        },
+        {
+          title: "Tickets opvolgen",
+          description:
+            "Bekijk de status van lopende en afgehandelde hulpvragen in één overzicht, altijd beschikbaar via de app.",
+        },
+        {
+          title: "Berichten & screenshots",
+          description:
+            "Stuur rechtstreeks berichten en voeg probleemfoto's of screenshots toe aan je ticket voor snellere diagnose.",
+        },
+        {
+          title: "Afspraken beheren",
+          description:
+            "Ontvang afspraakvoorstellen, bevestig of weiger ze en houd je agenda voor IT-hulp overzichtelijk bij.",
+        },
+        {
+          title: "Toestelbeheer",
+          description:
+            "Registreer je apparaten in de app zodat Vancoillie IT Hulp altijd de juiste context heeft bij een nieuwe hulpvraag.",
+        },
+        {
+          title: "Eenvoudige registratie",
+          description:
+            "Maak een account aan in een paar stappen en herstel je sessie moeiteloos zonder ingewikkelde wachtwoordflows.",
+        },
+        {
+          title: "Persoonlijk contact",
+          description:
+            "Communiceer rechtstreeks met Vancoillie IT Hulp via de app, zonder omwegen via telefoon of e-mail.",
+        },
+        {
+          title: "Altijd beschikbaar",
+          description:
+            "De app werkt op iPhone, iPad en Mac. Is ook beschikbaar als webversie zodat je hulp kunt aanvragen en opvolgen waar en wanneer het uitkomt.",
+        },
+      ],
     },
     websitesPage: {
       eyebrow: "Websites",
@@ -393,6 +471,26 @@ export const copy = {
         },
       },
     },
+    infiniteBento: {
+      eyebrow: "Van idee tot lancering",
+      title: "Alles wat een digitaal product nodig heeft, samen in één ritme.",
+      description:
+        "Vancoillie Studio combineert strategie, interface, code, data en support. Zo groeien websites, apps en software niet als losse onderdelen, maar als één helder systeem.",
+      metrics: [
+        {
+          value: "Web",
+          label: "Websites met snelle laadtijden, duidelijke structuur en SEO vanaf de basis.",
+        },
+        {
+          value: "Apps",
+          label: "Eigen producten en klantgerichte interfaces voor mobiel, desktop en web.",
+        },
+        {
+          value: "Support",
+          label: "Heldere opvolging, praktische verbeteringen en mensentaal na de lancering.",
+        },
+      ],
+    },
     gallery: {
       title: "Productschermen",
       description:
@@ -417,10 +515,10 @@ export const copy = {
           title: "Mijn IT Hulp",
           description:
             "De klantenapp van Vancoillie IT Hulp waarmee particulieren eenvoudig hulp aanvragen, tickets opvolgen en berichten of screenshots delen.",
-          href: "/apps",
+          href: "https://apps.apple.com/us/app/mijn-it-hulp/id6761382330",
           image: "/afbeeldingen/mijnithulp-iphone/ithulp1.png",
-          ctaLabel: "Bekijk app",
-          ctaType: "software",
+          ctaLabel: "Download nu",
+          ctaType: "ios",
         },
         {
           id: "geldinzicht-1",
@@ -546,9 +644,10 @@ export const copy = {
           "Scroll door echte schermen uit Mijn IT Hulp en ontdek daarna ook de andere apps in het portfolio.",
       },
       buttons: {
-        appStore: "Open in App Store",
+        appStore: "Download nu",
         contact: "Vraag demo aan",
         screenshots: "Bekijk screenshots",
+        webVersion: "Open webversie",
       },
       labels: {
         availableOn: "Beschikbaar op iPhone",
@@ -582,8 +681,9 @@ export const copy = {
             "/afbeeldingen/mijnithulp-iphone/ithulp9.png",
             "/afbeeldingen/mijnithulp-iphone/ithulp10.png",
           ],
-          primaryHref: "/contact",
-          primaryLabel: "Nog in development",
+          appStoreUrl: "https://apps.apple.com/us/app/mijn-it-hulp/id6761382330",
+          primaryLabel: "Download nu",
+          webUrl: "https://vancoillieithulp.be/mijnithulp/index.html",
           availabilityLabel: "Beschikbaar op iPhone, iPad en Mac",
           spec: {
             integrationTitle: "Digitale IT-toegangspoort",
@@ -991,12 +1091,35 @@ export const copy = {
         { label: "Software products", value: "1" },
       ],
     },
+    aboutTeam: {
+      badge: "The person behind Vancoillie Studio",
+      title: "One studio, one face, direct communication.",
+      description:
+        "Vancoillie Studio is led and built by one person. That keeps every project personal, clear, and close to the actual work.",
+      member: {
+        name: "Batiste Vancoillie",
+        role: "CEO & Developer",
+        bio: "As founder, CEO, and developer, I combine strategy, design, and code in one workflow. I build websites, apps, and software products with a focus on clear screens, fast execution, and practical follow-up.",
+        image: "/afbeeldingen/personal/portfolioPicture.png",
+        location: "Roeselare, Belgium",
+        skills: ["Websites", "Next.js", "Apps", "Software", "IT support"],
+        social: {
+          github: "https://github.com/batistevanco",
+          email: "support@vancoilliestudio.be",
+        },
+      },
+      ctaTitle: "Have an idea, website, or app in mind?",
+      ctaDescription:
+        "You speak directly with the person who thinks along, designs, and builds. That makes the collaboration fast, concrete, and transparent.",
+      ctaLabel: "Start a conversation",
+      ctaHref: "/en/contact",
+    },
     softwareHero: {
       title: "Modern software built for clearer operations",
       description:
         "We design software experiences that combine structure, clarity, and speed in an interface that feels polished from the very first screen.",
-      primaryCta: "Explore software",
-      primaryCtaHref: "https://invoxa.vancoilliestudio.be/",
+      primaryCta: "Discover more",
+      primaryCtaHref: "#invoxa-features",
       mockupAlt: "Invoxa software dashboard",
     },
     softwareFeatures: {
@@ -1050,6 +1173,61 @@ export const copy = {
         "Scroll through this section and open Invoxa directly in a new tab to explore the tool itself.",
       ctaLabel: "Open Invoxa",
       href: "https://invoxa.vancoilliestudio.be/",
+    },
+    itHulpHero: {
+      eyebrow: "Mijn IT Hulp",
+      title: "IT support has never been this easy",
+      description:
+        "The customer app of Vancoillie IT Hulp — request support, track tickets, and communicate directly. Available on iPhone, iPad, and Mac.",
+      primaryCta: "Download now",
+      secondaryCta: "Open web version",
+      platformLabel: "Available on",
+      platforms: ["iPhone", "iPad", "Mac", "Web"],
+    },
+    itHulpFeatures: {
+      heading: "What makes Mijn IT Hulp strong",
+      items: [
+        {
+          title: "Submit support requests",
+          description:
+            "Easily file a new ticket for computers, smartphones, tablets, wifi, printers, software, or email without any technical knowledge required.",
+        },
+        {
+          title: "Track your tickets",
+          description:
+            "View the status of open and resolved support requests in one clear overview, always accessible through the app.",
+        },
+        {
+          title: "Messages & screenshots",
+          description:
+            "Send messages directly and attach problem photos or screenshots to your ticket for faster diagnosis.",
+        },
+        {
+          title: "Manage appointments",
+          description:
+            "Receive appointment proposals, confirm or decline them, and keep your IT support calendar neatly organised.",
+        },
+        {
+          title: "Device management",
+          description:
+            "Register your devices in the app so Vancoillie IT Hulp always has the right context when a new request comes in.",
+        },
+        {
+          title: "Simple registration",
+          description:
+            "Create an account in a few steps and restore your session effortlessly without complicated password flows.",
+        },
+        {
+          title: "Direct contact",
+          description:
+            "Communicate directly with Vancoillie IT Hulp through the app, without detours via phone or email.",
+        },
+        {
+          title: "Always available",
+          description:
+            "The app works on iPhone, iPad, and Mac. Also available as a web version so you can request and follow up on support wherever and whenever it suits you.",
+        },
+      ],
     },
     websitesPage: {
       eyebrow: "Websites",
@@ -1288,6 +1466,26 @@ export const copy = {
         },
       },
     },
+    infiniteBento: {
+      eyebrow: "From idea to launch",
+      title: "Everything a digital product needs, moving in one rhythm.",
+      description:
+        "Vancoillie Studio brings strategy, interface, code, data, and support together. Websites, apps, and software grow as one clear system instead of separate pieces.",
+      metrics: [
+        {
+          value: "Web",
+          label: "Websites with fast loading, clear structure, and SEO from the start.",
+        },
+        {
+          value: "Apps",
+          label: "Own products and client-focused interfaces for mobile, desktop, and web.",
+        },
+        {
+          value: "Support",
+          label: "Clear follow-up, practical improvements, and plain language after launch.",
+        },
+      ],
+    },
     gallery: {
       title: "Product Screens",
       description:
@@ -1312,10 +1510,10 @@ export const copy = {
           title: "Mijn IT Hulp",
           description:
             "The customer app from Vancoillie IT Hulp, built to help private clients request support, track tickets, and share messages or screenshots.",
-          href: "/en/apps",
+          href: "https://apps.apple.com/us/app/mijn-it-hulp/id6761382330",
           image: "/afbeeldingen/mijnithulp-iphone/ithulp1.png",
-          ctaLabel: "View app",
-          ctaType: "software",
+          ctaLabel: "Download now",
+          ctaType: "ios",
         },
         {
           id: "geldinzicht-1",
@@ -1441,9 +1639,10 @@ export const copy = {
           "Scroll through real Mijn IT Hulp screens first, then explore the rest of the app portfolio product by product.",
       },
       buttons: {
-        appStore: "Open in App Store",
+        appStore: "Download now",
         contact: "Request a demo",
         screenshots: "View screenshots",
+        webVersion: "Open web version",
       },
       labels: {
         availableOn: "Available on iPhone",
@@ -1477,8 +1676,9 @@ export const copy = {
             "/afbeeldingen/mijnithulp-iphone/ithulp9.png",
             "/afbeeldingen/mijnithulp-iphone/ithulp10.png",
           ],
-          primaryHref: "/en/contact",
-          primaryLabel: "In development",
+          appStoreUrl: "https://apps.apple.com/us/app/mijn-it-hulp/id6761382330",
+          primaryLabel: "Download now",
+          webUrl: "https://vancoillieithulp.be/mijnithulp/index.html",
           availabilityLabel: "Available on iPhone, iPad, and Mac",
           spec: {
             integrationTitle: "Digital IT entry point",

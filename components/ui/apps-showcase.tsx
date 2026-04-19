@@ -5,6 +5,7 @@ import * as React from "react";
 import {
   ArrowRight,
   Command,
+  Globe,
   LayoutPanelTop,
   Plus,
   Sparkles,
@@ -35,6 +36,7 @@ type AppShowcaseItem = ReturnType<typeof getCopy>["appsPage"]["apps"][number] & 
   primaryHref?: string;
   primaryLabel?: string;
   availabilityLabel?: string;
+  webUrl?: string;
 };
 
 function AppSpecs({
@@ -44,10 +46,10 @@ function AppSpecs({
   app: AppShowcaseItem;
   labels: ReturnType<typeof getCopy>["appsPage"]["labels"];
 }) {
-  const secondaryHref = app.appStoreUrl ?? app.primaryHref ?? "#";
+  const secondaryHref = app.appStoreUrl ?? "#";
   const secondaryLabel = app.appStoreUrl
     ? labels.availableOn
-    : app.primaryLabel ?? labels.availableOn;
+    : labels.availableOn;
   const isExternalSecondary = /^https?:\/\//.test(secondaryHref);
 
   const integration = (
@@ -380,7 +382,7 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                               target={isExternalPrimary ? "_blank" : undefined}
                               rel={isExternalPrimary ? "noreferrer" : undefined}
                             >
-                              {isExternalPrimary ? (
+                              {isExternalPrimary || app.appStoreUrl ? (
                                 <FaApple className="mr-3 h-5 w-5" />
                               ) : (
                                 <ArrowRight className="mr-3 h-5 w-5" />
@@ -388,6 +390,23 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                               {primaryLabel}
                             </a>
                           </Button>
+                          {app.webUrl ? (
+                            <Button
+                              asChild
+                              size="lg"
+                              variant="outline"
+                              className="h-16 min-w-[260px] rounded-2xl text-lg"
+                            >
+                              <a
+                                href={app.webUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                <Globe className="mr-3 h-5 w-5" />
+                                {content.buttons.webVersion}
+                              </a>
+                            </Button>
+                          ) : null}
                           <Button
                             size="lg"
                             variant="outline"

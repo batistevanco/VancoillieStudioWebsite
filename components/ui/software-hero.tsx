@@ -36,11 +36,7 @@ export function SoftwareHero({ locale = "nl" }: { locale?: Locale }) {
                 size="lg"
                 className="h-16 rounded-2xl bg-zinc-900 px-10 text-lg font-medium text-white shadow-none hover:bg-zinc-800"
               >
-                <a
-                  href={content.softwareHero.primaryCtaHref}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={content.softwareHero.primaryCtaHref}>
                   <span>{content.softwareHero.primaryCta}</span>
                 </a>
               </Button>

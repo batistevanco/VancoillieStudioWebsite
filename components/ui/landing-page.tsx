@@ -5,6 +5,7 @@ import { Features } from "@/components/ui/features-8";
 import { Gallery4 } from "@/components/ui/gallery4";
 import { Header } from "@/components/ui/header-2";
 import { HeroWithMockup } from "@/components/ui/hero-with-mockup";
+import { InfiniteBentoPanSection } from "@/components/ui/infinite-bento-pan";
 import { Testimonials } from "@/components/ui/testimonials-columns-1";
 
 export function LandingPage({
@@ -43,6 +44,14 @@ export function LandingPage({
       {showWorldwide ? <AboutSection2 locale={locale} /> : null}
       {showWorldwide ? <Testimonials locale={locale} /> : null}
       {showWorldwide ? <Features locale={locale} /> : null}
+      {showWorldwide ? (
+        <InfiniteBentoPanSection
+          eyebrow={content.infiniteBento.eyebrow}
+          title={content.infiniteBento.title}
+          description={content.infiniteBento.description}
+          metrics={content.infiniteBento.metrics}
+        />
+      ) : null}
       {showWorldwide ? (
         <Gallery4
           title={content.gallery.title}

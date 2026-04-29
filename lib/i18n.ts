@@ -92,7 +92,7 @@ export const copy = {
       achievements: [
         { label: "Gestart met IT Hulp", value: "2024" },
         { label: "Studio opgericht", value: "2025" },
-        { label: "Eigen apps", value: "6" },
+        { label: "Eigen apps", value: "7" },
         { label: "Softwareproducten", value: "1" },
       ],
     },
@@ -521,6 +521,16 @@ export const copy = {
           ctaType: "ios",
         },
         {
+          id: "brainox-1",
+          title: "Brainox",
+          description:
+            "Een rustige capture-app voor iPhone om taken, ideeen en losse gedachten snel vast te leggen en later rustig te verwerken via Daily Review.",
+          href: "/apps",
+          image: "/afbeeldingen/brainox/homescreen.png",
+          ctaLabel: "Bekijk Brainox",
+          ctaType: "ios",
+        },
+        {
           id: "geldinzicht-1",
           title: "Geldinzicht",
           description:
@@ -706,6 +716,48 @@ export const copy = {
             shortcutsDescription:
               "Ondersteunt accountbeheer, sessieherstel, ticketcreatie, toestelbeheer, afbeeldingbijlagen, afspraakvoorstellen en rechtstreeks contact met Vancoillie IT Hulp.",
             shortcutsKeys: ["Help", "Tickets"],
+          },
+        },
+        {
+          slug: "brainox",
+          name: "Brainox",
+          tagline: "Hoofd leeg. Dag helder.",
+          description:
+            "Brainox is een rustige capture-app voor iPhone waarbij je taken, ideeen en losse gedachten meteen vastlegt, optioneel een type kiest en alles later rustig verwerkt via een Daily Review. Lokaal, snel en zonder onnodige ruis.",
+          heroImage: "/afbeeldingen/brainox/homescreen.png",
+          availabilityLabel: "Beschikbaar op iPhone",
+          screenshots: [
+            "/afbeeldingen/brainox/brainox1.png",
+            "/afbeeldingen/brainox/brainox2.png",
+            "/afbeeldingen/brainox/brainox3.png",
+            "/afbeeldingen/brainox/brainox4.png",
+            "/afbeeldingen/brainox/brainox5.png",
+            "/afbeeldingen/brainox/brainox6.png",
+            "/afbeeldingen/brainox/brainox7.png",
+            "/afbeeldingen/brainox/brainox8.png",
+            "/afbeeldingen/brainox/brainox9.png",
+          ],
+          spec: {
+            integrationTitle: "Mentale inbox",
+            integrationDescription:
+              "Leg gedachten, taken en ideeen meteen vast via typen of dictatie, kies optioneel een type en verwerk alles later rustig in de Daily Review zonder administratieve overhead.",
+            trackersTitle: "Quick Capture en Daily Review",
+            trackersDescription:
+              "Open de app, schrijf of dicteer wat in je hoofd zit en sla op. Later helpt Daily Review om alles te verwerken: afronden, bewaren of verwijderen.",
+            statisticValue: "Capture",
+            focusTitle: "Hoofd leegmaken",
+            focusDescription: "Snel vastleggen, later rustig verwerken",
+            focusBadge: "Focus",
+            focusValue: "Rust in je dag",
+            focusLeft: "Taken",
+            focusRight: "Ideeen",
+            productivityTitle: "Mentale rust creëren",
+            productivityDescription:
+              "Geeft een plek voor elke losse gedachte zodat je hoofd leeg blijft. Taak, idee of onthoud-item: alles wordt bewaard en verwerkt op het juiste moment.",
+            shortcutsTitle: "Wat de app doet",
+            shortcutsDescription:
+              "Combineert snelle capture via typen of dictatie met een dagelijkse reviewflow, lokale opslag, zoeken en aanpasbare instellingen.",
+            shortcutsKeys: ["Capture", "Review"],
           },
         },
         {
@@ -1087,7 +1139,7 @@ export const copy = {
       achievements: [
         { label: "Started as IT support", value: "2024" },
         { label: "Studio founded", value: "2025" },
-        { label: "Own apps", value: "6" },
+        { label: "Own apps", value: "7" },
         { label: "Software products", value: "1" },
       ],
     },
@@ -1516,6 +1568,16 @@ export const copy = {
           ctaType: "ios",
         },
         {
+          id: "brainox-1",
+          title: "Brainox",
+          description:
+            "A calm iPhone capture app to quickly capture tasks, ideas, and loose thoughts and process them later through a Daily Review.",
+          href: "/en/apps",
+          image: "/afbeeldingen/brainox/homescreen.png",
+          ctaLabel: "View Brainox",
+          ctaType: "ios",
+        },
+        {
           id: "geldinzicht-1",
           title: "Geldinzicht",
           description:
@@ -1701,6 +1763,48 @@ export const copy = {
             shortcutsDescription:
               "Supports account access, session restore, ticket creation, device management, image attachments, appointment proposals, and direct communication with Vancoillie IT Hulp.",
             shortcutsKeys: ["Help", "Tickets"],
+          },
+        },
+        {
+          slug: "brainox",
+          name: "Brainox",
+          tagline: "Clear your head. Brighten your day.",
+          description:
+            "Brainox is a calm iPhone capture app where you instantly capture tasks, ideas, and loose thoughts, optionally pick a type, and process everything later through a Daily Review. Local, fast, and without unnecessary noise.",
+          heroImage: "/afbeeldingen/brainox/homescreen.png",
+          availabilityLabel: "Available on iPhone",
+          screenshots: [
+            "/afbeeldingen/brainox/brainox1.png",
+            "/afbeeldingen/brainox/brainox2.png",
+            "/afbeeldingen/brainox/brainox3.png",
+            "/afbeeldingen/brainox/brainox4.png",
+            "/afbeeldingen/brainox/brainox5.png",
+            "/afbeeldingen/brainox/brainox6.png",
+            "/afbeeldingen/brainox/brainox7.png",
+            "/afbeeldingen/brainox/brainox8.png",
+            "/afbeeldingen/brainox/brainox9.png",
+          ],
+          spec: {
+            integrationTitle: "Mental inbox",
+            integrationDescription:
+              "Instantly capture thoughts, tasks, and ideas by typing or dictating, optionally assign a type, and process everything calmly later in the Daily Review — no administrative overhead.",
+            trackersTitle: "Quick Capture and Daily Review",
+            trackersDescription:
+              "Open the app, write or dictate what is on your mind and save it. Later the Daily Review helps you process everything: complete, keep, or delete.",
+            statisticValue: "Capture",
+            focusTitle: "Clear your head",
+            focusDescription: "Capture fast, process calmly later",
+            focusBadge: "Focus",
+            focusValue: "Calm in your day",
+            focusLeft: "Tasks",
+            focusRight: "Ideas",
+            productivityTitle: "Create mental clarity",
+            productivityDescription:
+              "Gives every loose thought a place so your head stays clear. Task, idea, or reminder: everything is captured and processed at the right moment.",
+            shortcutsTitle: "What the app does",
+            shortcutsDescription:
+              "Combines fast capture via typing or dictation with a daily review flow, local storage, search, and customisable settings.",
+            shortcutsKeys: ["Capture", "Review"],
           },
         },
         {

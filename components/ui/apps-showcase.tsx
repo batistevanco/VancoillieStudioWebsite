@@ -274,6 +274,10 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                 alt: "Mijn IT Hulp screenshot",
               },
               {
+                src: "/afbeeldingen/brainox/homescreen.png",
+                alt: "Brainox screenshot",
+              },
+              {
                 src: "/afbeeldingen/screenshots/news1.png",
                 alt: "News screenshot",
               },

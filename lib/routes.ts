@@ -7,7 +7,15 @@ export type RouteKey =
   | "software"
   | "about"
   | "contact"
-  | "thankYou";
+  | "thankYou"
+  | "brainox"
+  | "mijn-it-hulp"
+  | "news"
+  | "abbo"
+  | "inmandje"
+  | "stockbuddy"
+  | "geldinzicht"
+  | "taakflow";
 
 const routeMap: Record<Locale, Record<RouteKey, string>> = {
   nl: {
@@ -19,6 +27,14 @@ const routeMap: Record<Locale, Record<RouteKey, string>> = {
     about: "/about",
     contact: "/contact",
     thankYou: "/bedankt",
+    brainox: "/brainox",
+    "mijn-it-hulp": "/mijn-it-hulp",
+    news: "/news",
+    abbo: "/abbo",
+    inmandje: "/inmandje",
+    stockbuddy: "/stockbuddy",
+    geldinzicht: "/geldinzicht",
+    taakflow: "/taakflow",
   },
   en: {
     landing: "/en",
@@ -29,6 +45,14 @@ const routeMap: Record<Locale, Record<RouteKey, string>> = {
     about: "/en/about",
     contact: "/en/contact",
     thankYou: "/en/thank-you",
+    brainox: "/en/brainox",
+    "mijn-it-hulp": "/en/mijn-it-hulp",
+    news: "/en/news",
+    abbo: "/en/abbo",
+    inmandje: "/en/inmandje",
+    stockbuddy: "/en/stockbuddy",
+    geldinzicht: "/en/geldinzicht",
+    taakflow: "/en/taakflow",
   },
 };
 
@@ -65,6 +89,22 @@ export function getRouteKeyFromPathname(pathname: string): RouteKey {
     case "/bedankt":
     case "/thank-you":
       return "thankYou";
+    case "/brainox":
+      return "brainox";
+    case "/mijn-it-hulp":
+      return "mijn-it-hulp";
+    case "/news":
+      return "news";
+    case "/abbo":
+      return "abbo";
+    case "/inmandje":
+      return "inmandje";
+    case "/stockbuddy":
+      return "stockbuddy";
+    case "/geldinzicht":
+      return "geldinzicht";
+    case "/taakflow":
+      return "taakflow";
     default:
       return "landing";
   }

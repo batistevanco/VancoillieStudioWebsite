@@ -92,7 +92,7 @@ export const copy = {
       achievements: [
         { label: "Gestart met IT Hulp", value: "2024" },
         { label: "Studio opgericht", value: "2025" },
-        { label: "Eigen apps", value: "7" },
+        { label: "Eigen apps", value: "9" },
         { label: "Softwareproducten", value: "1" },
       ],
     },
@@ -649,9 +649,9 @@ export const copy = {
       description:
         "Mijn IT Hulp staat hier bewust eerst als het belangrijkste product van Vancoillie IT Hulp. Daarnaast tonen we ook de andere apps, elk met een visuele preview en compacte uitleg zodat bezoekers snel begrijpen wat elk product doet.",
       parallax: {
-        title: "Eerst de ervaring van Mijn IT Hulp",
+        title: "Een blik op de apps",
         description:
-          "Scroll door echte schermen uit Mijn IT Hulp en ontdek daarna ook de andere apps in het portfolio.",
+          "Scroll door echte schermen van de apps in ons portfolio en ontdek elke app in detail.",
       },
       buttons: {
         appStore: "Download nu",
@@ -1140,7 +1140,7 @@ export const copy = {
       achievements: [
         { label: "Started as IT support", value: "2024" },
         { label: "Studio founded", value: "2025" },
-        { label: "Own apps", value: "7" },
+        { label: "Own apps", value: "9" },
         { label: "Software products", value: "1" },
       ],
     },
@@ -1697,9 +1697,9 @@ export const copy = {
       description:
         "Mijn IT Hulp is intentionally shown first as the main product of Vancoillie IT Hulp. The rest of the page still highlights the broader app portfolio with visual previews and compact product explanations.",
       parallax: {
-        title: "Start with the Mijn IT Hulp experience",
+        title: "A look at the apps",
         description:
-          "Scroll through real Mijn IT Hulp screens first, then explore the rest of the app portfolio product by product.",
+          "Scroll through real screens from the apps in our portfolio and discover each app in detail.",
       },
       buttons: {
         appStore: "Download now",

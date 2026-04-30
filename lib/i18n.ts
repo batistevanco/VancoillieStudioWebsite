@@ -525,9 +525,9 @@ export const copy = {
           title: "Brainox",
           description:
             "Een rustige capture-app voor iPhone om taken, ideeen en losse gedachten snel vast te leggen en later rustig te verwerken via Daily Review.",
-          href: "/apps",
+          href: "https://apps.apple.com/us/app/brainox-leeg-jouw-gedachten/id6764558670",
           image: "/afbeeldingen/brainox/homescreen.png",
-          ctaLabel: "Bekijk Brainox",
+          ctaLabel: "Download nu",
           ctaType: "ios",
         },
         {
@@ -725,6 +725,7 @@ export const copy = {
           description:
             "Brainox is een rustige capture-app voor iPhone waarbij je taken, ideeen en losse gedachten meteen vastlegt, optioneel een type kiest en alles later rustig verwerkt via een Daily Review. Lokaal, snel en zonder onnodige ruis.",
           heroImage: "/afbeeldingen/brainox/homescreen.png",
+          appStoreUrl: "https://apps.apple.com/us/app/brainox-leeg-jouw-gedachten/id6764558670",
           availabilityLabel: "Beschikbaar op iPhone",
           screenshots: [
             "/afbeeldingen/brainox/brainox1.png",
@@ -1572,9 +1573,9 @@ export const copy = {
           title: "Brainox",
           description:
             "A calm iPhone capture app to quickly capture tasks, ideas, and loose thoughts and process them later through a Daily Review.",
-          href: "/en/apps",
+          href: "https://apps.apple.com/us/app/brainox-leeg-jouw-gedachten/id6764558670",
           image: "/afbeeldingen/brainox/homescreen.png",
-          ctaLabel: "View Brainox",
+          ctaLabel: "Download now",
           ctaType: "ios",
         },
         {
@@ -1772,6 +1773,7 @@ export const copy = {
           description:
             "Brainox is a calm iPhone capture app where you instantly capture tasks, ideas, and loose thoughts, optionally pick a type, and process everything later through a Daily Review. Local, fast, and without unnecessary noise.",
           heroImage: "/afbeeldingen/brainox/homescreen.png",
+          appStoreUrl: "https://apps.apple.com/us/app/brainox-leeg-jouw-gedachten/id6764558670",
           availabilityLabel: "Available on iPhone",
           screenshots: [
             "/afbeeldingen/brainox/brainox1.png",

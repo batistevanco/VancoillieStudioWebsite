@@ -41,6 +41,7 @@ export function LandingPage({
         }}
         showMockup={showHeroMockup}
       />
+      
       {showWorldwide ? <AboutSection2 locale={locale} /> : null}
       {showWorldwide ? <Testimonials locale={locale} /> : null}
       {showWorldwide ? <Features locale={locale} /> : null}

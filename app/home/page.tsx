@@ -1,5 +1,5 @@
-import { LandingPage } from "@/components/ui/landing-page";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <LandingPage locale="nl" showWorldwide showHeroMockup={false} />;
+  redirect("/");
 }

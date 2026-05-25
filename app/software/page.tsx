@@ -8,7 +8,7 @@ export default function SoftwarePage() {
   const content = getCopy("nl");
 
   return (
-    <>
+    <div className="bg-gradient-to-b from-[#FAFAFA] via-white to-[#F4F8FC] dark:from-[#0A0A0A] dark:via-[#0E0E0E] dark:to-[#080808] transition-colors duration-300">
       <SoftwareHero locale="nl" />
       <div id="invoxa-features">
         <FeaturesSectionWithHoverEffects
@@ -27,6 +27,6 @@ export default function SoftwarePage() {
         heading={content.itHulpFeatures.heading}
         features={content.itHulpFeatures.items}
       />
-    </>
+    </div>
   );
 }

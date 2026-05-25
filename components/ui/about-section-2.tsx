@@ -10,7 +10,7 @@ export function AboutSection2({ locale = "nl" }: { locale?: Locale }) {
   const content = getCopy(locale).homeAbout;
 
   return (
-    <section className="min-h-[56vh] bg-gray-50 px-4 py-20">
+    <section id="about" className="min-h-[56vh] bg-gray-50 px-4 py-20">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-start gap-8 lg:flex-row">
           <div className="flex-1">

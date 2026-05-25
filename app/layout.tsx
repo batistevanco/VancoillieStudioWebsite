@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
+import { Outfit } from "next/font/google";
 
 import { ConditionalFooter } from "@/components/ui/conditional-footer";
 import { OpenLinksInNewTab } from "@/components/ui/open-links-in-new-tab";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { copy } from "@/lib/i18n";
 
 import "./globals.css";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.vancoilliestudio.be"),
@@ -54,11 +61,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl">
-      <body className="bg-background text-foreground antialiased">
-        <OpenLinksInNewTab />
-        {children}
-        <ConditionalFooter />
+    <html lang="nl" className={`${outfit.variable}`}>
+      <body className="bg-background font-sans text-foreground antialiased">
+        <SmoothScroll>
+          <OpenLinksInNewTab />
+          {children}
+          <ConditionalFooter />
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -20,7 +20,7 @@ export type RouteKey =
 const routeMap: Record<Locale, Record<RouteKey, string>> = {
   nl: {
     landing: "/",
-    home: "/home",
+    home: "/",
     websites: "/websites",
     apps: "/apps",
     software: "/software",
@@ -38,7 +38,7 @@ const routeMap: Record<Locale, Record<RouteKey, string>> = {
   },
   en: {
     landing: "/en",
-    home: "/en/home",
+    home: "/en",
     websites: "/en/websites",
     apps: "/en/apps",
     software: "/en/software",
@@ -60,11 +60,13 @@ export function getLocalizedPath(locale: Locale, route: RouteKey) {
   return routeMap[locale][route];
 }
 
-export function getLocaleFromPathname(pathname: string): Locale {
+export function getLocaleFromPathname(pathname: string | null | undefined): Locale {
+  if (!pathname) return "nl";
   return pathname === "/en" || pathname.startsWith("/en/") ? "en" : "nl";
 }
 
-export function getRouteKeyFromPathname(pathname: string): RouteKey {
+export function getRouteKeyFromPathname(pathname: string | null | undefined): RouteKey {
+  if (!pathname) return "landing";
   if (pathname === "/" || pathname === "/en") {
     return "landing";
   }
@@ -110,7 +112,7 @@ export function getRouteKeyFromPathname(pathname: string): RouteKey {
   }
 }
 
-export function getAlternateLocalePath(pathname: string, locale: Locale) {
+export function getAlternateLocalePath(pathname: string | null | undefined, locale: Locale) {
   const route = getRouteKeyFromPathname(pathname);
   return getLocalizedPath(locale, route);
 }

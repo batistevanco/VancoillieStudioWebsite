@@ -89,7 +89,7 @@ export function WebsitesPage({ locale = "nl" }: { locale?: Locale }) {
   return (
     <>
       <Header />
-      <main className="pb-20 pt-4 md:pt-8">
+      <main className="pb-32 pt-8 md:pt-16 bg-gradient-to-b from-[#FAFAFA] via-white to-[#F4F8FC] dark:from-[#0A0A0A] dark:via-[#0E0E0E] dark:to-[#080808] transition-colors duration-300">
         <HeroParallax
           products={websiteExamples}
           eyebrow={content.eyebrow}
@@ -97,12 +97,16 @@ export function WebsitesPage({ locale = "nl" }: { locale?: Locale }) {
           description={content.subtitle}
         />
 
-        <FeatureWithAdvantages
-          badge={content.kicker}
-          title={content.servicesTitle}
-          description={content.servicesDescription}
-          items={content.services}
-        />
+        <div className="relative overflow-hidden">
+          {/* Ambient background glow */}
+          <div className="absolute top-0 right-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-[150px]" />
+          <FeatureWithAdvantages
+            badge={content.kicker}
+            title={content.servicesTitle}
+            description={content.servicesDescription}
+            items={content.services}
+          />
+        </div>
 
         <Pricing
           plans={content.plans}

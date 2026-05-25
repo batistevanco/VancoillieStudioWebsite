@@ -5,7 +5,6 @@ export const dynamic = "force-static";
 
 const routes = [
   "",
-  "/home",
   "/websites",
   "/apps",
   "/software",
@@ -15,7 +14,6 @@ const routes = [
   "/privacybeleid",
   "/algemene-voorwaarden",
   "/en",
-  "/en/home",
   "/en/websites",
   "/en/apps",
   "/en/software",

@@ -1,5 +1,5 @@
-import { LandingPage } from "@/components/ui/landing-page";
+import { redirect } from "next/navigation";
 
-export default function EnglishHomePage() {
-  return <LandingPage locale="en" showWorldwide showHeroMockup={false} />;
+export default function Page() {
+  redirect("/en");
 }

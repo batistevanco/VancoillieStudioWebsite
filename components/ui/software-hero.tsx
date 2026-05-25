@@ -7,34 +7,29 @@ export function SoftwareHero({ locale = "nl" }: { locale?: Locale }) {
   const content = getCopy(locale);
 
   return (
-    <div className="bg-white">
+    <div className="relative overflow-hidden bg-gradient-to-b from-[#FAFAFA] via-white to-[#F4F8FC] dark:from-[#0A0A0A] dark:via-[#0E0E0E] dark:to-[#0A0A0A] transition-colors duration-300">
       <Header />
 
-      <main>
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 isolate hidden opacity-60 lg:block"
-        >
-          <div className="absolute left-0 top-0 h-[80rem] w-[35rem] -translate-y-[22rem] -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(0,0%,80%,0.12)_0,hsla(0,0%,70%,0.03)_50%,hsla(0,0%,45%,0)_80%)]" />
-          <div className="absolute left-0 top-0 h-[80rem] w-56 -translate-y-[10rem] -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,0.08)_0,hsla(0,0%,45%,0.02)_80%,transparent_100%)]" />
-          <div className="absolute left-0 top-0 h-[80rem] w-56 -translate-y-[22rem] -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,0.05)_0,hsla(0,0%,45%,0.015)_80%,transparent_100%)]" />
-        </div>
+      <main className="relative">
+        {/* Soft background ambient blurs */}
+        <div className="absolute top-1/4 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-[120px]" />
+        <div className="absolute bottom-1/3 left-0 -z-10 h-[500px] w-[500px] rounded-full bg-purple-500/5 blur-[120px]" />
 
-        <section className="overflow-hidden bg-white">
-          <div className="relative mx-auto max-w-5xl px-6 py-24 md:py-28 lg:py-24">
+        <section className="relative overflow-hidden pt-16 md:pt-24 pb-20">
+          <div className="relative mx-auto max-w-5xl px-6 py-12 md:py-20 lg:py-24">
             <div className="relative z-10 mx-auto max-w-[58rem] text-center">
-              <h1 className="text-balance text-5xl font-semibold tracking-[-0.06em] text-zinc-950 sm:text-6xl md:text-7xl lg:text-[5.8rem] lg:leading-[0.92]">
+              <h1 className="text-balance text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white sm:text-6xl md:text-7xl lg:text-[5.5rem] lg:leading-[0.95]">
                 {content.softwareHero.title}
               </h1>
 
-              <p className="mx-auto my-8 max-w-4xl text-balance text-lg leading-8 text-zinc-700 md:my-10 md:text-2xl md:leading-[1.45]">
+              <p className="mx-auto my-8 max-w-3xl text-balance text-lg leading-relaxed text-zinc-500 dark:text-zinc-400 md:my-10 md:text-xl">
                 {content.softwareHero.description}
               </p>
 
               <Button
                 asChild
                 size="lg"
-                className="h-16 rounded-2xl bg-zinc-900 px-10 text-lg font-medium text-white shadow-none hover:bg-zinc-800"
+                className="h-14 rounded-full bg-zinc-900 px-10 text-base font-bold text-white shadow-lg shadow-zinc-900/10 hover:bg-zinc-800 hover:scale-[1.02] transition-all duration-300 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
               >
                 <a href={content.softwareHero.primaryCtaHref}>
                   <span>{content.softwareHero.primaryCta}</span>
@@ -43,12 +38,22 @@ export function SoftwareHero({ locale = "nl" }: { locale?: Locale }) {
             </div>
           </div>
 
-          <div className="mx-auto -mt-8 max-w-7xl [mask-image:linear-gradient(to_bottom,black_55%,transparent_100%)] md:-mt-12 lg:-mt-16">
-            <div className="[perspective:1200px] [mask-image:linear-gradient(to_right,black_84%,transparent_100%)] -mr-12 pl-8 md:-mr-24 md:pl-20 lg:-mr-56 lg:pl-56">
-              <div className="[transform:rotateX(20deg)]">
-                <div className="relative skew-x-[0.36rad]">
+          <div className="relative mx-auto -mt-8 max-w-5xl px-6 [mask-image:linear-gradient(to_bottom,black_75%,transparent_100%)] md:-mt-12 lg:-mt-16">
+            <div className="[perspective:1200px] [mask-image:linear-gradient(to_right,black_84%,transparent_100%)] -mr-4 pl-4 md:-mr-12 md:pl-12 lg:-mr-24 lg:pl-24">
+              <div className="[transform:rotateX(15deg)] relative">
+                
+                {/* Floating UI Overlay over Mockup */}
+                <div className="absolute top-1/4 -left-6 z-10 hidden md:flex flex-col items-start gap-1 rounded-2xl border border-white/30 bg-white/70 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.06)] backdrop-blur-md dark:border-white/10 dark:bg-black/70 animate-[bounce_4s_ease-in-out_infinite]">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-500">Factuur Status</span>
+                  <div className="flex items-center gap-2 mt-0.5">
+                    <span className="text-sm font-bold text-zinc-800 dark:text-white">Betaald</span>
+                    <span className="text-xs font-semibold rounded bg-emerald-100 dark:bg-emerald-950/40 px-1.5 py-0.5 text-emerald-700 dark:text-emerald-300">EUR 249,00</span>
+                  </div>
+                </div>
+
+                <div className="relative skew-x-[0.24rad]">
                   <img
-                    className="relative z-[2] w-full rounded-[2rem] border border-zinc-200 bg-white shadow-[0_35px_90px_rgba(15,23,42,0.09)]"
+                    className="relative z-[2] w-full rounded-[2rem] border border-zinc-200/50 bg-white shadow-[0_40px_100px_rgba(15,23,42,0.06)] dark:border-white/5 dark:bg-zinc-950"
                     src="/afbeeldingen/screenshotInvoxa.png"
                     alt={content.softwareHero.mockupAlt}
                     width={2880}

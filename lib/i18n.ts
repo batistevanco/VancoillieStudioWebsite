@@ -46,6 +46,24 @@ export const copy = {
       secondaryCta: "Bekijk websites",
       mockupAlt: "AI-platform dashboard",
     },
+    landing: {
+      eyebrow: "Simplify the technology",
+      headline: {
+        lead: "Digitale oplossingen die",
+        highlight: "helder",
+        trail: "voelen vanaf het eerste scherm.",
+      },
+      description:
+        "Van website tot app, van idee tot lancering. Vancoillie Studio maakt digitale producten die structuur, snelheid en gebruiksgemak samenbrengen.",
+      primaryCta: "Ontdek de studio",
+      secondaryCta: "Bekijk websites",
+      disciplines: [
+        { label: "Websites", href: "/websites" },
+        { label: "Apps", href: "/apps" },
+        { label: "Software", href: "/software" },
+      ],
+      location: "Roeselare, België",
+    },
     homeAbout: {
       prefix: "Wij bouwen",
       highlightOne: "digitale producten",
@@ -1092,6 +1110,24 @@ export const copy = {
       primaryCta: "View apps",
       secondaryCta: "View websites",
       mockupAlt: "AI platform dashboard",
+    },
+    landing: {
+      eyebrow: "Simplify the technology",
+      headline: {
+        lead: "Digital solutions that feel",
+        highlight: "clear",
+        trail: "from the very first screen.",
+      },
+      description:
+        "From website to app, from idea to launch. Vancoillie Studio creates digital products that bring structure, speed and usability together.",
+      primaryCta: "Discover the studio",
+      secondaryCta: "View websites",
+      disciplines: [
+        { label: "Websites", href: "/en/websites" },
+        { label: "Apps", href: "/en/apps" },
+        { label: "Software", href: "/en/software" },
+      ],
+      location: "Roeselare, Belgium",
     },
     homeAbout: {
       prefix: "We build",

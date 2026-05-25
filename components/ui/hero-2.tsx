@@ -2,11 +2,14 @@
 
 import type { ReactNode } from "react";
 
+import { Noise } from "@/components/ui/noise";
+import { GeminiWave } from "@/components/ui/gemini-wave";
 import { cn } from "@/lib/utils";
 
 interface AuroraHeroProps {
   children: ReactNode;
   className?: string;
+  theme?: "websites" | "apps" | "software";
 }
 
 const AuroraAnimation = () => (
@@ -14,35 +17,39 @@ const AuroraAnimation = () => (
     {`
       @keyframes aurora-1 {
         0% { transform: translate(0%, 0%) scale(1); }
-        25% { transform: translate(20%, -20%) scale(1.2); }
-        50% { transform: translate(-20%, 20%) scale(0.8); }
-        75% { transform: translate(10%, -10%) scale(1.1); }
+        33% { transform: translate(8%, -6%) scale(1.08); }
+        66% { transform: translate(-8%, 6%) scale(0.94); }
         100% { transform: translate(0%, 0%) scale(1); }
       }
       @keyframes aurora-2 {
         0% { transform: translate(0%, 0%) scale(1); }
-        25% { transform: translate(-20%, 20%) scale(1.1); }
-        50% { transform: translate(20%, -20%) scale(0.9); }
-        75% { transform: translate(-10%, 10%) scale(1.2); }
+        33% { transform: translate(-8%, 6%) scale(1.04); }
+        66% { transform: translate(8%, -6%) scale(0.96); }
         100% { transform: translate(0%, 0%) scale(1); }
       }
     `}
   </style>
 );
 
-export function AuroraHero({ children, className }: AuroraHeroProps) {
+export function AuroraHero({ children, className, theme = "websites" }: AuroraHeroProps) {
   return (
     <div className="h-full w-full">
       <AuroraAnimation />
+      <Noise />
       <div
         className={cn(
-          "relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-background antialiased",
+          "relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-gradient-to-tr from-[#FAF9F5] via-[#F4F6F9] to-[#FBF8FD] antialiased",
           className,
         )}
       >
-        <div className="absolute inset-0 z-0">
-          <div className="absolute -top-1/4 left-1/4 h-96 w-96 animate-[aurora-1_20s_ease-in-out_infinite] rounded-full bg-primary/30 opacity-20 blur-3xl filter dark:opacity-50" />
-          <div className="absolute -bottom-1/4 right-1/4 h-96 w-96 animate-[aurora-2_20s_ease-in-out_infinite] rounded-full bg-muted-foreground/30 opacity-10 blur-3xl filter dark:opacity-30" />
+        {/* Soft, magical drifting pastel glow blobs */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute -top-[15%] -right-[10%] h-[700px] w-[700px] animate-[aurora-1_24s_ease-in-out_infinite] rounded-full bg-orange-200/18 blur-[130px] filter" />
+          <div className="absolute -bottom-[15%] -left-[10%] h-[700px] w-[700px] animate-[aurora-2_24s_ease-in-out_infinite] rounded-full bg-indigo-100/32 blur-[130px] filter" />
+        </div>
+
+        <div className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-1000">
+          <GeminiWave theme={theme} />
         </div>
 
         <div className="relative z-10 w-full">{children}</div>

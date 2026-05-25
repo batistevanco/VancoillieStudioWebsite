@@ -78,12 +78,16 @@ export function Pricing({
   };
 
   return (
-    <div className="container mx-auto py-20">
-      <div className="mb-12 space-y-4 text-center">
-        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+    <div className="relative container mx-auto py-28 lg:py-36 overflow-hidden">
+      {/* Soft background ambient blurs */}
+      <div className="absolute top-1/4 right-0 -z-10 h-96 w-96 rounded-full bg-blue-500/5 blur-[120px]" />
+      <div className="absolute bottom-1/4 left-0 -z-10 h-[500px] w-[500px] rounded-full bg-purple-500/5 blur-[150px]" />
+
+      <div className="mb-16 space-y-5 text-center">
+        <h2 className="text-4xl font-extrabold tracking-tight text-zinc-950 dark:text-white sm:text-5xl lg:text-6xl">
           {title}
         </h2>
-        <p className="whitespace-pre-line text-lg text-muted-foreground">
+        <p className="whitespace-pre-line text-lg text-zinc-500 dark:text-zinc-400">
           {description}
         </p>
       </div>
@@ -135,27 +139,26 @@ export function Pricing({
                 opacity: { duration: 0.5 },
               }}
               className={cn(
-                "relative flex w-full flex-none flex-col rounded-2xl border-[1px] bg-background p-6 text-center lg:flex lg:flex-col lg:justify-center md:w-[350px]",
-                plan.isPopular ? "border-primary border-2" : "border-border",
-                !plan.isPopular && "md:mt-4",
-                plan.isPopular && "z-10 md:w-[380px]",
-                !plan.isPopular && "z-0",
+                "relative flex w-full flex-none flex-col rounded-[2.5rem] border p-8 text-center backdrop-blur-lg lg:flex lg:flex-col lg:justify-center md:w-[350px] transition-all duration-300 hover:-translate-y-1",
+                plan.isPopular
+                  ? "bg-white/70 border-brand/35 shadow-[0_20px_50px_rgba(37,99,235,0.08)] dark:bg-black/70 dark:border-brand/40 z-10 md:w-[380px] md:scale-105"
+                  : "bg-white/45 border-zinc-200/50 shadow-[0_8px_30px_rgba(0,0,0,0.015)] dark:bg-white/[0.02] dark:border-white/5 z-0 md:mt-4",
               )}
             >
               {plan.isPopular && (
-                <div className="absolute right-0 top-0 flex items-center rounded-bl-xl rounded-tr-xl bg-primary px-2 py-0.5">
-                  <Star className="h-4 w-4 fill-current text-primary-foreground" />
-                  <span className="ml-1 font-sans font-semibold text-primary-foreground">
+                <div className="absolute right-6 top-6 flex items-center rounded-full bg-brand/10 border border-brand/20 px-3 py-1 text-xs font-semibold tracking-wider text-brand dark:bg-brand/20 dark:text-blue-300">
+                  <Star className="h-3 w-3 fill-current text-brand mr-1" />
+                  <span className="font-sans font-semibold">
                     {popularBadge}
                   </span>
                 </div>
               )}
               <div className="flex flex-1 flex-col">
-                <p className="text-base font-semibold text-muted-foreground">
+                <p className="text-left text-base font-bold text-zinc-950 dark:text-white">
                   {plan.name}
                 </p>
-                <div className="mt-6 flex items-center justify-center gap-x-2">
-                  <span className="text-5xl font-bold tracking-tight text-foreground">
+                <div className="mt-6 flex items-baseline justify-start gap-x-2">
+                  <span className="text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white">
                     <NumberFlow
                       value={displayedPrice}
                       format={{
@@ -166,12 +169,12 @@ export function Pricing({
                       }}
                     />
                   </span>
-                  <span className="text-sm font-semibold leading-6 tracking-wide text-muted-foreground">
+                  <span className="text-sm font-semibold leading-6 tracking-wide text-zinc-500 dark:text-zinc-400">
                     / {plan.period}
                   </span>
                 </div>
 
-                <p className="text-xs leading-5 text-muted-foreground">
+                <p className="text-left text-xs mt-2 text-zinc-400 dark:text-zinc-500">
                   {includeHosting
                     ? plan.includesHosting
                       ? "hosting & domeinnaam inbegrepen"
@@ -181,16 +184,18 @@ export function Pricing({
                       : "excl. hosting & domeinnaam"}
                 </p>
 
-                <ul className="mt-5 flex flex-col gap-2">
+                <ul className="mt-8 flex flex-col gap-3.5 flex-1">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <Check className="mt-1 h-4 w-4 shrink-0 text-primary" />
-                      <span className="text-left">{feature}</span>
+                    <li key={idx} className="flex items-start gap-3 text-sm text-zinc-600 dark:text-zinc-400">
+                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand dark:bg-brand/20">
+                        <Check className="h-3 w-3 stroke-[2.5]" />
+                      </div>
+                      <span className="text-left leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <hr className="my-4 w-full" />
+                <div className="my-6 border-t border-zinc-200/50 dark:border-white/5 w-full" />
 
                 <Link
                   href={plan.href}
@@ -198,15 +203,15 @@ export function Pricing({
                     buttonVariants({
                       variant: "outline",
                     }),
-                    "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter ring-offset-current transition-all duration-300 ease-out hover:bg-primary hover:text-primary-foreground hover:ring-2 hover:ring-primary hover:ring-offset-1",
+                    "group relative w-full h-12 rounded-full overflow-hidden text-sm font-bold tracking-tight transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-md",
                     plan.isPopular
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-background text-foreground",
+                      ? "bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
+                      : "bg-white border-zinc-200/80 text-zinc-900 hover:bg-zinc-50 dark:bg-zinc-950 dark:border-white/10 dark:text-white dark:hover:bg-zinc-900",
                   )}
                 >
                   {plan.buttonText}
                 </Link>
-                <p className="mt-6 text-xs leading-5 text-muted-foreground">
+                <p className="mt-6 text-xs text-left leading-5 text-zinc-400 dark:text-zinc-500">
                   {plan.description}
                 </p>
               </div>

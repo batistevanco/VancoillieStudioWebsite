@@ -34,25 +34,28 @@ export function FeaturesSectionWithHoverEffects({
   features: readonly FeatureItem[];
 }) {
   return (
-    <section className="bg-white px-6 py-20 md:px-8 md:py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-10 max-w-3xl">
-          <h2 className="text-3xl font-semibold tracking-[-0.04em] text-zinc-950 md:text-5xl">
+    <section className="relative bg-transparent px-6 py-28 lg:py-36 overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 right-1/4 -z-10 h-80 w-80 rounded-full bg-blue-500/5 blur-[120px]" />
+      <div className="absolute bottom-1/3 left-1/4 -z-10 h-80 w-80 rounded-full bg-indigo-500/5 blur-[120px]" />
+
+      <div className="mx-auto max-w-7xl relative z-10">
+        <div className="mb-16 max-w-3xl">
+          <h2 className="text-4xl font-extrabold tracking-tight text-zinc-950 dark:text-white sm:text-5xl lg:text-6xl">
             {heading}
           </h2>
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => {
             const Icon = iconMap[index % iconMap.length];
 
             return (
               <Feature
                 key={feature.title}
-                index={index}
                 title={feature.title}
                 description={feature.description}
-                icon={<Icon className="h-6 w-6" strokeWidth={1.7} />}
+                icon={<Icon className="h-6 w-6 stroke-[1.5]" />}
               />
             );
           })}
@@ -66,39 +69,31 @@ function Feature({
   title,
   description,
   icon,
-  index,
 }: {
   title: string;
   description: string;
   icon: React.ReactNode;
-  index: number;
 }) {
   return (
     <div
       className={cn(
-        "group/feature relative flex flex-col border-zinc-200 py-10",
-        "md:min-h-[250px]",
-        "lg:border-r",
-        (index === 0 || index === 4) && "lg:border-l",
-        index < 4 && "lg:border-b",
+        "group relative flex flex-col justify-between rounded-[2rem] border border-zinc-200/50 bg-white/45 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.015)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] dark:border-white/5 dark:bg-white/[0.02] dark:hover:bg-white/[0.04] min-h-[260px]"
       )}
     >
-      {index < 4 ? (
-        <div className="pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-t from-zinc-100 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100" />
-      ) : (
-        <div className="pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-zinc-100 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100" />
-      )}
-
-      <div className="relative z-10 mb-4 px-10 text-zinc-500">{icon}</div>
-      <div className="relative z-10 mb-3 px-10 text-lg font-bold">
-        <div className="absolute inset-y-0 left-0 h-6 w-1 origin-center rounded-br-full rounded-tr-full bg-zinc-300 transition-all duration-200 group-hover/feature:h-8 group-hover/feature:bg-blue-500" />
-        <span className="inline-block text-zinc-900 transition duration-200 group-hover/feature:translate-x-2">
-          {title}
-        </span>
+      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 text-zinc-700 transition-colors group-hover:bg-brand group-hover:text-white dark:bg-zinc-900 dark:text-zinc-400">
+        {icon}
       </div>
-      <p className="relative z-10 max-w-xs px-10 text-sm leading-7 text-zinc-600">
-        {description}
-      </p>
+      
+      <div className="mt-8 flex flex-col gap-2.5">
+        <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white">
+          <span className="inline-block transition duration-200">
+            {title}
+          </span>
+        </h3>
+        <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+          {description}
+        </p>
+      </div>
     </div>
   );
 }

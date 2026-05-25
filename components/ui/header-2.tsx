@@ -68,11 +68,12 @@ export function Header() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 mx-auto w-full max-w-5xl border-b bg-background md:border-transparent md:bg-transparent md:rounded-md md:border md:transition-all md:ease-out',
+        'fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out md:top-6 md:left-1/2 md:-translate-x-1/2',
+        // Default glass styling when menu is closed
+        'bg-white/45 border-b border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.04)] backdrop-blur-xl dark:bg-black/45 dark:border-white/5 md:top-6 md:max-w-4xl md:rounded-full md:border',
         {
-          'border-border md:bg-background/95 md:shadow md:supports-[backdrop-filter]:bg-background/50 md:backdrop-blur-lg md:top-4 md:max-w-4xl':
-            scrolled && !open,
-          'md:bg-background/90': open,
+          // Flat solid styling when mobile menu is open
+          'bg-background/95 border-b border-border dark:border-border md:rounded-none md:top-0': open,
         },
       )}
     >
@@ -86,7 +87,7 @@ export function Header() {
       >
         <a
           href={getLocalizedPath(locale, 'landing')}
-          className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground md:text-xl"
+          className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground visited:text-foreground md:text-xl"
         >
           <img
             src="/afbeeldingen/logo.png"
@@ -99,7 +100,10 @@ export function Header() {
           {links.map((link, i) => (
             <a
               key={i}
-              className={buttonVariants({ variant: 'ghost' })}
+              className={cn(
+                buttonVariants({ variant: 'ghost' }),
+                'text-zinc-600 visited:text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:visited:text-zinc-300 dark:hover:text-white transition-colors'
+              )}
               href={link.href}
             >
               {link.label}
@@ -108,19 +112,29 @@ export function Header() {
           <div className="ml-2 flex items-center gap-1">
             <a
               href={getAlternateLocalePath(pathname, 'nl')}
-              className={buttonVariants({
-                variant: locale === 'nl' ? 'default' : 'ghost',
-                size: 'sm',
-              })}
+              className={cn(
+                buttonVariants({
+                  variant: locale === 'nl' ? 'default' : 'ghost',
+                  size: 'sm',
+                }),
+                locale === 'nl'
+                  ? ''
+                  : 'text-zinc-600 visited:text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:visited:text-zinc-300 dark:hover:text-white'
+              )}
             >
               {content.language.nl}
             </a>
             <a
               href={getAlternateLocalePath(pathname, 'en')}
-              className={buttonVariants({
-                variant: locale === 'en' ? 'default' : 'ghost',
-                size: 'sm',
-              })}
+              className={cn(
+                buttonVariants({
+                  variant: locale === 'en' ? 'default' : 'ghost',
+                  size: 'sm',
+                }),
+                locale === 'en'
+                  ? ''
+                  : 'text-zinc-600 visited:text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:visited:text-zinc-300 dark:hover:text-white'
+              )}
             >
               {content.language.en}
             </a>

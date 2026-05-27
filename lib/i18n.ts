@@ -32,6 +32,7 @@ export const copy = {
         software: "Software",
         about: "Over ons",
         contact: "Contact",
+        vancoillieITHulp: "Vancoillie IT Hulp",
       },
       language: {
         nl: "NL",
@@ -1097,6 +1098,7 @@ export const copy = {
         software: "Software",
         about: "About",
         contact: "Contact",
+        vancoillieITHulp: "Vancoillie IT Hulp",
       },
       language: {
         nl: "NL",

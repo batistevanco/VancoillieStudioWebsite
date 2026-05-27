@@ -15,7 +15,8 @@ export type RouteKey =
   | "inmandje"
   | "stockbuddy"
   | "geldinzicht"
-  | "taakflow";
+  | "taakflow"
+  | "vancoillie-it-hulp";
 
 const routeMap: Record<Locale, Record<RouteKey, string>> = {
   nl: {
@@ -35,6 +36,7 @@ const routeMap: Record<Locale, Record<RouteKey, string>> = {
     stockbuddy: "/stockbuddy",
     geldinzicht: "/geldinzicht",
     taakflow: "/taakflow",
+    "vancoillie-it-hulp": "/vancoillie-it-hulp",
   },
   en: {
     landing: "/en",
@@ -53,6 +55,7 @@ const routeMap: Record<Locale, Record<RouteKey, string>> = {
     stockbuddy: "/en/stockbuddy",
     geldinzicht: "/en/geldinzicht",
     taakflow: "/en/taakflow",
+    "vancoillie-it-hulp": "/en/vancoillie-it-hulp",
   },
 };
 

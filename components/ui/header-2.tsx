@@ -44,6 +44,10 @@ export function Header() {
       href: getLocalizedPath(locale, 'software'),
     },
     {
+      label: content.nav.vancoillieITHulp,
+      href: getLocalizedPath(locale, 'vancoillie-it-hulp'),
+    },
+    {
       label: content.nav.about,
       href: getLocalizedPath(locale, 'about'),
     },
@@ -68,13 +72,10 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out md:top-6 md:left-1/2 md:-translate-x-1/2',
-        // Default glass styling when menu is closed
-        'bg-white/45 border-b border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.04)] backdrop-blur-xl dark:bg-black/45 dark:border-white/5 md:top-6 md:max-w-4xl md:rounded-full md:border',
-        {
-          // Flat solid styling when mobile menu is open
-          'bg-background/95 border-b border-border dark:border-border md:rounded-none md:top-0': open,
-        },
+        'fixed top-0 left-0 right-0 z-[9999] w-full transition-all duration-300 ease-in-out md:top-6 md:left-1/2 md:-translate-x-1/2',
+        open
+          ? 'bg-white dark:bg-zinc-950 border-b border-border dark:border-border'
+          : 'bg-white/45 border-b border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.04)] backdrop-blur-xl dark:bg-black/45 dark:border-white/5 md:top-6 md:max-w-5xl md:rounded-full md:border',
       )}
     >
       <nav
@@ -96,7 +97,7 @@ export function Header() {
           />
           <span>Vancoillie Studio</span>
         </a>
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-0.5 md:flex">
           {links.map((link, i) => (
             <a
               key={i}
@@ -152,7 +153,7 @@ export function Header() {
 
       <div
         className={cn(
-          'fixed top-14 right-0 bottom-0 left-0 z-50 flex flex-col bg-background md:hidden',
+          'fixed inset-0 z-[9998] flex flex-col bg-white dark:bg-zinc-950 md:hidden pt-14',
           open ? 'flex' : 'hidden',
         )}
       >

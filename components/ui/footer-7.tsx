@@ -47,6 +47,7 @@ const defaultLegalLinks = [
 export const Footer7 = ({
   logo = {
     url: "/",
+    src: "/afbeeldingen/logo.png",
     alt: "Vancoillie Studio logo",
     title: "Vancoillie Studio",
   },
@@ -66,21 +67,17 @@ export const Footer7 = ({
         <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
           <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
             <div className="flex items-center gap-2 lg:justify-start">
-              <a href={logo.url}>
-                {logo.src ? (
+              <a href={logo.url} className="flex items-center gap-2 text-foreground visited:text-foreground">
+                {logo.src && (
                   <img
                     src={logo.src}
                     alt={logo.alt}
                     title={logo.title}
-                    className="h-8"
+                    className="h-6 w-6 rounded-sm object-contain md:h-7 md:w-7"
                   />
-                ) : (
-                  <span className="text-xl font-semibold">{logo.title}</span>
                 )}
+                <span className="text-xl font-semibold">{logo.title}</span>
               </a>
-              {!logo.src ? null : (
-                <h2 className="text-xl font-semibold">{logo.title}</h2>
-              )}
             </div>
             <p className="max-w-[70%] text-sm text-muted-foreground">{content.description || description}</p>
             <ul className="flex items-center space-x-6 text-muted-foreground">

@@ -44,6 +44,10 @@ export function Header() {
       href: getLocalizedPath(locale, 'software'),
     },
     {
+      label: content.nav.ai,
+      href: getLocalizedPath(locale, 'ai'),
+    },
+    {
       label: content.nav.vancoillieITHulp,
       href: getLocalizedPath(locale, 'vancoillie-it-hulp'),
     },

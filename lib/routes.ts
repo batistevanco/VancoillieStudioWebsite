@@ -5,6 +5,7 @@ export type RouteKey =
   | "websites"
   | "apps"
   | "software"
+  | "ai"
   | "about"
   | "contact"
   | "thankYou"
@@ -25,6 +26,7 @@ const routeMap: Record<Locale, Record<RouteKey, string>> = {
     websites: "/websites",
     apps: "/apps",
     software: "/software",
+    ai: "/ai",
     about: "/about",
     contact: "/contact",
     thankYou: "/bedankt",
@@ -44,6 +46,7 @@ const routeMap: Record<Locale, Record<RouteKey, string>> = {
     websites: "/en/websites",
     apps: "/en/apps",
     software: "/en/software",
+    ai: "/en/ai",
     about: "/en/about",
     contact: "/en/contact",
     thankYou: "/en/thank-you",
@@ -87,6 +90,8 @@ export function getRouteKeyFromPathname(pathname: string | null | undefined): Ro
       return "apps";
     case "/software":
       return "software";
+    case "/ai":
+      return "ai";
     case "/about":
       return "about";
     case "/contact":

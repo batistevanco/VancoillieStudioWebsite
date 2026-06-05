@@ -35,15 +35,13 @@ export const HeroDigitalSuccess = ({
 
   // Dynamic tags translation
   const tags = locale === 'nl' ? [
-    { title: 'Webdesign', desc: 'E-commerce' },
-    { title: 'Sociale Media', desc: 'E-mail Marketing' },
-    { title: 'Conversie Optimalisatie', desc: 'Betaalde advertenties' },
-    { title: 'Content Creatie', desc: 'en meer' },
+    { title: 'Webdesign', desc: 'Snel, modern & SEO' },
+    { title: 'Apps', desc: 'iOS & Web' },
+    { title: 'Software', desc: 'Op maat & Invoxa' },
   ] : [
-    { title: 'Web Design', desc: 'Ecommerce' },
-    { title: 'Social Media', desc: 'Email Marketing' },
-    { title: 'Conversion Rate', desc: 'Paid Ads' },
-    { title: 'Content Creation', desc: 'and more' },
+    { title: 'Web Design', desc: 'Fast, modern & SEO' },
+    { title: 'Apps', desc: 'iOS & Web' },
+    { title: 'Software', desc: 'Custom & Invoxa' },
   ]
 
   return (
@@ -165,7 +163,7 @@ export const HeroDigitalSuccess = ({
           once={true}
           animationNum={6}
           timelineRef={timelineRef}
-          className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-4 bg-black/20 backdrop-blur-lg p-4 rounded-lg border border-white/10"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-x-12 gap-y-4 bg-black/20 backdrop-blur-lg p-4 rounded-lg border border-white/10 w-full sm:w-auto"
         >
           {tags.map((tag, idx) => (
             <div key={idx} className="space-y-1">

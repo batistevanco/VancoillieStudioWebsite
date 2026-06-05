@@ -5,7 +5,7 @@ import { Features } from "@/components/ui/features-8";
 import { Gallery4 } from "@/components/ui/gallery4";
 import { Header } from "@/components/ui/header-2";
 import { HeroDigitalSuccess } from "@/components/hero-digital-success";
-import { FeatureVelocity } from "@/components/feature-velocity";
+import { FeaturePlatform } from "@/components/feature-platform";
 import { Testimonials } from "@/components/ui/testimonials-columns-1";
 
 export function LandingPage({
@@ -40,11 +40,12 @@ export function LandingPage({
       {showWorldwide ? <Testimonials locale={locale} /> : null}
       {showWorldwide ? <Features locale={locale} /> : null}
       {showWorldwide ? (
-        <FeatureVelocity
+        <FeaturePlatform
           eyebrow={content.infiniteBento.eyebrow}
           title={content.infiniteBento.title}
           description={content.infiniteBento.description}
           metrics={[...content.infiniteBento.metrics]}
+          locale={locale}
         />
       ) : null}
       {showWorldwide ? (

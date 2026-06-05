@@ -10,7 +10,7 @@ import { getCopy } from "@/lib/i18n";
 import { getLocalizedPath, type Locale } from "@/lib/routes";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Header } from "@/components/ui/header-2";
+import { Navbar } from "@/components/ui/navbar";
 import { SparklesText } from "@/components/ui/sparkles-text";
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
 
@@ -33,31 +33,38 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
 
   return (
     <>
-      <Header />
-      <main className="pb-16 pt-12 md:pt-18">
-        <div className="mx-auto max-w-[1440px] px-3 md:px-4">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-brand">
-              {content.eyebrow}
-            </p>
-            <SparklesText
-              text={content.title}
-              sparklesCount={8}
-              colors={{ first: "#2563EB", second: "#8B5CF6" }}
-              className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-[3.8rem]"
-            />
-            <p className="mt-4 text-base leading-7 text-muted-foreground md:text-[1.05rem]">
-              {content.description}
-            </p>
+      {/* Single hero wrapper — one background */}
+      <div
+        className="relative"
+        style={{ backgroundImage: "url('/afbeeldingen/defaultBackground.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <Navbar variant="overlay" />
+        <div className="pb-8 pt-8 md:pt-12">
+          <div className="mx-auto max-w-[1440px] px-3 md:px-4">
+            <div className="mx-auto mb-14 max-w-3xl text-center">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
+                {content.eyebrow}
+              </p>
+              <SparklesText
+                text={content.title}
+                sparklesCount={8}
+                colors={{ first: "#93c5fd", second: "#c4b5fd" }}
+                className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-[3.8rem]"
+              />
+              <p className="mt-4 text-base leading-7 text-white/70 md:text-[1.05rem]">
+                {content.description}
+              </p>
+            </div>
           </div>
         </div>
 
-        <section className="pb-6">
+        {/* Parallax section — seamlessly inside same hero */}
+        <section className="pb-10">
           <div className="mx-auto mb-8 max-w-3xl px-3 text-center md:px-4">
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
               {content.parallax.title}
             </h2>
-            <p className="mt-3 text-base leading-7 text-muted-foreground md:text-[1.05rem]">
+            <p className="mt-3 text-base leading-7 text-white/70 md:text-[1.05rem]">
               {content.parallax.description}
             </p>
           </div>
@@ -74,13 +81,14 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
             ]}
           />
         </section>
+      </div>
 
-        <div className="divide-y divide-zinc-100 dark:divide-zinc-900">
+      <main className="pb-16">
+
+        <div className="w-full divide-y divide-white/20">
           {apps.map((app, index) => {
             const isFeatured = index === 0;
             const reverse = index % 2 === 1;
-            // Alternating fresh off-whites and whites
-            const bgClass = index % 2 === 0 ? "bg-white dark:bg-[#0A0A0A]" : "bg-[#FAFAFA] dark:bg-[#0E0E0E]";
             
             const primaryHref =
               app.primaryHref ?? app.appStoreUrl ?? getLocalizedPath(locale, "contact");
@@ -92,27 +100,22 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
             const mascotte = MASCOTTE_APPS[app.slug] ?? null;
             const detailHref = locale === "en" ? `/en/${app.slug}` : `/${app.slug}`;
 
-            // Define ambient glow color based on app brand
-            const glowColor = app.slug === "brainox" 
-              ? "bg-purple-500/10 dark:bg-purple-500/20" 
-              : "bg-blue-500/10 dark:bg-blue-500/20";
-
             return (
               <section
                 key={app.slug}
-                className={`w-full py-20 md:py-32 ${bgClass} transition-colors duration-300`}
+                className="relative w-full overflow-hidden py-20 md:py-32 transition-colors duration-300" style={{ backgroundImage: "url('/afbeeldingen/defaultBackground.png')", backgroundSize: "cover", backgroundPosition: "center" }}
               >
-                <div className="mx-auto max-w-7xl px-6 md:px-8">
+                {/* Ambient soft highlight */}
+                <div className="absolute top-0 left-0 w-full h-full bg-white/10 pointer-events-none opacity-50" />
+                
+                <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
                   <div
                     className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-20 ${
                       reverse ? "lg:[&>*:first-child]:order-2" : ""
                     }`}
                   >
                     {/* Floating Phone Mockup Column */}
-                    <div className="relative flex items-center justify-center py-10">
-                      {/* Ambient light glow behind the device (Google Gemini style) */}
-                      <div className={`absolute h-72 w-72 rounded-full ${glowColor} blur-[80px] md:h-96 md:w-96`} />
-                      
+                    <div className="relative flex items-center justify-center py-4">
                       {/* Floating UI Overlays for AbboBuddy */}
                       {app.slug === "abbo" && (
                         <motion.div
@@ -128,8 +131,6 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                         </motion.div>
                       )}
 
-
-
                       {/* Floating animation using framer-motion */}
                       <motion.div
                         animate={{ y: [0, -12, 0] }}
@@ -138,32 +139,46 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                           repeat: Infinity,
                           ease: "easeInOut"
                         }}
-                        className="relative z-10 w-full max-w-[280px] sm:max-w-[310px]"
+                        className="relative z-10 w-full max-w-[280px] sm:max-w-[305px] select-none"
                       >
-                        {/* Phone Screen Container - Clean & Simple */}
-                        <div className="relative aspect-[9/18.5] w-full overflow-hidden rounded-[40px] border-[8px] border-zinc-900 bg-zinc-950 shadow-[0_30px_100px_rgba(0,0,0,0.12)] dark:border-zinc-800">
-                          <Image
-                            src={app.heroImage}
-                            alt={app.name}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className="object-cover"
-                            priority={isFeatured}
-                          />
+                        {/* iPhone 17 Pro Max - Orange Titanium Outer Frame */}
+                        <div className="relative w-full aspect-[9/19.5] rounded-[52px] bg-gradient-to-b from-[#ffecd2] via-[#f97316] to-[#7c2d12] p-[3px] shadow-[0_30px_100px_rgba(0,0,0,0.35)] border border-white/20">
+                          {/* Screen Container & Ultra-Thin Bezel */}
+                          <div className="relative w-full h-full overflow-hidden rounded-[49px] border-[5px] border-black bg-neutral-950">
+                            
+                            {/* Dynamic Island */}
+                            <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-[80px] h-[22px] rounded-full bg-black z-30 flex items-center justify-center pointer-events-none">
+                              {/* Tiny Camera Lens Reflection */}
+                              <div className="absolute right-[18px] w-2 h-2 rounded-full bg-[#050f26]/80 border border-[#0d2a4d]/30" />
+                              <div className="absolute right-[21px] w-1 h-1 rounded-full bg-[#1c385c]" />
+                            </div>
+
+                            {/* Speaker grill at the very top bezel */}
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-neutral-800 rounded-b-sm z-30" />
+
+                            <Image
+                              src={app.heroImage}
+                              alt={app.name}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className="object-cover"
+                              priority={isFeatured}
+                            />
+                          </div>
                         </div>
                       </motion.div>
                     </div>
 
                     {/* App Description Content Column */}
                     <div className="flex flex-col items-start text-left">
-                      <div className="mb-4 inline-flex items-center rounded-full border border-zinc-200 bg-zinc-50/50 px-4 py-1.5 text-xs font-semibold tracking-wider text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-400">
-                        <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-brand" />
+                      <div className="mb-4 inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-semibold tracking-wider text-blue-900 shadow-sm">
+                        <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
                         {availabilityLabel}
                       </div>
 
                       <div className="flex items-center gap-4 mb-3">
                         {mascotte ? (
-                          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-2xl border border-zinc-200 bg-white p-1 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+                          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-2xl border border-white/20 bg-white p-1 shadow-sm">
                             <Image
                               src={mascotte}
                               alt={`${app.name} mascotte`}
@@ -172,16 +187,16 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                             />
                           </div>
                         ) : null}
-                        <h2 className="text-4xl font-extrabold tracking-tight text-zinc-900 sm:text-5xl dark:text-white">
+                        <h2 className="text-4xl font-extrabold tracking-tight text-neutral-950 sm:text-5xl">
                           {app.name}
                         </h2>
                       </div>
 
-                      <h3 className="text-xl font-semibold tracking-tight text-brand md:text-2xl mb-4">
+                      <h3 className="text-xl font-bold tracking-tight text-blue-950 md:text-2xl mb-4">
                         {app.tagline}
                       </h3>
 
-                      <p className="max-w-xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400 md:text-lg mb-8">
+                      <p className="max-w-xl text-base leading-relaxed text-blue-950/80 md:text-lg mb-8 font-medium">
                         {app.description}
                       </p>
 
@@ -190,7 +205,7 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                           href={primaryHref}
                           target={isExternalPrimary ? "_blank" : undefined}
                           rel={isExternalPrimary ? "noreferrer" : undefined}
-                          className="inline-flex h-14 items-center justify-center rounded-full bg-zinc-900 px-8 text-sm font-semibold text-white shadow-lg shadow-zinc-900/10 transition-transform duration-200 hover:-translate-y-0.5 hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
+                          className="inline-flex h-14 items-center justify-center rounded-full bg-neutral-950 px-8 text-sm font-semibold text-white shadow-lg shadow-neutral-950/10 transition-all duration-200 hover:-translate-y-0.5 hover:bg-neutral-900 hover:shadow-xl active:translate-y-0"
                         >
                           {isExternalPrimary || app.appStoreUrl ? (
                             <FaApple className="mr-2.5 h-4 w-4 shrink-0" />
@@ -202,7 +217,7 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
 
                         <a
                           href={detailHref}
-                          className="inline-flex h-14 items-center justify-center rounded-full border border-zinc-200 bg-white/50 px-8 text-sm font-semibold text-zinc-900 backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-md dark:border-zinc-800 dark:bg-black/50 dark:text-white dark:hover:bg-zinc-900"
+                          className="inline-flex h-14 items-center justify-center rounded-full bg-white px-8 text-sm font-semibold text-neutral-950 shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-neutral-50 hover:shadow-lg active:translate-y-0"
                         >
                           <ExternalLink className="mr-2.5 h-4 w-4 shrink-0" />
                           {locale === "en" ? `Discover ${app.name}` : `Ontdek ${app.name}`}

@@ -47,7 +47,7 @@ const defaultLegalLinks = [
 export const Footer7 = ({
   logo = {
     url: "/",
-    src: "/afbeeldingen/logo.png",
+    src: "/afbeeldingen/TransparantLogo.png",
     alt: "Vancoillie Studio logo",
     title: "Vancoillie Studio",
   },

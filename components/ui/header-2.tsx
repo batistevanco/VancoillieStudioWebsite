@@ -91,7 +91,7 @@ export function Header() {
           className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground visited:text-foreground md:text-xl"
         >
           <img
-            src="/afbeeldingen/logo.png"
+            src="/afbeeldingen/TransparantLogo.png"
             alt="Vancoillie Studio logo"
             className="h-6 w-6 rounded-sm object-contain md:h-7 md:w-7"
           />

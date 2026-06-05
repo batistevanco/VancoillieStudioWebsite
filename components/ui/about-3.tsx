@@ -18,9 +18,9 @@ export function About3({ locale = "nl" }: About3Props) {
           <TypingAnimation
             text={content.title}
             duration={22}
-            className="mx-auto max-w-4xl text-4xl font-semibold leading-[0.95] tracking-tight text-zinc-950 md:mx-0 md:text-left md:text-5xl"
+            className="mx-auto max-w-4xl text-4xl font-semibold leading-[0.95] tracking-tight text-white md:mx-0 md:text-left md:text-5xl"
           />
-          <p className="text-base leading-7 text-muted-foreground md:pl-8">
+          <p className="text-base leading-7 text-neutral-900 md:pl-8">
             {content.description}
           </p>
         </div>
@@ -50,7 +50,7 @@ export function About3({ locale = "nl" }: About3Props) {
         </div>
 
         <div className="py-12 md:py-14">
-          <p className="text-center text-sm font-medium text-muted-foreground">
+          <p className="text-center text-sm font-medium text-white/60">
             {content.companiesTitle}
           </p>
           <div className="mt-4 flex justify-center">

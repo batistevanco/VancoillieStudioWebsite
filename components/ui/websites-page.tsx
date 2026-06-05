@@ -1,13 +1,55 @@
 import { FeatureWithAdvantages } from "@/components/ui/feature-with-advantages";
 import { FeatureSectionWithBentoGrid } from "@/components/ui/feature-section-with-bento-grid";
-import { Header } from "@/components/ui/header-2";
-import { HeroParallax } from "@/components/ui/hero-parallax";
+import { Navbar } from "@/components/ui/navbar";
+import { CardsParallax, iCardItem } from "@/components/ui/scroll-cards";
+import { WebsitesHero } from "@/components/ui/websites-hero";
 import { Pricing } from "@/components/ui/pricing";
+import { WebsiteExamples } from "@/components/ui/website-examples";
 import { getCopy } from "@/lib/i18n";
 import type { Locale } from "@/lib/routes";
 
 export function WebsitesPage({ locale = "nl" }: { locale?: Locale }) {
   const content = getCopy(locale).websitesPage;
+  
+  const scrollCardItems: iCardItem[] = [
+    {
+      title: "Vancoillie IT Hulp",
+      description: locale === "en" ? "Reliable computer help, fair & fast at home or remote." : "Betrouwbare computer hulp, eerlijk & snel aan huis en op afstand.",
+      tag: "it-support",
+      src: "/afbeeldingen/websiteExamples/ItHulp.png",
+      link: "https://vancoillie-ithulp.be",
+      color: "#1e3a8a",
+      textColor: "#ffffff",
+    },
+    {
+      title: "SIMPLIFY THE",
+      description: locale === "en" ? "Modern, minimalist software designs." : "Moderne, minimalistische software ontwerpen.",
+      tag: "portfolio",
+      src: "/afbeeldingen/websiteExamples/SIMPLIFYTHE.png",
+      link: "https://batistevancoillie.be/",
+      color: "#111827",
+      textColor: "#ffffff",
+    },
+    {
+      title: "Software Development",
+      description: locale === "en" ? "Robust and scalable custom applications." : "Robuuste en schaalbare applicaties op maat.",
+      tag: "development",
+      src: "/afbeeldingen/websiteExamples/SoftwareDevelopment.png",
+      link: "https://batistevancoillie.be/",
+      color: "#0f172a",
+      textColor: "#ffffff",
+    },
+    {
+      title: "Bereikbaar",
+      description: locale === "en" ? "Optimal reachability and communications." : "Optimale bereikbaarheid en communicatie.",
+      tag: "communication",
+      src: "/afbeeldingen/websiteExamples/Bereikbaar.png",
+      link: "https://batistevancoillie.be/",
+      color: "#065f46",
+      textColor: "#ffffff",
+    },
+  ];
+
   const websiteExamples = [
     {
       title: "SIMPLIFY THE",
@@ -88,14 +130,10 @@ export function WebsitesPage({ locale = "nl" }: { locale?: Locale }) {
 
   return (
     <>
-      <Header />
-      <main className="pb-32 pt-8 md:pt-16 bg-gradient-to-b from-[#FAFAFA] via-white to-[#F4F8FC] dark:from-[#0A0A0A] dark:via-[#0E0E0E] dark:to-[#080808] transition-colors duration-300">
-        <HeroParallax
-          products={websiteExamples}
-          eyebrow={content.eyebrow}
-          title={content.title}
-          description={content.subtitle}
-        />
+      <main className="pb-32 bg-gradient-to-b from-[#FAFAFA] via-white to-[#F4F8FC] dark:from-[#0A0A0A] dark:via-[#0E0E0E] dark:to-[#080808] transition-colors duration-300">
+        <WebsitesHero />
+
+        <WebsiteExamples />
 
         <div className="relative overflow-hidden">
           {/* Ambient background glow */}

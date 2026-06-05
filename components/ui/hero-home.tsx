@@ -15,7 +15,7 @@ export function HeroHome() {
           alt="Vancoillie Studio"
           fill
           priority
-          className="object-cover object-[25%_center] md:object-[45%_center] lg:object-[30%_center] xl:object-[20%_center] 2xl:object-[10%_center]"
+          className="object-cover object-[25%_center] md:object-[65%_center] lg:object-[60%_center] xl:object-[55%_center] 2xl:object-[50%_center]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent md:bg-gradient-to-r md:from-black/40 md:via-transparent" />
       </div>
@@ -27,7 +27,7 @@ export function HeroHome() {
 
       {/* Hero text */}
       <div className="relative md:absolute inset-0 z-20 flex flex-col justify-center px-6 py-10 md:py-0 md:px-16 bg-[#0a0a0a] md:bg-transparent flex-grow">
-        <div className="ml-auto max-w-xl w-full">
+        <div className="mr-auto max-w-xl w-full md:translate-y-10">
           <h1 className="text-4xl sm:text-5xl font-semibold leading-[1.1] tracking-tight text-white md:text-7xl">
             Jouw idee.<br />Onze code.
           </h1>

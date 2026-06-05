@@ -89,7 +89,7 @@ export const copy = {
         alt: "Websitevoorbeeld van Vancoillie Studio",
       },
       breakout: {
-        src: "/afbeeldingen/logo.png",
+        src: "/afbeeldingen/TransparantLogo.png",
         alt: "Vancoillie Studio logo",
         title: "Websites als service, apps en software als producten",
         description:

@@ -27,7 +27,7 @@ export function HeroHome() {
 
       {/* Hero text */}
       <div className="relative md:absolute inset-0 z-20 flex flex-col justify-center px-6 py-10 md:py-0 md:px-16 bg-[#0a0a0a] md:bg-transparent flex-grow">
-        <div className="mr-auto max-w-xl w-full md:translate-y-10">
+        <div className="mr-auto max-w-xl w-full md:translate-y-20">
           <h1 className="text-4xl sm:text-5xl font-semibold leading-[1.1] tracking-tight text-white md:text-7xl">
             Jouw idee.<br />Onze code.
           </h1>

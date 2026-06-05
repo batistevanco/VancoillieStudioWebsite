@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     locale: "nl_BE",
     images: [
       {
-        url: "/afbeeldingen/logo.png",
+        url: "/afbeeldingen/TransparantLogo.png",
       },
     ],
   },

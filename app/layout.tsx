@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Outfit, Caveat } from "next/font/google";
 
-import { ConditionalFooter } from "@/components/ui/conditional-footer";
-import { OpenLinksInNewTab } from "@/components/ui/open-links-in-new-tab";
-import { SmoothScroll } from "@/components/smooth-scroll";
 import { copy } from "@/lib/i18n";
+import { ConditionalSiteFooter } from "@/components/ui/conditional-site-footer";
 
 import "./globals.css";
 
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
 });
 
 export const metadata: Metadata = {
@@ -60,13 +63,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" className={`${outfit.variable}`}>
+    <html lang="nl" className={`${outfit.variable} ${caveat.variable}`}>
       <body className="bg-background font-sans text-foreground antialiased">
-        <SmoothScroll>
-          <OpenLinksInNewTab />
-          {children}
-          <ConditionalFooter />
-        </SmoothScroll>
+        {children}
+        <ConditionalSiteFooter />
       </body>
     </html>
   );

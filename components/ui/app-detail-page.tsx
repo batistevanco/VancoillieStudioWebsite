@@ -26,7 +26,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Header } from "@/components/ui/header-2";
+import { Navbar } from "@/components/ui/navbar";
 import { Switch } from "@/components/ui/switch";
 
 const uiCopy = {
@@ -215,17 +215,22 @@ export function AppDetailPage({
 
   return (
     <>
-      <Header />
-      <main className="pb-20 pt-12 md:pt-18">
+      <div className="absolute inset-x-0 top-0 z-20">
+        <Navbar variant="overlay" theme="light" />
+      </div>
+      <main className="pb-20 pt-0">
 
         {/* Hero */}
-        <section className="w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(237,247,255,0.98))]">
-          <div className="mx-auto max-w-[1440px] px-3 py-12 md:px-4 md:py-18">
+        <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#3b8eff] via-[#75b4ff] to-[#aad0ff] pt-28 md:pt-36">
+          {/* Ambient soft highlight */}
+          <div className="absolute top-0 left-0 w-full h-full bg-white/10 pointer-events-none opacity-50" />
+          
+          <div className="relative z-10 mx-auto max-w-[1440px] px-6 pb-12 md:px-8 md:pb-18">
             <Button
               variant="ghost"
               size="sm"
               asChild
-              className="mb-8 -ml-1 text-muted-foreground hover:text-foreground"
+              className="mb-8 -ml-1 text-blue-900 hover:text-blue-950 hover:bg-white/20 rounded-full transition-all"
             >
               <a href={getLocalizedPath(locale, "apps")}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -243,7 +248,7 @@ export function AppDetailPage({
               >
                 <motion.div variants={itemVariants} className="flex items-center gap-4">
                   {mascotte ? (
-                    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[18px] border border-brand/20 bg-white shadow-md shadow-brand/10">
+                    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[18px] border border-white/20 bg-white p-1 shadow-md shadow-blue-500/10">
                       <Image
                         src={mascotte}
                         alt={`${app.name} logo`}
@@ -252,19 +257,19 @@ export function AppDetailPage({
                       />
                     </div>
                   ) : null}
-                  <Badge variant="outline" className="border-brand/30 bg-brand/5 text-brand">
+                  <Badge variant="outline" className="border-neutral-100 bg-white text-blue-900 shadow-sm font-semibold">
                     {availabilityLabel}
                   </Badge>
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <h1 className="text-5xl font-bold tracking-tight md:text-6xl">
+                  <h1 className="text-5xl font-extrabold tracking-tight text-neutral-950 md:text-6xl">
                     {app.name}
                   </h1>
-                  <p className="mt-3 text-2xl font-medium text-foreground/75 md:text-3xl">
+                  <p className="mt-3 text-2xl font-bold text-blue-950 md:text-3xl">
                     {app.tagline}
                   </p>
-                  <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground md:text-[1.05rem]">
+                  <p className="mt-4 max-w-xl text-base font-medium leading-7 text-blue-950/80 md:text-[1.05rem]">
                     {app.description}
                   </p>
                 </motion.div>
@@ -274,7 +279,7 @@ export function AppDetailPage({
                     <Button
                       asChild
                       size="lg"
-                      className="h-16 min-w-[260px] rounded-2xl bg-black px-6 text-lg text-white shadow-lg shadow-black/15 transition hover:bg-black/90"
+                      className="h-16 min-w-[260px] rounded-full bg-neutral-950 px-6 text-lg text-white shadow-lg shadow-neutral-950/15 hover:bg-neutral-900 hover:scale-[1.02] active:scale-[0.98] transition-all"
                     >
                       <a href={appStoreUrl} target="_blank" rel="noreferrer">
                         <FaApple className="mr-3 h-5 w-5" />
@@ -287,7 +292,7 @@ export function AppDetailPage({
                       asChild
                       size="lg"
                       variant="outline"
-                      className="h-16 min-w-[260px] rounded-2xl text-lg"
+                      className="h-16 min-w-[260px] rounded-full bg-white px-6 text-lg text-neutral-950 border border-neutral-200/50 hover:bg-neutral-50 hover:scale-[1.02] active:scale-[0.98] transition-all"
                     >
                       <a href={webUrl} target="_blank" rel="noreferrer">
                         <Globe className="mr-3 h-5 w-5" />
@@ -315,13 +320,30 @@ export function AppDetailPage({
                     />
                   </div>
                 ) : null}
-                <div className="relative aspect-[11/18] w-full max-w-[260px] overflow-hidden rounded-[28px] border border-brand/20 bg-white shadow-[0_24px_80px_rgba(37,99,235,0.16)] md:max-w-[290px]">
-                  <Image
-                    src={app.heroImage}
-                    alt={`${app.name} scherm`}
-                    fill
-                    className="object-contain p-2"
-                  />
+                
+                {/* iPhone 17 Pro Max - Orange Titanium Outer Frame */}
+                <div className="relative aspect-[9/19.5] w-full max-w-[260px] md:max-w-[290px] rounded-[52px] bg-gradient-to-b from-[#ffecd2] via-[#f97316] to-[#7c2d12] p-[3px] shadow-[0_30px_100px_rgba(0,0,0,0.35)] border border-white/20 select-none">
+                  {/* Screen Container & Ultra-Thin Bezel */}
+                  <div className="relative w-full h-full overflow-hidden rounded-[49px] border-[5px] border-black bg-neutral-950">
+                    
+                    {/* Dynamic Island */}
+                    <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-[80px] h-[22px] rounded-full bg-black z-30 flex items-center justify-center pointer-events-none">
+                      {/* Tiny Camera Lens Reflection */}
+                      <div className="absolute right-[18px] w-2 h-2 rounded-full bg-[#050f26]/80 border border-[#0d2a4d]/30" />
+                      <div className="absolute right-[21px] w-1 h-1 rounded-full bg-[#1c385c]" />
+                    </div>
+
+                    {/* Speaker grill at the very top bezel */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-neutral-800 rounded-b-sm z-30" />
+
+                    <Image
+                      src={app.heroImage}
+                      alt={`${app.name} scherm`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </motion.div>
             </div>

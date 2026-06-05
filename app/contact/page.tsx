@@ -1,11 +1,5 @@
-import { ContactSection } from "@/components/ui/contact";
-import { Header } from "@/components/ui/header-2";
+import { ContactPage } from "@/components/ui/contact-page";
 
-export default function ContactPage() {
-  return (
-    <>
-      <Header />
-      <ContactSection locale="nl" />
-    </>
-  );
+export default function Contact() {
+  return <ContactPage />;
 }

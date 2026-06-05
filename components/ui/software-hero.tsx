@@ -1,4 +1,4 @@
-import { Header } from "@/components/ui/header-2";
+import { Navbar } from "@/components/ui/navbar";
 import { Button } from "@/components/ui/button";
 import { getCopy } from "@/lib/i18n";
 import type { Locale } from "@/lib/routes";
@@ -7,29 +7,31 @@ export function SoftwareHero({ locale = "nl" }: { locale?: Locale }) {
   const content = getCopy(locale);
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-[#FAFAFA] via-white to-[#F4F8FC] dark:from-[#0A0A0A] dark:via-[#0E0E0E] dark:to-[#0A0A0A] transition-colors duration-300">
-      <Header />
+    <div className="relative overflow-hidden" style={{ backgroundImage: "url('/afbeeldingen/defaultBackground.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <div className="absolute inset-x-0 top-0 z-20">
+        <Navbar variant="overlay" />
+      </div>
 
       <main className="relative">
         {/* Soft background ambient blurs */}
         <div className="absolute top-1/4 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-[120px]" />
         <div className="absolute bottom-1/3 left-0 -z-10 h-[500px] w-[500px] rounded-full bg-purple-500/5 blur-[120px]" />
 
-        <section className="relative overflow-hidden pt-16 md:pt-24 pb-20">
+        <section className="relative overflow-hidden pt-28 md:pt-36 pb-20">
           <div className="relative mx-auto max-w-5xl px-6 py-12 md:py-20 lg:py-24">
             <div className="relative z-10 mx-auto max-w-[58rem] text-center">
-              <h1 className="text-balance text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white sm:text-6xl md:text-7xl lg:text-[5.5rem] lg:leading-[0.95]">
+              <h1 className="text-balance text-5xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[5.5rem] lg:leading-[0.95]">
                 {content.softwareHero.title}
               </h1>
 
-              <p className="mx-auto my-8 max-w-3xl text-balance text-lg leading-relaxed text-zinc-500 dark:text-zinc-400 md:my-10 md:text-xl">
+              <p className="mx-auto my-8 max-w-3xl text-balance text-lg leading-relaxed text-neutral-900 md:my-10 md:text-xl">
                 {content.softwareHero.description}
               </p>
 
               <Button
                 asChild
                 size="lg"
-                className="h-14 rounded-full bg-zinc-900 px-10 text-base font-bold text-white shadow-lg shadow-zinc-900/10 hover:bg-zinc-800 hover:scale-[1.02] transition-all duration-300 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
+                className="h-14 rounded-full bg-white px-10 text-base font-bold text-zinc-900 shadow-lg hover:bg-white/90 hover:scale-[1.02] transition-all duration-300"
               >
                 <a href={content.softwareHero.primaryCtaHref}>
                   <span>{content.softwareHero.primaryCta}</span>

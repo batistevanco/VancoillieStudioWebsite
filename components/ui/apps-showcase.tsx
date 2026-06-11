@@ -58,29 +58,6 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
           </div>
         </div>
 
-        {/* Parallax section — seamlessly inside same hero */}
-        <section className="pb-10">
-          <div className="mx-auto mb-8 max-w-3xl px-3 text-center md:px-4">
-            <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              {content.parallax.title}
-            </h2>
-            <p className="mt-3 text-base leading-7 text-white/70 md:text-[1.05rem]">
-              {content.parallax.description}
-            </p>
-          </div>
-          <ZoomParallax
-            images={[
-              { src: "/afbeeldingen/mijnithulp-iphone/ithulp1.png", alt: "Mijn IT Hulp screenshot" },
-              { src: "/afbeeldingen/mijnithulp-iphone/ithulp2.png", alt: "Mijn IT Hulp screenshot" },
-              { src: "/afbeeldingen/mijnithulp-iphone/ithulp3.png", alt: "Mijn IT Hulp screenshot" },
-              { src: "/afbeeldingen/brainox/homescreen.png", alt: "Brainox screenshot" },
-              { src: "/afbeeldingen/screenshots/news1.png", alt: "News screenshot" },
-              { src: "/afbeeldingen/screenshots/abbo1.png", alt: "AbboBuddy screenshot" },
-              { src: "/afbeeldingen/screenshots/Geldinzicht1.png", alt: "Geldinzicht screenshot" },
-              { src: "/afbeeldingen/screenshots/taakflow1.png", alt: "TaakFlow screenshot" },
-            ]}
-          />
-        </section>
       </div>
 
       <main className="pb-16">

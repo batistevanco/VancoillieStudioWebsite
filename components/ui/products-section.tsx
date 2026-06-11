@@ -22,7 +22,7 @@ const PRODUCTS = [
     tagline2: "abonnementen.",
     description:
       "Overzicht over alles wat je betaalt. Nooit meer verrast door een onverwachte afschrijving.",
-    image: "/afbeeldingen/ProductShowcase/AbboBuddyShowcase2.png",
+    image: "/afbeeldingen/ProductShowcase/AbboBuddyShowcase.png",
     href: "/apps",
     dark: false,
   },

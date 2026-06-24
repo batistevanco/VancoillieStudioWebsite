@@ -48,10 +48,10 @@ export function FeatureSectionWithBentoGrid({
             ) : null}
 
             <div className="flex flex-col gap-4">
-              <h2 className="max-w-xl text-left text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl md:text-5xl">
+              <h2 className="max-w-xl text-left text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
                 {title}
               </h2>
-              <p className="max-w-xl text-left text-base leading-relaxed text-zinc-500 dark:text-zinc-400 lg:max-w-lg">
+              <p className="max-w-xl text-left text-base leading-relaxed text-white/60 lg:max-w-lg">
                 {description}
               </p>
             </div>
@@ -96,14 +96,14 @@ function BentoCard({
 }) {
   return (
     <div
-      className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] border border-zinc-200/50 bg-white/45 p-8 shadow-[0_8px_30px_rgb(0,0,0,0.015)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] dark:border-white/5 dark:bg-white/[0.02] dark:hover:bg-white/[0.04] ${className ?? ""}`}
+      className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white/8 hover:border-white/15 ${className ?? ""}`}
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 text-zinc-700 transition-colors group-hover:bg-brand group-hover:text-white dark:bg-zinc-900 dark:text-zinc-400">
+      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-white/70 transition-colors group-hover:bg-white/20 group-hover:text-white">
         <Icon className="h-6 w-6 stroke-[1.5]" />
       </div>
       <div className="mt-8 flex flex-col gap-2.5">
-        <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white">{item.title}</h3>
-        <p className="max-w-sm text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+        <h3 className="text-xl font-bold tracking-tight text-white">{item.title}</h3>
+        <p className="max-w-sm text-sm leading-relaxed text-white/55">
           {item.description}
         </p>
       </div>

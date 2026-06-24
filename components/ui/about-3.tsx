@@ -20,7 +20,7 @@ export function About3({ locale = "nl" }: About3Props) {
             duration={22}
             className="mx-auto max-w-4xl text-4xl font-semibold leading-[0.95] tracking-tight text-white md:mx-0 md:text-left md:text-5xl"
           />
-          <p className="text-base leading-7 text-neutral-900 md:pl-8">
+          <p className="text-base leading-7 text-white/75 md:pl-8">
             {content.description}
           </p>
         </div>

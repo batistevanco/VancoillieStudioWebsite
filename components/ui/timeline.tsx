@@ -77,14 +77,14 @@ export const Timeline = ({
 
   return (
     <div
-      className="w-full bg-white font-sans md:px-10"
+      className="w-full font-sans md:px-10"
       ref={containerRef}
     >
       <div className="mx-auto max-w-7xl px-4 py-20 md:px-8 lg:px-10">
-        <h2 className="mb-4 max-w-4xl text-lg text-black md:text-4xl">
+        <h2 className="mb-4 max-w-4xl text-lg text-white md:text-4xl">
           {heading}
         </h2>
-        <p className="max-w-sm text-sm text-neutral-700 md:text-base">
+        <p className="max-w-sm text-sm text-white/60 md:text-base">
           {description}
         </p>
       </div>
@@ -99,20 +99,20 @@ export const Timeline = ({
             className="flex justify-start pt-10 md:gap-10 md:pt-40"
           >
             <div className="sticky top-40 z-40 flex max-w-xs self-start md:w-full md:max-w-sm md:flex-row md:items-center">
-              <div className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white md:left-3">
+              <div className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full bg-transparent md:left-3">
                 <div
                   className={cn(
                     "h-4 w-4 rounded-full border p-2 transition-all duration-300",
                     activeIndex === index
                       ? "scale-125 border-brand bg-brand shadow-[0_0_0_6px_rgba(37,99,235,0.16)]"
-                      : "border-neutral-300 bg-neutral-200",
+                      : "border-white/20 bg-white/10",
                   )}
                 />
               </div>
               <h3
                 className={cn(
                   "hidden text-xl font-bold transition-colors duration-300 md:block md:pl-20 md:text-5xl",
-                  activeIndex === index ? "text-zinc-950" : "text-neutral-500",
+                  activeIndex === index ? "text-white" : "text-white/35",
                 )}
               >
                 {item.title}
@@ -123,7 +123,7 @@ export const Timeline = ({
               <h3
                 className={cn(
                   "mb-4 block text-left text-2xl font-bold transition-colors duration-300 md:hidden",
-                  activeIndex === index ? "text-zinc-950" : "text-neutral-500",
+                  activeIndex === index ? "text-white" : "text-white/35",
                 )}
               >
                 {item.title}
@@ -136,7 +136,7 @@ export const Timeline = ({
           style={{
             height: height + "px",
           }}
-          className="absolute left-8 top-0 w-[2px] overflow-hidden bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] md:left-8"
+          className="absolute left-8 top-0 w-[2px] overflow-hidden bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-white/15 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] md:left-8"
         >
           <motion.div
             style={{

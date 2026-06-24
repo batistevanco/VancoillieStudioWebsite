@@ -15,14 +15,14 @@ export function TimelineDemo({ locale = "nl" }: { locale?: Locale }) {
           ? entry.paragraphs.map((paragraph, index) => (
               <p
                 key={`${entry.id}-paragraph-${index}`}
-                className="mb-8 text-xs font-normal text-neutral-800 md:text-sm"
+                className="mb-8 text-xs font-normal text-white/70 md:text-sm"
               >
                 {paragraph}
               </p>
             ))
           : null}
         {"intro" in entry ? (
-          <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm">
+          <p className="mb-4 text-xs font-normal text-white/70 md:text-sm">
             {entry.intro}
           </p>
         ) : null}
@@ -31,7 +31,7 @@ export function TimelineDemo({ locale = "nl" }: { locale?: Locale }) {
             {entry.bullets.map((item, index) => (
               <div
                 key={`${entry.id}-bullet-${index}`}
-                className="text-xs text-neutral-700 md:text-sm"
+                className="text-xs text-white/65 md:text-sm"
               >
                 {item}
               </div>

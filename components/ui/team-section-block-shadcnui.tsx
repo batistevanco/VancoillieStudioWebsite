@@ -12,22 +12,9 @@ import {
 } from "framer-motion";
 import { Code2, Github, Mail, MapPin, Sparkles } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { getCopy } from "@/lib/i18n";
 import type { Locale } from "@/lib/routes";
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.15,
-    },
-  },
-};
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 28, scale: 0.96 },
@@ -35,10 +22,7 @@ const itemVariants: Variants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: {
-      duration: 0.55,
-      ease: [0.6, 0.05, 0.01, 0.9],
-    },
+    transition: { duration: 0.55, ease: [0.6, 0.05, 0.01, 0.9] },
   },
 };
 
@@ -61,21 +45,13 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
   const mouseY = useMotionValue(0);
   const shouldReduceMotion = useReducedMotion();
 
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), {
-    stiffness: 260,
-    damping: 28,
-  });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-4, 4]), {
-    stiffness: 260,
-    damping: 28,
-  });
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [3, -3]), { stiffness: 260, damping: 28 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-3, 3]), { stiffness: 260, damping: 28 });
 
   const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    const x = (event.clientX - rect.left - rect.width / 2) / (rect.width / 2);
-    const y = (event.clientY - rect.top - rect.height / 2) / (rect.height / 2);
-    mouseX.set(x);
-    mouseY.set(y);
+    mouseX.set((event.clientX - rect.left - rect.width / 2) / (rect.width / 2));
+    mouseY.set((event.clientY - rect.top - rect.height / 2) / (rect.height / 2));
   };
 
   const handleMouseLeave = () => {
@@ -85,7 +61,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
   };
 
   return (
-    <motion.div variants={itemVariants} style={{ perspective: 1000 }}>
+    <motion.div variants={itemVariants} style={{ perspective: 1200 }}>
       <motion.div
         style={{
           rotateX: shouldReduceMotion ? 0 : rotateX,
@@ -97,36 +73,31 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
         onMouseLeave={handleMouseLeave}
         className="group relative"
       >
-        <Card className="relative overflow-hidden border-0 bg-transparent text-zinc-950 shadow-none">
+        {/* Glass card */}
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/8">
+          {/* Glow on hover */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-slate-50 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            className="pointer-events-none absolute inset-0 rounded-2xl"
             animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            style={{ background: "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.04), transparent 40%)" }}
           />
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.7 }}
-            animate={
-              isHovered
-                ? { opacity: 1, scale: 1 }
-                : { opacity: 0, scale: shouldReduceMotion ? 1 : 0.75 }
-            }
-            className="absolute right-5 top-5 z-10"
-          >
-            <Sparkles className="h-5 w-5 text-blue-600" aria-hidden />
-          </motion.div>
-
-          <div className="relative z-10 grid gap-8 p-6 md:grid-cols-[260px_1fr] md:p-8">
+          <div className="relative z-10 grid gap-10 p-8 md:grid-cols-[240px_1fr] lg:p-12">
+            {/* Photo */}
             <div className="flex justify-center md:justify-start">
               <motion.div
-                className="relative"
                 whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 260, damping: 22 }}
+                className="relative"
               >
-                <div className="relative h-56 w-44 overflow-hidden rounded-lg border border-border/70 bg-slate-50 p-1 shadow-xl shadow-slate-200/80 sm:h-64 sm:w-52">
+                {/* Glow ring */}
+                <div className="absolute -inset-1 rounded-xl bg-gradient-to-br from-white/20 to-white/5 blur-sm" />
+                <div className="relative h-64 w-52 overflow-hidden rounded-xl border border-white/15 shadow-2xl">
                   <motion.img
                     src={member.image}
                     alt={member.name}
-                    className="h-full w-full rounded-md object-cover"
+                    className="h-full w-full object-cover"
                     whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   />
@@ -134,64 +105,61 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
               </motion.div>
             </div>
 
+            {/* Info */}
             <div className="flex flex-col justify-center text-center md:text-left">
-              <div className="mb-3 flex flex-wrap items-center justify-center gap-2 md:justify-start">
-                <Badge
-                  variant="secondary"
-                  className="bg-blue-50 text-xs uppercase tracking-[0.24em] text-blue-700"
-                >
+              {/* Badges */}
+              <div className="mb-4 flex flex-wrap items-center justify-center gap-2 md:justify-start">
+                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white/90">
                   {member.role}
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="border-border/70 bg-white text-xs text-zinc-600"
-                >
-                  <Code2 className="mr-1.5 h-3 w-3" aria-hidden />
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                  <Code2 className="h-3 w-3" aria-hidden />
                   Solo studio
-                </Badge>
+                </span>
               </div>
 
+              {/* Name */}
               <motion.h3
-                className="text-3xl font-semibold tracking-tight text-zinc-950 md:text-5xl"
+                className="text-4xl font-bold tracking-tight text-white md:text-5xl"
                 animate={isHovered && !shouldReduceMotion ? { scale: 1.01 } : { scale: 1 }}
                 transition={{ duration: 0.2 }}
               >
                 {member.name}
               </motion.h3>
 
-              <div className="mt-4 flex items-center justify-center gap-1.5 text-sm text-muted-foreground md:justify-start">
-                <MapPin className="h-4 w-4" aria-hidden />
+              {/* Location */}
+              <div className="mt-3 flex items-center justify-center gap-1.5 text-sm text-white/50 md:justify-start">
+                <MapPin className="h-3.5 w-3.5" aria-hidden />
                 <span>{member.location}</span>
               </div>
 
-              <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
+              {/* Bio */}
+              <p className="mt-5 max-w-lg text-base leading-7 text-white/65">
                 {member.bio}
               </p>
 
+              {/* Skills */}
               <div className="mt-6 flex flex-wrap justify-center gap-2 md:justify-start">
                 {member.skills.map((skill, index) => (
-                  <motion.div
+                  <motion.span
                     key={skill}
-                    initial={{ scale: 0.92, opacity: 0 }}
+                    initial={{ scale: 0.9, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.08 * index, type: "spring" }}
+                    transition={{ delay: 0.07 * index, type: "spring" }}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"
                   >
-                    <Badge
-                      variant="outline"
-                      className="border-border/70 bg-slate-50 text-xs text-zinc-700"
-                    >
-                      {skill}
-                    </Badge>
-                  </motion.div>
+                    {skill}
+                  </motion.span>
                 ))}
               </div>
 
+              {/* CTAs */}
               <div className="mt-7 flex justify-center gap-3 md:justify-start">
                 <Button
                   size="sm"
                   variant="outline"
-                  className="rounded-lg border-border/70 bg-white text-zinc-900 hover:bg-slate-50 hover:text-zinc-900"
+                  className="rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
                   asChild
                 >
                   <a href={member.social.github} target="_blank" rel="noreferrer">
@@ -201,7 +169,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
                 </Button>
                 <Button
                   size="sm"
-                  className="rounded-lg bg-blue-600 text-white hover:bg-blue-500"
+                  className="rounded-full bg-white text-black hover:bg-white/90"
                   asChild
                 >
                   <a href={`mailto:${member.social.email}`}>
@@ -212,7 +180,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
               </div>
             </div>
           </div>
-        </Card>
+        </div>
       </motion.div>
     </motion.div>
   );
@@ -226,59 +194,62 @@ export function TeamSectionBlock({ locale = "nl" }: { locale?: Locale }) {
   return (
     <section
       aria-labelledby="team-section-heading"
-      className="relative w-full overflow-hidden bg-white px-4 py-20 text-zinc-950 sm:px-6 lg:px-10"
+      className="relative w-full px-4 py-24 sm:px-6 lg:px-10"
     >
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-5xl">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : -24 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.7, ease: [0.6, 0.05, 0.01, 0.9] }}
-          className="mb-12 text-center"
+          className="mb-14 text-center"
         >
-          <Badge
-            className="mb-6 gap-2 bg-blue-50 text-blue-700"
-            variant="secondary"
-          >
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs text-white/70 backdrop-blur-sm">
             <Sparkles className="h-3 w-3" aria-hidden />
             {content.badge}
-          </Badge>
+          </div>
 
           <h2
             id="team-section-heading"
-            className="mx-auto max-w-3xl text-balance text-4xl font-semibold tracking-tight text-zinc-950 md:text-6xl"
+            className="mx-auto max-w-3xl text-balance text-4xl font-bold tracking-tight text-white md:text-6xl"
           >
             {content.title}
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-balance text-base leading-7 text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-balance text-base leading-7 text-white/60 md:text-lg">
             {content.description}
           </p>
         </motion.div>
 
+        {/* Card */}
         <motion.div
-          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.12 } },
+          }}
         >
           <TeamMemberCard member={member} />
         </motion.div>
 
+        {/* CTA block */}
         <motion.div
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 26 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ delay: 0.15, duration: 0.6 }}
-          className="mx-auto mt-10 max-w-3xl p-6 text-center"
+          className="mx-auto mt-10 max-w-2xl rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm"
         >
-          <h3 className="text-2xl font-semibold">{content.ctaTitle}</h3>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+          <h3 className="text-2xl font-semibold text-white">{content.ctaTitle}</h3>
+          <p className="mt-3 text-sm leading-6 text-white/60">
             {content.ctaDescription}
           </p>
           <Button
             size="lg"
-            className="mt-6 rounded-lg bg-zinc-900 px-8 text-white hover:bg-zinc-800"
+            className="mt-6 rounded-full bg-white px-8 text-black hover:bg-white/90"
             asChild
           >
             <a href={content.ctaHref}>{content.ctaLabel}</a>

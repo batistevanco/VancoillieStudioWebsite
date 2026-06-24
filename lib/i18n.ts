@@ -679,7 +679,7 @@ export const copy = {
         webVersion: "Open webversie",
       },
       labels: {
-        availableOn: "Beschikbaar op iPhone",
+        availableOn: "Beschikbaar op iPhone & Android",
         activeModules: "Actieve modules",
         usageStat: "Kernfunctie",
         focus: "Focus",
@@ -713,7 +713,7 @@ export const copy = {
           appStoreUrl: "https://apps.apple.com/us/app/mijn-it-hulp/id6761382330",
           primaryLabel: "Download nu",
           webUrl: "https://vancoillieithulp.be/mijnithulp/index.html",
-          availabilityLabel: "Beschikbaar op iPhone, iPad en Mac",
+          availabilityLabel: "Beschikbaar op iPhone, iPad, Mac & Android",
           spec: {
             integrationTitle: "Digitale IT-toegangspoort",
             integrationDescription:
@@ -745,7 +745,7 @@ export const copy = {
             "Brainox is een rustige capture-app voor iPhone waarbij je taken, ideeen en losse gedachten meteen vastlegt, optioneel een type kiest en alles later rustig verwerkt via een Daily Review. Lokaal, snel en zonder onnodige ruis.",
           heroImage: "/afbeeldingen/brainox/homescreen.png",
           appStoreUrl: "https://apps.apple.com/us/app/brainox-leeg-jouw-gedachten/id6764558670",
-          availabilityLabel: "Beschikbaar op iPhone",
+          availabilityLabel: "Beschikbaar op iPhone & Android",
           screenshots: [
             "/afbeeldingen/brainox/brainox1.png",
             "/afbeeldingen/brainox/brainox2.png",
@@ -1067,6 +1067,18 @@ export const copy = {
             "Sterkere positionering rond apps en software",
             "Duidelijkere merkidentiteit voor de volgende groeifase",
             "Voorbereiding op een breder product- en softwareaanbod",
+          ],
+          images: [],
+        },
+        {
+          id: "2026-android",
+          title: "Android — Binnenkort",
+          intro: "Na een sterke start op iOS zetten we onze apps ook in de Google Play Store:",
+          bullets: [
+            "Al onze apps worden beschikbaar op Android",
+            "Mijn IT Hulp, Brainox, Taakflow en meer komen naar de Play Store",
+            "Android-gebruikers krijgen dezelfde ervaring als op iOS",
+            "Stapsgewijze uitrol gepland voor eind 2026",
           ],
           images: [],
         },

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import * as React from "react";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { FaApple } from "react-icons/fa";
+import { FaApple, FaGooglePlay } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import { getCopy } from "@/lib/i18n";
@@ -33,13 +33,9 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
 
   return (
     <>
-      {/* Single hero wrapper — one background */}
-      <div
-        className="relative"
-        style={{ backgroundImage: "url('/afbeeldingen/defaultBackground.png')", backgroundSize: "cover", backgroundPosition: "center" }}
-      >
+      <div className="relative">
         <Navbar variant="overlay" />
-        <div className="pb-8 pt-8 md:pt-12">
+        <div className="pb-8 pt-28 md:pt-32">
           <div className="mx-auto max-w-[1440px] px-3 md:px-4">
             <div className="mx-auto mb-14 max-w-3xl text-center">
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
@@ -62,7 +58,7 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
 
       <main className="pb-16">
 
-        <div className="w-full divide-y divide-white/20">
+        <div className="w-full divide-y divide-white/10">
           {apps.map((app, index) => {
             const isFeatured = index === 0;
             const reverse = index % 2 === 1;
@@ -80,10 +76,8 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
             return (
               <section
                 key={app.slug}
-                className="relative w-full overflow-hidden py-20 md:py-32 transition-colors duration-300" style={{ backgroundImage: "url('/afbeeldingen/defaultBackground.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+                className="relative w-full overflow-hidden py-20 md:py-32"
               >
-                {/* Ambient soft highlight */}
-                <div className="absolute top-0 left-0 w-full h-full bg-white/10 pointer-events-none opacity-50" />
                 
                 <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
                   <div
@@ -148,7 +142,7 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
 
                     {/* App Description Content Column */}
                     <div className="flex flex-col items-start text-left">
-                      <div className="mb-4 inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-semibold tracking-wider text-blue-900 shadow-sm">
+                      <div className="mb-4 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-white/90 backdrop-blur-sm">
                         <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
                         {availabilityLabel}
                       </div>
@@ -164,25 +158,26 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                             />
                           </div>
                         ) : null}
-                        <h2 className="text-4xl font-extrabold tracking-tight text-neutral-950 sm:text-5xl">
+                        <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
                           {app.name}
                         </h2>
                       </div>
 
-                      <h3 className="text-xl font-bold tracking-tight text-blue-950 md:text-2xl mb-4">
+                      <h3 className="text-xl font-bold tracking-tight text-white/80 md:text-2xl mb-4">
                         {app.tagline}
                       </h3>
 
-                      <p className="max-w-xl text-base leading-relaxed text-blue-950/80 md:text-lg mb-8 font-medium">
+                      <p className="max-w-xl text-base leading-relaxed text-white/65 md:text-lg mb-8 font-medium">
                         {app.description}
                       </p>
 
-                      <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-4">
+                      <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-3">
+                        {/* App Store */}
                         <a
                           href={primaryHref}
                           target={isExternalPrimary ? "_blank" : undefined}
                           rel={isExternalPrimary ? "noreferrer" : undefined}
-                          className="inline-flex h-14 items-center justify-center rounded-full bg-neutral-950 px-8 text-sm font-semibold text-white shadow-lg shadow-neutral-950/10 transition-all duration-200 hover:-translate-y-0.5 hover:bg-neutral-900 hover:shadow-xl active:translate-y-0"
+                          className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15 active:translate-y-0"
                         >
                           {isExternalPrimary || app.appStoreUrl ? (
                             <FaApple className="mr-2.5 h-4 w-4 shrink-0" />
@@ -192,9 +187,19 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                           {primaryLabel}
                         </a>
 
+                        {/* Play Store — coming soon */}
+                        <span
+                          title={locale === "en" ? "Coming soon on Android" : "Binnenkort op Android"}
+                          className="inline-flex h-12 cursor-not-allowed items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white/40 backdrop-blur-sm"
+                        >
+                          <FaGooglePlay className="mr-2.5 h-4 w-4 shrink-0" />
+                          {locale === "en" ? "Play Store — Soon" : "Play Store — Binnenkort"}
+                        </span>
+
+                        {/* Detail */}
                         <a
                           href={detailHref}
-                          className="inline-flex h-14 items-center justify-center rounded-full bg-white px-8 text-sm font-semibold text-neutral-950 shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-neutral-50 hover:shadow-lg active:translate-y-0"
+                          className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-neutral-950 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/90 active:translate-y-0"
                         >
                           <ExternalLink className="mr-2.5 h-4 w-4 shrink-0" />
                           {locale === "en" ? `Discover ${app.name}` : `Ontdek ${app.name}`}

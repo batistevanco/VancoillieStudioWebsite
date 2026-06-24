@@ -130,7 +130,7 @@ export function WebsitesPage({ locale = "nl" }: { locale?: Locale }) {
 
   return (
     <>
-      <main className="pb-32 bg-gradient-to-b from-[#FAFAFA] via-white to-[#F4F8FC] dark:from-[#0A0A0A] dark:via-[#0E0E0E] dark:to-[#080808] transition-colors duration-300">
+      <main className="pb-32 bg-transparent">
         <WebsitesHero />
 
         <WebsiteExamples />

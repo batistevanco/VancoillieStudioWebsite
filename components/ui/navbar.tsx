@@ -90,99 +90,114 @@ export function Navbar({ variant = "overlay", theme }: NavbarProps) {
     ? "text-neutral-900 dark:text-white"
     : (isDarkTheme ? "text-neutral-900" : "text-white");
 
+  // Liquid glass — dark tint ensures text always readable regardless of background
+  const glassBase =
+    "border border-white/15 bg-black/35 backdrop-blur-xl backdrop-saturate-150 shadow-sm shadow-black/20";
+  const glassScrolled =
+    "border border-white/20 bg-black/50 backdrop-blur-2xl backdrop-saturate-200 shadow-md shadow-black/25";
+
+  const pillClass = scrolled ? glassScrolled : glassBase;
+  const textClass = "text-white/85 hover:text-white";
+  const logoClass = "text-white";
+  const contactClass = "bg-white/15 text-white hover:bg-white/25 border border-white/20";
+  const hoverPillClass = "bg-white/15";
+
   return (
     <>
-      <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || isOpen
-          ? "bg-white/90 dark:bg-neutral-950/90 backdrop-blur-md shadow-sm border-b border-neutral-200/30 dark:border-neutral-800/30 py-3 md:py-4" 
-          : "bg-transparent py-5 md:py-6"
-      }`}>
-        <nav className="flex items-center justify-between px-6 md:px-12 max-w-7xl mx-auto w-full">
+      {/* Floating navbar — one unified pill */}
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 pointer-events-none">
+        <nav
+          ref={navRef}
+          className={`pointer-events-auto hidden md:flex items-center justify-between w-full max-w-4xl rounded-full px-3 py-1.5 transition-all duration-500 ${pillClass}`}
+          onMouseLeave={() => { setHovered(null); setHoverStyle(null); }}
+        >
+          {/* Hover highlight */}
+          {hoverStyle && (
+            <motion.div
+              className={`absolute top-1.5 h-[calc(100%-12px)] rounded-full pointer-events-none ${hoverPillClass}`}
+              initial={false}
+              animate={{ left: hoverStyle.left, width: hoverStyle.width }}
+              transition={{ type: "spring", stiffness: 500, damping: 35 }}
+            />
+          )}
+
           {/* Logo */}
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             onClick={() => setIsOpen(false)}
-            className={`text-base font-semibold tracking-tight transition-colors duration-300 ${logoColor}`}
+            className={`relative z-10 rounded-full px-4 py-1.5 text-sm font-semibold tracking-tight transition-colors duration-200 ${logoClass}`}
           >
             Vancoillie Studio
           </Link>
 
-          {/* Desktop nav pill */}
-          <div
-            ref={navRef}
-            className={`relative hidden md:flex items-center gap-1 rounded-full px-2 py-1.5 transition-all duration-300 ${pillBg}`}
-            onMouseLeave={() => { setHovered(null); setHoverStyle(null); }}
-          >
-            {hoverStyle && (
-              <motion.div
-                className={`absolute top-1.5 h-[calc(100%-12px)] rounded-full pointer-events-none transition-colors duration-300 ${hoverBg}`}
-                initial={false}
-                animate={{ left: hoverStyle.left, width: hoverStyle.width }}
-                transition={{ type: "spring", stiffness: 500, damping: 35 }}
-              />
-            )}
-
+          {/* Nav links — centered */}
+          <div className="relative z-10 flex items-center gap-1">
             {navLinks.map(({ label, href }) => (
               <Link
                 key={label}
                 href={href}
                 onMouseEnter={handleMouseEnter}
-                className={`relative z-10 rounded-full px-4 py-1.5 text-sm transition-colors duration-300 ${linkColor}`}
+                className={`rounded-full px-4 py-1.5 text-sm transition-colors duration-200 ${textClass}`}
               >
                 {label}
               </Link>
             ))}
-
-            <Link
-              href="/contact"
-              className={`relative z-10 rounded-full px-5 py-1.5 text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${contactButtonClass}`}
-            >
-              Contact
-            </Link>
           </div>
 
-          {/* Desktop balancer */}
-          <div className="w-40 hidden md:block" />
+          {/* Contact */}
+          <Link
+            href="/contact"
+            onMouseEnter={handleMouseEnter}
+            className={`relative z-10 rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-200 ${textClass}`}
+          >
+            Contact
+          </Link>
+        </nav>
 
-          {/* Mobile hamburger menu button */}
+        {/* Mobile: one unified pill */}
+        <div className={`pointer-events-auto flex md:hidden items-center justify-between w-full rounded-full px-3 py-1.5 ${pillClass}`}>
+          <Link
+            href="/"
+            onClick={() => setIsOpen(false)}
+            className={`text-sm font-semibold tracking-tight ${logoClass}`}
+          >
+            Vancoillie Studio
+          </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`flex md:hidden p-2 rounded-full hover:bg-neutral-500/10 transition-colors duration-300 focus:outline-none z-50 ${hamburgerColor}`}
+            className={`p-1.5 rounded-full transition-all duration-300 focus:outline-none ${logoClass}`}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-        </nav>
+        </div>
       </div>
 
-      {/* Mobile menu panel */}
+      {/* Mobile menu panel — glass */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -12, scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed inset-x-0 top-0 pt-20 pb-8 px-6 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl border-b border-neutral-200/50 dark:border-neutral-800/50 z-40 flex flex-col gap-4 shadow-xl md:hidden"
+            className="fixed inset-x-4 top-20 z-40 rounded-2xl border border-white/20 bg-black/60 backdrop-blur-2xl backdrop-saturate-150 p-5 flex flex-col gap-2 shadow-2xl md:hidden"
           >
-            <div className="flex flex-col gap-2 mt-4">
-              {navLinks.map(({ label, href }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  onClick={() => setIsOpen(false)}
-                  className="w-full py-3 px-4 rounded-xl text-base font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 hover:text-neutral-900 dark:hover:text-white transition-all"
-                >
-                  {label}
-                </Link>
-              ))}
-              
-              <hr className="my-2 border-neutral-200 dark:border-neutral-800" />
-              
+            {navLinks.map(({ label, href }) => (
+              <Link
+                key={label}
+                href={href}
+                onClick={() => setIsOpen(false)}
+                className="w-full py-3 px-4 rounded-xl text-base font-medium text-white/90 hover:bg-white/10 hover:text-white transition-all"
+              >
+                {label}
+              </Link>
+            ))}
+            <div className="mt-1 border-t border-white/10 pt-3">
               <Link
                 href="/contact"
                 onClick={() => setIsOpen(false)}
-                className="w-full py-3.5 px-4 rounded-xl text-center text-sm font-semibold bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-100 transition-colors"
+                className="block w-full py-3 px-4 rounded-xl text-center text-sm font-semibold bg-white/15 text-white hover:bg-white/25 border border-white/20 transition-colors"
               >
                 Contact
               </Link>

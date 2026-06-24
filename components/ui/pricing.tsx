@@ -84,10 +84,10 @@ export function Pricing({
       <div className="absolute bottom-1/4 left-0 -z-10 h-[500px] w-[500px] rounded-full bg-purple-500/5 blur-[150px]" />
 
       <div className="mb-16 space-y-5 text-center">
-        <h2 className="text-4xl font-extrabold tracking-tight text-zinc-950 dark:text-white sm:text-5xl lg:text-6xl">
+        <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
           {title}
         </h2>
-        <p className="whitespace-pre-line text-lg text-zinc-500 dark:text-zinc-400">
+        <p className="whitespace-pre-line text-lg text-white/60">
           {description}
         </p>
       </div>
@@ -103,8 +103,8 @@ export function Pricing({
             />
           </Label>
         </label>
-        <span className="ml-2 font-semibold">
-          {toggleLabel} <span className="text-primary">{toggleBadge}</span>
+        <span className="ml-2 font-semibold text-white/80">
+          {toggleLabel} <span className="text-blue-400">{toggleBadge}</span>
         </span>
       </div>
 
@@ -141,8 +141,8 @@ export function Pricing({
               className={cn(
                 "relative flex w-full flex-none flex-col rounded-[2.5rem] border p-8 text-center backdrop-blur-lg lg:flex lg:flex-col lg:justify-center md:w-[350px] transition-all duration-300 hover:-translate-y-1",
                 plan.isPopular
-                  ? "bg-white/70 border-brand/35 shadow-[0_20px_50px_rgba(37,99,235,0.08)] dark:bg-black/70 dark:border-brand/40 z-10 md:w-[380px] md:scale-105"
-                  : "bg-white/45 border-zinc-200/50 shadow-[0_8px_30px_rgba(0,0,0,0.015)] dark:bg-white/[0.02] dark:border-white/5 z-0 md:mt-4",
+                  ? "bg-white/12 border-white/25 shadow-[0_20px_50px_rgba(255,255,255,0.05)] z-10 md:w-[380px] md:scale-105"
+                  : "bg-white/5 border-white/10 z-0 md:mt-4",
               )}
             >
               {plan.isPopular && (
@@ -154,11 +154,11 @@ export function Pricing({
                 </div>
               )}
               <div className="flex flex-1 flex-col">
-                <p className="text-left text-base font-bold text-zinc-950 dark:text-white">
+                <p className="text-left text-base font-bold text-white">
                   {plan.name}
                 </p>
                 <div className="mt-6 flex items-baseline justify-start gap-x-2">
-                  <span className="text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white">
+                  <span className="text-5xl font-extrabold tracking-tight text-white">
                     <NumberFlow
                       value={displayedPrice}
                       format={{
@@ -169,12 +169,12 @@ export function Pricing({
                       }}
                     />
                   </span>
-                  <span className="text-sm font-semibold leading-6 tracking-wide text-zinc-500 dark:text-zinc-400">
+                  <span className="text-sm font-semibold leading-6 tracking-wide text-white/55">
                     / {plan.period}
                   </span>
                 </div>
 
-                <p className="text-left text-xs mt-2 text-zinc-400 dark:text-zinc-500">
+                <p className="text-left text-xs mt-2 text-white/40">
                   {includeHosting
                     ? plan.includesHosting
                       ? "hosting & domeinnaam inbegrepen"
@@ -186,7 +186,7 @@ export function Pricing({
 
                 <ul className="mt-8 flex flex-col gap-3.5 flex-1">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm text-zinc-600 dark:text-zinc-400">
+                    <li key={idx} className="flex items-start gap-3 text-sm text-white/70">
                       <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand dark:bg-brand/20">
                         <Check className="h-3 w-3 stroke-[2.5]" />
                       </div>
@@ -195,7 +195,7 @@ export function Pricing({
                   ))}
                 </ul>
 
-                <div className="my-6 border-t border-zinc-200/50 dark:border-white/5 w-full" />
+                <div className="my-6 border-t border-white/10 w-full" />
 
                 <Link
                   href={plan.href}
@@ -205,13 +205,13 @@ export function Pricing({
                     }),
                     "group relative w-full h-12 rounded-full overflow-hidden text-sm font-bold tracking-tight transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-md",
                     plan.isPopular
-                      ? "bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
-                      : "bg-white border-zinc-200/80 text-zinc-900 hover:bg-zinc-50 dark:bg-zinc-950 dark:border-white/10 dark:text-white dark:hover:bg-zinc-900",
+                      ? "bg-white text-black hover:bg-white/90 border-transparent"
+                      : "bg-white/10 border-white/15 text-white hover:bg-white/15",
                   )}
                 >
                   {plan.buttonText}
                 </Link>
-                <p className="mt-6 text-xs text-left leading-5 text-zinc-400 dark:text-zinc-500">
+                <p className="mt-6 text-xs text-left leading-5 text-white/40">
                   {plan.description}
                 </p>
               </div>

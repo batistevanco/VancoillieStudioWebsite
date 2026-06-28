@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", "SF Pro Display", "SF Pro Text";
+  --background: 252 252 253;
+  --foreground: 18 20 27;
+  --muted: 112 118 132;
+  --border: 224 226 232;
+  --panel: 255 255 255;
+  --primary: 17 24 39;
+  --primary-foreground: 255 255 255;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(222, 232, 255, 0.82), transparent 30%),
+    radial-gradient(circle at 84% 18%, rgba(218, 255, 244, 0.66), transparent 30%),
+    rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.animate-element {
+  opacity: 0;
+  animation: fadeSlideIn 720ms cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+.animate-slide-right {
+  opacity: 0;
+  animation: slideRightIn 900ms cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+.animate-testimonial {
+  opacity: 0;
+  animation: testimonialIn 720ms cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+.animate-delay-800 { animation-delay: 800ms; }
+.animate-delay-900 { animation-delay: 900ms; }
+.animate-delay-1000 { animation-delay: 1000ms; }
+.animate-delay-1200 { animation-delay: 1200ms; }
+.animate-delay-1400 { animation-delay: 1400ms; }
+
+.custom-checkbox {
+  width: 1rem;
+  height: 1rem;
+  accent-color: rgb(var(--primary));
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightIn {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes testimonialIn {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}

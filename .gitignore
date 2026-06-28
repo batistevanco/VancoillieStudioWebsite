@@ -1,5 +1,87 @@
-.next/
-out/
+# Dependencies
 node_modules/
+**/node_modules/
+
+# Next.js and build output
+.next/
+**/.next/
+out/
+**/out/
+dist/
+**/dist/
+build/
+**/build/
+coverage/
+**/coverage/
 tsconfig.tsbuildinfo
+**/tsconfig.tsbuildinfo
+
+# System files
 .DS_Store
+Thumbs.db
+
+# Secrets and local environment files
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+!.env.production.example
+!**/.env.production.example
+
+# Credentials, certificates, and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.csr
+*.jks
+*.keystore
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+*.secret
+*.secrets
+secrets/
+**/secrets/
+
+# Database dumps and local data exports
+*.sql
+!mailbox-platform/packages/database/migrations/*.sql
+*.dump
+*.bak
+*.backup
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.csv.backup
+
+# Logs and debug output
+*.log
+logs/
+**/logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+next-debug.*.log
+
+# Local editor and tooling state
+.idea/
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.example.json
+.turbo/
+.vercel/
+.netlify/
+
+# Mailbox platform local-only assets/state
+mailbox-platform/apps/web/public/uploads/
+mailbox-platform/apps/web/storage/
+mailbox-platform/apps/web/tmp/
+mailbox-platform/apps/web/.vercel/

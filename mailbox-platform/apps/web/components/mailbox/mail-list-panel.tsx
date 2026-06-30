@@ -55,6 +55,18 @@ export const MailListPanel = ({ folder = "inbox" }: { folder?: MailboxFolder }) 
     accountId: "",
   });
 
+  const handleSelectMail = (mail: MailItem) => {
+    setSelectedMail(mail);
+    if (!mail.isRead) {
+      setMails((prev) => prev.map((m) => m.id === mail.id ? { ...m, isRead: true } : m));
+      fetch("/api/mails/mark-read", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mailId: mail.id, accountId: mail.accountId, folder }),
+      }).catch((err) => console.error("Mark-read failed:", err));
+    }
+  };
+
   const handleReply = (mail: MailItem) => {
     // Strip HTML tags for textarea body
     const plainBody = mail.body
@@ -298,7 +310,7 @@ export const MailListPanel = ({ folder = "inbox" }: { folder?: MailboxFolder }) 
                   <button
                     key={mail.id}
                     type="button"
-                    onClick={() => setSelectedMail(mail)}
+                    onClick={() => handleSelectMail(mail)}
                     className={`relative flex w-full min-w-0 flex-col gap-1.5 rounded-2xl p-4 text-left transition duration-200 border border-transparent ${
                       isSelected
                         ? "bg-slate-950/[0.045] border-slate-950/5 shadow-sm"

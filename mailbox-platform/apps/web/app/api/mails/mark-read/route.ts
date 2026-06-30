@@ -1,0 +1,115 @@
+import { NextRequest } from "next/server";
+import { getCurrentUser } from "@/lib/auth/current-user";
+import { query } from "@/lib/db/mysql";
+import { decryptSecret, encryptSecret } from "@/lib/security/encryption";
+import { refreshAccessToken, type OAuthProvider } from "@/lib/providers/oauth";
+import { imapMarkAsRead } from "@/lib/mail/imap";
+import { jsonError, jsonOk } from "@/lib/auth/responses";
+
+export const runtime = "nodejs";
+
+type MailboxAccountRow = {
+  id: string;
+  provider: string;
+  email: string;
+  encrypted_access_token: string;
+  encrypted_refresh_token: string | null;
+  token_expires_at: string | null;
+  imap_host: string | null;
+  imap_port: number | null;
+};
+
+const IMAP_PROVIDERS = ["icloud", "yahoo", "imap"];
+
+export async function POST(request: NextRequest) {
+  const user = await getCurrentUser();
+  if (!user) return jsonError("Niet ingelogd.", 401);
+
+  try {
+    const { mailId, accountId, folder = "inbox" } = await request.json();
+    if (!mailId || !accountId) return jsonError("Ontbrekende verplichte velden.", 400);
+
+    const accounts = await query<MailboxAccountRow[]>(
+      `SELECT id, provider, email, encrypted_access_token, encrypted_refresh_token, token_expires_at, imap_host, imap_port
+       FROM mailbox_accounts
+       WHERE id = ? AND user_id = ? AND disconnected_at IS NULL`,
+      [accountId, user.id]
+    );
+
+    if (accounts.length === 0) return jsonError("Account niet gevonden.", 404);
+
+    const account = accounts[0];
+
+    if (IMAP_PROVIDERS.includes(account.provider)) {
+      if (!account.imap_host || !account.imap_port) {
+        return jsonError("Ongeldige IMAP configuratie.", 400);
+      }
+      const uid = parseInt(mailId.split("_").pop() ?? "0", 10);
+      if (!uid) return jsonError("Ongeldig mail ID.", 400);
+
+      const password = decryptSecret(account.encrypted_access_token);
+      await imapMarkAsRead(account.imap_host, account.imap_port, account.email, password, account.provider, folder, uid);
+      return jsonOk({ message: "Gemarkeerd als gelezen." });
+    }
+
+    // OAuth providers — refresh token if needed
+    let accessToken = decryptSecret(account.encrypted_access_token);
+    const expiresAt = account.token_expires_at ? new Date(account.token_expires_at) : null;
+    const isExpired = expiresAt ? expiresAt.getTime() < Date.now() + 5 * 60 * 1000 : false;
+
+    if (isExpired && account.encrypted_refresh_token && (account.provider === "google" || account.provider === "microsoft")) {
+      try {
+        const refreshToken = decryptSecret(account.encrypted_refresh_token);
+        const newTokens = await refreshAccessToken(account.provider as OAuthProvider, refreshToken);
+        accessToken = newTokens.access_token;
+        const encryptedAccessToken = encryptSecret(newTokens.access_token);
+        const encryptedRefreshToken = newTokens.refresh_token ? encryptSecret(newTokens.refresh_token) : null;
+        const expiresIn = newTokens.expires_in;
+        if (encryptedRefreshToken) {
+          await query(
+            `UPDATE mailbox_accounts SET encrypted_access_token = ?, encrypted_refresh_token = ?,
+             token_expires_at = CASE WHEN ? IS NULL THEN NULL ELSE DATE_ADD(UTC_TIMESTAMP(), INTERVAL ? SECOND) END,
+             updated_at = UTC_TIMESTAMP() WHERE id = ?`,
+            [encryptedAccessToken, encryptedRefreshToken, expiresIn ?? null, expiresIn ?? null, account.id]
+          );
+        } else {
+          await query(
+            `UPDATE mailbox_accounts SET encrypted_access_token = ?,
+             token_expires_at = CASE WHEN ? IS NULL THEN NULL ELSE DATE_ADD(UTC_TIMESTAMP(), INTERVAL ? SECOND) END,
+             updated_at = UTC_TIMESTAMP() WHERE id = ?`,
+            [encryptedAccessToken, expiresIn ?? null, expiresIn ?? null, account.id]
+          );
+        }
+      } catch (err) {
+        console.error("Token refresh failed in mark-read:", err);
+      }
+    }
+
+    if (account.provider === "google") {
+      const googleMsgId = mailId.replace(/^google_/, "");
+      await fetch(
+        `https://gmail.googleapis.com/gmail/v1/users/me/messages/${googleMsgId}/modify`,
+        {
+          method: "POST",
+          headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+          body: JSON.stringify({ removeLabelIds: ["UNREAD"] }),
+        }
+      );
+    } else if (account.provider === "microsoft") {
+      const microsoftMsgId = mailId.replace(/^microsoft_/, "");
+      await fetch(
+        `https://graph.microsoft.com/v1.0/me/messages/${microsoftMsgId}`,
+        {
+          method: "PATCH",
+          headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+          body: JSON.stringify({ isRead: true }),
+        }
+      );
+    }
+
+    return jsonOk({ message: "Gemarkeerd als gelezen." });
+  } catch (error) {
+    console.error("Mark-read route error:", error);
+    return jsonError("Fout bij markeren als gelezen.", 500);
+  }
+}

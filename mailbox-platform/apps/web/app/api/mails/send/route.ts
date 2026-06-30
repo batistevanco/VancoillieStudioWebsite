@@ -2,18 +2,23 @@ import { NextRequest } from "next/server";
 import { getCurrentUser } from "@/lib/auth/current-user";
 import { query } from "@/lib/db/mysql";
 import { decryptSecret, encryptSecret } from "@/lib/security/encryption";
-import { refreshAccessToken } from "@/lib/providers/oauth";
+import { refreshAccessToken, type OAuthProvider } from "@/lib/providers/oauth";
+import { sendViaSmtp } from "@/lib/mail/smtp";
 import { jsonError, jsonOk } from "@/lib/auth/responses";
 
 export const runtime = "nodejs";
 
+const IMAP_PROVIDERS = ["icloud", "yahoo", "imap"];
+
 type MailboxAccountRow = {
   id: string;
-  provider: "google" | "microsoft";
+  provider: string;
   email: string;
   encrypted_access_token: string;
   encrypted_refresh_token: string | null;
   token_expires_at: string | null;
+  smtp_host: string | null;
+  smtp_port: number | null;
 };
 
 export async function POST(request: NextRequest) {
@@ -32,7 +37,7 @@ export async function POST(request: NextRequest) {
 
     // 1. Get the account credentials
     const accounts = await query<MailboxAccountRow[]>(
-      `SELECT id, provider, email, encrypted_access_token, encrypted_refresh_token, token_expires_at
+      `SELECT id, provider, email, encrypted_access_token, encrypted_refresh_token, token_expires_at, smtp_host, smtp_port
        FROM mailbox_accounts
        WHERE id = ? AND user_id = ? AND disconnected_at IS NULL`,
       [accountId, user.id]
@@ -51,7 +56,7 @@ export async function POST(request: NextRequest) {
     if (isExpired && account.encrypted_refresh_token) {
       try {
         const refreshToken = decryptSecret(account.encrypted_refresh_token);
-        const newTokens = await refreshAccessToken(account.provider, refreshToken);
+        const newTokens = await refreshAccessToken(account.provider as OAuthProvider, refreshToken);
         accessToken = newTokens.access_token;
 
         const encryptedAccessToken = encryptSecret(newTokens.access_token);
@@ -84,6 +89,15 @@ export async function POST(request: NextRequest) {
     }
 
     // 2. Send using the provider API
+    if (IMAP_PROVIDERS.includes(account.provider)) {
+      if (!account.smtp_host || !account.smtp_port) {
+        return jsonError("Ongeldige SMTP configuratie.", 400);
+      }
+      const password = decryptSecret(account.encrypted_access_token);
+      await sendViaSmtp(account.smtp_host, account.smtp_port, account.email, password, to, subject, body);
+      return jsonOk({ message: "E-mail succesvol verzonden." });
+    }
+
     if (account.provider === "google") {
       const rawEmail = makeRawEmail(to, subject, body);
       const res = await fetch(

@@ -2,18 +2,23 @@ import { NextRequest } from "next/server";
 import { getCurrentUser } from "@/lib/auth/current-user";
 import { query } from "@/lib/db/mysql";
 import { decryptSecret, encryptSecret } from "@/lib/security/encryption";
-import { refreshAccessToken } from "@/lib/providers/oauth";
+import { refreshAccessToken, type OAuthProvider } from "@/lib/providers/oauth";
+import { fetchImapMails } from "@/lib/mail/imap";
 import { jsonError, jsonOk } from "@/lib/auth/responses";
 
 export const runtime = "nodejs";
 
+const IMAP_PROVIDERS = ["icloud", "yahoo", "imap"];
+
 type MailboxAccountRow = {
   id: string;
-  provider: "google" | "microsoft";
+  provider: string;
   email: string;
   encrypted_access_token: string;
   encrypted_refresh_token: string | null;
   token_expires_at: string | null;
+  imap_host: string | null;
+  imap_port: number | null;
 };
 
 type MailFolder = "inbox" | "sent" | "all" | "drafts" | "spam" | "trash";
@@ -34,7 +39,7 @@ export async function GET(request: NextRequest) {
   try {
     // 1. Fetch connected accounts
     const accounts = await query<MailboxAccountRow[]>(
-      `SELECT id, provider, email, encrypted_access_token, encrypted_refresh_token, token_expires_at
+      `SELECT id, provider, email, encrypted_access_token, encrypted_refresh_token, token_expires_at, imap_host, imap_port
        FROM mailbox_accounts
        WHERE user_id = ?
          AND disconnected_at IS NULL`,
@@ -59,7 +64,7 @@ export async function GET(request: NextRequest) {
           if (isExpired && account.encrypted_refresh_token) {
             try {
               const refreshToken = decryptSecret(account.encrypted_refresh_token);
-              const newTokens = await refreshAccessToken(account.provider, refreshToken);
+              const newTokens = await refreshAccessToken(account.provider as OAuthProvider, refreshToken);
               accessToken = newTokens.access_token;
 
               const encryptedAccessToken = encryptSecret(newTokens.access_token);
@@ -97,6 +102,15 @@ export async function GET(request: NextRequest) {
             mails = await fetchGoogleMails(accessToken, account.id, folder);
           } else if (account.provider === "microsoft") {
             mails = await fetchMicrosoftMails(accessToken, account.id, folder);
+          } else if (IMAP_PROVIDERS.includes(account.provider)) {
+            if (account.imap_host && account.imap_port) {
+              const password = decryptSecret(account.encrypted_access_token);
+              mails = await fetchImapMails(
+                account.imap_host, account.imap_port,
+                account.email, password,
+                account.id, account.provider, folder
+              );
+            }
           }
 
           allMails.push(...mails);

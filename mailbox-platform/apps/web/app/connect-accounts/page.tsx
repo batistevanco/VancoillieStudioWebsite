@@ -69,7 +69,15 @@ const providers: Provider[] = [
     description: "Voor Apple Mail-accounts met app-specifieke toegang.",
     accent: "from-slate-300 via-white to-sky-200",
     icon: <Cloud className="h-5 w-5" />,
-    status: "soon",
+    status: "ready",
+  },
+  {
+    id: "yahoo",
+    name: "Yahoo Mail",
+    description: "Yahoo Mail-accounts via IMAP met app-wachtwoord.",
+    accent: "from-purple-500 via-violet-500 to-purple-600",
+    icon: <span className="text-base font-bold">Y!</span>,
+    status: "ready",
   },
   {
     id: "imap",
@@ -77,7 +85,7 @@ const providers: Provider[] = [
     description: "IMAP en SMTP voor providers met aangepaste servers.",
     accent: "from-emerald-400 via-teal-400 to-cyan-400",
     icon: <Server className="h-5 w-5" />,
-    status: "soon",
+    status: "ready",
   },
 ];
 
@@ -91,6 +99,15 @@ export default function ConnectAccountsPage() {
   const [selectedProviderIds, setSelectedProviderIds] = useState<string[]>([]);
   const [providerError, setProviderError] = useState("");
   const [providerSuccess, setProviderSuccess] = useState("");
+
+  const [activeImapProvider, setActiveImapProvider] = useState<string | null>(null);
+  const [imapEmail, setImapEmail] = useState("");
+  const [imapPassword, setImapPassword] = useState("");
+  const [imapHost, setImapHost] = useState("");
+  const [imapPort, setImapPort] = useState("");
+  const [smtpHost, setSmtpHost] = useState("");
+  const [smtpPort, setSmtpPort] = useState("");
+  const [imapConnecting, setImapConnecting] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -180,19 +197,67 @@ export default function ConnectAccountsPage() {
     return name.split(/\s+/)[0];
   }, [user]);
 
+  const IMAP_PROVIDERS = ["icloud", "yahoo", "imap"];
+
   const toggleProvider = (providerId: string) => {
     const provider = providers.find((item) => item.id === providerId);
+    if (!provider || provider.status !== "ready") return;
 
-    if (provider?.status === "ready") {
-      window.location.href = `/api/providers/${providerId}/start`;
+    if (IMAP_PROVIDERS.includes(providerId)) {
+      setActiveImapProvider(activeImapProvider === providerId ? null : providerId);
+      setImapEmail("");
+      setImapPassword("");
+      if (providerId === "imap") {
+        setImapHost(""); setImapPort("993"); setSmtpHost(""); setSmtpPort("587");
+      } else {
+        setImapHost(""); setImapPort(""); setSmtpHost(""); setSmtpPort("");
+      }
+      setProviderError("");
       return;
     }
 
-    setSelectedProviderIds((current) =>
-      current.includes(providerId)
-        ? current.filter((id) => id !== providerId)
-        : [...current, providerId],
-    );
+    window.location.href = `/api/providers/${providerId}/start`;
+  };
+
+  const handleImapSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!activeImapProvider) return;
+    setImapConnecting(true);
+    setProviderError("");
+
+    try {
+      const res = await fetch("/api/providers/imap/connect", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          provider: activeImapProvider,
+          email: imapEmail,
+          password: imapPassword,
+          imapHost: imapHost || undefined,
+          imapPort: imapPort ? Number(imapPort) : undefined,
+          smtpHost: smtpHost || undefined,
+          smtpPort: smtpPort ? Number(smtpPort) : undefined,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (res.ok && result.ok) {
+        setProviderSuccess(`${activeImapProvider === "icloud" ? "iCloud Mail" : activeImapProvider === "yahoo" ? "Yahoo Mail" : "IMAP account"} succesvol gekoppeld.`);
+        setActiveImapProvider(null);
+        const accountsRes = await fetch("/api/provider-connections");
+        const accountsResult = await accountsRes.json();
+        if (accountsResult.ok && accountsResult.accounts) {
+          setConnectedAccounts(accountsResult.accounts as ConnectedAccount[]);
+        }
+      } else {
+        setProviderError(result.message || "Koppelen mislukt.");
+      }
+    } catch {
+      setProviderError("Kan geen verbinding maken met de server.");
+    } finally {
+      setImapConnecting(false);
+    }
   };
 
   return (
@@ -317,7 +382,7 @@ export default function ConnectAccountsPage() {
                   key={provider.id}
                   type="button"
                   onClick={() => toggleProvider(provider.id)}
-                  className="group grid min-h-24 grid-cols-[auto_1fr_auto] items-center gap-4 rounded-[1.6rem] border border-slate-950/10 bg-white/70 p-4 text-left shadow-[0_1px_0_rgba(255,255,255,0.85)_inset] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-soft-panel"
+                  className={`group grid min-h-24 grid-cols-[auto_1fr_auto] items-center gap-4 rounded-[1.6rem] border p-4 text-left shadow-[0_1px_0_rgba(255,255,255,0.85)_inset] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-soft-panel ${activeImapProvider === provider.id ? "border-slate-950/20 bg-white shadow-soft-panel" : "border-slate-950/10 bg-white/70"}`}
                   style={{ animationDelay: `${300 + index * 80}ms` }}
                 >
                   <span
@@ -366,6 +431,76 @@ export default function ConnectAccountsPage() {
             })}
           </div>
 
+          {activeImapProvider && (
+            <form onSubmit={handleImapSubmit} className="mt-5 rounded-[1.6rem] border border-slate-200 bg-slate-50/80 p-5">
+              <p className="text-sm font-semibold text-slate-950">
+                {activeImapProvider === "icloud" ? "iCloud Mail koppelen" : activeImapProvider === "yahoo" ? "Yahoo Mail koppelen" : "IMAP account koppelen"}
+              </p>
+              {activeImapProvider === "icloud" && (
+                <p className="mt-1.5 text-xs leading-5 text-slate-500">
+                  Gebruik je Apple ID e-mailadres en genereer een app-specifiek wachtwoord via{" "}
+                  <a href="https://appleid.apple.com" target="_blank" rel="noopener noreferrer" className="font-medium text-slate-700 underline">appleid.apple.com</a>{" "}
+                  → Beveiliging → App-specifieke wachtwoorden.
+                </p>
+              )}
+              {activeImapProvider === "yahoo" && (
+                <p className="mt-1.5 text-xs leading-5 text-slate-500">
+                  Genereer een app-wachtwoord via je Yahoo-accountinstellingen onder Beveiliging → App-wachtwoord beheren.
+                </p>
+              )}
+              <div className="mt-4 grid gap-3">
+                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                  <label className="w-28 shrink-0 text-xs font-semibold text-slate-400">E-mailadres</label>
+                  <input
+                    type="email" required value={imapEmail} onChange={(e) => setImapEmail(e.target.value)}
+                    placeholder={activeImapProvider === "icloud" ? "jij@icloud.com" : activeImapProvider === "yahoo" ? "jij@yahoo.com" : "jij@domein.com"}
+                    className="flex-1 bg-transparent text-sm text-slate-950 outline-none placeholder:text-slate-400"
+                  />
+                </div>
+                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                  <label className="w-28 shrink-0 text-xs font-semibold text-slate-400">App-wachtwoord</label>
+                  <input
+                    type="password" required value={imapPassword} onChange={(e) => setImapPassword(e.target.value)}
+                    placeholder="App-specifiek wachtwoord"
+                    className="flex-1 bg-transparent text-sm text-slate-950 outline-none placeholder:text-slate-400"
+                  />
+                </div>
+                {activeImapProvider === "imap" && (
+                  <>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                        <label className="w-20 shrink-0 text-xs font-semibold text-slate-400">IMAP host</label>
+                        <input type="text" required value={imapHost} onChange={(e) => setImapHost(e.target.value)} placeholder="imap.domein.com" className="flex-1 bg-transparent text-sm text-slate-950 outline-none placeholder:text-slate-400" />
+                      </div>
+                      <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                        <label className="w-10 shrink-0 text-xs font-semibold text-slate-400">Poort</label>
+                        <input type="number" required value={imapPort} onChange={(e) => setImapPort(e.target.value)} placeholder="993" className="flex-1 bg-transparent text-sm text-slate-950 outline-none placeholder:text-slate-400" />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                        <label className="w-20 shrink-0 text-xs font-semibold text-slate-400">SMTP host</label>
+                        <input type="text" required value={smtpHost} onChange={(e) => setSmtpHost(e.target.value)} placeholder="smtp.domein.com" className="flex-1 bg-transparent text-sm text-slate-950 outline-none placeholder:text-slate-400" />
+                      </div>
+                      <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                        <label className="w-10 shrink-0 text-xs font-semibold text-slate-400">Poort</label>
+                        <input type="number" required value={smtpPort} onChange={(e) => setSmtpPort(e.target.value)} placeholder="587" className="flex-1 bg-transparent text-sm text-slate-950 outline-none placeholder:text-slate-400" />
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+              <div className="mt-4 flex items-center gap-3">
+                <button type="submit" disabled={imapConnecting} className="inline-flex items-center gap-2 rounded-2xl bg-slate-950 px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:opacity-50">
+                  {imapConnecting ? "Verbinden..." : "Account koppelen"}
+                </button>
+                <button type="button" onClick={() => setActiveImapProvider(null)} className="text-xs font-medium text-slate-500 hover:text-slate-950">
+                  Annuleren
+                </button>
+              </div>
+            </form>
+          )}
+
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             {connectedAccounts.length > 0 ? (
               <Link
@@ -395,9 +530,8 @@ export default function ConnectAccountsPage() {
           </div>
 
           <p className="mt-4 text-sm leading-6 text-slate-500">
-            Gmail en Outlook starten nu een echte OAuth-koppeling. iCloud en
-            eigen IMAP volgen via een aparte veilige flow met app-wachtwoorden
-            en servervalidatie.
+            Gmail en Outlook starten een OAuth-koppeling. iCloud, Yahoo en IMAP
+            gebruiken een versleuteld app-wachtwoord dat veilig wordt opgeslagen.
           </p>
         </section>
 

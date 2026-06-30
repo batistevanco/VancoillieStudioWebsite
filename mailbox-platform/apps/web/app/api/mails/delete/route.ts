@@ -2,18 +2,23 @@ import { NextRequest } from "next/server";
 import { getCurrentUser } from "@/lib/auth/current-user";
 import { query } from "@/lib/db/mysql";
 import { decryptSecret, encryptSecret } from "@/lib/security/encryption";
-import { refreshAccessToken } from "@/lib/providers/oauth";
+import { refreshAccessToken, type OAuthProvider } from "@/lib/providers/oauth";
+import { imapTrashMessage } from "@/lib/mail/imap";
 import { jsonError, jsonOk } from "@/lib/auth/responses";
 
 export const runtime = "nodejs";
 
+const IMAP_PROVIDERS = ["icloud", "yahoo", "imap"];
+
 type MailboxAccountRow = {
   id: string;
-  provider: "google" | "microsoft";
+  provider: string;
   email: string;
   encrypted_access_token: string;
   encrypted_refresh_token: string | null;
   token_expires_at: string | null;
+  imap_host: string | null;
+  imap_port: number | null;
 };
 
 export async function POST(request: NextRequest) {
@@ -32,7 +37,7 @@ export async function POST(request: NextRequest) {
 
     // 1. Get the account credentials
     const accounts = await query<MailboxAccountRow[]>(
-      `SELECT id, provider, email, encrypted_access_token, encrypted_refresh_token, token_expires_at
+      `SELECT id, provider, email, encrypted_access_token, encrypted_refresh_token, token_expires_at, imap_host, imap_port
        FROM mailbox_accounts
        WHERE id = ? AND user_id = ? AND disconnected_at IS NULL`,
       [accountId, user.id]
@@ -51,7 +56,7 @@ export async function POST(request: NextRequest) {
     if (isExpired && account.encrypted_refresh_token) {
       try {
         const refreshToken = decryptSecret(account.encrypted_refresh_token);
-        const newTokens = await refreshAccessToken(account.provider, refreshToken);
+        const newTokens = await refreshAccessToken(account.provider as OAuthProvider, refreshToken);
         accessToken = newTokens.access_token;
 
         const encryptedAccessToken = encryptSecret(newTokens.access_token);
@@ -84,6 +89,17 @@ export async function POST(request: NextRequest) {
     }
 
     // 2. Perform delete/trash API request
+    if (IMAP_PROVIDERS.includes(account.provider)) {
+      if (!account.imap_host || !account.imap_port) {
+        return jsonError("Ongeldige IMAP configuratie.", 400);
+      }
+      const uid = parseInt(mailId.split("_").pop() ?? "0", 10);
+      if (!uid) return jsonError("Ongeldig mail ID.", 400);
+      const password = decryptSecret(account.encrypted_access_token);
+      await imapTrashMessage(account.imap_host, account.imap_port, account.email, password, account.provider, "inbox", uid);
+      return jsonOk({ message: "E-mail succesvol verwijderd." });
+    }
+
     if (account.provider === "google") {
       const googleMsgId = mailId.replace("google_", "");
       const res = await fetch(

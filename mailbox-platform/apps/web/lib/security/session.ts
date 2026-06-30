@@ -3,7 +3,9 @@ import { createHash, randomBytes } from "crypto";
 import { query } from "@/lib/db/mysql";
 import { env } from "@/lib/config/env";
 
-export const SESSION_COOKIE = "__Host-vancoillie_mailbox_session";
+export const SESSION_COOKIE = env.security.isProduction
+  ? "__Host-vancoillie_mailbox_session"
+  : "vancoillie_mailbox_session";
 const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
 
 export const hashSessionToken = (token: string) =>

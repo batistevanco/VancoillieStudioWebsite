@@ -4,7 +4,9 @@ import { env } from "@/lib/config/env";
 
 export type OAuthProvider = "google" | "microsoft";
 
-export const OAUTH_STATE_COOKIE_PREFIX = "__Host-vancoillie_oauth_state_";
+export const OAUTH_STATE_COOKIE_PREFIX = env.security.isProduction
+  ? "__Host-vancoillie_oauth_state_"
+  : "vancoillie_oauth_state_";
 
 export type ProviderConfig = {
   id: OAuthProvider;
@@ -54,8 +56,8 @@ export const providerConfigs: Record<OAuthProvider, ProviderConfig> = {
   },
 };
 
-export const getRedirectUri = (provider: OAuthProvider) =>
-  `${env.app.baseUrl()}/api/providers/${provider}/callback`;
+export const getRedirectUri = (provider: OAuthProvider, baseUrl: string) =>
+  `${baseUrl}/api/providers/${provider}/callback`;
 
 export const createOAuthState = async (provider: OAuthProvider) => {
   const state = randomBytes(32).toString("base64url");
@@ -91,12 +93,12 @@ export const consumeOAuthState = async (
   return Boolean(state && expectedState && state === expectedState);
 };
 
-export const buildAuthorizationUrl = async (provider: OAuthProvider) => {
+export const buildAuthorizationUrl = async (provider: OAuthProvider, baseUrl: string) => {
   const config = providerConfigs[provider];
-  const state = await createOAuthState(provider);
+  const state = randomBytes(32).toString("base64url");
   const params = new URLSearchParams({
     client_id: config.clientId(),
-    redirect_uri: getRedirectUri(provider),
+    redirect_uri: getRedirectUri(provider, baseUrl),
     response_type: "code",
     scope: config.scopes.join(" "),
     state,
@@ -108,15 +110,20 @@ export const buildAuthorizationUrl = async (provider: OAuthProvider) => {
     params.set("include_granted_scopes", "true");
   }
 
-  return `${config.authUrl}?${params.toString()}`;
+  return {
+    url: `${config.authUrl}?${params.toString()}`,
+    state,
+  };
 };
 
 export const exchangeCodeForTokens = async ({
   provider,
   code,
+  baseUrl,
 }: {
   provider: OAuthProvider;
   code: string;
+  baseUrl: string;
 }) => {
   const config = providerConfigs[provider];
   const response = await fetch(config.tokenUrl, {
@@ -129,7 +136,7 @@ export const exchangeCodeForTokens = async ({
       client_secret: config.clientSecret(),
       code,
       grant_type: "authorization_code",
-      redirect_uri: getRedirectUri(provider),
+      redirect_uri: getRedirectUri(provider, baseUrl),
     }),
   });
 
@@ -177,5 +184,35 @@ export const fetchProviderProfile = async ({
     email: profile.email,
     displayName: profile.name,
     avatarUrl: profile.picture,
+  };
+};
+
+export const refreshAccessToken = async (
+  provider: OAuthProvider,
+  refreshToken: string,
+) => {
+  const config = providerConfigs[provider];
+  const response = await fetch(config.tokenUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      client_id: config.clientId(),
+      client_secret: config.clientSecret(),
+      refresh_token: refreshToken,
+      grant_type: "refresh_token",
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Token refresh failed for ${provider}.`);
+  }
+
+  return (await response.json()) as {
+    access_token: string;
+    refresh_token?: string;
+    expires_in?: number;
+    scope?: string;
   };
 };

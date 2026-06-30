@@ -19,7 +19,9 @@ export async function GET(request: NextRequest) {
   const state = url.searchParams.get("state");
 
   if (!user) {
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.redirect(
+      new URL("/connect-accounts?provider_error=session_lost", request.url),
+    );
   }
 
   if (!code || !(await consumeOAuthState("google", state))) {
@@ -29,7 +31,9 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const tokens = await exchangeCodeForTokens({ provider: "google", code });
+    const urlObj = new URL(request.url);
+    const baseUrl = `${urlObj.protocol}//${urlObj.host}`;
+    const tokens = await exchangeCodeForTokens({ provider: "google", code, baseUrl });
     const profile = await fetchProviderProfile({
       provider: "google",
       accessToken: tokens.access_token,

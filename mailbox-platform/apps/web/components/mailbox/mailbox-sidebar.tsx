@@ -1,68 +1,42 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Archive,
-  Bell,
-  CalendarDays,
-  ChevronRight,
-  CircleHelp,
   Cloud,
-  Cog,
-  Filter,
-  Github,
   Inbox,
-  LifeBuoy,
+  LogOut,
   Mail,
-  Moon,
-  PanelLeft,
-  Plus,
   Send,
   Settings,
   Shield,
-  Sparkles,
-  Star,
-  Tag,
   Trash2,
   UserRound,
 } from "lucide-react";
+import type { MailboxView } from "@/app/mailbox/page";
 
-const mainItems = [
-  { label: "Inbox", icon: Inbox, count: "120", active: true },
-  { label: "Sent Mail", icon: Send, count: "129" },
-  { label: "All Mail", icon: Mail, count: "20" },
-  { label: "Drafts", icon: Archive, count: "20" },
-  { label: "Favorites", icon: Star, count: "12" },
-  { label: "Spam", icon: Shield },
-  { label: "Trash", icon: Trash2, count: "10" },
+type CurrentUser = { id: string; email: string; name: string };
+type ConnectedAccount = {
+  id: string;
+  provider: string;
+  email: string;
+  display_name: string | null;
+};
+
+const navItems: { label: string; icon: React.ElementType; view: MailboxView }[] = [
+  { label: "Inbox", icon: Inbox, view: "inbox" },
+  { label: "Verzonden", icon: Send, view: "sent" },
+  { label: "Alle mail", icon: Mail, view: "all" },
+  { label: "Concepten", icon: Archive, view: "drafts" },
+  { label: "Spam", icon: Shield, view: "spam" },
+  { label: "Prullenbak", icon: Trash2, view: "trash" },
 ];
 
-const services = [
-  {
-    label: "Gmail",
-    detail: "Personal",
-    icon: Mail,
-    tone: "from-blue-400 via-red-300 to-amber-300",
-  },
-  {
-    label: "Outlook",
-    detail: "Work",
-    icon: Cloud,
-    tone: "from-sky-400 to-blue-600",
-  },
-  {
-    label: "GitHub",
-    detail: "Notifications",
-    icon: Github,
-    tone: "from-slate-500 to-slate-900",
-  },
-];
-
-const utilityItems = [
-  { icon: PanelLeft, label: "Panels" },
-  { icon: Tag, label: "Labels" },
-  { icon: UserRound, label: "Contacts" },
-  { icon: Moon, label: "Focus" },
-  { icon: Settings, label: "Settings" },
-  { icon: CircleHelp, label: "Help" },
-];
+const providerGradient: Record<string, string> = {
+  google: "from-blue-400 via-red-300 to-amber-300",
+  microsoft: "from-sky-400 to-blue-600",
+};
 
 const WindowDots = () => (
   <div className="flex gap-1.5">
@@ -72,7 +46,36 @@ const WindowDots = () => (
   </div>
 );
 
-export const MailboxSidebar = () => {
+type Props = {
+  view: MailboxView;
+  onViewChange: (view: MailboxView) => void;
+};
+
+export const MailboxSidebar = ({ view, onViewChange }: Props) => {
+  const router = useRouter();
+  const [user, setUser] = useState<CurrentUser | null>(null);
+  const [accounts, setAccounts] = useState<ConnectedAccount[]>([]);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  useEffect(() => {
+    void Promise.all([
+      fetch("/api/auth/me").then((r) => r.json()),
+      fetch("/api/provider-connections").then((r) => r.json()),
+    ]).then(([userResult, accountsResult]) => {
+      if (userResult.ok && userResult.user) setUser(userResult.user as CurrentUser);
+      if (accountsResult.ok && accountsResult.accounts)
+        setAccounts(accountsResult.accounts as ConnectedAccount[]);
+    });
+  }, []);
+
+  const logout = async () => {
+    setIsLoggingOut(true);
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.push("/login");
+  };
+
+  const firstName = user?.name?.trim().split(/\s+/)[0] ?? "";
+
   return (
     <aside className="relative flex h-full min-h-[calc(100dvh-2rem)] w-full max-w-[18rem] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#14293d] p-4 text-white shadow-[0_28px_80px_rgba(8,20,35,0.45)]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(70,132,191,0.34),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.07),transparent_30%)]" />
@@ -80,178 +83,118 @@ export const MailboxSidebar = () => {
 
       <div className="relative z-10 flex items-center justify-between">
         <WindowDots />
-        <button
-          type="button"
-          aria-label="Sidebar instellingen"
-          className="grid h-8 w-8 place-items-center rounded-full border border-white/10 bg-[#0c1a29]/65 text-white/64 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition hover:bg-white/10 hover:text-white"
-        >
-          <Cog className="h-4 w-4" />
-        </button>
       </div>
 
       <div className="relative z-10 mt-5 flex items-center gap-3">
-        <div className="relative">
-          <div className="grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-slate-100 to-slate-400 text-slate-950 shadow-[0_16px_38px_rgba(0,0,0,0.28)]">
-            <UserRound className="h-6 w-6" />
-          </div>
-          <span className="absolute -right-1 -top-1 grid h-5 w-5 place-items-center rounded-full border border-[#14293d] bg-amber-300 text-[0.65rem]">
-            *
-          </span>
+        <div className="grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-slate-100 to-slate-400 text-slate-950 shadow-[0_16px_38px_rgba(0,0,0,0.28)]">
+          <UserRound className="h-6 w-6" />
         </div>
-        <div className="min-w-0">
-          <p className="text-xs font-medium text-white/48">Good day</p>
-          <p className="truncate text-sm font-semibold tracking-tight text-white">
-            Manoj Adhikari
-          </p>
+        <div className="min-w-0 flex-1">
+          {user ? (
+            <>
+              <p className="text-xs font-medium text-white/48">Ingelogd als</p>
+              <p className="truncate text-sm font-semibold tracking-tight text-white">
+                {firstName || user.email}
+              </p>
+            </>
+          ) : (
+            <div className="h-8 w-24 animate-pulse rounded-xl bg-white/10" />
+          )}
         </div>
       </div>
 
-      <div className="relative z-10 mt-7 flex items-center justify-between">
+      <div className="relative z-10 mt-7">
         <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/32">
-          Main
+          Navigatie
         </p>
-        <button
-          type="button"
-          aria-label="Filter menu"
-          className="grid h-7 w-7 place-items-center rounded-xl text-white/58 transition hover:bg-white/8 hover:text-white"
-        >
-          <Filter className="h-4 w-4" />
-        </button>
       </div>
 
       <nav className="relative z-10 mt-2 space-y-1.5">
-        {mainItems.map((item) => {
+        {navItems.map((item) => {
           const Icon = item.icon;
+          const isActive = item.view ? view === item.view : false;
 
           return (
             <button
               key={item.label}
               type="button"
-              className={`group flex h-10 w-full items-center gap-3 rounded-2xl px-3 text-sm transition ${
-                item.active
+              onClick={() => onViewChange(item.view)}
+              className={`flex h-10 w-full items-center gap-3 rounded-2xl px-3 text-sm transition ${
+                isActive
                   ? "bg-[#eef5ff] text-[#163455] shadow-[0_16px_36px_rgba(4,14,26,0.22)]"
                   : "text-white/68 hover:bg-white/8 hover:text-white"
               }`}
             >
               <Icon
-                className={`h-4.5 w-4.5 ${
-                  item.active ? "text-[#377dff]" : "text-white/54"
-                }`}
+                className={`h-4 w-4 ${isActive ? "text-[#377dff]" : "text-white/54"}`}
               />
               <span className="flex-1 text-left font-medium">{item.label}</span>
-              {item.count && (
-                <span
-                  className={`rounded-full px-2 py-0.5 text-[0.68rem] font-semibold ${
-                    item.active
-                      ? "bg-rose-500 text-white"
-                      : "bg-white/7 text-white/42"
-                  }`}
-                >
-                  {item.count}
-                </span>
-              )}
             </button>
           );
         })}
       </nav>
 
-      <div className="relative z-10 mt-6">
-        <div className="mb-2 flex items-center justify-between">
-          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/32">
-            Servers
+      {accounts.length > 0 && (
+        <div className="relative z-10 mt-6">
+          <p className="mb-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/32">
+            Gekoppelde accounts
           </p>
-          <ChevronRight className="h-3.5 w-3.5 text-white/26" />
-        </div>
-
-        <div className="rounded-[1.4rem] border border-white/8 bg-[#091b28]/78 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-          <div className="space-y-2">
-            {services.map((service) => {
-              const Icon = service.icon;
-
-              return (
-                <button
-                  key={service.label}
-                  type="button"
-                  className="flex w-full items-center gap-3 rounded-2xl px-2 py-2 text-left transition hover:bg-white/7"
+          <div className="rounded-[1.4rem] border border-white/8 bg-[#091b28]/78 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+            <div className="space-y-2">
+              {accounts.map((account) => (
+                <div
+                  key={account.id}
+                  className="flex w-full items-center gap-3 rounded-2xl px-2 py-2"
                 >
                   <span
-                    className={`grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br ${service.tone} text-white shadow-[0_10px_24px_rgba(0,0,0,0.24)]`}
+                    className={`grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br ${
+                      providerGradient[account.provider] ?? "from-slate-500 to-slate-700"
+                    } text-white shadow-[0_10px_24px_rgba(0,0,0,0.24)]`}
                   >
-                    <Icon className="h-4 w-4" />
+                    {account.provider === "google" ? (
+                      <span className="text-xs font-bold">G</span>
+                    ) : (
+                      <Cloud className="h-4 w-4" />
+                    )}
                   </span>
                   <span className="min-w-0">
                     <span className="block truncate text-sm font-semibold text-white/88">
-                      {service.label}
+                      {account.display_name ?? account.email}
                     </span>
                     <span className="block truncate text-xs text-white/34">
-                      {service.detail}
+                      {account.email}
                     </span>
                   </span>
-                </button>
-              );
-            })}
-
-            <button
-              type="button"
-              className="flex w-full items-center gap-3 rounded-2xl px-2 py-2 text-left transition hover:bg-white/7"
-            >
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-[#3978ff] text-white shadow-[0_10px_24px_rgba(57,120,255,0.34)]">
-                <Plus className="h-4 w-4" />
-              </span>
-              <span className="text-sm font-semibold text-white/88">
-                Add New Plugin
-              </span>
-            </button>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
-      <div className="relative z-10 mt-5">
-        <p className="mb-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/32">
-          Settings
-        </p>
-        <div className="grid grid-cols-6 gap-2 rounded-[1.2rem] border border-white/8 bg-[#091b28]/74 p-2">
-          {utilityItems.map((item) => {
-            const Icon = item.icon;
+      <div className="relative z-10 mt-auto space-y-1 pt-4">
+        <button
+          type="button"
+          onClick={() => onViewChange("settings")}
+          className={`flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-sm font-medium transition ${
+            view === "settings"
+              ? "bg-white/12 text-white"
+              : "text-white/58 hover:bg-white/8 hover:text-white"
+          }`}
+        >
+          <Settings className="h-4 w-4" />
+          Instellingen
+        </button>
 
-            return (
-              <button
-                key={item.label}
-                type="button"
-                aria-label={item.label}
-                title={item.label}
-                className="grid aspect-square place-items-center rounded-xl text-white/58 transition hover:bg-white/9 hover:text-white"
-              >
-                <Icon className="h-4 w-4" />
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      <button
-        type="button"
-        className="relative z-10 mt-4 grid min-h-[7.5rem] place-items-center rounded-[1.45rem] border border-white/8 bg-[#091b28]/82 px-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition hover:-translate-y-0.5 hover:bg-[#0b2030]"
-      >
-        <span className="grid h-13 w-13 place-items-center rounded-full bg-[#4ea1ff] text-white shadow-[0_14px_32px_rgba(78,161,255,0.42)]">
-          <Plus className="h-7 w-7" />
-        </span>
-        <span>
-          <span className="mt-2 block text-base font-semibold tracking-tight">
-            Compose Mail
-          </span>
-          <span className="mt-1 block text-xs text-white/38">
-            Or use quick link
-          </span>
-        </span>
-      </button>
-
-      <div className="relative z-10 mt-auto flex items-center justify-between pt-4 text-xs text-white/32">
-        <span className="inline-flex items-center gap-1.5">
-          <Sparkles className="h-3.5 w-3.5" />
-          Premium workspace
-        </span>
-        <Bell className="h-3.5 w-3.5" />
+        <button
+          type="button"
+          onClick={() => void logout()}
+          disabled={isLoggingOut}
+          className="flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-sm font-medium text-white/58 transition hover:bg-white/8 hover:text-white disabled:opacity-50"
+        >
+          <LogOut className="h-4 w-4" />
+          {isLoggingOut ? "Uitloggen..." : "Uitloggen"}
+        </button>
       </div>
     </aside>
   );

@@ -1070,18 +1070,6 @@ export const copy = {
           ],
           images: [],
         },
-        {
-          id: "2026-android",
-          title: "Android — Binnenkort",
-          intro: "Na een sterke start op iOS zetten we onze apps ook in de Google Play Store:",
-          bullets: [
-            "Al onze apps worden beschikbaar op Android",
-            "Mijn IT Hulp, Brainox, Taakflow en meer komen naar de Play Store",
-            "Android-gebruikers krijgen dezelfde ervaring als op iOS",
-            "Stapsgewijze uitrol gepland voor eind 2026",
-          ],
-          images: [],
-        },
       ],
     },
   },

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import * as React from "react";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { FaApple, FaGooglePlay } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import { getCopy } from "@/lib/i18n";
@@ -186,15 +186,6 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                           )}
                           {primaryLabel}
                         </a>
-
-                        {/* Play Store — coming soon */}
-                        <span
-                          title={locale === "en" ? "Coming soon on Android" : "Binnenkort op Android"}
-                          className="inline-flex h-12 cursor-not-allowed items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white/40 backdrop-blur-sm"
-                        >
-                          <FaGooglePlay className="mr-2.5 h-4 w-4 shrink-0" />
-                          {locale === "en" ? "Play Store — Soon" : "Play Store — Binnenkort"}
-                        </span>
 
                         {/* Detail */}
                         <a

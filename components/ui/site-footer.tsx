@@ -110,6 +110,16 @@ export function SiteFooter() {
             <p className="text-xs text-white/25 text-center">
               De personen op de foto's zijn AI-gegenereerd en geen echte personen.
             </p>
+            <div className="flex justify-center mt-1">
+              <a
+                href="https://vancoilliegroup.be"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-white/35 hover:text-white transition-colors"
+              >
+                Powered by Vancoillie Group
+              </a>
+            </div>
           </div>
         </div>
       </div>

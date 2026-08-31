@@ -9,14 +9,15 @@ export function HeroHome() {
   return (
     <section className="relative min-h-screen w-full flex flex-col md:block bg-[#0a0a0a] overflow-hidden">
       {/* Image Container */}
-      <div className="relative w-full h-[46vh] md:absolute md:inset-0 md:h-full z-0">
+      <div className="relative w-full h-[46vh] md:absolute md:inset-0 md:h-full z-0 md:bg-[linear-gradient(120deg,#98765a_0%,#bb9573_48%,#d2ae89_100%)]">
         <Image
-          src="/afbeeldingen/HeroWidth.png"
+          src="/afbeeldingen/HeroWithBooklane2411.png"
           alt="Vancoillie Studio"
           fill
           priority
-          className="object-cover object-[25%_center] md:object-[65%_center] lg:object-[60%_center] xl:object-[55%_center] 2xl:object-[50%_center]"
+          className="object-cover object-[25%_center] md:object-contain md:object-right"
         />
+        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[48%] bg-gradient-to-r from-[#aa8465] via-[#bc9674] to-transparent md:block" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent md:bg-gradient-to-r md:from-black/40 md:via-transparent" />
       </div>
 
@@ -48,7 +49,7 @@ export function HeroHome() {
                 <Star key={i} className="h-4 w-4 fill-white text-white" />
               ))}
             </div>
-            <span className="text-sm text-white/80">5/5 van onze klanten</span>
+            <span className="text-sm text-white/80">4,9/5 van onze klanten</span>
           </div>
         </div>
       </div>

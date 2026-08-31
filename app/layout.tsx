@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Caveat } from "next/font/google";
+import { Outfit, Caveat, Newsreader } from "next/font/google";
 
 import { copy } from "@/lib/i18n";
 import { ConditionalSiteFooter } from "@/components/ui/conditional-site-footer";
@@ -14,6 +14,16 @@ const outfit = Outfit({
 const caveat = Caveat({
   subsets: ["latin"],
   variable: "--font-caveat",
+});
+
+// Editorial serif — used for display headings on the Booklane product pages,
+// echoing Booklane's own product typography.
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  style: ["normal", "italic"],
+  weight: ["300", "400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -63,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" className={`${outfit.variable} ${caveat.variable}`}>
+    <html lang="nl" className={`${outfit.variable} ${caveat.variable} ${newsreader.variable}`}>
       <body className="bg-background font-sans text-foreground antialiased">
         {children}
         <ConditionalSiteFooter />

@@ -26,8 +26,8 @@ const FOOTER_LINKS: Record<string, { label: string; href: string; external?: boo
 
 export function SiteFooter() {
   return (
-    <footer className="bg-white px-6 md:px-10 pb-0">
-      {/* Main footer card with image background + rounded top corners */}
+    <footer className="bg-white pb-0">
+      {/* Main footer — full-bleed image background met ronde bovenhoeken */}
       <div className="relative overflow-hidden rounded-t-[2.5rem] min-h-[560px] flex flex-col justify-between">
         {/* Background image */}
         <Image

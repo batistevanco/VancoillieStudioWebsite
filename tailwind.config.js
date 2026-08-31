@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-outfit)", "sans-serif"],
+        serif: ["var(--font-newsreader)", "Georgia", "Cambria", "Times New Roman", "serif"],
       },
       colors: {
         brand: "hsl(var(--brand))",

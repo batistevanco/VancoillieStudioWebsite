@@ -2,6 +2,7 @@ import { SoftwareHero } from "@/components/ui/software-hero";
 import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
 import { GoogleGeminiEffectDemo } from "@/components/ui/google-gemini-effect-demo";
 import { ItHulpHero } from "@/components/ui/it-hulp-hero";
+import { BooklaneExperience, BooklaneHero } from "@/components/ui/booklane-showcase";
 import { getCopy } from "@/lib/i18n";
 
 export default function SoftwarePage() {
@@ -9,7 +10,9 @@ export default function SoftwarePage() {
 
   return (
     <div className="bg-gradient-to-b from-[#FAFAFA] via-white to-[#F4F8FC] dark:from-[#0A0A0A] dark:via-[#0E0E0E] dark:to-[#080808] transition-colors duration-300">
-      <SoftwareHero locale="nl" />
+      <BooklaneHero />
+      <BooklaneExperience />
+      <SoftwareHero locale="nl" showNavbar={false} />
       <div id="invoxa-features">
         <FeaturesSectionWithHoverEffects
           heading={content.softwareFeatures.heading}

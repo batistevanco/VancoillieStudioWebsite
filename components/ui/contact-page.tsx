@@ -47,16 +47,16 @@ export function ContactPage() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden bg-[#16181c] text-[#f7f5f2]">
       {/* Background image */}
       <Image
         src="/afbeeldingen/ContactAfbeelding.png"
         alt="Contact"
         fill
         priority
-        className="object-cover object-center"
+        className="object-cover object-center opacity-25"
       />
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-[#16181c]/70 to-[#16181c]" />
 
       {/* Navbar */}
       <div className="relative z-20">
@@ -64,30 +64,20 @@ export function ContactPage() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 px-6 md:px-16 pb-20 pt-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start max-w-5xl mx-auto">
+      <div className="studio-wrap relative z-10 pb-24 pt-[calc(var(--nav-h)+5rem)] md:pb-32">
+        <div className="studio-grid gap-y-16">
 
           {/* LEFT — info */}
-          <div className="flex flex-col gap-6 pt-6">
+          <div className="col-span-12 flex flex-col gap-6 lg:col-span-5">
             {/* Handwritten callout */}
-            <div className="font-[family-name:var(--font-caveat)] text-white text-2xl leading-snug">
-              Hey! 👋<br />
-              Wil je een website<br />
-              bouwen?
-              <svg className="mt-1 ml-2" width="40" height="30" viewBox="0 0 40 30" fill="none">
-                <path d="M2 2 Q20 0 30 15 Q35 22 28 28" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none"/>
-                <path d="M24 26 L28 28 L26 23" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-            </div>
+            <p className="studio-label !text-[#a0a5ac]">Contact</p>
 
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Contact</p>
-
-            <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight">
+            <h1 className="studio-display text-[#f7f5f2]">
               Laten we samen<br />
-              <span className="text-[#7C6BFF]">iets bouwen.</span>
+              <span className="italic text-[#74a5ff]">iets bouwen.</span>
             </h1>
 
-            <p className="text-sm text-white/70 max-w-xs leading-relaxed">
+            <p className="max-w-[48ch] text-[1.0625rem] leading-[1.68] text-[#a0a5ac]">
               Heb je een idee, project of vraag?<br />
               We luisteren graag en denken met je mee.
             </p>
@@ -99,12 +89,12 @@ export function ContactPage() {
                 { icon: MapPin, label: "Locatie", value: "Roeselare, België" },
                 { icon: Receipt, label: "BTW", value: "BE 1014.303.066" },
               ].map(({ icon: Icon, label, value }) => (
-                <div key={label} className="flex items-center gap-3 rounded-xl bg-white/10 backdrop-blur-md px-4 py-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/15">
+                <div key={label} className="flex items-center gap-3 border-t border-[#31353b] py-4">
+                  <div className="flex h-9 w-9 items-center justify-center border border-[#31353b]">
                     <Icon className="h-4 w-4 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs text-white/50">{label}</p>
+                    <p className="font-mono text-[.6875rem] uppercase tracking-[.12em] text-[#a0a5ac]">{label}</p>
                     <p className="text-sm font-medium text-white">{value}</p>
                   </div>
                 </div>
@@ -120,7 +110,7 @@ export function ContactPage() {
                 { label: "Portfolio", href: "https://batistevancoillie.be/", path: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" },
               ].map(({ label, href, path }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 hover:bg-white/25 transition-colors"
+                  className="flex h-10 w-10 items-center justify-center border border-[#31353b] transition-colors hover:border-[#f7f5f2]"
                   title={label}>
                   <svg viewBox="0 0 24 24" className="h-4 w-4 fill-white">
                     <path d={path} />
@@ -131,8 +121,8 @@ export function ContactPage() {
           </div>
 
           {/* RIGHT — form (shifted down) */}
-          <div className="mt-16 lg:mt-32">
-            <form onSubmit={handleSubmit} className="rounded-2xl bg-white/15 backdrop-blur-xl border border-white/20 p-6 md:p-8 flex flex-col gap-4">
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7 lg:pt-16">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 border-t border-[#f7f5f2] pt-8">
               <div className="grid grid-cols-2 gap-4">
                 <input
                   type="text"
@@ -140,7 +130,7 @@ export function ContactPage() {
                   value={form.naam}
                   onChange={e => setForm({ ...form, naam: e.target.value })}
                   required
-                  className="rounded-xl bg-white/20 border border-white/20 px-4 py-3 text-sm text-white placeholder-white/50 outline-none focus:border-white/50 backdrop-blur-sm"
+                  className="border border-[#31353b] bg-[#20242a] px-4 py-3 text-sm text-white placeholder-[#a0a5ac] outline-none focus:border-[#74a5ff]"
                 />
                 <input
                   type="email"
@@ -148,7 +138,7 @@ export function ContactPage() {
                   value={form.email}
                   onChange={e => setForm({ ...form, email: e.target.value })}
                   required
-                  className="rounded-xl bg-white/20 border border-white/20 px-4 py-3 text-sm text-white placeholder-white/50 outline-none focus:border-white/50 backdrop-blur-sm"
+                  className="border border-[#31353b] bg-[#20242a] px-4 py-3 text-sm text-white placeholder-[#a0a5ac] outline-none focus:border-[#74a5ff]"
                 />
               </div>
               <input
@@ -156,7 +146,7 @@ export function ContactPage() {
                 placeholder="Onderwerp"
                 value={form.onderwerp}
                 onChange={e => setForm({ ...form, onderwerp: e.target.value })}
-                className="rounded-xl bg-white/20 border border-white/20 px-4 py-3 text-sm text-white placeholder-white/50 outline-none focus:border-white/50 backdrop-blur-sm"
+                className="border border-[#31353b] bg-[#20242a] px-4 py-3 text-sm text-white placeholder-[#a0a5ac] outline-none focus:border-[#74a5ff]"
               />
               <textarea
                 placeholder="Je bericht"
@@ -164,18 +154,18 @@ export function ContactPage() {
                 value={form.bericht}
                 onChange={e => setForm({ ...form, bericht: e.target.value })}
                 required
-                className="rounded-xl bg-white/20 border border-white/20 px-4 py-3 text-sm text-white placeholder-white/50 outline-none focus:border-white/50 backdrop-blur-sm resize-none"
+                className="resize-none border border-[#31353b] bg-[#20242a] px-4 py-3 text-sm text-white placeholder-[#a0a5ac] outline-none focus:border-[#74a5ff]"
               />
               {error && <p className="text-xs text-red-300">{error}</p>}
               <button
                 type="submit"
                 disabled={isSending}
-                className="flex items-center justify-between rounded-xl bg-white px-6 py-4 text-sm font-semibold text-neutral-900 hover:bg-white/90 transition-colors disabled:opacity-60"
+                className="studio-btn studio-btn-primary flex items-center justify-between disabled:opacity-60"
               >
                 {isSending ? "Versturen..." : "Verstuur bericht"}
                 <ArrowRight className="h-4 w-4" />
               </button>
-              <p className="text-xs text-white/40 text-center">✓ We antwoorden meestal binnen 24 uur.</p>
+              <p className="font-mono text-[.6875rem] text-[#8c9198]">We antwoorden meestal binnen 24 uur.</p>
             </form>
           </div>
 

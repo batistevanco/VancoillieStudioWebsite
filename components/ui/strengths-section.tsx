@@ -1,57 +1,17 @@
-"use client";
-
-import { Code2, Zap, HeartHandshake } from "lucide-react";
-
 const STRENGTHS = [
-  {
-    icon: Code2,
-    title: "Gebouwd voor de lange termijn",
-    description:
-      "Geen templates, geen shortcuts. Jouw website wordt volledig op maat gebouwd — schaalbaar, snel en toekomstbestendig.",
-  },
-  {
-    icon: Zap,
-    title: "Snel live, zonder gedoe",
-    description:
-      "Van eerste gesprek tot live product. Wij zorgen voor hosting, domeinnaam en onderhoud — jij focust op je zaak.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Eén aanspreekpunt",
-    description:
-      "Geen groot agency met wisselende gezichten. Jij praat rechtstreeks met de persoon die jouw product bouwt.",
-  },
+  ["01", "Gebouwd voor de lange termijn", "Geen templates of shortcuts. Elk product wordt schaalbaar, snel en toekomstbestendig gebouwd."],
+  ["02", "Snel live, zonder gedoe", "Van eerste gesprek tot live product. Wij regelen techniek, hosting en onderhoud."],
+  ["03", "Eén aanspreekpunt", "Je praat rechtstreeks met de persoon die jouw product ontwerpt en bouwt."],
 ];
 
 export function StrengthsSection() {
   return (
-    <section className="bg-white px-8 md:px-28 py-24 md:py-32">
-      <div className="rounded-[2rem] bg-[#4a6d96] px-10 py-16 md:px-20 md:py-24">
-        {/* Top label */}
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-          Waarom Vancoillie Studio
-        </p>
-
-        {/* Headline */}
-        <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-tight text-white md:text-5xl">
-          Gebouwd voor{" "}
-          <span className="italic text-neutral-400">resultaat.</span>
-        </h2>
-
-        {/* Strength cards */}
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
-          {STRENGTHS.map(({ icon: Icon, title, description }) => (
-            <div key={title} className="flex flex-col gap-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5">
-                <Icon className="h-5 w-5 text-white/60" />
-              </div>
-              <h3 className="text-lg font-semibold text-white">{title}</h3>
-              <p className="text-sm leading-relaxed text-white/70">
-                {description}
-              </p>
-            </div>
-          ))}
-        </div>
+    <section className="studio-band-lg bg-[#16181c] text-[#f7f5f2]">
+      <div className="studio-wrap studio-grid gap-y-12">
+        <div className="col-span-12 lg:col-span-4"><p className="studio-label !text-[#a0a5ac]">Waarom Vancoillie Studio</p><h2 className="studio-h2 mt-6 text-[#f7f5f2]">Gebouwd voor <em className="text-[#a0a5ac]">resultaat.</em></h2></div>
+        <ol className="col-span-12 lg:col-span-7 lg:col-start-6">
+          {STRENGTHS.map(([num, title, text]) => <li key={num} className="grid gap-4 border-t border-[#31353b] py-8 sm:grid-cols-[3.5rem_1fr]"><span className="font-mono text-[.75rem] text-[#a0a5ac]">{num}</span><div><h3 className="studio-h3 text-[#f7f5f2]">{title}</h3><p className="mt-4 max-w-[52ch] text-[1rem] leading-[1.68] text-[#a0a5ac]">{text}</p></div></li>)}
+        </ol>
       </div>
     </section>
   );

@@ -2,126 +2,49 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const FOOTER_LINKS: Record<string, { label: string; href: string; external?: boolean }[]> = {
-  Diensten: [
-    { label: "Websites", href: "/websites" },
-    { label: "Apps", href: "/apps" },
-    { label: "Software", href: "/software" },
-    { label: "Vancoillie IT Hulp", href: "https://vancoillieithulp.be/", external: true },
-  ],
-  Bedrijf: [
-    { label: "Over ons", href: "/about" },
-    { label: "Contact", href: "/contact" },
-    { label: "Privacybeleid", href: "/privacybeleid" },
-    { label: "Algemene voorwaarden", href: "/algemene-voorwaarden" },
-  ],
-  "Volg ons": [
-    { label: "Instagram", href: "https://www.instagram.com/vancoilliestudio/", external: true },
-    { label: "GitHub", href: "https://github.com/batistevancoillie", external: true },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/batiste-vancoillie-622562291/", external: true },
-    { label: "X / Twitter", href: "https://x.com/vancstudio", external: true },
-  ],
-};
+const GROUPS = [
+  { title: "Diensten", links: [["Websites", "/websites"], ["Apps", "/apps"], ["Software", "/software"], ["IT Hulp", "https://vancoillieithulp.be/"]] },
+  { title: "Studio", links: [["Over ons", "/about"], ["Contact", "/contact"], ["Privacy", "/privacybeleid"], ["Voorwaarden", "/algemene-voorwaarden"]] },
+  { title: "Volg ons", links: [["Instagram", "https://www.instagram.com/vancoilliestudio/"], ["GitHub", "https://github.com/batistevancoillie"], ["LinkedIn", "https://www.linkedin.com/in/batiste-vancoillie-622562291/"], ["X / Twitter", "https://x.com/vancstudio"]] },
+];
 
 export function SiteFooter() {
+  const english = usePathname().startsWith("/en");
+  const prefix = english ? "/en" : "";
   return (
-    <footer className="bg-white pb-0">
-      {/* Main footer — full-bleed image background met ronde bovenhoeken */}
-      <div className="relative overflow-hidden rounded-t-[2.5rem] min-h-[560px] flex flex-col justify-between">
-        {/* Background image */}
-        <Image
-          src="/afbeeldingen/footerAfbeelding.png"
-          alt="Footer"
-          fill
-          className="object-cover object-center"
-        />
-
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-
-        {/* Hero content — top half */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-20 pb-16">
-          <h2 className="text-4xl md:text-6xl font-semibold text-white leading-tight tracking-tight max-w-2xl">
-            Klaar om samen<br />iets te bouwen?
-          </h2>
-          <p className="mt-4 text-base text-white/70 max-w-sm">
-            Van website tot app — we maken het voor je.
-          </p>
-          <Link
-            href="/websites"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black hover:bg-white/90 transition-colors"
-          >
-            Bekijk onze websites
+    <footer className="border-t border-[#31353b] bg-[#16181c] text-[#f7f5f2]">
+      <div className="studio-wrap studio-grid gap-y-12 pb-12 pt-16 md:pb-14 md:pt-20">
+        <div className="col-span-12 md:col-span-4 lg:col-span-3">
+          <Link href={prefix || "/"} className="inline-flex items-center gap-3">
+            <Image
+              src="/afbeeldingen/StudioMark.png"
+              alt=""
+              width={23}
+              height={33}
+              className="h-8 w-6 object-contain"
+            />
+            <span className="font-semibold">Vancoillie Studio</span>
           </Link>
+          <p className="mt-8 max-w-[28ch] text-[.9375rem] leading-[1.7] text-[#a0a5ac]">Digitale producten en websites, ontworpen en gebouwd in Roeselare.</p>
+          <a href="mailto:support@vancoilliestudio.be" className="studio-link mt-5 text-[.9375rem] text-[#f7f5f2]">support@vancoilliestudio.be</a>
         </div>
-
-        {/* Footer links — bottom half */}
-        <div className="relative z-10 px-10 md:px-16 pb-8">
-          <div className="border-t border-white/15 pt-8 grid grid-cols-2 md:grid-cols-4 gap-8 items-start">
-            {Object.entries(FOOTER_LINKS).map(([category, links]) => (
-              <div key={category}>
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40 mb-4">
-                  {category}
-                </p>
-                <ul className="flex flex-col gap-2.5">
-                  {links.map(({ label, href, external }) => (
-                    <li key={label}>
-                      <Link
-                        href={href}
-                        className="text-sm text-white/70 hover:text-white transition-colors"
-                        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      >
-                        {label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-
-            {/* Logo kolom rechts */}
-            <div className="flex items-start justify-end">
-              <Image
-                src="/afbeeldingen/TransparantLogo.png"
-                alt="Vancoillie Studio"
-                width={120}
-                height={120}
-                className="opacity-60"
-              />
-            </div>
-          </div>
-
-          {/* Bottom bar */}
-          <div className="mt-10 pt-6 border-t border-white/10 flex flex-col gap-3">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
-              <p className="text-xs text-white/35">
-                © {new Date().getFullYear()} Vancoillie Studio · Alle rechten voorbehouden
-              </p>
-              <div className="flex items-center gap-6">
-                <Link href="/privacybeleid" className="text-xs text-white/35 hover:text-white/60 transition-colors">
-                  Privacybeleid
-                </Link>
-                <Link href="/algemene-voorwaarden" className="text-xs text-white/35 hover:text-white/60 transition-colors">
-                  Algemene voorwaarden
-                </Link>
-              </div>
-            </div>
-            <p className="text-xs text-white/25 text-center">
-              De personen op de foto's zijn AI-gegenereerd en geen echte personen.
-            </p>
-            <div className="flex justify-center mt-1">
-              <a
-                href="https://vancoilliegroup.be"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-white/35 hover:text-white transition-colors"
-              >
-                Powered by Vancoillie Group
-              </a>
-            </div>
-          </div>
-        </div>
+        {GROUPS.map((group) => (
+          <nav key={group.title} className="col-span-6 md:col-span-4 lg:col-span-3" aria-label={group.title}>
+            <p className="studio-label !text-[#a0a5ac]">{group.title}</p>
+            <ul className="mt-5 space-y-2.5 text-[.9375rem]">
+              {group.links.map(([label, href]) => {
+                const external = href.startsWith("http");
+                return <li key={href}><Link href={external ? href : `${prefix}${href}`} className="studio-link text-[#a0a5ac] hover:text-[#f7f5f2]" {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{label}</Link></li>;
+              })}
+            </ul>
+          </nav>
+        ))}
+      </div>
+      <div className="studio-wrap flex flex-col gap-3 border-t border-[#31353b] py-6 font-mono text-[.75rem] text-[#8c9198] md:flex-row md:items-center md:justify-between">
+        <span>© {new Date().getFullYear()} Vancoillie Studio · BE 1014.303.066</span>
+        <a href="https://vancoilliegroup.be" target="_blank" rel="noopener noreferrer" className="studio-link self-start md:self-auto">Vancoillie Group</a>
       </div>
     </footer>
   );

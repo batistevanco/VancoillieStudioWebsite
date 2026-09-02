@@ -17,28 +17,29 @@ export function LegalPage({
   sections,
 }: LegalPageProps) {
   return (
-    <main className="bg-white px-4 py-20 md:px-6 md:py-24">
-      <div className="mx-auto max-w-4xl">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-brand">
+    <main className="bg-[#f7f5f2] pb-24 pt-[calc(var(--nav-h)+5rem)] md:pb-32">
+      <div className="studio-wrap studio-grid">
+        <div className="col-span-12 lg:col-span-8 lg:col-start-3">
+        <p className="studio-label mb-6">
           Juridisch
         </p>
-        <h1 className="text-4xl font-semibold tracking-[-0.04em] text-zinc-950 md:text-6xl">
+        <h1 className="studio-display text-[#16181c]">
           {title}
         </h1>
-        <p className="mt-4 text-sm text-zinc-500">{updatedAt}</p>
-        <p className="mt-8 text-lg leading-8 text-zinc-600">{intro}</p>
+        <p className="mt-5 font-mono text-[.75rem] text-[#8c9198]">{updatedAt}</p>
+        <p className="studio-lead mt-10">{intro}</p>
 
-        <div className="mt-12 space-y-10">
+        <div className="mt-16">
           {sections.map((section) => (
-            <section key={section.title}>
-              <h2 className="text-2xl font-semibold text-zinc-950">
+            <section key={section.title} className="border-t border-[#ded9d1] py-9">
+              <h2 className="studio-h3 text-[#16181c]">
                 {section.title}
               </h2>
-              <div className="mt-4 space-y-4">
+              <div className="mt-5 space-y-4">
                 {section.paragraphs.map((paragraph, index) => (
                   <p
                     key={`${section.title}-${index}`}
-                    className="leading-8 text-zinc-600"
+                    className="leading-8 text-[#5a5f66]"
                   >
                     {paragraph}
                   </p>
@@ -46,6 +47,7 @@ export function LegalPage({
               </div>
             </section>
           ))}
+        </div>
         </div>
       </div>
     </main>

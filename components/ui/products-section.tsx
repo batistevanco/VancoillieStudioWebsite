@@ -1,144 +1,26 @@
 "use client";
-
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const PRODUCTS = [
-  {
-    name: "Brainox",
-    tagline: "Denk het.",
-    tagline2: "Brainox doet de rest.",
-    description:
-      "Notities via tekst of stem. Brainox transcribeert alles en houdt jouw gedachten geordend — altijd en overal.",
-    image: "/afbeeldingen/ProductShowcase/BrainoxShowcase1.png",
-    href: "/apps",
-    dark: true,
-    bg: "bg-[#0f0f1a]",
-  },
-  {
-    name: "AbboBuddy",
-    tagline: "Grip op je",
-    tagline2: "abonnementen.",
-    description:
-      "Overzicht over alles wat je betaalt. Nooit meer verrast door een onverwachte afschrijving.",
-    image: "/afbeeldingen/ProductShowcase/AbboBuddyShowcase.png",
-    href: "/apps",
-    dark: false,
-  },
-  {
-    name: "Vancoillie News",
-    tagline: "Nieuws op",
-    tagline2: "jouw manier.",
-    description:
-      "Het laatste nieuws, gefilterd op wat jij belangrijk vindt. Snel, overzichtelijk en zonder ruis.",
-    image: "/afbeeldingen/ProductShowcase/VancoillieNewsShowcase3.png",
-    href: "/apps",
-    dark: true,
-    bg: "bg-[#0d1a0d]",
-  },
-  {
-    name: "InMandje",
-    tagline: "Slimmer",
-    tagline2: "boodschappen doen.",
-    description:
-      "Maak en deel boodschappenlijstjes met je huishouden. Altijd weten wat er nog moet worden gekocht.",
-    image: "/afbeeldingen/ProductShowcase/InMandjeShowcase4.png",
-    href: "/apps",
-    dark: false,
-  },
+  { name: "Brainox", line: "Notities via tekst of stem, automatisch geordend.", image: "/afbeeldingen/ProductShowcase/BrainoxShowcase1.png", href: "/brainox" },
+  { name: "AbboBuddy", line: "Eenvoudig overzicht over al je abonnementen.", image: "/afbeeldingen/ProductShowcase/AbboBuddyShowcase.png", href: "/abbo" },
+  { name: "Vancoillie News", line: "Relevant nieuws zonder clickbait of ruis.", image: "/afbeeldingen/ProductShowcase/VancoillieNewsShowcase3.png", href: "/news" },
+  { name: "InMandje", line: "Gedeelde boodschappenlijstjes voor je huishouden.", image: "/afbeeldingen/ProductShowcase/InMandjeShowcase4.png", href: "/inmandje" },
 ];
 
 export function ProductsSection() {
+  const [active, setActive] = useState(0);
   return (
-    <section className="bg-white pt-24 pb-32 md:pt-32 md:pb-40">
-      {/* Header */}
-      <div className="mb-12 px-8 md:px-28">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
-          Eigen producten
-        </p>
-        <h2 className="mt-3 text-5xl font-semibold tracking-tight text-neutral-900 md:text-6xl">
-          Apps die het werk doen
-        </h2>
-      </div>
-
-      {/* Horizontal scroll row */}
-      <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
-        {/* Left spacer */}
-        <div className="flex-none w-20 md:w-32 shrink-0" />
-
-        {PRODUCTS.map((product) =>
-          product.dark ? (
-            <Link
-              key={product.name}
-              href={product.href}
-              className={`relative flex-none w-[80vw] md:w-[42vw] h-[65vh] min-h-[480px] rounded-[2rem] overflow-hidden snap-start shrink-0 ${product.bg}`}
-            >
-              {/* Full-bleed showcase image */}
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-cover object-center"
-              />
-              {/* Gradient overlay for text legibility */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" />
-              {/* Text */}
-              <div className="absolute inset-0 p-9 md:p-12">
-                <h3 className="text-3xl md:text-4xl font-semibold text-white leading-tight">
-                  {product.tagline}{" "}
-                  <span className="italic">{product.tagline2}</span>
-                </h3>
-                <p className="mt-5 text-base text-white/65 max-w-xs leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-            </Link>
-          ) : (
-            <Link
-              key={product.name}
-              href={product.href}
-              className="relative flex-none w-[80vw] md:w-[42vw] h-[65vh] min-h-[480px] rounded-[2rem] overflow-hidden snap-start shrink-0 bg-neutral-100"
-            >
-              {/* Full-bleed showcase image */}
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-cover object-center"
-              />
-              {/* Gradient overlay for text legibility */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/40 to-transparent" />
-              {/* Text */}
-              <div className="absolute inset-0 p-9 md:p-12">
-                <h3 className="text-3xl md:text-4xl font-semibold text-neutral-900 leading-tight">
-                  {product.tagline}{" "}
-                  <span className="italic">{product.tagline2}</span>
-                </h3>
-                <p className="mt-5 text-base text-neutral-600 max-w-xs leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-            </Link>
-          )
-        )}
-
-        {/* 5th tile — CTA naar apps pagina */}
-        <Link
-          href="/apps"
-          className="relative flex-none w-[60vw] md:w-[28vw] h-[65vh] min-h-[480px] rounded-[2rem] snap-start shrink-0 bg-neutral-900 flex flex-col items-center justify-center gap-6 group"
-        >
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
-            <ArrowRight className="h-6 w-6 text-white" />
-          </div>
-          <div className="text-center px-8">
-            <p className="text-xl font-semibold text-white">Bekijk alle apps</p>
-            <p className="mt-2 text-sm text-white/50">Ontdek de volledige collectie</p>
-          </div>
-        </Link>
-
-        {/* Right spacer */}
-        <div className="flex-none w-20 md:w-32 shrink-0" />
+    <section className="studio-band-xl border-t border-[#ded9d1] bg-[#f7f5f2]">
+      <div className="studio-wrap"><header className="max-w-3xl"><p className="studio-label">Eigen producten</p><h2 className="studio-h2 mt-6">Apps die het werk doen.</h2><p className="studio-lead mt-6">Een groeiende collectie digitale producten, ontwikkeld vanuit echte dagelijkse noden.</p></header>
+        <div className="studio-grid mt-14 md:mt-20">
+          <ul className="col-span-12 border-b border-[#ded9d1] lg:col-span-7">{PRODUCTS.map((product, i) => <li key={product.name}><Link href={product.href} onMouseEnter={() => setActive(i)} onFocus={() => setActive(i)} className="group grid grid-cols-[2.5rem_1fr_1.5rem] gap-4 border-t border-[#ded9d1] py-7 sm:grid-cols-[3.5rem_1fr_2rem] sm:py-8"><span className={`pt-1 font-mono text-[.75rem] ${active === i ? "text-[#16181c]" : "text-[#8c9198]"}`}>0{i + 1}</span><span><span className="studio-h3 block transition-transform duration-500 group-hover:translate-x-1.5">{product.name}</span><span className="mt-2.5 block max-w-[46ch] text-[.9375rem] text-[#5a5f66]">{product.line}</span></span><ArrowRight className="mt-2 h-[18px] w-[18px] text-[#8c9198] transition-all group-hover:translate-x-1 group-hover:text-[#0a58f6]" /></Link></li>)}</ul>
+          <div className="col-span-5 hidden lg:col-start-9 lg:block"><div className="sticky top-[calc(var(--nav-h)+3rem)]"><div className="studio-frame relative aspect-[4/5]">{PRODUCTS.map((product, i) => <Image key={product.name} src={product.image} alt="" fill className={`object-cover transition-all duration-700 ${active === i ? "scale-100 opacity-100" : "pointer-events-none scale-[1.02] opacity-0"}`} />)}</div><p className="mt-3 flex justify-between font-mono text-[.6875rem] uppercase tracking-[.08em] text-[#8c9198]"><span>{PRODUCTS[active].name}</span><span>0{active + 1} / 0{PRODUCTS.length}</span></p></div></div>
+        </div>
+        <Link href="/apps" className="studio-btn studio-btn-ink mt-12">Bekijk alle apps <ArrowRight className="h-4 w-4" /></Link>
       </div>
     </section>
   );

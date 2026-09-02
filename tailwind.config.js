@@ -9,8 +9,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-outfit)", "sans-serif"],
-        serif: ["var(--font-newsreader)", "Georgia", "Cambria", "Times New Roman", "serif"],
+        sans: ["var(--font-schibsted)", "Helvetica Neue", "Arial", "sans-serif"],
+        display: ["var(--font-schibsted)", "Helvetica Neue", "Arial", "sans-serif"],
+        mono: ["var(--font-plex-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+        serif: ["var(--font-schibsted)", "Helvetica Neue", "Arial", "sans-serif"],
       },
       colors: {
         brand: "hsl(var(--brand))",

@@ -9,7 +9,7 @@ export default function SoftwarePage() {
   const content = getCopy("nl");
 
   return (
-    <div className="bg-gradient-to-b from-[#FAFAFA] via-white to-[#F4F8FC] dark:from-[#0A0A0A] dark:via-[#0E0E0E] dark:to-[#080808] transition-colors duration-300">
+    <div className="bg-[#f7f5f2]">
       <BooklaneHero />
       <SoftwareHero locale="nl" showNavbar={false} />
       <div id="invoxa-features">

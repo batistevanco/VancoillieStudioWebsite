@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: copy.en.meta.openGraphTitle,
     description: copy.en.meta.openGraphDescription,
     type: "website",
-    url: "https://www.vancoilliestudio.be/en",
+    url: "https://software.vancoli.be/en",
     locale: "en_US",
     images: [
       {

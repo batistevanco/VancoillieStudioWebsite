@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://www.vancoilliestudio.be";
+const siteUrl = "https://software.vancoli.be";
 export const dynamic = "force-static";
 
 const routes = [

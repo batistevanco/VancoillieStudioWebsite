@@ -1,4 +1,4 @@
-name: Deploy Static Site
+name: Deploy software.vancoli.be
 
 on:
   push:
@@ -33,6 +33,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
+          # This FTP account is rooted at public_html/software.
           server-dir: ./
           timeout: 60000
           exclude: |

@@ -27,7 +27,7 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.vancoilliestudio.be"),
+  metadataBase: new URL("https://software.vancoli.be"),
   title: copy.nl.meta.title,
   description: copy.nl.meta.description,
   keywords: [...copy.nl.meta.keywords],
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: copy.nl.meta.openGraphTitle,
     description: copy.nl.meta.openGraphDescription,
     type: "website",
-    url: "https://www.vancoilliestudio.be/",
+    url: "https://software.vancoli.be/",
     locale: "nl_BE",
     images: [
       {

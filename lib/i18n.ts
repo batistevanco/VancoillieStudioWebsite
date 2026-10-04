@@ -636,8 +636,8 @@ export const copy = {
         email: "support@vancoilliestudio.be",
         vat: "BE 1014.303.066",
         web: {
-          label: "vancoilliestudio.be",
-          url: "https://www.vancoilliestudio.be",
+          label: "software.vancoli.be",
+          url: "https://software.vancoli.be",
         },
       },
     },
@@ -1710,8 +1710,8 @@ export const copy = {
         email: "support@vancoilliestudio.be",
         vat: "BE 1014.303.066",
         web: {
-          label: "vancoilliestudio.be",
-          url: "https://www.vancoilliestudio.be",
+          label: "software.vancoli.be",
+          url: "https://software.vancoli.be",
         },
       },
     },

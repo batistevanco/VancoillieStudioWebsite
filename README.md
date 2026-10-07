@@ -2,6 +2,8 @@
 
 The Next.js site is exported to `out/` and deployed to `https://software.vancoli.be/` by [the GitHub Actions workflow](.github/workflows/deploy-static-site.yml) on pushes to `main` or manually with `workflow_dispatch`.
 
+The subdomain shares its document root with the VANCOLI site's `/software/` page. The workflow therefore publishes the Studio homepage as `studio-index.html` and installs [an Apache rewrite rule](.github/hosting/software-subdomain.htaccess) that selects it only for `software.vancoli.be/`. The VANCOLI deployment can update its own `index.html` without replacing the Studio homepage. Keep this separation when changing either deployment.
+
 ## Hostinger setup
 
 1. Point the `software.vancoli.be` subdomain's document root to `/home/u104619329/domains/vancoli.be/public_html/software` and enable HTTPS for the subdomain.

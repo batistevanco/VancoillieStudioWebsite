@@ -26,15 +26,26 @@ jobs:
       - name: Build static export
         run: npm run build
 
+      # The VANCOLI site's /software/ page and this subdomain share a document
+      # root. Keep separate index files so either site's deploy can run safely.
+      - name: Prepare isolated Studio entry page
+        run: |
+          mkdir -p deploy
+          cp -a out/. deploy/
+          mv deploy/index.html deploy/studio-index.html
+          cp .github/hosting/software-subdomain.htaccess deploy/.htaccess
+
       - name: Deploy export to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
+          local-dir: ./deploy/
           # This FTP account is rooted at public_html/software.
           server-dir: ./
+          # Start a new sync record so the shared VANCOLI index.html is not deleted.
+          state-name: .ftp-deploy-studio-isolated-state.json
           timeout: 60000
           exclude: |
             **/.git*

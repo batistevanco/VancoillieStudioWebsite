@@ -1,5 +1,6 @@
 .next/
 out/
+deploy/
 node_modules/
 tsconfig.tsbuildinfo
 .DS_Store

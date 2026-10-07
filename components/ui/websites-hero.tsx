@@ -7,7 +7,7 @@ import { Navbar } from "@/components/ui/navbar";
 
 export function WebsitesHero() {
   return (
-    <section className="relative w-full flex flex-col items-center overflow-hidden bg-black pb-0">
+    <section className="studio-websites-hero relative w-full flex flex-col items-center overflow-hidden pb-0">
       {/* Aurora background */}
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         <div className="absolute inset-0 bg-black" />
@@ -116,17 +116,18 @@ export function WebsitesHero() {
               <div className="w-3 h-3 rounded-full bg-white/20" />
             </div>
             <div className="ml-3 flex-1 max-w-xs mx-auto bg-white/10 rounded-md px-3 py-1">
-              <span className="text-[10px] text-white/40">vancoillie-ithulp.be</span>
+              <span className="text-[10px] text-white/40">vancoli.be</span>
             </div>
           </div>
           {/* Screenshot */}
-          <div className="relative w-full aspect-[16/9]">
+          <div className="relative w-full aspect-[3784/1798]">
             <Image
-              src="/afbeeldingen/websiteExamples/ItHulp.png"
-              alt="Voorbeeld website Vancoillie IT Hulp"
+              src="/afbeeldingen/WebsiteHeadliner.png"
+              alt="Voorbeeld website Vancoli"
               fill
               priority
-              className="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-contain object-top"
             />
           </div>
         </div>

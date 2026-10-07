@@ -43,7 +43,7 @@ const FAQS = [
   {
     question: "Hoe neem ik contact op?",
     answer:
-      "Stuur een e-mail naar support@vancoilliestudio.be of gebruik het contactformulier op de website. We antwoorden zo snel mogelijk — meestal binnen de dag.",
+      "Stuur een e-mail naar info@vancoli.be. We antwoorden zo snel mogelijk — meestal binnen de dag.",
   },
 ];
 
@@ -83,7 +83,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
 
 export function FaqSection() {
   return (
-    <section className="bg-white px-8 md:px-28 py-24 md:py-32">
+    <section className="studio-faq px-8 md:px-28 py-24 md:py-32">
       <div className="mx-auto max-w-3xl">
         {/* Header */}
         <div className="mb-12 text-center">

@@ -25,7 +25,7 @@ const STRENGTHS = [
 
 export function StrengthsSection() {
   return (
-    <section className="bg-white px-8 md:px-28 py-24 md:py-32">
+    <section className="studio-strengths px-8 md:px-28 py-24 md:py-32">
       <div className="rounded-[2rem] bg-[#4a6d96] px-10 py-16 md:px-20 md:py-24">
         {/* Top label */}
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">

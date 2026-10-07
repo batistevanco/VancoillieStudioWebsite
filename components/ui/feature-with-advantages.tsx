@@ -21,7 +21,7 @@ export function FeatureWithAdvantages({
   items,
 }: FeatureWithAdvantagesProps) {
   return (
-    <section className="w-full py-12 lg:py-20">
+    <section className="studio-advantages w-full py-12 lg:py-20">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-col items-start gap-4 py-6 lg:py-10">
           <div>{badge ? <Badge>{badge}</Badge> : null}</div>

@@ -41,7 +41,7 @@ const sections = [
     title: "Jouw rechten",
     paragraphs: [
       "Je hebt het recht om inzage te vragen in je persoonsgegevens, onjuiste gegevens te laten corrigeren en in bepaalde gevallen verwijdering of beperking van verwerking te vragen.",
-      "Voor vragen over privacy of verzoeken rond gegevensverwerking kan je contact opnemen via support@vancoilliestudio.be.",
+      "Voor vragen over privacy of verzoeken rond gegevensverwerking kan je contact opnemen via info@vancoli.be.",
     ],
   },
 ];

@@ -218,7 +218,7 @@ export function AppDetailPage({
       <div className="absolute inset-x-0 top-0 z-20">
         <Navbar variant="overlay" theme="light" />
       </div>
-      <main className="pb-20 pt-0">
+      <main className="studio-app-detail pb-20 pt-0">
 
         {/* Hero */}
         <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#3b8eff] via-[#75b4ff] to-[#aad0ff] pt-28 md:pt-36">

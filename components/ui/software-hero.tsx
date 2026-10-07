@@ -13,7 +13,7 @@ export function SoftwareHero({
   const content = getCopy(locale);
 
   return (
-    <div className="relative overflow-hidden" style={{ backgroundImage: "url('/afbeeldingen/defaultBackground.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+    <div className="studio-software-hero relative overflow-hidden">
       {showNavbar ? (
         <div className="absolute inset-x-0 top-0 z-20">
           <Navbar variant="overlay" />

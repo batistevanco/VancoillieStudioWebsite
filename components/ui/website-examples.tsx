@@ -22,7 +22,7 @@ export function WebsiteExamples() {
   }
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="studio-examples py-20 md:py-28">
       {/* Header */}
       <div className="flex items-end justify-between px-8 md:px-20 mb-10">
         <div>

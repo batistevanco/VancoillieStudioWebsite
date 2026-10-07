@@ -29,7 +29,6 @@ const MASCOTTE_APPS: Record<string, string> = {
 export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
   const content = getCopy(locale).appsPage;
   const apps = content.apps as readonly AppShowcaseItem[];
-  const sectionThemes = ["bg-white", "bg-[#dfe3e8]"];
 
   return (
     <>
@@ -38,16 +37,16 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
         <div className="pb-8 pt-28 md:pt-32">
           <div className="mx-auto max-w-[1440px] px-3 md:px-4">
             <div className="mx-auto mb-14 max-w-3xl text-center">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#244c78]">
                 {content.eyebrow}
               </p>
               <SparklesText
                 text={content.title}
                 sparklesCount={8}
-                colors={{ first: "#93c5fd", second: "#c4b5fd" }}
-                className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-[3.8rem]"
+                colors={{ first: "#244c78", second: "#8ba8c5" }}
+                className="text-4xl font-bold tracking-tight text-neutral-950 md:text-5xl lg:text-[3.8rem]"
               />
-              <p className="mt-4 text-base leading-7 text-white/70 md:text-[1.05rem]">
+              <p className="mt-4 text-base leading-7 text-neutral-600 md:text-[1.05rem]">
                 {content.description}
               </p>
             </div>
@@ -58,7 +57,7 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
 
       <main className="pb-16">
 
-        <div className="w-full divide-y divide-white/10">
+        <div className="w-full divide-y divide-neutral-200">
           {apps.map((app, index) => {
             const isFeatured = index === 0;
             const reverse = index % 2 === 1;
@@ -142,8 +141,8 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
 
                     {/* App Description Content Column */}
                     <div className="flex flex-col items-start text-left">
-                      <div className="mb-4 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-white/90 backdrop-blur-sm">
-                        <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+                      <div className="mb-4 inline-flex items-center rounded-full border border-neutral-300 bg-white px-4 py-1.5 text-xs font-semibold tracking-wider text-neutral-800">
+                        <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-[#244c78] animate-pulse" />
                         {availabilityLabel}
                       </div>
 
@@ -158,16 +157,16 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                             />
                           </div>
                         ) : null}
-                        <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+                        <h2 className="text-4xl font-extrabold tracking-tight text-neutral-950 sm:text-5xl">
                           {app.name}
                         </h2>
                       </div>
 
-                      <h3 className="text-xl font-bold tracking-tight text-white/80 md:text-2xl mb-4">
+                      <h3 className="text-xl font-bold tracking-tight text-neutral-800 md:text-2xl mb-4">
                         {app.tagline}
                       </h3>
 
-                      <p className="max-w-xl text-base leading-relaxed text-white/65 md:text-lg mb-8 font-medium">
+                      <p className="max-w-xl text-base leading-relaxed text-neutral-600 md:text-lg mb-8 font-medium">
                         {app.description}
                       </p>
 
@@ -177,7 +176,7 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                           href={primaryHref}
                           target={isExternalPrimary ? "_blank" : undefined}
                           rel={isExternalPrimary ? "noreferrer" : undefined}
-                          className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15 active:translate-y-0"
+                          className="studio-apps__primary inline-flex h-12 items-center justify-center rounded-full border px-6 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                         >
                           {isExternalPrimary || app.appStoreUrl ? (
                             <FaApple className="mr-2.5 h-4 w-4 shrink-0" />
@@ -190,7 +189,7 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
                         {/* Detail */}
                         <a
                           href={detailHref}
-                          className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-neutral-950 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/90 active:translate-y-0"
+                          className="studio-apps__secondary inline-flex h-12 items-center justify-center rounded-full px-6 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                         >
                           <ExternalLink className="mr-2.5 h-4 w-4 shrink-0" />
                           {locale === "en" ? `Discover ${app.name}` : `Ontdek ${app.name}`}

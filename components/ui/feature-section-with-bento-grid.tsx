@@ -31,7 +31,7 @@ export function FeatureSectionWithBentoGrid({
   const [first, second, third, fourth] = items;
 
   return (
-    <section className="relative w-full py-20 lg:py-32 overflow-hidden">
+    <section className="studio-bento relative w-full py-20 lg:py-32 overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/4 -z-10 h-72 w-72 rounded-full bg-blue-500/5 blur-[100px]" />
       <div className="absolute bottom-10 right-1/4 -z-10 h-80 w-80 rounded-full bg-purple-500/5 blur-[120px]" />

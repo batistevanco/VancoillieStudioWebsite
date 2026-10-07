@@ -129,7 +129,7 @@ export const copy = {
         skills: ["Websites", "Next.js", "Apps", "Software", "IT-support"],
         social: {
           github: "https://github.com/batistevanco",
-          email: "support@vancoilliestudio.be",
+          email: "info@vancoli.be",
         },
       },
       ctaTitle: "Een idee, website of app in gedachten?",
@@ -607,7 +607,7 @@ export const copy = {
         "Klaar om te starten? Of gewoon een vraag? Laat het ons weten.",
       mainMessage: "Vertel ons waar je aan werkt",
       helper:
-        "Gebruik het formulier voor websites, apps, software of branding. We antwoorden zo snel mogelijk.",
+        "Mail ons over websites, apps, software of branding. We antwoorden zo snel mogelijk.",
       detailsTitle: "Contactgegevens",
       socialTitle: "Volg ons",
       labels: {
@@ -633,7 +633,7 @@ export const copy = {
       },
       details: {
         location: "Roeselare, België",
-        email: "support@vancoilliestudio.be",
+        email: "info@vancoli.be",
         vat: "BE 1014.303.066",
         web: {
           label: "software.vancoli.be",
@@ -659,7 +659,7 @@ export const copy = {
         { name: "Algemene voorwaarden", href: "/algemene-voorwaarden" },
         { name: "Privacybeleid", href: "/privacybeleid" },
       ],
-      email: "support@vancoilliestudio.be",
+      email: "info@vancoli.be",
       country: "België",
     },
     appsPage: {
@@ -1203,7 +1203,7 @@ export const copy = {
         skills: ["Websites", "Next.js", "Apps", "Software", "IT support"],
         social: {
           github: "https://github.com/batistevanco",
-          email: "support@vancoilliestudio.be",
+          email: "info@vancoli.be",
         },
       },
       ctaTitle: "Have an idea, website, or app in mind?",
@@ -1681,7 +1681,7 @@ export const copy = {
         "Ready to get started? Or just have a question? Let us know.",
       mainMessage: "Tell us what you're working on",
       helper:
-        "Use the form for websites, apps, software, or branding. We will reply as soon as possible.",
+        "Email us about websites, apps, software, or branding. We will reply as soon as possible.",
       detailsTitle: "Contact details",
       socialTitle: "Follow us",
       labels: {
@@ -1707,7 +1707,7 @@ export const copy = {
       },
       details: {
         location: "Roeselare, Belgium",
-        email: "support@vancoilliestudio.be",
+        email: "info@vancoli.be",
         vat: "BE 1014.303.066",
         web: {
           label: "software.vancoli.be",
@@ -1733,7 +1733,7 @@ export const copy = {
         { name: "Terms and Conditions", href: "/en/terms-and-conditions" },
         { name: "Privacy Policy", href: "/en/privacy-policy" },
       ],
-      email: "support@vancoilliestudio.be",
+      email: "info@vancoli.be",
       country: "Belgium",
     },
     appsPage: {

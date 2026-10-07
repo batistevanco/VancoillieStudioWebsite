@@ -89,7 +89,7 @@ export function ReviewsSection() {
   const doubled = [...REVIEWS, ...REVIEWS];
 
   return (
-    <section className="bg-white py-20 md:py-28 overflow-hidden">
+    <section className="studio-reviews py-20 md:py-28 overflow-hidden">
       {/* Header */}
       <div className="px-8 md:px-28 mb-14 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">

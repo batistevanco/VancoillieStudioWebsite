@@ -51,7 +51,7 @@ const PRODUCTS = [
 
 export function ProductsSection() {
   return (
-    <section className="bg-white pt-24 pb-32 md:pt-32 md:pb-40">
+    <section className="studio-products pt-24 pb-32 md:pt-32 md:pb-40">
       {/* Header */}
       <div className="mb-12 px-8 md:px-28">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">

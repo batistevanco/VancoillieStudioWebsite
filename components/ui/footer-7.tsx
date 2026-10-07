@@ -32,8 +32,8 @@ interface Footer7Props {
 }
 
 const defaultSocialLinks = [
-  { icon: <FaXTwitter className="size-5" />, href: "https://x.com/vancstudio", label: "X" },
-  { icon: <FaInstagram className="size-5" />, href: "https://www.instagram.com/vancoilliestudio/", label: "Instagram" },
+  { icon: <FaXTwitter className="size-5" />, href: "https://x.com/vancoli_be", label: "X" },
+  { icon: <FaInstagram className="size-5" />, href: "https://www.instagram.com/vancoli_be/", label: "Instagram" },
   { icon: <FaTiktok className="size-5" />, href: "https://www.tiktok.com/@vancoillieracing", label: "TikTok" },
   { icon: <FaGithub className="size-5" />, href: "https://github.com/batistevanco?tab=repositories", label: "GitHub" },
   { icon: <FaGlobe className="size-5" />, href: "https://batistevancoillie.be/", label: "Portfolio" },

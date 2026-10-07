@@ -78,7 +78,7 @@ export function Pricing({
   };
 
   return (
-    <div className="relative container mx-auto py-28 lg:py-36 overflow-hidden">
+    <div className="studio-pricing relative container mx-auto py-28 lg:py-36 overflow-hidden">
       {/* Soft background ambient blurs */}
       <div className="absolute top-1/4 right-0 -z-10 h-96 w-96 rounded-full bg-blue-500/5 blur-[120px]" />
       <div className="absolute bottom-1/4 left-0 -z-10 h-[500px] w-[500px] rounded-full bg-purple-500/5 blur-[150px]" />

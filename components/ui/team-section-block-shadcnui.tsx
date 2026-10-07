@@ -194,7 +194,7 @@ export function TeamSectionBlock({ locale = "nl" }: { locale?: Locale }) {
   return (
     <section
       aria-labelledby="team-section-heading"
-      className="relative w-full px-4 py-24 sm:px-6 lg:px-10"
+      className="studio-team relative w-full px-4 py-24 sm:px-6 lg:px-10"
     >
       <div className="relative mx-auto max-w-5xl">
         {/* Header */}

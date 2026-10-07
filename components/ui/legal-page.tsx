@@ -17,7 +17,7 @@ export function LegalPage({
   sections,
 }: LegalPageProps) {
   return (
-    <main className="bg-white px-4 py-20 md:px-6 md:py-24">
+    <main className="studio-legal bg-white px-4 py-20 md:px-6 md:py-24">
       <div className="mx-auto max-w-4xl">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-brand">
           Juridisch

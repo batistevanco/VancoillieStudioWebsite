@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/ui/navbar";
 import { Button } from "@/components/ui/button";
 import { getCopy } from "@/lib/i18n";
 import type { Locale } from "@/lib/routes";
@@ -14,12 +13,6 @@ export function SoftwareHero({
 
   return (
     <div className="studio-software-hero relative overflow-hidden">
-      {showNavbar ? (
-        <div className="absolute inset-x-0 top-0 z-20">
-          <Navbar variant="overlay" />
-        </div>
-      ) : null}
-
       <main className="relative">
         {/* Soft background ambient blurs */}
         <div className="absolute top-1/4 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-[120px]" />

@@ -9,10 +9,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-outfit)", "sans-serif"],
-        serif: ["var(--font-newsreader)", "Georgia", "Cambria", "Times New Roman", "serif"],
+        sans: ["-apple-system", "BlinkMacSystemFont", '"SF Pro Display"', '"SF Pro Text"', "system-ui", '"Helvetica Neue"', "Arial", "sans-serif"],
+        serif: ["-apple-system", "BlinkMacSystemFont", '"SF Pro Display"', "system-ui", "sans-serif"],
       },
       colors: {
+        paper: "var(--paper)",
+        "paper-raised": "var(--paper-raised)",
+        ink: "var(--ink)",
+        "ink-soft": "var(--ink-soft)",
+        "ink-faint": "var(--ink-faint)",
+        rule: "var(--rule)",
+        signal: "var(--signal)",
         brand: "hsl(var(--brand))",
         "brand-foreground": "hsl(var(--brand-foreground))",
         background: "hsl(var(--background))",
@@ -30,6 +37,10 @@ module.exports = {
         "secondary-foreground": "hsl(var(--secondary-foreground))",
         destructive: "hsl(var(--destructive))",
         "destructive-foreground": "hsl(var(--destructive-foreground))",
+      },
+      transitionTimingFunction: {
+        "out-soft": "cubic-bezier(0.22, 1, 0.36, 1)",
+        spring: "var(--spring)",
       },
       animation: {
         appear: "appear 0.5s ease-out forwards",

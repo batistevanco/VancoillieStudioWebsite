@@ -1,144 +1,77 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 const PRODUCTS = [
   {
     name: "Brainox",
-    tagline: "Denk het.",
-    tagline2: "Brainox doet de rest.",
-    description:
-      "Notities via tekst of stem. Brainox transcribeert alles en houdt jouw gedachten geordend — altijd en overal.",
+    tagline: "Denk het. Brainox doet de rest.",
+    description: "Notities via tekst of stem. Brainox transcribeert alles en houdt je gedachten geordend.",
     image: "/afbeeldingen/ProductShowcase/BrainoxShowcase1.png",
-    href: "/apps",
-    dark: true,
-    bg: "bg-[#0f0f1a]",
+    href: "/brainox",
   },
   {
     name: "AbboBuddy",
-    tagline: "Grip op je",
-    tagline2: "abonnementen.",
-    description:
-      "Overzicht over alles wat je betaalt. Nooit meer verrast door een onverwachte afschrijving.",
+    tagline: "Grip op je abonnementen.",
+    description: "Overzicht over alles wat je betaalt. Nooit meer verrast door een onverwachte afschrijving.",
     image: "/afbeeldingen/ProductShowcase/AbboBuddyShowcase.png",
-    href: "/apps",
-    dark: false,
+    href: "/abbo",
   },
   {
     name: "Vancoillie News",
-    tagline: "Nieuws op",
-    tagline2: "jouw manier.",
-    description:
-      "Het laatste nieuws, gefilterd op wat jij belangrijk vindt. Snel, overzichtelijk en zonder ruis.",
+    tagline: "Nieuws op jouw manier.",
+    description: "Het laatste nieuws, gefilterd op wat jij belangrijk vindt. Snel, overzichtelijk en zonder ruis.",
     image: "/afbeeldingen/ProductShowcase/VancoillieNewsShowcase3.png",
-    href: "/apps",
-    dark: true,
-    bg: "bg-[#0d1a0d]",
+    href: "/news",
   },
   {
     name: "InMandje",
-    tagline: "Slimmer",
-    tagline2: "boodschappen doen.",
-    description:
-      "Maak en deel boodschappenlijstjes met je huishouden. Altijd weten wat er nog moet worden gekocht.",
+    tagline: "Slimmer boodschappen doen.",
+    description: "Maak en deel boodschappenlijstjes met je huishouden. Altijd weten wat er nog moet gekocht worden.",
     image: "/afbeeldingen/ProductShowcase/InMandjeShowcase4.png",
-    href: "/apps",
-    dark: false,
+    href: "/inmandje",
   },
 ];
 
 export function ProductsSection() {
   return (
-    <section className="studio-products pt-24 pb-32 md:pt-32 md:pb-40">
-      {/* Header */}
-      <div className="mb-12 px-8 md:px-28">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
-          Eigen producten
-        </p>
-        <h2 className="mt-3 text-5xl font-semibold tracking-tight text-neutral-900 md:text-6xl">
-          Apps die het werk doen
-        </h2>
+    <section id="apps" data-island="Apps" className="studio-products theme-dark py-[var(--space-section)]">
+      <div className="mx-auto max-w-[80rem] px-[var(--space-gutter)]">
+        <p className="kicker reveal">Eigen producten</p>
+        <div className="reveal mt-2 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <h2 className="text-[length:var(--font-size-display)] font-semibold leading-none tracking-[-0.035em]">
+            Apps die het werk doen.
+          </h2>
+          <Link href="/apps" className="link-signal shrink-0 text-lg">
+            Bekijk alle apps <span aria-hidden="true">›</span>
+          </Link>
+        </div>
       </div>
 
-      {/* Horizontal scroll row */}
-      <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
-        {/* Left spacer */}
-        <div className="flex-none w-20 md:w-32 shrink-0" />
-
-        {PRODUCTS.map((product) =>
-          product.dark ? (
-            <Link
-              key={product.name}
-              href={product.href}
-              className={`relative flex-none w-[80vw] md:w-[42vw] h-[65vh] min-h-[480px] rounded-[2rem] overflow-hidden snap-start shrink-0 ${product.bg}`}
-            >
-              {/* Full-bleed showcase image */}
+      <div className="scrollbar-hide mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-[var(--space-gutter)] px-[max(var(--space-gutter),calc((100vw_-_80rem)/2_+_var(--space-gutter)))] pb-4">
+        {PRODUCTS.map((product) => (
+          <Link
+            key={product.name}
+            href={product.href}
+            className="tile press group relative flex w-[82vw] shrink-0 snap-start flex-col overflow-hidden sm:w-[26rem]"
+          >
+            <div className="p-8 pb-6">
+              <p className="micro-label">{product.name}</p>
+              <h3 className="mt-2 text-[length:var(--font-size-title)] font-semibold leading-tight tracking-[-0.03em]">
+                {product.tagline}
+              </h3>
+              <p className="mt-3 text-ink-soft">{product.description}</p>
+            </div>
+            <div className="relative mt-auto aspect-[4/3] overflow-hidden">
               <Image
                 src={product.image}
-                alt={product.name}
+                alt={`${product.name} op iPhone`}
                 fill
-                className="object-cover object-center"
+                sizes="(max-width: 640px) 82vw, 26rem"
+                className="object-cover transition-transform duration-700 ease-out-soft group-hover:scale-[1.03]"
               />
-              {/* Gradient overlay for text legibility */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" />
-              {/* Text */}
-              <div className="absolute inset-0 p-9 md:p-12">
-                <h3 className="text-3xl md:text-4xl font-semibold text-white leading-tight">
-                  {product.tagline}{" "}
-                  <span className="italic">{product.tagline2}</span>
-                </h3>
-                <p className="mt-5 text-base text-white/65 max-w-xs leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-            </Link>
-          ) : (
-            <Link
-              key={product.name}
-              href={product.href}
-              className="relative flex-none w-[80vw] md:w-[42vw] h-[65vh] min-h-[480px] rounded-[2rem] overflow-hidden snap-start shrink-0 bg-neutral-100"
-            >
-              {/* Full-bleed showcase image */}
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-cover object-center"
-              />
-              {/* Gradient overlay for text legibility */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/40 to-transparent" />
-              {/* Text */}
-              <div className="absolute inset-0 p-9 md:p-12">
-                <h3 className="text-3xl md:text-4xl font-semibold text-neutral-900 leading-tight">
-                  {product.tagline}{" "}
-                  <span className="italic">{product.tagline2}</span>
-                </h3>
-                <p className="mt-5 text-base text-neutral-600 max-w-xs leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-            </Link>
-          )
-        )}
-
-        {/* 5th tile — CTA naar apps pagina */}
-        <Link
-          href="/apps"
-          className="relative flex-none w-[60vw] md:w-[28vw] h-[65vh] min-h-[480px] rounded-[2rem] snap-start shrink-0 bg-neutral-900 flex flex-col items-center justify-center gap-6 group"
-        >
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
-            <ArrowRight className="h-6 w-6 text-white" />
-          </div>
-          <div className="text-center px-8">
-            <p className="text-xl font-semibold text-white">Bekijk alle apps</p>
-            <p className="mt-2 text-sm text-white/50">Ontdek de volledige collectie</p>
-          </div>
-        </Link>
-
-        {/* Right spacer */}
-        <div className="flex-none w-20 md:w-32 shrink-0" />
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );

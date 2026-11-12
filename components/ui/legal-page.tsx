@@ -17,28 +17,28 @@ export function LegalPage({
   sections,
 }: LegalPageProps) {
   return (
-    <main className="studio-legal bg-white px-4 py-20 md:px-6 md:py-24">
+    <main className="studio-legal theme-light bg-white px-[var(--space-gutter)] pb-[var(--space-section)]">
       <div className="mx-auto max-w-4xl">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-brand">
+        <p className="kicker mb-2">
           Juridisch
         </p>
-        <h1 className="text-4xl font-semibold tracking-[-0.04em] text-zinc-950 md:text-6xl">
+        <h1 className="text-ink">
           {title}
         </h1>
-        <p className="mt-4 text-sm text-zinc-500">{updatedAt}</p>
-        <p className="mt-8 text-lg leading-8 text-zinc-600">{intro}</p>
+        <p className="mt-4 text-sm text-ink-faint">{updatedAt}</p>
+        <p className="mt-8 max-w-[var(--measure)] text-xl leading-snug text-ink-soft">{intro}</p>
 
         <div className="mt-12 space-y-10">
           {sections.map((section) => (
             <section key={section.title}>
-              <h2 className="text-2xl font-semibold text-zinc-950">
+              <h2 className="text-2xl font-semibold text-ink">
                 {section.title}
               </h2>
               <div className="mt-4 space-y-4">
                 {section.paragraphs.map((paragraph, index) => (
                   <p
                     key={`${section.title}-${index}`}
-                    className="leading-8 text-zinc-600"
+                    className="max-w-[var(--measure)] leading-relaxed text-ink-soft"
                   >
                     {paragraph}
                   </p>

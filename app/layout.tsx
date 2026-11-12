@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { copy } from "@/lib/i18n";
+import { Navbar } from "@/components/ui/navbar";
 import { ConditionalSiteFooter } from "@/components/ui/conditional-site-footer";
 
 import "./globals.css";
@@ -54,6 +55,7 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <body className="bg-background font-sans text-foreground antialiased">
+        <Navbar />
         {children}
         <ConditionalSiteFooter />
       </body>

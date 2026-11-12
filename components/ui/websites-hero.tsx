@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Navbar } from "@/components/ui/navbar";
 
 export function WebsitesHero() {
   return (
@@ -47,7 +46,6 @@ export function WebsitesHero() {
 
       {/* Navbar */}
       <div className="absolute inset-x-0 top-0 z-30">
-        <Navbar variant="overlay" />
       </div>
 
       {/* Hero content */}

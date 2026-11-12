@@ -1,6 +1,5 @@
 import { FeatureWithAdvantages } from "@/components/ui/feature-with-advantages";
 import { FeatureSectionWithBentoGrid } from "@/components/ui/feature-section-with-bento-grid";
-import { Navbar } from "@/components/ui/navbar";
 import { CardsParallax, iCardItem } from "@/components/ui/scroll-cards";
 import { WebsitesHero } from "@/components/ui/websites-hero";
 import { Pricing } from "@/components/ui/pricing";

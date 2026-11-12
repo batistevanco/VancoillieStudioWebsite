@@ -55,61 +55,38 @@ const REVIEWS = [
 
 function ReviewCard({ review }: { review: typeof REVIEWS[0] }) {
   return (
-    <div className="flex-none w-72 md:w-80 rounded-2xl bg-white p-6 shadow-sm border border-neutral-100 flex flex-col gap-4">
-      {/* Stars */}
-      <div className="flex gap-0.5">
+    <figure className="tile flex w-[19rem] flex-none flex-col gap-4 bg-[var(--paper)] p-7 md:w-[22rem]">
+      <div className="flex gap-0.5" aria-label={`${review.stars} van 5 sterren`}>
         {[...Array(review.stars)].map((_, i) => (
-          <Star key={i} className="h-4 w-4 fill-orange-500 text-orange-500" />
+          <Star key={i} className="size-4 fill-[#ff9f0a] text-[#ff9f0a]" aria-hidden="true" />
         ))}
       </div>
-
-      {/* Text */}
-      <p className="text-sm leading-relaxed text-neutral-700 flex-1">
-        "{review.text}"
-      </p>
-
-      {/* Footer */}
-      <div className="flex items-center gap-2 pt-2 border-t border-neutral-100">
-        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-900">
-          <svg viewBox="0 0 24 24" className="h-3 w-3 fill-white">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-          </svg>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-neutral-900">{review.app}</p>
-          <p className="text-xs text-neutral-400">{review.author}</p>
-        </div>
-      </div>
-    </div>
+      <blockquote className="flex-1 text-[1.0625rem] leading-relaxed">“{review.text}”</blockquote>
+      <figcaption className="text-sm">
+        <span className="font-semibold">{review.app}</span>
+        <span className="text-ink-soft"> · {review.author}</span>
+      </figcaption>
+    </figure>
   );
 }
 
 export function ReviewsSection() {
-  // Duplicate reviews for seamless loop
   const doubled = [...REVIEWS, ...REVIEWS];
 
   return (
-    <section className="studio-reviews py-20 md:py-28 overflow-hidden">
-      {/* Header */}
-      <div className="px-8 md:px-28 mb-14 text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
-          Reviews
-        </p>
-        <h2 className="mt-3 text-4xl font-semibold tracking-tight text-neutral-900 md:text-5xl">
-          Van de <span className="italic">eerste gebruikers.</span>
+    <section data-island="Reviews" className="studio-reviews theme-light overflow-hidden bg-white py-[var(--space-section)]">
+      <div className="mx-auto max-w-[80rem] px-[var(--space-gutter)]">
+        <p className="kicker reveal">Reviews</p>
+        <h2 className="reveal mt-2 text-[length:var(--font-size-display)] font-semibold leading-none tracking-[-0.035em]">
+          Van de eerste gebruikers.
         </h2>
-        <p className="mt-4 text-base text-neutral-500 max-w-md mx-auto">
-          Eerlijke reacties van mensen die onze apps dagelijks gebruiken.
+        <p className="reveal mt-5 max-w-[var(--measure)] text-lg leading-snug text-ink-soft">
+          Reacties van mensen die onze apps dagelijks gebruiken.
         </p>
       </div>
 
-      {/* Marquee */}
-      <div className="relative">
-        {/* Fade edges */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
-
-        <div className="flex gap-5 animate-marquee">
+      <div className="relative mt-12 [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
+        <div className="animate-marquee flex gap-4">
           {doubled.map((review, i) => (
             <ReviewCard key={i} review={review} />
           ))}

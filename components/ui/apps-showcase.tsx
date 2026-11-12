@@ -10,7 +10,6 @@ import { getCopy } from "@/lib/i18n";
 import { getLocalizedPath, type Locale } from "@/lib/routes";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Navbar } from "@/components/ui/navbar";
 import { SparklesText } from "@/components/ui/sparkles-text";
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
 
@@ -33,7 +32,6 @@ export function AppsShowcase({ locale = "nl" }: { locale?: Locale }) {
   return (
     <>
       <div className="relative">
-        <Navbar variant="overlay" />
         <div className="pb-8 pt-28 md:pt-32">
           <div className="mx-auto max-w-[1440px] px-3 md:px-4">
             <div className="mx-auto mb-14 max-w-3xl text-center">

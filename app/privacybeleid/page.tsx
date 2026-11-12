@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/ui/navbar";
 import { LegalPage } from "@/components/ui/legal-page";
 
 const sections = [
@@ -49,7 +48,6 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <>
-      <Navbar variant="solid" />
       <LegalPage
         title="Privacybeleid"
         updatedAt="Laatst bijgewerkt: 24 maart 2026"

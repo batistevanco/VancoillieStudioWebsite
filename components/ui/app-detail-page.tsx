@@ -26,7 +26,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Navbar } from "@/components/ui/navbar";
 import { Switch } from "@/components/ui/switch";
 
 const uiCopy = {
@@ -216,7 +215,6 @@ export function AppDetailPage({
   return (
     <>
       <div className="absolute inset-x-0 top-0 z-20">
-        <Navbar variant="overlay" theme="light" />
       </div>
       <main className="studio-app-detail pb-20 pt-0">
 

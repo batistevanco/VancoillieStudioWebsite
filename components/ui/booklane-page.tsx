@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Navbar } from "@/components/ui/navbar";
 
 const IMG = "/afbeeldingen/Booklane";
 
@@ -169,7 +168,6 @@ function Frame({
 export function BooklanePage() {
   return (
     <div className="overflow-x-clip bg-[#f4f1ea] text-[#14181c]">
-      <Navbar variant="overlay" theme="dark" />
 
       {/* ---------------------------------------------------------------- Hero */}
       <header className="px-5 pt-28 sm:px-8 md:pt-36 lg:px-12">

@@ -1,35 +1,67 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, Star } from "lucide-react";
-import { Navbar } from "@/components/ui/navbar";
+
+const FACTS = [
+  { value: "Op maat", label: "geen templates" },
+  { value: "1–3 weken", label: "tot livegang" },
+  { value: "Vanaf €249", label: "eenmalig" },
+];
 
 export function HeroHome() {
   return (
-    <section className="studio-landing-hero">
-      <Navbar variant="overlay" />
-      <div className="studio-landing-hero__surface">
-        <div className="studio-landing-hero__composition" aria-hidden="true">
-          <span className="studio-landing-hero__wordmark">STUDIO</span>
-          <div className="studio-landing-hero__gradient" />
-          <div className="studio-landing-hero__art">
-            <Image src="/afbeeldingen/studio-sculpture.png" alt="" fill priority sizes="(max-width: 700px) 100vw, 65vw" className="object-contain object-center" />
+    <section data-island="Studio" className="hero theme-dark">
+      <div className="hero-inner">
+        <div className="hero-copy">
+          <p className="label-in text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-white/60">Vancoillie Studio · Roeselare</p>
+          <h1 className="label-in mt-4 text-[clamp(3rem,5.4vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-white">
+            Jouw idee.
+            <br />
+            Onze code.
+          </h1>
+          <p className="line-in mt-6 max-w-[32rem] text-[1.1875rem] leading-snug text-white/75" style={{ "--i": 1 } as React.CSSProperties}>
+            Websites op maat voor zelfstandigen en kleine bedrijven, en eigen apps voor iPhone. Eén aanspreekpunt, van eerste gesprek tot lancering.
+          </p>
+          <div className="line-in mt-8 flex flex-wrap gap-3" style={{ "--i": 2 } as React.CSSProperties}>
+            <Link href="/contact" className="btn bg-white text-[#0c1a2e] hover:bg-white">
+              Neem contact op
+            </Link>
+            <Link href="/websites" className="btn glass">
+              Bekijk websites
+            </Link>
           </div>
+
+          <dl className="line-in hero-facts" style={{ "--i": 3 } as React.CSSProperties}>
+            {FACTS.map(({ value, label }) => (
+              <div key={value}>
+                <dt className="text-[1.0625rem] font-semibold tracking-[-0.01em] text-white">{value}</dt>
+                <dd className="mt-0.5 text-[0.8125rem] text-white/60">{label}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-        <div className="studio-landing-hero__bottom">
-          <div className="studio-landing-hero__copy">
-            <span className="studio-eyebrow">Websites · Apps · Software</span>
-            <h1>Jouw idee.<br />Onze code.</h1>
-            <p>Vancoillie Studio bouwt websites op maat voor jouw zaak — en ontwikkelt daarnaast eigen apps die je dagelijks leven eenvoudiger maken.</p>
-            <div className="studio-landing-hero__rating" aria-label="4,9 op 5 van onze klanten">
-              <span aria-hidden="true">{Array.from({ length: 5 }, (_, i) => <Star key={i} size={14} fill="currentColor" />)}</span>
-              4,9/5 van onze klanten
+
+        <div className="hero-visual" aria-hidden="true">
+          <div className="browser">
+            <div className="browser__bar">
+              <span className="browser__dots"><i /><i /><i /></span>
+              <span className="browser__url">batistevancoillie.be</span>
+            </div>
+            <div className="browser__screen">
+              <Image
+                src="/afbeeldingen/hero/website-appstore.webp"
+                alt=""
+                fill
+                priority
+                fetchPriority="high"
+                sizes="(max-width: 1024px) 92vw, 46rem"
+                className="object-cover object-top"
+              />
             </div>
           </div>
-          <div className="studio-landing-hero__actions">
-            <Link href="/contact" className="studio-pill-link">Neem contact op <ArrowUpRight size={21} /></Link>
-            <a href="#about" className="studio-discover-link">Ontdek meer <ArrowDown size={17} /></a>
+          <div className="hero-iphone">
+            <div className="hero-iphone__screen">
+              <Image src="/afbeeldingen/hero/geldinzicht.webp" alt="" fill sizes="12rem" className="object-cover object-top" />
+            </div>
           </div>
         </div>
       </div>

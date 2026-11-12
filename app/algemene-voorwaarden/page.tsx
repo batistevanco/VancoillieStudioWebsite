@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/ui/navbar";
 import { LegalPage } from "@/components/ui/legal-page";
 
 const sections = [
@@ -56,7 +55,6 @@ const sections = [
 export default function TermsPage() {
   return (
     <>
-      <Navbar variant="solid" />
       <LegalPage
         title="Algemene voorwaarden"
         updatedAt="Laatst bijgewerkt: 24 maart 2026"
